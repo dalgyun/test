@@ -1,0 +1,353 @@
+<title>스도쿠 변형 도감</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#EDF0F3; --paper:#FFFFFF; --ink:#1B2530; --muted:#5B6977; --grid:#B8C1CA; --cellbg:#FFFFFF;
+  --shade:#DCE4EC; --region:#D4E2F5; --fog:#7B8793; --accent:#1F5FAF; --warn:#C8402E; --line:#D5DBE1;
+  --thermo:#9AA3AD; --renban:#C13A8C; --whisper:#2E9E4F; --dutch:#E8791C; --rsum:#3F7FD0; --entropic:#F2A26B;
+  --modular:#2AA198; --zipper:#9C7BD6; --nabner:#8FB36A; --gold:#D6A400; --gray:#8B949E; --nav:rgba(255,255,255,.92);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#12181F; --paper:#1A222B; --ink:#E7ECF1; --muted:#9AA8B6; --grid:#3A4652; --cellbg:#202A34;
+    --shade:#2E3B48; --region:#28405E; --fog:#0B0F13; --accent:#7CB1F7; --warn:#F07A66; --line:#2A3540; --nav:rgba(26,34,43,.92);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#12181F; --paper:#1A222B; --ink:#E7ECF1; --muted:#9AA8B6; --grid:#3A4652; --cellbg:#202A34;
+  --shade:#2E3B48; --region:#28405E; --fog:#0B0F13; --accent:#7CB1F7; --warn:#F07A66; --line:#2A3540; --nav:rgba(26,34,43,.92);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.hero{padding-block:44px 20px}
+.eyebrow{font-family:Sora,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:Sora,"IBM Plex Sans KR",sans-serif;font-size:clamp(28px,4.5vw,42px);margin:6px 0 10px;line-height:1.15;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);margin:0 0 18px;font-size:15px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted);align-items:center}
+.legend b{color:var(--ink);font-family:Sora,sans-serif}
+.legend .sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:4px;border:1px solid var(--grid)}
+nav.cats{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--nav);backdrop-filter:blur(8px);border-block:1px solid var(--line);margin:12px -20px 0;padding:8px 20px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.cats a{flex:0 0 auto;font-size:13px;font-weight:500;color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper)}
+nav.cats a:hover,nav.cats a:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+section.cat{padding-top:34px;scroll-margin-top:70px}
+section.cat h2{font-family:Sora,"IBM Plex Sans KR",sans-serif;font-size:22px;margin:0 0 4px;display:flex;align-items:baseline;gap:10px}
+section.cat h2 small{font-family:Sora,sans-serif;font-size:12px;color:var(--accent);letter-spacing:.08em;font-weight:600}
+section.cat .catdesc{margin:0 0 16px;color:var(--muted);max-width:70ch;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.card figure{margin:0;display:flex;justify-content:center}
+.card svg{width:100%;max-width:230px;height:auto;display:block;font-family:Sora,sans-serif;font-variant-numeric:tabular-nums}
+.card h3{margin:2px 0 0;font-size:16px;font-family:"IBM Plex Sans KR",sans-serif;font-weight:700;line-height:1.3}
+.card h3 .en{display:block;font-family:Sora,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--accent);text-transform:uppercase;margin-top:2px}
+.card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+.card p b{color:var(--ink);font-weight:500}
+.thin{stroke:var(--grid);stroke-width:.9;fill:none}
+.thick{stroke:var(--ink);stroke-width:1.9;fill:none;stroke-linecap:square}
+.cellbg{fill:var(--cellbg)}
+.d{font-size:14px;font-weight:700;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.s{fill:var(--accent)}
+.w{fill:var(--warn)}
+.sm{font-size:8px;font-weight:600;fill:var(--ink)}
+.out{font-size:11px;font-weight:700;fill:var(--accent);text-anchor:middle;dominant-baseline:central}
+.note{font-size:9px;fill:var(--muted);text-anchor:middle;dominant-baseline:central;font-family:"IBM Plex Sans KR",sans-serif;font-weight:500}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer ul{padding-left:18px;margin:6px 0 0;columns:2;column-gap:30px}
+footer a{color:var(--accent)}
+@media (max-width:640px){footer ul{columns:1}.wrap{padding-inline:16px}nav.cats{margin-inline:-16px;padding-inline:16px}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--accent)}}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Sudoku Variant Field Guide</div>
+  <h1>스도쿠 변형 도감</h1>
+  <p class="lede">알려진 스도쿠 변형을 "무엇을 바꾸는가" 기준으로 7가지 축으로 나누고, 각 변형마다 규칙이 한눈에 보이는 작은 격자 예시를 붙였습니다. 앱 엔진 설계 시 각 축이 곧 제약(Constraint) 추상화 단위가 됩니다.</p>
+  <div class="legend">
+    <span><b>1</b> 주어진 숫자</span>
+    <span><b style="color:var(--accent)">1</b> 규칙으로 결정되는 숫자</span>
+    <span><span class="sw" style="background:var(--shade)"></span>음영 칸 / 추가 영역</span>
+    <span><span class="sw" style="background:var(--accent);border-color:var(--accent)"></span>바깥 단서</span>
+    <span id="count"></span>
+  </div>
+</header>
+<nav class="cats" id="nav"></nav>
+<main id="main"></main>
+<footer>
+  <div>참고 자료</div>
+  <ul>
+    <li><a href="https://eev.ee/fyi/variant-sudoku/" target="_blank" rel="noopener">eev.ee — Variant sudoku reference</a></li>
+    <li><a href="https://sudoku-online-puzzles.com/blog/sudoku-variations-list/" target="_blank" rel="noopener">Complete Sudoku Variations List</a></li>
+    <li><a href="https://logic-wiz.com/variants/" target="_blank" rel="noopener">Logic Wiz — 40+ variants</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Glossary_of_Sudoku" target="_blank" rel="noopener">Wikipedia — Glossary of Sudoku</a></li>
+    <li><a href="https://sudokuvariants.com/help/variants/" target="_blank" rel="noopener">SudokuVariants.com help</a></li>
+    <li><a href="https://www.gmpuzzles.com/blog/sudoku-rules-and-info/" target="_blank" rel="noopener">GM Puzzles — Sudoku rules</a></li>
+    <li><a href="https://gp.worldpuzzle.org/content/sudoku-gp2026" target="_blank" rel="noopener">WPF Sudoku GP 2026</a></li>
+    <li><a href="https://sudokustreak.com/en/types/fog-of-war/" target="_blank" rel="noopener">SudokuStreak — Fog of War</a></li>
+  </ul>
+</footer>
+</div>
+
+<script>
+/* ---------- mini grid renderer ---------- */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function key(r,c){return r+','+c;}
+function render(sp){
+  if(sp.custom) return CUSTOM[sp.custom]();
+  const n=sp.n||9, draw=sp.draw||[];
+  const cs=n<=9?30:Math.floor(272/n);
+  const hasOut=draw.some(d=>d.t==='out');
+  const m=hasOut?Math.round(cs*0.95):5;
+  const S=n*cs, W=S+2*m, H=W;
+  const X=c=>m+c*cs, Y=r=>m+r*cs, cx=c=>X(c)+cs/2, cy=r=>Y(r)+cs/2;
+  const o=[];
+  const rect=(r,c,fill,extra='')=>o.push(`<rect x="${X(c)}" y="${Y(r)}" width="${cs}" height="${cs}" fill="${fill}" ${extra}/>`);
+  o.push(`<rect x="${m}" y="${m}" width="${S}" height="${S}" class="cellbg"/>`);
+  // fills
+  for(const d of draw){
+    if(d.t==='shade') d.cells.forEach(([r,c])=>rect(r,c,d.fill||'var(--shade)'));
+    if(d.t==='region') d.cells.forEach(([r,c])=>rect(r,c,d.fill||'var(--region)'));
+  }
+  // thin grid
+  for(let i=0;i<=n;i++){
+    o.push(`<line x1="${X(i)}" y1="${m}" x2="${X(i)}" y2="${m+S}" class="thin"/>`);
+    o.push(`<line x1="${m}" y1="${Y(i)}" x2="${m+S}" y2="${Y(i)}" class="thin"/>`);
+  }
+  // thick lines
+  if(sp.regions){
+    const R=sp.regions;
+    for(let r=0;r<n;r++)for(let c=0;c<n;c++){
+      if(c<n-1&&R[r][c]!==R[r][c+1]) o.push(`<line x1="${X(c+1)}" y1="${Y(r)}" x2="${X(c+1)}" y2="${Y(r+1)}" class="thick"/>`);
+      if(r<n-1&&R[r][c]!==R[r+1][c]) o.push(`<line x1="${X(c)}" y1="${Y(r+1)}" x2="${X(c+1)}" y2="${Y(r+1)}" class="thick"/>`);
+    }
+  }else if(sp.box!==null){
+    const [br,bc]=sp.box||[3,3];
+    for(let i=bc;i<n;i+=bc) o.push(`<line x1="${X(i)}" y1="${m}" x2="${X(i)}" y2="${m+S}" class="thick"/>`);
+    for(let i=br;i<n;i+=br) o.push(`<line x1="${m}" y1="${Y(i)}" x2="${m+S}" y2="${Y(i)}" class="thick"/>`);
+  }
+  if(!sp.noborder) o.push(`<rect x="${m}" y="${m}" width="${S}" height="${S}" class="thick"/>`);
+  // fog drawn above grid so it hides everything
+  for(const d of draw) if(d.t==='fog') d.cells.forEach(([r,c])=>rect(r,c,'var(--fog)','opacity=".92"'));
+  for(const d of draw){
+    if(d.t==='diag'){o.push(`<line x1="${m}" y1="${m}" x2="${m+S}" y2="${m+S}" stroke="var(--accent)" stroke-width="1.6" opacity=".75"/>`);o.push(`<line x1="${m+S}" y1="${m}" x2="${m}" y2="${m+S}" stroke="var(--accent)" stroke-width="1.6" opacity=".75"/>`);}
+    if(d.t==='wall') d.segs.forEach(([r,c,side])=>{
+      const x=X(c),y=Y(r);
+      const L={top:[x,y,x+cs,y],bottom:[x,y+cs,x+cs,y+cs],left:[x,y,x,y+cs],right:[x+cs,y,x+cs,y+cs]}[side];
+      o.push(`<line x1="${L[0]}" y1="${L[1]}" x2="${L[2]}" y2="${L[3]}" class="thick"/>`);
+    });
+    if(d.t==='box') o.push(`<rect x="${X(d.c)}" y="${Y(d.r)}" width="${cs*(d.size||3)}" height="${cs*(d.size||3)}" class="thick"/>`);
+    if(d.t==='cage'){
+      const set=new Set(d.cells.map(([r,c])=>key(r,c))); const ins=3.5;
+      d.cells.forEach(([r,c])=>{
+        const x=X(c),y=Y(r);
+        const seg=(a,b,e,f)=>o.push(`<line x1="${a}" y1="${b}" x2="${e}" y2="${f}" stroke="var(--ink)" stroke-width="1" stroke-dasharray="2.5 2"/>`);
+        if(!set.has(key(r-1,c))) seg(x+ins,y+ins,x+cs-ins,y+ins);
+        if(!set.has(key(r+1,c))) seg(x+ins,y+cs-ins,x+cs-ins,y+cs-ins);
+        if(!set.has(key(r,c-1))) seg(x+ins,y+ins,x+ins,y+cs-ins);
+        if(!set.has(key(r,c+1))) seg(x+cs-ins,y+ins,x+cs-ins,y+cs-ins);
+      });
+      if(d.sum!==undefined){const [r,c]=d.cells.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1])[0];o.push(`<text x="${X(c)+5}" y="${Y(r)+9}" class="sm" text-anchor="start">${esc(d.sum)}</text>`);}
+    }
+    if(d.t==='line'){
+      const pts=d.cells.map(([r,c])=>cx(c)+','+cy(r)).join(' ');
+      const col=d.color||'var(--thermo)', w=d.w||(cs*0.3);
+      o.push(`<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" opacity="${d.op??0.55}"/>`);
+      if(d.bulb){const [r,c]=d.cells[0];o.push(`<circle cx="${cx(c)}" cy="${cy(r)}" r="${cs*0.36}" fill="${col}" opacity=".7"/>`);}
+      if(d.arrow){
+        const [r1,c1]=d.cells[d.cells.length-2],[r2,c2]=d.cells[d.cells.length-1];
+        const ax=cx(c2),ay=cy(r2),dx=Math.sign(c2-c1),dy=Math.sign(r2-r1);
+        const len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len,px=-uy,py=ux,h=cs*0.3;
+        const tip=[ax+ux*h*0.8,ay+uy*h*0.8],b1=[ax-ux*h*0.3+px*h*0.6,ay-uy*h*0.3+py*h*0.6],b2=[ax-ux*h*0.3-px*h*0.6,ay-uy*h*0.3-py*h*0.6];
+        o.push(`<polyline points="${b1} ${tip} ${b2}" fill="none" stroke="${col}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`);
+      }
+      (d.circ||[]).forEach(i=>{const [r,c]=d.cells[i];o.push(`<circle cx="${cx(c)}" cy="${cy(r)}" r="${cs*0.38}" fill="var(--cellbg)" stroke="${d.color||'var(--ink)'}" stroke-width="1.6"/>`);});
+      (d.diamond||[]).forEach(i=>{const [r,c]=d.cells[i],x=cx(c),y=cy(r),q=cs*0.4;o.push(`<polygon points="${x},${y-q} ${x+q},${y} ${x},${y+q} ${x-q},${y}" fill="var(--cellbg)" stroke="${d.color||'var(--ink)'}" stroke-width="1.6"/>`);});
+      if(d.pill){const [[r1,c1],[r2,c2]]=[d.cells[d.pill[0]],d.cells[d.pill[1]]];o.push(`<rect x="${X(c1)+3}" y="${Y(r1)+3}" width="${(c2-c1+1)*cs-6}" height="${(r2-r1+1)*cs-6}" rx="${cs/2-3}" fill="var(--cellbg)" stroke="${col}" stroke-width="1.6"/>`);}
+    }
+    if(d.t==='dot'){const x=(cx(d.a[1])+cx(d.b[1]))/2,y=(cy(d.a[0])+cy(d.b[0]))/2;o.push(`<circle cx="${x}" cy="${y}" r="5" fill="${d.fill==='black'?'var(--ink)':'var(--cellbg)'}" stroke="var(--ink)" stroke-width="1.3"/>`);}
+    if(d.t==='bar'){const v=d.a[0]!==d.b[0];const x=(cx(d.a[1])+cx(d.b[1]))/2,y=(cy(d.a[0])+cy(d.b[0]))/2;o.push(`<rect x="${x-(v?7:2.5)}" y="${y-(v?2.5:7)}" width="${v?14:5}" height="${v?5:14}" fill="var(--cellbg)" stroke="var(--ink)" stroke-width="1.2"/>`);}
+    if(d.t==='edge'){const x=(cx(d.a[1])+cx(d.b[1]))/2,y=(cy(d.a[0])+cy(d.b[0]))/2;o.push(`<rect x="${x-7}" y="${y-7}" width="14" height="14" fill="var(--cellbg)"/><text x="${x}" y="${y}" class="d" style="font-size:12px" transform="rotate(${d.rot||0} ${x} ${y})">${esc(d.text)}</text>`);}
+    if(d.t==='odd') o.push(`<circle cx="${cx(d.c)}" cy="${cy(d.r)}" r="${cs*0.4}" fill="var(--shade)"/>`);
+    if(d.t==='even') o.push(`<rect x="${X(d.c)+4}" y="${Y(d.r)+4}" width="${cs-8}" height="${cs-8}" fill="var(--shade)"/>`);
+    if(d.t==='quad'){const x=X(d.c+1),y=Y(d.r+1);o.push(`<circle cx="${x}" cy="${y}" r="9" fill="var(--cellbg)" stroke="var(--ink)" stroke-width="1.3"/><text x="${x}" y="${y}" class="d" style="font-size:8px">${esc(d.text)}</text>`);}
+    if(d.t==='batt'){const x=X(d.c+1),y=Y(d.r+1),q=6;o.push(`<rect x="${x-q}" y="${y-q}" width="${q}" height="${q}" fill="var(--ink)"/><rect x="${x}" y="${y}" width="${q}" height="${q}" fill="var(--ink)"/><rect x="${x}" y="${y-q}" width="${q}" height="${q}" fill="var(--cellbg)" stroke="var(--ink)" stroke-width=".8"/><rect x="${x-q}" y="${y}" width="${q}" height="${q}" fill="var(--cellbg)" stroke="var(--ink)" stroke-width=".8"/>`);}
+    if(d.t==='slash'){const x=X(d.c),y=Y(d.r);o.push(`<line x1="${x+cs}" y1="${y}" x2="${x}" y2="${y+cs}" class="thin" stroke="var(--ink)"/><text x="${x+cs*0.3}" y="${y+cs*0.32}" class="d s" style="font-size:10px">${d.a}</text><text x="${x+cs*0.7}" y="${y+cs*0.7}" class="d s" style="font-size:10px">${d.b}</text>`);}
+    if(d.t==='pm'){o.push(`<text x="${cx(d.c)}" y="${cy(d.r)}" class="d" style="font-size:7px;font-weight:500;fill:var(--muted)">${esc(d.text)}</text>`);}
+    if(d.t==='mark'){o.push(`<text x="${cx(d.c)}" y="${cy(d.r)}" class="d w" style="font-size:${d.size||13}px">${esc(d.s||'×')}</text>`);}
+    if(d.t==='badge'){o.push(`<rect x="${X(d.c)+2}" y="${Y(d.r)+2}" width="${cs-4}" height="${cs-4}" rx="4" fill="var(--region)"/><text x="${cx(d.c)}" y="${cy(d.r)}" class="d s" style="font-size:9px">${esc(d.s)}</text>`);}
+  }
+  // digits and outside clues last
+  for(const d of draw){
+    if(d.t==='d') o.push(`<text x="${cx(d.c)}" y="${cy(d.r)}" class="d ${d.k||''}" style="font-size:${Math.round(cs*0.48)}px">${esc(d.v)}</text>`);
+    if(d.t==='ds') d.v.split('').forEach((ch,i)=>{if(ch!=='.')o.push(`<text x="${cx(d.c+i)}" y="${cy(d.r)}" class="d ${d.k||''}" style="font-size:${Math.round(cs*0.48)}px">${esc(ch)}</text>`);});
+    if(d.t==='out'){
+      let x,y;
+      if(d.side==='left'){x=m/2;y=cy(d.i);} else if(d.side==='right'){x=m+S+m/2;y=cy(d.i);} else if(d.side==='top'){x=cx(d.i);y=m/2;} else {x=cx(d.i);y=m+S+m/2;}
+      if(d.dx)x+=d.dx; if(d.dy)y+=d.dy;
+      o.push(`<text x="${x}" y="${y}" class="out">${esc(d.text)}</text>`);
+    }
+    if(d.t==='note') o.push(`<text x="${cx(d.c)}" y="${cy(d.r)}" class="note">${esc(d.text)}</text>`);
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(sp.aria||'')}">${o.join('')}</svg>`;
+}
+
+/* ---------- custom drawings ---------- */
+const CUSTOM={
+  samurai(){
+    const cs=11,m=4,o=[];
+    const offs=[[0,0],[0,12],[6,6],[12,0],[12,12]];
+    offs.forEach(([r0,c0])=>{
+      const x=m+c0*cs,y=m+r0*cs;
+      o.push(`<rect x="${x}" y="${y}" width="${9*cs}" height="${9*cs}" class="cellbg"/>`);
+      for(let i=0;i<=9;i++){o.push(`<line x1="${x+i*cs}" y1="${y}" x2="${x+i*cs}" y2="${y+9*cs}" class="thin"/><line x1="${x}" y1="${y+i*cs}" x2="${x+9*cs}" y2="${y+i*cs}" class="thin"/>`);}
+      for(let i=3;i<9;i+=3){o.push(`<line x1="${x+i*cs}" y1="${y}" x2="${x+i*cs}" y2="${y+9*cs}" class="thick"/><line x1="${x}" y1="${y+i*cs}" x2="${x+9*cs}" y2="${y+i*cs}" class="thick"/>`);}
+      o.push(`<rect x="${x}" y="${y}" width="${9*cs}" height="${9*cs}" class="thick"/>`);
+    });
+    [[6,6],[6,12],[12,6],[12,12]].forEach(([r,c])=>o.push(`<rect x="${m+c*cs}" y="${m+r*cs}" width="${3*cs}" height="${3*cs}" fill="var(--accent)" opacity=".25"/>`));
+    const W=21*cs+2*m;
+    return `<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="다섯 개의 9×9 격자가 모서리 박스를 공유하며 겹친 사무라이 스도쿠">${o.join('')}</svg>`;
+  },
+  tri(){
+    const S=250,h=S*0.866,left=12,top=14,right=left+S,bottom=top+h,cx=left+S/2,o=[];
+    const A=[cx,top],B=[left,bottom],C=[right,bottom];
+    o.push(`<polygon points="${A} ${B} ${C}" class="cellbg"/>`);
+    const L=(p,q,cls)=>o.push(`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="${cls}"/>`);
+    for(let k=1;k<9;k++){
+      const cls=k%3===0?'thick':'thin';
+      const y=top+k*h/9; L([cx-k*S/18,y],[cx+k*S/18,y],cls);
+      L([left+k*S/9,bottom],[A[0]+(C[0]-A[0])*k/9,A[1]+(C[1]-A[1])*k/9],cls);
+      L([right-k*S/9,bottom],[A[0]+(B[0]-A[0])*k/9,A[1]+(B[1]-A[1])*k/9],cls);
+    }
+    o.push(`<polygon points="${A} ${B} ${C}" class="thick"/>`);
+    [[cx,top+h*0.72,'5'],[cx-S*0.22,top+h*0.85,'2'],[cx+S*0.3,top+h*0.92,'8']].forEach(([x,y,v])=>o.push(`<text x="${x}" y="${y}" class="d" style="font-size:12px">${v}</text>`));
+    return `<svg viewBox="0 0 ${S+24} ${h+28}" role="img" aria-label="삼각형 격자에 삼각형 9칸 구역이 9개 있는 트리도쿠">${o.join('')}</svg>`;
+  },
+  cube(){
+    const o=[],cx=140,top=18,w=100,hh=52,dd=105,n=4;
+    const T=[[cx,top],[cx+w,top+hh],[cx,top+2*hh],[cx-w,top+hh]];
+    const Lf=[[cx-w,top+hh],[cx,top+2*hh],[cx,top+2*hh+dd],[cx-w,top+hh+dd]];
+    const Rf=[[cx,top+2*hh],[cx+w,top+hh],[cx+w,top+hh+dd],[cx,top+2*hh+dd]];
+    const lerp=(p,q,t)=>[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];
+    const face=(P,fill)=>{
+      o.push(`<polygon points="${P.join(' ')}" fill="${fill}" stroke="var(--ink)" stroke-width="1.8"/>`);
+      for(let i=1;i<n;i++){const a=lerp(P[0],P[1],i/n),b=lerp(P[3],P[2],i/n),c=lerp(P[0],P[3],i/n),d=lerp(P[1],P[2],i/n);
+        o.push(`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" class="${i%2?'thin':'thick'}"/><line x1="${c[0]}" y1="${c[1]}" x2="${d[0]}" y2="${d[1]}" class="${i%2?'thin':'thick'}"/>`);}
+    };
+    face(T,'var(--cellbg)');face(Lf,'var(--shade)');face(Rf,'var(--region)');
+    o.push(`<text x="${cx}" y="${top+hh+2}" class="d" style="font-size:12px">3</text><text x="${cx-w/2}" y="${top+hh+dd/2+8}" class="d" style="font-size:12px">1</text><text x="${cx+w/2}" y="${top+hh+dd/2+8}" class="d" style="font-size:12px">4</text>`);
+    return `<svg viewBox="0 0 280 ${top+2*hh+dd+12}" role="img" aria-label="정육면체의 세 면에 격자가 있고 모서리를 넘어 행이 이어지는 3D 스도쿠">${o.join('')}</svg>`;
+  }
+};
+
+/* ---------- data ---------- */
+const AK=[[2,3],[2,5],[6,3],[6,5],[3,2],[5,2],[3,6],[5,6]];
+const KING=[[3,3],[3,4],[3,5],[4,3],[4,5],[5,3],[5,4],[5,5]];
+const JIG=["AAAABBBBC","AADDBBBCC","AADDDBBCC","ADDDFFFCC","EEEDFFFGC","EEEHFFGGC","EEEHFHGGG","IIIHHHHHG","IIIIIIHGG"];
+const FOGALL=[];for(let r=0;r<9;r++)for(let c=0;c<9;c++){if(!((r>=2&&r<=4&&c>=1&&c<=3)||(r>=5&&r<=7&&c>=5&&c<=7)))FOGALL.push([r,c]);}
+const DGR=(r,c,v,k)=>({t:'d',r,c,v,k});
+
+const CATS=[
+{id:'size',title:'격자 크기 · 기호',tag:'01 SIZE',desc:'격자 크기와 사용하는 기호만 바뀌고 규칙은 클래식과 같습니다. 엔진 관점에서는 N과 박스 치수(br×bc)를 매개변수로 두면 전부 한 코드로 처리됩니다.',items:[
+ {name:'4×4 미니 (시도쿠)',en:'Shi-doku',rule:'2×2 박스 4개, 숫자 1~4. 어린이·튜토리얼용.',sp:{n:4,box:[2,2],draw:[{t:'ds',r:0,c:0,v:'1.3.'},{t:'ds',r:1,c:0,v:'.4.2',},{t:'ds',r:2,c:0,v:'2..3'},{t:'ds',r:3,c:0,v:'.3.1'}]}},
+ {name:'6×6 미니 (로쿠도쿠)',en:'Roku-doku',rule:'2×3 박스 6개, 숫자 1~6. 5분 안에 끝나는 가벼운 판.',sp:{n:6,box:[2,3],draw:[{t:'ds',r:0,c:0,v:'1..4..'},{t:'ds',r:1,c:0,v:'..5..2'},{t:'ds',r:2,c:0,v:'.3..6.'},{t:'ds',r:3,c:0,v:'.6..1.'},{t:'ds',r:4,c:0,v:'2..3..'},{t:'ds',r:5,c:0,v:'..4..5'}]}},
+ {name:'9×9 클래식',en:'Classic',rule:'각 행·열·3×3 박스에 1~9가 한 번씩. 모든 변형의 기본 규칙.',sp:{draw:[{t:'ds',r:0,c:0,v:'53..7....'},{t:'ds',r:1,c:0,v:'6..195...'},{t:'ds',r:2,c:0,v:'.98....6.'},{t:'ds',r:3,c:0,v:'8...6...3'},{t:'ds',r:4,c:0,v:'4..8.3..1'},{t:'ds',r:5,c:0,v:'7...2...6'},{t:'ds',r:6,c:0,v:'.6....28.'},{t:'ds',r:7,c:0,v:'...419..5'},{t:'ds',r:8,c:0,v:'....8..79'}]}},
+ {name:'12×12 · 16×16 · 25×25 대형',en:'Maxi / Hexadoku / Giant',rule:'박스가 3×4, 4×4, 5×5로 커지고 10 이상은 두 자리 숫자나 A~G 문자를 씁니다. 100×100(Sudoku-zilla)도 존재.',sp:{n:12,box:[3,4],draw:[{t:'d',r:0,c:0,v:'12'},{t:'d',r:1,c:2,v:'7'},{t:'d',r:0,c:5,v:'10'},{t:'d',r:2,c:9,v:'11'},{t:'d',r:4,c:4,v:'3'},{t:'d',r:5,c:7,v:'9'},{t:'d',r:7,c:1,v:'8'},{t:'d',r:8,c:10,v:'12'},{t:'d',r:10,c:3,v:'5'},{t:'d',r:11,c:8,v:'2'},{t:'d',r:6,c:11,v:'1'},{t:'d',r:3,c:6,v:'4'}]}},
+ {name:'워도쿠 · 문자 · 기호',en:'Wordoku / Alphabet / Symbol',rule:'숫자 대신 9개 문자나 그림 기호. 한 행·열·대각선에 단어가 완성되기도 합니다.',sp:{draw:[{t:'ds',r:4,c:0,v:'WORDPUZLE',k:'s'},{t:'d',r:0,c:0,v:'P'},{t:'d',r:1,c:4,v:'Z'},{t:'d',r:2,c:7,v:'R'},{t:'d',r:6,c:2,v:'E'},{t:'d',r:7,c:6,v:'W'},{t:'d',r:8,c:8,v:'U'}]}},
+ {name:'0~8 · No-1 · 미싱 디짓',en:'Zero / No-1 / Missing Digits',rule:'사용하는 숫자 집합 자체를 바꿉니다. 0~8을 쓰거나, 1을 빼고 빈칸을 하나 두거나, 어떤 9개 숫자를 쓰는지 풀면서 알아냅니다.',sp:{draw:[{t:'ds',r:0,c:0,v:'012345678',k:'s'},{t:'d',r:3,c:1,v:'0'},{t:'d',r:4,c:4,v:'7'},{t:'d',r:6,c:7,v:'0'},{t:'note',r:2,c:4,text:'0 ~ 8 사용'}]}}
+]},
+{id:'region',title:'영역 형태',tag:'02 REGION',desc:'3×3 박스를 다른 모양으로 바꾸거나, 영역을 추가하거나, 영역 자체를 풀이 대상으로 만듭니다.',items:[
+ {name:'직소 (불규칙)',en:'Jigsaw / Irregular',rule:'3×3 박스 대신 9칸짜리 불규칙 조각 9개. 굵은 선이 영역 경계.',sp:{regions:JIG,draw:[{t:'d',r:0,c:0,v:'4'},{t:'d',r:1,c:3,v:'7'},{t:'d',r:3,c:5,v:'2'},{t:'d',r:5,c:8,v:'9'},{t:'d',r:7,c:4,v:'1'},{t:'d',r:8,c:1,v:'6'}]}},
+ {name:'하이퍼 (윈도쿠)',en:'Hyper / Windoku / NRC',rule:'음영 3×3 영역 4개에도 1~9가 한 번씩. 박스와 어긋나게 겹칩니다.',sp:{draw:[{t:'region',cells:[[1,1],[1,2],[1,3],[2,1],[2,2],[2,3],[3,1],[3,2],[3,3]]},{t:'region',cells:[[1,5],[1,6],[1,7],[2,5],[2,6],[2,7],[3,5],[3,6],[3,7]]},{t:'region',cells:[[5,1],[5,2],[5,3],[6,1],[6,2],[6,3],[7,1],[7,2],[7,3]]},{t:'region',cells:[[5,5],[5,6],[5,7],[6,5],[6,6],[6,7],[7,5],[7,6],[7,7]]},{t:'d',r:2,c:2,v:'5'},{t:'d',r:6,c:6,v:'3'}]}},
+ {name:'애스터리스크',en:'Asterisk',rule:'별 모양 9칸이 추가 영역 하나를 이룹니다.',sp:{draw:[{t:'region',cells:[[1,4],[2,2],[2,6],[4,1],[4,4],[4,7],[6,2],[6,6],[7,4]]},{t:'d',r:4,c:4,v:'9'},{t:'d',r:1,c:4,v:'2'}]}},
+ {name:'지란돌라',en:'Girandola',rule:'네 모서리 + 바람개비 모양 9칸이 추가 영역.',sp:{draw:[{t:'region',cells:[[0,0],[0,8],[1,4],[4,1],[4,4],[4,7],[7,4],[8,0],[8,8]]},{t:'d',r:0,c:0,v:'1'},{t:'d',r:8,c:8,v:'7'}]}},
+ {name:'센터 도트',en:'Center Dot',rule:'각 박스 중앙 칸 9개가 하나의 추가 영역.',sp:{draw:[{t:'region',cells:[[1,1],[1,4],[1,7],[4,1],[4,4],[4,7],[7,1],[7,4],[7,7]]},{t:'d',r:1,c:1,v:'3'},{t:'d',r:4,c:4,v:'8'},{t:'d',r:7,c:7,v:'5'}]}},
+ {name:'디스조인트 그룹',en:'Disjoint Groups',rule:'각 박스의 같은 위치(예: 왼쪽 위) 9칸에도 1~9가 한 번씩. 9개 위치 그룹 모두 적용.',sp:{draw:[{t:'region',cells:[[0,0],[0,3],[0,6],[3,0],[3,3],[3,6],[6,0],[6,3],[6,6]]},{t:'d',r:0,c:0,v:'1'},{t:'d',r:0,c:3,v:'2'},{t:'d',r:0,c:6,v:'3'},{t:'d',r:3,c:0,v:'4'},{t:'d',r:3,c:3,v:'5'},{t:'d',r:3,c:6,v:'6'},{t:'d',r:6,c:0,v:'7'},{t:'d',r:6,c:3,v:'8'},{t:'d',r:6,c:6,v:'9'}]}},
+ {name:'카오스 컨스트럭션',en:'Chaos Construction',rule:'영역 경계가 주어지지 않습니다. 숫자와 영역(9칸 연결 조각 9개)을 동시에 풀어냅니다.',sp:{box:null,draw:[{t:'wall',segs:[[0,2,'right'],[1,2,'right'],[1,2,'bottom'],[1,1,'bottom'],[2,0,'right'],[3,0,'right'],[3,0,'bottom']]},{t:'d',r:0,c:1,v:'4'},{t:'d',r:2,c:5,v:'7'},{t:'d',r:5,c:2,v:'1'},{t:'d',r:7,c:7,v:'9'},{t:'note',r:5,c:6,text:'경계를 스스로 그림'}]}},
+ {name:'디컨스트럭션',en:'Deconstruction',rule:'더 큰 격자 안에 3×3 박스 9개를 어디에 둘지 스스로 배치. 박스 밖 칸은 비워 둡니다.',sp:{box:null,draw:[{t:'region',cells:[[0,1],[0,2],[0,3],[1,1],[1,2],[1,3],[2,1],[2,2],[2,3]]},{t:'box',r:0,c:1},{t:'region',cells:[[3,5],[3,6],[3,7],[4,5],[4,6],[4,7],[5,5],[5,6],[5,7]]},{t:'box',r:3,c:5},{t:'region',cells:[[6,0],[6,1],[6,2],[7,0],[7,1],[7,2],[8,0],[8,1],[8,2]]},{t:'box',r:6,c:0},{t:'d',r:1,c:2,v:'5'},{t:'d',r:4,c:6,v:'2'},{t:'d',r:7,c:1,v:'8'}]}},
+ {name:'스구루 / 텍토닉',en:'Suguru / Tectonic',rule:'영역 크기가 제각각(1~5칸). N칸 영역엔 1~N. 인접(대각 포함)한 칸에 같은 숫자 금지. 행·열 규칙은 없음.',sp:{n:5,regions:["AABBB","ACCBD","CCEDD","FEEED","FFGGG"],draw:[{t:'d',r:0,c:0,v:'1'},{t:'d',r:0,c:1,v:'3',k:'s'},{t:'d',r:1,c:0,v:'2',k:'s'},{t:'d',r:2,c:2,v:'4'},{t:'d',r:4,c:3,v:'1'}]}}
+]},
+{id:'global',title:'위치 관계 · 전역 제약',tag:'03 GLOBAL',desc:'격자 전체에 걸쳐 "어디에 같은 숫자가 올 수 없는가"를 추가합니다. 표시가 없는 규칙이라 초보자에게 가장 낯섭니다.',items:[
+ {name:'X 스도쿠 (대각선)',en:'X / Diagonal',rule:'두 주대각선에도 1~9가 한 번씩.',sp:{draw:[{t:'diag'},{t:'d',r:0,c:0,v:'3'},{t:'d',r:4,c:4,v:'5'},{t:'d',r:8,c:8,v:'7'},{t:'d',r:0,c:8,v:'1'},{t:'d',r:8,c:0,v:'9'}]}},
+ {name:'안티나이트',en:'Anti-Knight',rule:'체스 나이트 이동 거리(2+1)의 칸끼리 같은 숫자 금지. 표시된 8칸엔 5가 못 옵니다.',sp:{draw:[{t:'shade',cells:AK},{t:'d',r:4,c:4,v:'5'},...AK.map(([r,c])=>({t:'mark',r,c,s:'5',size:11}))]}},
+ {name:'안티킹',en:'Anti-King',rule:'대각선 포함 8방향 인접 칸에 같은 숫자 금지.',sp:{draw:[{t:'shade',cells:KING},{t:'d',r:4,c:4,v:'5'},...KING.map(([r,c])=>({t:'mark',r,c,s:'5',size:11}))]}},
+ {name:'안티퀸 · 안티비숍',en:'Anti-Queen / Bishop',rule:'특정 숫자(보통 9)가 대각선 어디에도 반복되지 못합니다. 퀸은 행·열·대각선 전부.',sp:{draw:[{t:'line',cells:[[0,0],[8,8]],color:'var(--warn)',w:6,op:.25},{t:'line',cells:[[0,8],[8,0]],color:'var(--warn)',w:6,op:.25},{t:'d',r:4,c:4,v:'9'},{t:'mark',r:1,c:1,s:'9',size:11},{t:'mark',r:7,c:7,s:'9',size:11},{t:'mark',r:2,c:6,s:'9',size:11},{t:'mark',r:6,c:2,s:'9',size:11}]}},
+ {name:'논컨세큐티브',en:'Non-Consecutive',rule:'상하좌우로 붙은 두 칸은 연속 숫자(3–4 등)가 될 수 없습니다.',sp:{draw:[{t:'d',r:3,c:3,v:'3'},{t:'d',r:3,c:4,v:'4',k:'w'},{t:'mark',r:3,c:4,s:'✕',size:22},{t:'d',r:5,c:3,v:'3'},{t:'d',r:5,c:4,v:'7',k:'s'},{t:'note',r:2,c:4,text:'3 옆에 4 불가'},{t:'note',r:6,c:4,text:'3 옆에 7 가능'}]}},
+ {name:'토로이달 (감기는 격자)',en:'Toroidal / Wraparound',rule:'오른쪽 끝이 왼쪽 끝과, 아래가 위와 이어집니다. 영역이 가장자리를 넘어 반대편에서 계속됩니다.',sp:{draw:[{t:'out',side:'left',i:4,text:'⟵'},{t:'out',side:'right',i:4,text:'⟶'},{t:'region',cells:[[3,7],[3,8],[4,7],[4,8],[5,8],[3,0],[4,0],[4,1],[5,0]]},{t:'d',r:4,c:8,v:'2'},{t:'d',r:4,c:0,v:'6'}]}},
+ {name:'미라클 스도쿠',en:'Miracle',rule:'안티나이트 + 안티킹 + 논컨세큐티브를 한꺼번에. 주어진 숫자 2개만으로 유일해가 나옵니다.',sp:{draw:[{t:'d',r:4,c:2,v:'1'},{t:'d',r:5,c:6,v:'2'},{t:'note',r:1,c:4,text:'나이트 + 킹 + 비연속'},{t:'note',r:7,c:4,text:'단서 2개로 풀림'}]}}
+]},
+{id:'local',title:'셀 사이 표시 제약',tag:'04 LOCAL',desc:'두세 칸 사이에 점·기호·음영을 두어 국소 관계를 지정합니다. 구현이 쉽고 조합이 자유로워 변형 앱의 뼈대가 됩니다.',items:[
+ {name:'크롭키',en:'Kropki',rule:'흰 점 = 두 숫자가 연속(4·5), 검은 점 = 한쪽이 다른 쪽의 2배(3·6). 점이 없는 곳은 둘 다 아님(네거티브 제약)일 때가 많음.',sp:{draw:[{t:'d',r:2,c:2,v:'4'},{t:'d',r:2,c:3,v:'5',k:'s'},{t:'dot',a:[2,2],b:[2,3],fill:'white'},{t:'d',r:5,c:5,v:'3'},{t:'d',r:6,c:5,v:'6',k:'s'},{t:'dot',a:[5,5],b:[6,5],fill:'black'}]}},
+ {name:'XV',en:'XV',rule:'X 사이 두 칸은 합 10, V 사이는 합 5.',sp:{draw:[{t:'d',r:2,c:2,v:'3'},{t:'d',r:2,c:3,v:'7',k:'s'},{t:'edge',a:[2,2],b:[2,3],text:'X'},{t:'d',r:5,c:6,v:'1'},{t:'d',r:6,c:6,v:'4',k:'s'},{t:'edge',a:[5,6],b:[6,6],text:'V'}]}},
+ {name:'부등호 (후토시키)',en:'Greater Than / Futoshiki',rule:'칸 사이 부등호대로 대소 관계를 맞춥니다.',sp:{draw:[{t:'d',r:2,c:2,v:'7'},{t:'d',r:2,c:3,v:'2',k:'s'},{t:'edge',a:[2,2],b:[2,3],text:'>'},{t:'d',r:5,c:5,v:'3'},{t:'d',r:6,c:5,v:'8',k:'s'},{t:'edge',a:[5,5],b:[6,5],text:'>',rot:-90}]}},
+ {name:'컨세큐티브 (막대)',en:'Consecutive',rule:'막대 표시된 두 칸은 연속 숫자. 표시 없는 곳은 연속 금지인 경우가 많음.',sp:{draw:[{t:'d',r:3,c:1,v:'5'},{t:'d',r:3,c:2,v:'6',k:'s'},{t:'bar',a:[3,1],b:[3,2]},{t:'d',r:5,c:6,v:'8'},{t:'d',r:6,c:6,v:'9',k:'s'},{t:'bar',a:[5,6],b:[6,6]}]}},
+ {name:'홀짝',en:'Odd / Even',rule:'원 = 홀수, 사각형 = 짝수.',sp:{draw:[{t:'odd',r:2,c:2},{t:'d',r:2,c:2,v:'7',k:'s'},{t:'even',r:2,c:5},{t:'d',r:2,c:5,v:'4',k:'s'},{t:'odd',r:5,c:6},{t:'even',r:6,c:2},{t:'odd',r:7,c:4}]}},
+ {name:'배튼버그',en:'Battenburg',rule:'2×2 모서리 표시가 있으면 네 칸의 홀짝이 체크무늬로 배치됩니다. 표시가 없으면 체크무늬가 아님.',sp:{draw:[{t:'batt',r:3,c:3},{t:'d',r:3,c:3,v:'1'},{t:'d',r:3,c:4,v:'4',k:'s'},{t:'d',r:4,c:3,v:'6',k:'s'},{t:'d',r:4,c:4,v:'9',k:'s'}]}},
+ {name:'쿼드러플',en:'Quadruple',rule:'네 칸이 만나는 점의 원 안 숫자들은 그 네 칸에 반드시 등장.',sp:{draw:[{t:'quad',r:2,c:2,text:'1 5'},{t:'d',r:2,c:2,v:'1',k:'s'},{t:'d',r:3,c:3,v:'5',k:'s'},{t:'quad',r:5,c:6,text:'3 7'}]}},
+ {name:'타이트 핏',en:'Tight Fit',rule:'빗금으로 나뉜 칸에는 두 숫자가 들어가고, 작은 수가 위, 큰 수가 아래. 그래서 격자가 9×9보다 작습니다.',sp:{n:6,box:[2,3],draw:[{t:'slash',r:1,c:1,a:'2',b:'5'},{t:'slash',r:3,c:4,a:'1',b:'6'},{t:'d',r:0,c:3,v:'4'},{t:'d',r:4,c:2,v:'3'}]}},
+ {name:'포트리스 · 최대 · 최소',en:'Fortress / Max / Min',rule:'음영 칸은 상하좌우 이웃보다 항상 큽니다(또는 작습니다).',sp:{draw:[{t:'shade',cells:[[4,4]]},{t:'d',r:4,c:4,v:'8'},{t:'d',r:3,c:4,v:'3',k:'s'},{t:'d',r:5,c:4,v:'5',k:'s'},{t:'d',r:4,c:3,v:'2',k:'s'},{t:'d',r:4,c:5,v:'6',k:'s'}]}},
+ {name:'클론 · 미러',en:'Clone / Mirror',rule:'같은 모양의 음영 영역은 같은 위치에 같은 숫자.',sp:{draw:[{t:'shade',cells:[[1,1],[2,1],[2,2]]},{t:'d',r:1,c:1,v:'3'},{t:'d',r:2,c:1,v:'5'},{t:'d',r:2,c:2,v:'8'},{t:'shade',cells:[[5,5],[6,5],[6,6]]},{t:'d',r:5,c:5,v:'3',k:'s'},{t:'d',r:6,c:5,v:'5',k:'s'},{t:'d',r:6,c:6,v:'8',k:'s'}]}}
+]},
+{id:'line',title:'선(Line) 제약',tag:'05 LINE',desc:'격자 위에 그어진 선을 따라 숫자열이 어떤 성질을 갖는지 정합니다. 현대 변형 스도쿠의 핵심이며, 색깔이 곧 규칙의 관례입니다.',items:[
+ {name:'써모 (온도계)',en:'Thermometer',rule:'둥근 끝(전구)에서 시작해 선을 따라 숫자가 엄격히 증가.',sp:{draw:[{t:'line',cells:[[6,1],[5,1],[4,1],[3,1],[3,2]],bulb:true},{t:'d',r:6,c:1,v:'1',k:'s'},{t:'d',r:5,c:1,v:'3',k:'s'},{t:'d',r:4,c:1,v:'4',k:'s'},{t:'d',r:3,c:1,v:'8',k:'s'},{t:'d',r:3,c:2,v:'9',k:'s'}]}},
+ {name:'슬로우 · 패스트 써모',en:'Slow / Fast Thermo',rule:'슬로우: 같거나 증가(감소만 금지). 패스트: 칸마다 최소 N 이상 증가.',sp:{draw:[{t:'line',cells:[[6,1],[5,2],[5,3],[4,4]],bulb:true},{t:'d',r:6,c:1,v:'2',k:'s'},{t:'d',r:5,c:2,v:'2',k:'s'},{t:'d',r:5,c:3,v:'4',k:'s'},{t:'d',r:4,c:4,v:'6',k:'s'},{t:'note',r:2,c:4,text:'같아도 됨, 감소만 금지'}]}},
+ {name:'애로우 (화살표)',en:'Arrow',rule:'원 안 숫자 = 화살표 선 위 숫자들의 합. 선 위 숫자는 반복 가능.',sp:{draw:[{t:'line',cells:[[1,1],[1,2],[1,3],[2,3]],color:'var(--gray)',w:3,op:.9,arrow:true,circ:[0]},{t:'d',r:1,c:1,v:'9'},{t:'d',r:1,c:2,v:'2',k:'s'},{t:'d',r:1,c:3,v:'3',k:'s'},{t:'d',r:2,c:3,v:'4',k:'s'}]}},
+ {name:'필 애로우 · 더블 애로우',en:'Pill / Double Arrow',rule:'필: 알약 모양 두 칸이 두 자리 수(12)가 되어 합 목표. 더블: 양 끝 원의 합 = 사이 선의 합.',sp:{draw:[{t:'line',cells:[[2,1],[2,2],[2,3],[2,4],[2,5]],color:'var(--gray)',w:3,op:.9,arrow:true,pill:[0,1]},{t:'d',r:2,c:1,v:'1'},{t:'d',r:2,c:2,v:'2'},{t:'d',r:2,c:3,v:'3',k:'s'},{t:'d',r:2,c:4,v:'4',k:'s'},{t:'d',r:2,c:5,v:'5',k:'s'},{t:'note',r:4,c:3,text:'12 = 3 + 4 + 5'}]}},
+ {name:'렌반',en:'Renban',rule:'선 위 숫자들은 순서에 관계없이 연속된 집합(4·5·6·7).',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[3,3],[2,4]],color:'var(--renban)'},{t:'d',r:2,c:1,v:'4',k:'s'},{t:'d',r:3,c:2,v:'6',k:'s'},{t:'d',r:3,c:3,v:'5',k:'s'},{t:'d',r:2,c:4,v:'7',k:'s'}]}},
+ {name:'나브너 (안티 렌반)',en:'Nabner',rule:'선 위에 같은 숫자도, 연속되는 숫자도 없어야 합니다.',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[3,3],[2,4]],color:'var(--nabner)'},{t:'d',r:2,c:1,v:'1',k:'s'},{t:'d',r:3,c:2,v:'4',k:'s'},{t:'d',r:3,c:3,v:'7',k:'s'},{t:'d',r:2,c:4,v:'9',k:'s'}]}},
+ {name:'저먼 위스퍼',en:'German Whispers',rule:'선에서 이웃한 두 숫자의 차가 5 이상. 초록색이 관례.',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[3,3],[2,4]],color:'var(--whisper)'},{t:'d',r:2,c:1,v:'3',k:'s'},{t:'d',r:3,c:2,v:'8',k:'s'},{t:'d',r:3,c:3,v:'1',k:'s'},{t:'d',r:2,c:4,v:'7',k:'s'}]}},
+ {name:'더치 위스퍼',en:'Dutch Whispers',rule:'이웃한 두 숫자의 차가 4 이상. 주황색이 관례.',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[3,3],[2,4]],color:'var(--dutch)'},{t:'d',r:2,c:1,v:'1',k:'s'},{t:'d',r:3,c:2,v:'5',k:'s'},{t:'d',r:3,c:3,v:'9',k:'s'},{t:'d',r:2,c:4,v:'4',k:'s'}]}},
+ {name:'팰린드롬',en:'Palindrome',rule:'선을 어느 쪽에서 읽어도 같은 숫자열.',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[4,3],[3,4],[2,5]],color:'var(--gray)'},{t:'d',r:2,c:1,v:'3',k:'s'},{t:'d',r:3,c:2,v:'7',k:'s'},{t:'d',r:4,c:3,v:'2',k:'s'},{t:'d',r:3,c:4,v:'7',k:'s'},{t:'d',r:2,c:5,v:'3',k:'s'}]}},
+ {name:'비트윈 라인',en:'Between Lines',rule:'양 끝 원의 두 숫자 사이에 있는 값만 선 위에 올 수 있음.',sp:{draw:[{t:'line',cells:[[3,1],[3,2],[3,3],[3,4],[3,5]],color:'var(--gray)',w:3,op:.9,circ:[0,4]},{t:'d',r:3,c:1,v:'2'},{t:'d',r:3,c:2,v:'4',k:'s'},{t:'d',r:3,c:3,v:'6',k:'s'},{t:'d',r:3,c:4,v:'5',k:'s'},{t:'d',r:3,c:5,v:'8'}]}},
+ {name:'록아웃 라인',en:'Lockout Lines',rule:'양 끝 마름모의 두 숫자 범위 바깥의 값만 선 위에 올 수 있음. 끝 두 숫자는 차가 4 이상.',sp:{draw:[{t:'line',cells:[[3,1],[3,2],[3,3],[3,4],[3,5]],color:'var(--gray)',w:3,op:.9,diamond:[0,4]},{t:'d',r:3,c:1,v:'4'},{t:'d',r:3,c:2,v:'1',k:'s'},{t:'d',r:3,c:3,v:'9',k:'s'},{t:'d',r:3,c:4,v:'2',k:'s'},{t:'d',r:3,c:5,v:'8'}]}},
+ {name:'리전 섬 라인',en:'Region Sum Lines',rule:'선이 박스 경계로 나뉘는 구간마다 합이 같아야 함 (4+5 = 2+3+4 = 9).',sp:{draw:[{t:'line',cells:[[3,1],[3,2],[3,3],[3,4],[3,5],[3,6]],color:'var(--rsum)'},{t:'d',r:3,c:1,v:'4',k:'s'},{t:'d',r:3,c:2,v:'5',k:'s'},{t:'d',r:3,c:3,v:'2',k:'s'},{t:'d',r:3,c:4,v:'3',k:'s'},{t:'d',r:3,c:5,v:'4',k:'s'},{t:'d',r:3,c:6,v:'9',k:'s'}]}},
+ {name:'엔트로픽 라인',en:'Entropic Lines',rule:'연속한 세 칸마다 낮음(1~3)·중간(4~6)·높음(7~9)이 하나씩.',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[3,3],[2,4],[2,5]],color:'var(--entropic)'},{t:'d',r:2,c:1,v:'2',k:'s'},{t:'d',r:3,c:2,v:'5',k:'s'},{t:'d',r:3,c:3,v:'8',k:'s'},{t:'d',r:2,c:4,v:'1',k:'s'},{t:'d',r:2,c:5,v:'6',k:'s'}]}},
+ {name:'모듈러 라인',en:'Modular Lines',rule:'연속한 세 칸의 3으로 나눈 나머지(0·1·2)가 모두 달라야 함.',sp:{draw:[{t:'line',cells:[[2,1],[3,2],[3,3],[2,4],[2,5]],color:'var(--modular)'},{t:'d',r:2,c:1,v:'1',k:'s'},{t:'d',r:3,c:2,v:'5',k:'s'},{t:'d',r:3,c:3,v:'9',k:'s'},{t:'d',r:2,c:4,v:'4',k:'s'},{t:'d',r:2,c:5,v:'8',k:'s'}]}},
+ {name:'지퍼 라인',en:'Zipper Lines',rule:'중앙에서 같은 거리에 있는 두 칸의 합 = 중앙 숫자 (3+4 = 5+2 = 7).',sp:{draw:[{t:'line',cells:[[4,1],[4,2],[4,3],[4,4],[4,5]],color:'var(--zipper)'},{t:'d',r:4,c:1,v:'3',k:'s'},{t:'d',r:4,c:2,v:'5',k:'s'},{t:'d',r:4,c:3,v:'7'},{t:'d',r:4,c:4,v:'2',k:'s'},{t:'d',r:4,c:5,v:'4',k:'s'}]}},
+ {name:'10-라인 (N-라인)',en:'10-Lines',rule:'선을 몇 개 구간으로 나누면 각 구간 합이 10. 나누는 위치는 스스로 찾음 (4+6 | 2+8).',sp:{draw:[{t:'line',cells:[[3,1],[3,2],[3,3],[3,4]],color:'var(--gold)'},{t:'d',r:3,c:1,v:'4',k:'s'},{t:'d',r:3,c:2,v:'6',k:'s'},{t:'d',r:3,c:3,v:'2',k:'s'},{t:'d',r:3,c:4,v:'8',k:'s'},{t:'note',r:5,c:2,text:'4+6=10 | 2+8=10'}]}},
+ {name:'패리티 라인',en:'Parity / Alternating Parity',rule:'위: 선 위 숫자가 모두 같은 홀짝. 아래: 홀·짝이 교대로.',sp:{draw:[{t:'line',cells:[[2,1],[2,2],[2,3],[2,4]],color:'var(--gold)'},{t:'d',r:2,c:1,v:'1',k:'s'},{t:'d',r:2,c:2,v:'3',k:'s'},{t:'d',r:2,c:3,v:'5',k:'s'},{t:'d',r:2,c:4,v:'7',k:'s'},{t:'line',cells:[[6,1],[6,2],[6,3],[6,4]],color:'var(--thermo)'},{t:'d',r:6,c:1,v:'2',k:'s'},{t:'d',r:6,c:2,v:'3',k:'s'},{t:'d',r:6,c:3,v:'6',k:'s'},{t:'d',r:6,c:4,v:'7',k:'s'}]}},
+ {name:'시퀀스 라인 (등차)',en:'Sequence Lines',rule:'선 위 숫자가 등차수열 (2, 4, 6, 8).',sp:{draw:[{t:'line',cells:[[3,1],[3,2],[3,3],[3,4]],color:'var(--rsum)'},{t:'d',r:3,c:1,v:'2',k:'s'},{t:'d',r:3,c:2,v:'4',k:'s'},{t:'d',r:3,c:3,v:'6',k:'s'},{t:'d',r:3,c:4,v:'8',k:'s'}]}}
+]},
+{id:'cage',title:'케이지 · 바깥 단서',tag:'06 CAGE / OUTSIDE',desc:'점선 우리(케이지) 안의 산술 조건, 또는 격자 밖에서 행·열·대각선을 바라보는 단서입니다. 세계 대회(WSC)에 자주 나오는 정형화된 타입이 많습니다.',items:[
+ {name:'킬러',en:'Killer',rule:'점선 케이지 안 숫자의 합이 표시된 값. 케이지 안에서 숫자 반복 금지. 주어진 숫자가 거의 없음.',sp:{draw:[{t:'cage',cells:[[0,0],[0,1]],sum:3},{t:'cage',cells:[[1,0],[2,0],[2,1]],sum:15},{t:'cage',cells:[[0,2],[1,1],[1,2]],sum:22},{t:'cage',cells:[[3,3],[3,4],[4,3]],sum:8},{t:'cage',cells:[[5,6],[5,7],[6,7]],sum:17},{t:'cage',cells:[[7,1],[7,2],[8,2]],sum:11},{t:'d',r:0,c:0,v:'1',k:'s'},{t:'d',r:0,c:1,v:'2',k:'s'}]}},
+ {name:'칼쿠도쿠 (켄켄)',en:'Calcudoku / KenKen',rule:'박스는 없고 케이지마다 목표값과 연산(+ − × ÷). 행·열만 라틴방진 규칙.',sp:{n:4,box:null,draw:[{t:'cage',cells:[[0,0],[0,1]],sum:'6×'},{t:'cage',cells:[[0,2],[1,2]],sum:'3−'},{t:'cage',cells:[[1,0],[1,1]],sum:'2÷'},{t:'cage',cells:[[0,3],[1,3],[2,3]],sum:'7+'},{t:'cage',cells:[[2,0],[3,0],[3,1]],sum:'8+'},{t:'cage',cells:[[2,1],[2,2]],sum:'1−'},{t:'cage',cells:[[3,2],[3,3]],sum:'2÷'},{t:'d',r:0,c:0,v:'2',k:'s'},{t:'d',r:0,c:1,v:'3',k:'s'}]}},
+ {name:'리틀 킬러',en:'Little Killer',rule:'바깥 화살표 방향 대각선 전체의 합. 대각선 위 숫자는 반복 가능.',sp:{draw:[{t:'out',side:'top',i:6,text:'15↘'},{t:'shade',cells:[[0,6],[1,7],[2,8]]},{t:'d',r:0,c:6,v:'4',k:'s'},{t:'d',r:1,c:7,v:'5',k:'s'},{t:'d',r:2,c:8,v:'6',k:'s'},{t:'out',side:'left',i:5,text:'20↗'},{t:'shade',cells:[[5,0],[4,1],[3,2],[2,3],[1,4],[0,5]]}]}},
+ {name:'샌드위치',en:'Sandwich',rule:'그 행·열에서 1과 9 사이에 끼인 숫자들의 합 (4+7 = 11).',sp:{draw:[{t:'out',side:'left',i:2,text:'11'},{t:'d',r:2,c:0,v:'1',k:'s'},{t:'d',r:2,c:1,v:'4',k:'s'},{t:'d',r:2,c:2,v:'7',k:'s'},{t:'d',r:2,c:3,v:'9',k:'s'},{t:'shade',cells:[[2,1],[2,2]]},{t:'out',side:'top',i:5,text:'0'},{t:'out',side:'top',i:7,text:'35'}]}},
+ {name:'X-섬',en:'X-Sums',rule:'첫 칸 숫자가 X면, 그 방향 첫 X칸의 합이 단서 (3 → 3+5+7 = 15).',sp:{draw:[{t:'out',side:'left',i:2,text:'15'},{t:'d',r:2,c:0,v:'3',k:'s'},{t:'d',r:2,c:1,v:'5',k:'s'},{t:'d',r:2,c:2,v:'7',k:'s'},{t:'shade',cells:[[2,0],[2,1],[2,2]]},{t:'out',side:'top',i:4,text:'6'},{t:'out',side:'right',i:6,text:'30'}]}},
+ {name:'스카이스크래퍼',en:'Skyscraper',rule:'숫자를 건물 높이로 보고, 단서 쪽에서 보이는 건물 수 (3, 5, 9 세 채 보임).',sp:{draw:[{t:'out',side:'left',i:2,text:'3'},{t:'d',r:2,c:0,v:'3',k:'s'},{t:'d',r:2,c:1,v:'1',k:'s'},{t:'d',r:2,c:2,v:'5',k:'s'},{t:'d',r:2,c:3,v:'9',k:'s'},{t:'d',r:2,c:4,v:'2',k:'s'},{t:'shade',cells:[[2,0],[2,2],[2,3]]},{t:'out',side:'top',i:3,text:'1'},{t:'out',side:'bottom',i:6,text:'4'}]}},
+ {name:'프레임',en:'Frame',rule:'바깥 숫자 = 그 방향 첫 3칸의 합 (4+5+6 = 15).',sp:{draw:[{t:'out',side:'top',i:0,text:'15'},{t:'d',r:0,c:0,v:'4',k:'s'},{t:'d',r:1,c:0,v:'5',k:'s'},{t:'d',r:2,c:0,v:'6',k:'s'},{t:'shade',cells:[[0,0],[1,0],[2,0]]},{t:'out',side:'top',i:1,text:'9'},{t:'out',side:'top',i:2,text:'21'},{t:'out',side:'left',i:4,text:'12'},{t:'out',side:'right',i:7,text:'18'}]}},
+ {name:'아웃사이드',en:'Outside',rule:'바깥 숫자들은 그 방향 첫 3칸(첫 박스) 안에 반드시 등장.',sp:{draw:[{t:'out',side:'top',i:0,text:'2 5'},{t:'d',r:0,c:0,v:'5',k:'s'},{t:'d',r:2,c:0,v:'2',k:'s'},{t:'shade',cells:[[0,0],[1,0],[2,0]]},{t:'out',side:'left',i:4,text:'8'},{t:'out',side:'top',i:6,text:'1 9'}]}},
+ {name:'넘버드 룸',en:'Numbered Rooms',rule:'첫 칸 숫자가 N이면, N번째 칸에 바깥 단서 숫자가 옴 (첫 칸 3 → 3번째 칸이 7).',sp:{draw:[{t:'out',side:'left',i:2,text:'7'},{t:'d',r:2,c:0,v:'3',k:'s'},{t:'d',r:2,c:2,v:'7',k:'s'},{t:'shade',cells:[[2,2]]},{t:'out',side:'top',i:5,text:'4'}]}},
+ {name:'넥스트 투 나인',en:'Next to Nine',rule:'바깥 숫자들은 그 행·열에서 9의 양옆에 있는 숫자.',sp:{draw:[{t:'out',side:'left',i:3,text:'2 5'},{t:'d',r:3,c:3,v:'2',k:'s'},{t:'d',r:3,c:4,v:'9',k:'s'},{t:'d',r:3,c:5,v:'5',k:'s'},{t:'shade',cells:[[3,3],[3,5]]}]}},
+ {name:'서치 나인',en:'Search 9',rule:'화살표 칸의 숫자 = 그 방향으로 9까지의 거리 (3칸 뒤에 9).',sp:{draw:[{t:'d',r:2,c:1,v:'3'},{t:'mark',r:2,c:1,s:'→',size:9},{t:'line',cells:[[2,1],[2,4]],color:'var(--accent)',w:2,op:.5},{t:'d',r:2,c:4,v:'9',k:'s'},{t:'d',r:6,c:5,v:'2'},{t:'d',r:4,c:5,v:'9',k:'s'}]}},
+ {name:'로시니',en:'Rossini',rule:'바깥 화살표 방향으로 첫 3칸이 오름차순(또는 내림차순). 화살표 없으면 둘 다 아님.',sp:{draw:[{t:'out',side:'left',i:2,text:'→'},{t:'d',r:2,c:0,v:'2',k:'s'},{t:'d',r:2,c:1,v:'5',k:'s'},{t:'d',r:2,c:2,v:'8',k:'s'},{t:'shade',cells:[[2,0],[2,1],[2,2]]},{t:'out',side:'top',i:6,text:'↑'},{t:'d',r:0,c:6,v:'7',k:'s'},{t:'d',r:1,c:6,v:'4',k:'s'},{t:'d',r:2,c:6,v:'1',k:'s'}]}},
+ {name:'배틀필드',en:'Battlefield',rule:'첫 칸이 x, 끝 칸이 y일 때 앞에서 x칸과 뒤에서 y칸 사이 남는(또는 겹치는) 칸의 합이 단서.',sp:{draw:[{t:'out',side:'left',i:3,text:'12'},{t:'d',r:3,c:0,v:'3',k:'s'},{t:'d',r:3,c:8,v:'4',k:'s'},{t:'region',cells:[[3,0],[3,1],[3,2]]},{t:'region',cells:[[3,5],[3,6],[3,7],[3,8]]},{t:'shade',cells:[[3,3],[3,4]]},{t:'note',r:5,c:4,text:'남는 두 칸 합 = 12'}]}}
+]},
+{id:'meta',title:'메타 · 하이브리드 · 디지털 전용',tag:'07 META',desc:'격자 자체를 겹치거나 3차원으로 만들고, 다른 펜슬퍼즐과 결합하거나, 앱에서만 가능한 장치를 씁니다.',items:[
+ {name:'사무라이 (갓타이-5)',en:'Samurai / Gattai',rule:'9×9 다섯 판이 모서리 박스를 공유. 겹친 박스는 두 판 모두 만족해야 함. 3판·나비·바람개비 등 배치 다양.',sp:{custom:'samurai'}},
+ {name:'트리도쿠 (삼각형)',en:'Tridoku',rule:'큰 삼각형을 81개 작은 삼각형으로 나눔. 삼각형 9칸 구역 9개와 각 변 방향 줄에 1~9.',sp:{custom:'tri'}},
+ {name:'3D · 큐브 · 트레도쿠',en:'3D / Cube / Tredoku',rule:'격자가 정육면체 면이나 접힌 판 위에 있어 행·열이 모서리를 넘어 이어짐.',sp:{custom:'cube'}},
+ {name:'더블러 · 네게이터 · 슈뢰딩거',en:'Doublers / Negators / Schrödinger',rule:'특정 칸의 "값"이 숫자와 다름: ×2, 음수, 또는 한 칸에 두 숫자. 케이지·선 규칙은 값으로 계산.',sp:{draw:[{t:'badge',r:2,c:2,s:'×2'},{t:'badge',r:2,c:5,s:'−'},{t:'badge',r:5,c:3,s:'S'},{t:'d',r:2,c:2,v:'4'},{t:'d',r:2,c:5,v:'7'},{t:'slash',r:5,c:3,a:'3',b:'7'},{t:'note',r:7,c:4,text:'4→8, 7→−7, 3|7→10'}]}},
+ {name:'포그 오브 워 (안개)',en:'Fog of War',rule:'격자가 안개로 덮여 있고, 맞는 숫자를 놓으면 주변 3×3의 안개가 걷힙니다. 다른 변형 위에 얹어 씁니다. 디지털 전용.',sp:{draw:[{t:'line',cells:[[3,1],[3,2],[3,3]],color:'var(--whisper)'},{t:'d',r:3,c:2,v:'5'},{t:'d',r:6,c:6,v:'2'},{t:'fog',cells:FOGALL}]}},
+ {name:'음양 · 동굴 · 누리카베 하이브리드',en:'Yin-Yang / Cave / Nurikabe',rule:'칸을 두 색으로 칠하는 펜슬퍼즐을 동시에 풀고, 색이 숫자 규칙(음영 칸 합 등)과 연결됩니다.',sp:{draw:[{t:'shade',cells:[[0,0],[1,0],[2,0],[2,1],[2,2],[3,2],[4,2],[4,3],[4,4],[5,4],[6,4],[6,5],[6,6],[7,6],[8,6],[8,7],[8,8],[0,5],[0,6],[1,6],[0,3]],fill:'var(--fog)'},{t:'d',r:2,c:1,v:'7',k:'s'},{t:'d',r:4,c:3,v:'2',k:'s'},{t:'d',r:1,c:3,v:'4',k:'s'},{t:'d',r:6,c:2,v:'9',k:'s'}]}},
+ {name:'루프 · 스네이크 하이브리드',en:'Loop / Snake',rule:'격자 안에 교차하지 않는 경로(루프)를 그리고, 경로 위·밖 칸에 숫자 조건을 겁니다.',sp:{draw:[{t:'line',cells:[[1,1],[1,4],[3,4],[3,6],[6,6],[6,2],[4,2],[4,1],[1,1]],color:'var(--accent)',w:3,op:.8},{t:'d',r:1,c:2,v:'3',k:'s'},{t:'d',r:5,c:6,v:'8',k:'s'},{t:'d',r:2,c:5,v:'1'}]}},
+ {name:'스카쿠 (펜슬마크)',en:'Sukaku / Pencilmark',rule:'주어진 숫자 대신 각 칸의 후보 숫자 목록이 주어집니다.',sp:{n:4,box:[2,2],draw:[{t:'pm',r:0,c:0,text:'1 3'},{t:'pm',r:0,c:1,text:'2 3 4'},{t:'pm',r:0,c:2,text:'1 4'},{t:'pm',r:0,c:3,text:'2 4'},{t:'pm',r:1,c:0,text:'2 4'},{t:'pm',r:1,c:1,text:'1 4'},{t:'pm',r:1,c:2,text:'1 3'},{t:'pm',r:1,c:3,text:'3'},{t:'pm',r:2,c:0,text:'1 2'},{t:'pm',r:2,c:1,text:'1 3'},{t:'pm',r:2,c:2,text:'2 4'},{t:'pm',r:2,c:3,text:'1 4'},{t:'pm',r:3,c:0,text:'3 4'},{t:'pm',r:3,c:1,text:'1 2'},{t:'pm',r:3,c:2,text:'2 3'},{t:'pm',r:3,c:3,text:'1 2 4'}]}},
+ {name:'거짓 단서 · 크납 다네벤',en:'Liar Clues / Knapp Daneben',rule:'단서 일부가 거짓이거나, 모든 단서가 실제 값보다 정확히 1 크거나 작음.',sp:{draw:[{t:'cage',cells:[[1,1],[1,2]],sum:'10'},{t:'d',r:1,c:1,v:'4',k:'s'},{t:'d',r:1,c:2,v:'5',k:'s'},{t:'note',r:3,c:2,text:'표시 10, 실제 9 (±1)'},{t:'out',side:'left',i:5,text:'8'},{t:'d',r:5,c:0,v:'1',k:'s'},{t:'d',r:5,c:1,v:'7',k:'s'},{t:'d',r:5,c:2,v:'9',k:'s'},{t:'shade',cells:[[5,1]]}]}}
+]}
+];
+
+/* ---------- mount ---------- */
+const main=document.getElementById('main'),nav=document.getElementById('nav');
+let total=0;
+CATS.forEach(cat=>{
+  total+=cat.items.length;
+  nav.insertAdjacentHTML('beforeend',`<a href="#${cat.id}">${esc(cat.title)}</a>`);
+  const cards=cat.items.map(it=>{
+    it.sp.aria=it.name+' 예시 격자';
+    return `<article class="card"><figure>${render(it.sp)}</figure><h3>${esc(it.name)}<span class="en">${esc(it.en)}</span></h3><p>${esc(it.rule)}</p></article>`;
+  }).join('');
+  main.insertAdjacentHTML('beforeend',`<section class="cat" id="${cat.id}"><h2>${esc(cat.title)}<small>${esc(cat.tag)}</small></h2><p class="catdesc">${esc(cat.desc)}</p><div class="grid">${cards}</div></section>`);
+});
+document.getElementById('count').textContent='총 '+total+'종 · 7개 축';
+</script>
