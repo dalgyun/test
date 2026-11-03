@@ -1,0 +1,1897 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<title>수행평가2 연습문제</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet"><style>
+@page { size: A4; margin: 13mm 12mm 15mm 12mm; }
+* { box-sizing: border-box; }
+body { font-family: 'Noto Sans KR', 'WenQuanYi Zen Hei', sans-serif; color: #1b1f2a; font-size: 9.6pt;
+       line-height: 1.55; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.lbl, i.m { font-family: 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; }
+i.m { font-size: 1.08em; }
+.ov { text-decoration: overline; font-family: 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; }
+.t { font-family: 'Noto Sans KR', 'WenQuanYi Zen Hei', sans-serif; font-weight: 700; }
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+h1 { font-size: 19pt; margin: 0 0 2mm; letter-spacing: -0.5px; }
+h2 { font-size: 13.5pt; margin: 0 0 3mm; padding: 2mm 3mm; color: #fff; background: #1b1f2a; border-radius: 2mm; }
+h2 small { font-weight: 400; font-size: 9.5pt; opacity: .85; margin-left: 2mm; }
+h3 { font-size: 11.5pt; margin: 4mm 0 2mm; border-left: 4px solid #d6336c; padding-left: 2.5mm; }
+.cover { border: 2px solid #1b1f2a; border-radius: 3mm; padding: 5mm 6mm; margin-bottom: 4mm; }
+.cover .kick { color: #d6336c; font-weight: 700; font-size: 10pt; }
+.cover .sub { font-size: 12pt; font-weight: 700; color: #495057; }
+.name { display: flex; gap: 6mm; margin-top: 3mm; font-size: 10pt; }
+.name span { border-bottom: 1px solid #868e96; min-width: 22mm; padding-right: 10mm; }
+table { border-collapse: collapse; width: 100%; font-size: 9pt; }
+th, td { border: 1px solid #adb5bd; padding: 1.6mm 2mm; vertical-align: middle; }
+th { background: #f1f3f5; }
+.box { border: 1px solid #ced4da; border-radius: 2mm; padding: 2.5mm 3.5mm; margin: 2mm 0; background: #fbfcfd; }
+.box.warn { border-color: #ffa8a8; background: #fff5f5; }
+.box.tip { border-color: #91a7ff; background: #f3f6ff; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items: start; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 3.5mm; break-inside: avoid; }
+.prob, .sol { border: 1px solid #ced4da; border-radius: 2mm; padding: 2.5mm 3mm; break-inside: avoid; background: #fff; }
+.prob.wide, .sol.wide { margin-bottom: 3.5mm; }
+.ph, .sh { display: flex; align-items: center; gap: 2mm; margin-bottom: 1.5mm; font-weight: 700; }
+.no { white-space: nowrap; background: #1b1f2a; color: #fff; border-radius: 1.2mm; padding: 0 2mm; font-size: 9.5pt; }
+.tag { white-space: nowrap; font-size: 8pt; border-radius: 3mm; padding: 0 2mm; font-weight: 700; }
+.t-기본 { background: #d3f9d8; color: #2b8a3e; } .t-응용 { background: #fff3bf; color: #e67700; }
+.t-도전 { background: #ffe3e3; color: #c92a2a; }
+.ti { font-size: 10pt; }
+.pb ol.sub { margin: 1mm 0 0; padding-left: 5mm; }
+.pf { text-align: center; margin-top: 1.5mm; }
+.pf svg.fig { max-width: 100%; height: auto; }
+.write { margin-top: 2mm; border-top: 1px dashed #adb5bd; padding-top: 1mm; min-height: 11mm; color: #868e96; font-size: 8.5pt; }
+.duo, .trio { display: flex; justify-content: center; gap: 4mm; }
+.duo p, .trio p { margin: 0; text-align: center; font-size: 8.5pt; font-weight: 700; color: #495057; }
+.sol .sf { text-align: center; }
+.sol .sf svg.fig { max-width: 100%; height: auto; }
+.sol .st { font-size: 9pt; margin-top: 1mm; }
+.why { color: #1c7ed6; font-size: 8.6pt; }
+.legend { font-size: 8.5pt; color: #495057; }
+.legend b.s { color: #d6336c; } .legend b.a { color: #1c7ed6; } .legend b.g { color: #2b8a3e; }
+.check td.c { width: 12mm; text-align: center; font-size: 12pt; }
+.method { display: grid; grid-template-columns: 22mm 1fr; gap: 1mm 3mm; font-size: 9.2pt; }
+.method .k { font-weight: 900; color: #d6336c; }
+.mock .prob { margin-bottom: 3mm; }
+.small { font-size: 8.5pt; color: #495057; }
+</style></head>
+<body>
+<section class="page">
+<div class="cover">
+  <div class="kick">2학년 2학기 수학 수행평가 ② 대비</div>
+  <h1>삼각형의 성질을 이용하여 도형 추측하기<br>— 실전 연습문제집</h1>
+  <div class="sub">무게중심으로 삼각형 그리기 · 다른 방법으로 그리기 · 피타고라스 정리로 넓이가 같은 도형 그리기</div>
+  <div class="name"><span>2학년 &nbsp;&nbsp;&nbsp;반</span><span>번호</span><span>이름</span></div>
+</div>
+
+<h3>평가 기준 분석 → 이 문제집의 구성</h3>
+<table>
+<tr><th style="width:18%">평가 항목</th><th>세부 평가 내용 (배점)</th><th style="width:30%">이 문제집에서 연습할 곳</th></tr>
+<tr><td rowspan="2" style="text-align:center"><b>삼각형의<br>무게중심</b></td>
+    <td>무게중심의 성질을 이용하여 주어진 조건에 맞게 삼각형을 그렸는가? <b>(8점)</b></td>
+    <td><b>PART 1</b> (1-1 ~ 1-7)</td></tr>
+<tr><td>무게중심의 성질을 이용하여 주어진 조건에 맞게 <u>다른 방법으로</u> 삼각형을 그렸는가? <b>(8점)</b></td>
+    <td><b>PART 2</b> (2-1 ~ 2-5)<br><span class="small">같은 점을 다른 방법으로 / 다른 삼각형을</span></td></tr>
+<tr><td style="text-align:center"><b>피타고라스의<br>정리</b></td>
+    <td>주어진 넓이와 같은 도형을 조건에 맞게 그렸는가? <b>(4점)</b></td>
+    <td><b>PART 3</b> (3-1 ~ 3-7)</td></tr>
+<tr><td colspan="2" style="text-align:right"><b>실전 모의 수행평가 (20점) + 자기 채점표</b></td><td><b>PART 4</b></td></tr>
+</table>
+
+<div class="box warn"><b>⚠ 감점·0점 주의 (공지 내용)</b><br>
+· 평가일: <b>11/12(목) ~ 11/13(금)</b> — 반별 시간표 꼭 확인! 결석 시 수학 선생님께 빨리 연락해 재응시 날짜 정하기<br>
+· <b>백지 제출(백지에 준하는 경우 포함) = 1점</b> → 모르더라도 아는 성질·시도한 과정을 꼭 쓰기<br>
+· <b>표절 등 부정행위 = 0점</b></div>
+
+<div class="box tip"><b>✔ 만점 답안을 위한 6가지 습관</b><br>
+① 모든 점에 이름(A, B, C, G, M …)을 쓴다 &nbsp; ② 중점은 같은 길이 표시(＝, ‖)를 한다<br>
+③ 보조선은 점선, 답이 되는 삼각형은 진하게 &nbsp; ④ <b>"무게중심은 중선을 꼭짓점으로부터 2:1로 나누므로"</b>처럼 이용한 성질을 문장으로 쓴다<br>
+⑤ 다 그린 뒤 <b>검산</b>(다른 중선도 G를 지나는지, 넓이가 맞는지) &nbsp; ⑥ 자와 컴퍼스를 꼭 챙긴다</div>
+
+<h3>핵심 개념 ① 삼각형의 무게중심</h3>
+<div class="cols">
+<div style="text-align:center"><svg viewBox="0 0 232 198" width="240" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="7.0" y="7.0" width="218" height="184" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<polygon points="99.0,116.0 65.0,31.0 43.8,99.0" stroke="none" stroke-width="0" fill="#ffe3e3" fill-opacity="1" stroke-dasharray="1" stroke-linejoin="round"/>
+<polygon points="99.0,116.0 43.8,99.0 22.5,167.0" stroke="none" stroke-width="0" fill="#fff3bf" fill-opacity="1" stroke-dasharray="1" stroke-linejoin="round"/>
+<polygon points="99.0,116.0 22.5,167.0 116.0,158.5" stroke="none" stroke-width="0" fill="#d3f9d8" fill-opacity="1" stroke-dasharray="1" stroke-linejoin="round"/>
+<polygon points="99.0,116.0 116.0,158.5 209.5,150.0" stroke="none" stroke-width="0" fill="#d0ebff" fill-opacity="1" stroke-dasharray="1" stroke-linejoin="round"/>
+<polygon points="99.0,116.0 209.5,150.0 137.2,90.5" stroke="none" stroke-width="0" fill="#e5dbff" fill-opacity="1" stroke-dasharray="1" stroke-linejoin="round"/>
+<polygon points="99.0,116.0 137.2,90.5 65.0,31.0" stroke="none" stroke-width="0" fill="#ffe8cc" fill-opacity="1" stroke-dasharray="1" stroke-linejoin="round"/>
+<polygon points="65.0,31.0 22.5,167.0 209.5,150.0" stroke="#1b1f2a" stroke-width="1.8" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="65.0" y1="31.0" x2="116.0" y2="158.5" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="22.5" y1="167.0" x2="137.2" y2="90.5" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="209.5" y1="150.0" x2="43.8" y2="99.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="69.7" y1="167.7" x2="68.8" y2="157.8" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="163.2" y1="159.2" x2="162.3" y2="149.3" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="178.1" y1="117.7" x2="171.7" y2="125.4" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="175.0" y1="115.1" x2="168.7" y2="122.8" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="105.8" y1="58.2" x2="99.5" y2="65.9" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="102.8" y1="55.6" x2="96.4" y2="63.3" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="50.8" y1="59.7" x2="60.3" y2="62.7" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="49.6" y1="63.5" x2="59.1" y2="66.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="48.4" y1="67.3" x2="58.0" y2="70.3" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="29.5" y1="127.7" x2="39.1" y2="130.7" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="28.4" y1="131.5" x2="37.9" y2="134.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="27.2" y1="135.3" x2="36.7" y2="138.3" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="65.0" cy="31.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="65.0" y="22.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="22.5" cy="167.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="16.5" y="182.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="209.5" cy="150.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="215.5" y="165.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">C</text>
+<circle cx="99.0" cy="116.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="107.0" y="121.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="116.0" cy="158.5" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="116.0" y="175.5" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<text x="91.0" y="75.5" text-anchor="middle" class="t" font-size="13" fill="#d6336c">2</text>
+<text x="116.5" y="141.2" text-anchor="middle" class="t" font-size="13" fill="#d6336c">1</text>
+</svg></div>
+<div>
+<b>중선</b>: 꼭짓점과 마주 보는 변의 중점을 이은 선분<br>
+<b>무게중심 G</b>: 세 중선이 만나는 한 점<br><br>
+<b>성질 1</b> &nbsp;무게중심은 각 중선을 꼭짓점으로부터 <b>2 : 1</b>로 나눈다.<br>
+&nbsp;&nbsp;&nbsp;<span class="ov">AG</span> : <span class="ov">GM</span> = 2 : 1, &nbsp;즉 <span class="ov">AG</span> = 2<span class="ov">GM</span>, <span class="ov">AM</span> = 3<span class="ov">GM</span><br>
+<b>성질 2</b> &nbsp;세 중선으로 나뉜 <b>6개의 삼각형의 넓이는 모두 같다.</b><br>
+&nbsp;&nbsp;&nbsp;△GAB = △GBC = △GCA = ⅓ △ABC<br>
+<b>성질 3</b> &nbsp;(모눈 검산법) 세 꼭짓점의 가로 칸 위치의 합 = G의 가로 칸 위치 × 3 (세로도 같음)
+</div></div>
+</section>
+
+<section class="page">
+<h3>핵심 개념 ② 무게중심으로 삼각형을 그리는 5가지 방법 카드</h3>
+<div class="cols">
+<div class="method">
+<div class="k">방법 A<br>중점→3배</div><div>알고 있는 두 꼭짓점의 중점 <i class="m">M</i>을 찾고, <i class="m">M</i>→<i class="m">G</i> 이동의 <b>2배</b>를 <i class="m">G</i>에서 더 가면 세 번째 꼭짓점. (<span class="ov">MC</span> = 3<span class="ov">MG</span>)</div>
+<div class="k">방법 B<br>꼭짓점→½</div><div>꼭짓점 <i class="m">A</i>→<i class="m">G</i> 이동의 <b>절반</b>만큼 <i class="m">G</i>에서 더 가면 마주 보는 변의 중점 <i class="m">M</i>. 그다음 <i class="m">M</i>에 대하여 대칭인 두 점을 <i class="m">B</i>, <i class="m">C</i>로.</div>
+<div class="k">방법 C<br>다른 중선</div><div>꼭짓점 <i class="m">A</i> 말고 <i class="m">B</i>에서 그은 중선으로 <span class="ov">AC</span>의 중점 <i class="m">N</i>을 찾고, <i class="m">A</i>→<i class="m">N</i>만큼 한 번 더 가서 <i class="m">C</i>.</div>
+<div class="k">방법 D<br>평행사변형</div><div><i class="m">A</i>를 <i class="m">G</i>에 대해 대칭이동한 점 <i class="m">D</i>를 잡으면 □<i class="m">GBDC</i>는 평행사변형. (<span class="ov">GD</span>의 중점 = <span class="ov">BC</span>의 중점)</div>
+<div class="k">방법 E<br>칸 수 계산</div><div>(검산용) <i class="m">C</i>의 위치 = 3×<i class="m">G</i> − <i class="m">A</i> − <i class="m">B</i> (가로·세로 따로 계산)</div>
+</div>
+<div style="text-align:center"><svg viewBox="0 0 174 144" width="200" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="6.0" y="6.0" width="162" height="132" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<polygon points="79.5,78.0 49.5,117.0 132.0,121.5 162.0,82.5" stroke="#1c7ed6" stroke-width="1" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.45" stroke-linejoin="round"/>
+<line x1="27.0" y1="34.5" x2="132.0" y2="121.5" stroke="#1c7ed6" stroke-width="1.1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<polygon points="27.0,34.5 49.5,117.0 162.0,82.5" stroke="#d6336c" stroke-width="1.8" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="48.5" y1="58.8" x2="54.9" y2="51.1" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="51.6" y1="61.4" x2="58.0" y2="53.7" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="101.0" y1="102.3" x2="107.4" y2="94.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="104.1" y1="104.9" x2="110.5" y2="97.2" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="27.0" cy="34.5" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="27.0" y="25.5" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="49.5" cy="117.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="49.5" y="134.0" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">B</text>
+<circle cx="162.0" cy="82.5" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="170.0" y="87.5" text-anchor="start" class="lbl" font-size="12" fill="#1b1f2a">C</text>
+<circle cx="79.5" cy="78.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="79.5" y="69.0" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="132.0" cy="121.5" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="132.0" y="138.5" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">D</text>
+</svg><div class="small">방법 D: <span class="ov">AG</span> = <span class="ov">GD</span>, □GBDC는 평행사변형</div></div>
+</div>
+
+<div class="box tip"><b>"다른 방법으로 그리기"(8점)는 두 가지로 출제될 수 있어요.</b><br>
+(가) <b>같은 삼각형</b>을 다른 성질(다른 중선, 평행사변형, 작도 등)로 다시 그리기 → PART 2의 2-1, 2-3, 2-4<br>
+(나) 같은 조건을 만족하는 <b>다른 모양의 삼각형</b> 그리기 → PART 2의 2-2, 2-5 &nbsp; ※ 어느 쪽이든 <b>무엇이 다른지</b>를 꼭 문장으로 쓰세요.</div>
+
+<h3>핵심 개념 ③ 피타고라스 정리와 넓이</h3>
+<div class="cols">
+<div>
+직각삼각형에서 직각을 낀 두 변의 길이를 <i class="m">a</i>, <i class="m">b</i>, 빗변의 길이를 <i class="m">c</i>라 하면<br>
+<div style="text-align:center;font-size:13pt;margin:1.5mm 0"><b><i class="m">a</i>² + <i class="m">b</i>² = <i class="m">c</i>²</b></div>
+= <b>빗변 위의 정사각형 넓이 = 나머지 두 변 위의 정사각형 넓이의 합</b><br><br>
+<b>모눈종이 공식</b>: 가로로 <i class="m">p</i>칸, 세로로 <i class="m">q</i>칸 이동한 선분을 한 변으로 하는 정사각형의 넓이 = <b><i class="m">p</i>² + <i class="m">q</i>²</b><br>
+<span class="small">확인 방법: (바깥 큰 정사각형) − (모서리 직각삼각형 4개). 오른쪽 그림: 9 − 4×1 = 5</span>
+</div>
+<div style="text-align:center"><svg viewBox="0 0 148 148" width="150" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="14" y1="134" x2="14" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="38" y1="134" x2="38" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="62" y1="134" x2="62" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="86" y1="134" x2="86" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="110" y1="134" x2="110" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="134" y1="134" x2="134" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="14" y1="134" x2="134" y2="134" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="14" y1="110" x2="134" y2="110" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="14" y1="86" x2="134" y2="86" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="14" y1="62" x2="134" y2="62" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="14" y1="38" x2="134" y2="38" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="14" y1="14" x2="134" y2="14" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="38.0,110.0 110.0,110.0 110.0,38.0 38.0,38.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<polygon points="38.0,110.0 86.0,110.0 38.0,86.0" stroke="#1c7ed6" stroke-width="0.8" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="86.0,110.0 110.0,110.0 110.0,62.0" stroke="#1c7ed6" stroke-width="0.8" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="110.0,62.0 110.0,38.0 62.0,38.0" stroke="#1c7ed6" stroke-width="0.8" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="62.0,38.0 38.0,38.0 38.0,86.0" stroke="#1c7ed6" stroke-width="0.8" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="86.0,110.0 110.0,62.0 62.0,38.0 38.0,86.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.55" stroke-linejoin="round"/>
+<text x="74.0" y="80.0" text-anchor="middle" class="t" font-size="15" fill="#d6336c">5</text>
+</svg></div>
+</div>
+<table style="margin-top:2mm">
+<tr><th>넓이</th><td>2</td><td>5</td><td>8</td><td>10</td><td>13</td><td>17</td><td>18</td><td>20</td><td>25</td><td>26</td><td>29</td><td>32</td></tr>
+<tr><th>가로·세로 칸</th><td>1,1</td><td>1,2</td><td>2,2</td><td>1,3</td><td>2,3</td><td>1,4</td><td>3,3</td><td>2,4</td><td>3,4</td><td>1,5</td><td>2,5</td><td>4,4</td></tr>
+</table>
+<p class="small">※ 3, 6, 7, 11, 12 … 처럼 두 제곱수의 합으로 나타낼 수 없는 넓이의 정사각형은 꼭짓점이 모눈의 꼭짓점에 오도록 그릴 수 없습니다.
+이때는 '넓이가 같은 도형'(예: 직사각형, 직각삼각형)을 이용하거나 작도로 해결합니다.</p>
+
+<div class="box"><b>"주어진 넓이와 같은 도형" 문제 해결 순서</b><br>
+① 주어진 도형(또는 조건)의 <b>넓이를 계산</b> → ② 그 수를 <b>두 제곱수의 합</b>으로 쪼개기 (예: 20 = 4 + 16) →
+③ 가로·세로 이동으로 한 변을 그리고, 직각으로 돌려 나머지 변 완성 → ④ <b>큰 정사각형 − 삼각형 4개</b>로 넓이 검산</div>
+<p class="legend">해설 그림 색: <b class="s">빨강 = 정답 도형</b> · <b class="a">파랑 = 보조선/무게중심</b> · <b class="g">초록 = 주어진 도형</b></p>
+</section>
+
+<section class="page">
+<h2>PART 1 <small>무게중심의 성질로 조건에 맞는 삼각형 그리기 (평가 ① 8점 대비)</small></h2>
+<div class="row"><div class="prob"><div class="ph"><span class="no">1-1</span><span class="tag t-기본">기본</span><span class="ti">두 꼭짓점과 무게중심으로 나머지 꼭짓점 찾기</span></div><div class="pb">모눈종이 위에 두 꼭짓점 <i class="m">A</i>, <i class="m">B</i>와 △<i class="m">ABC</i>의 무게중심 <i class="m">G</i>가 있습니다.<ol class='sub'><li>나머지 꼭짓점 <i class="m">C</i>를 찾아 △<i class="m">ABC</i>를 그리고, 찾는 과정을 쓰시오.</li><li>△<i class="m">ABC</i>는 어떤 삼각형인지 추측하고, △<i class="m">ABC</i>와 △<i class="m">GAB</i>의 넓이를 각각 구하시오. (모눈 한 칸 = 1)</li></ol></div><div class="pf"><svg viewBox="0 0 202 236" width="202" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="220" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="220" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="220" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="220" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="220" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="220" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="220" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="220" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="220" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="220" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="220" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="220" x2="186" y2="220" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="203" x2="186" y2="203" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="186" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="186" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="186" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="186" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="186" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="186" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="186" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="186" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="186" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="186" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="33.0" cy="186.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="27.0" y="201.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="135.0" cy="186.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="141.0" y="201.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="101.0" cy="135.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="109.0" y="140.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<line x1="33.0" y1="186.0" x2="135.0" y2="186.0" stroke="#1b1f2a" stroke-width="1.6" stroke-linecap="round"/>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div><div class="prob"><div class="ph"><span class="no">1-2</span><span class="tag t-기본">기본</span><span class="ti">한 꼭짓점과 무게중심 + 변의 조건</span></div><div class="pb">꼭짓점 <i class="m">A</i>와 △<i class="m">ABC</i>의 무게중심 <i class="m">G</i>가 있습니다. 변 <span class="ov">BC</span>가 <b>모눈의 가로선 위에 놓이고 길이가 8칸</b>일 때 △<i class="m">ABC</i>를 그리시오. (단, 점 <i class="m">B</i>가 <i class="m">C</i>보다 왼쪽)</div><div class="pf"><svg viewBox="0 0 236 236" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="220" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="220" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="220" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="220" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="220" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="220" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="220" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="220" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="220" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="220" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="220" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="220" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="220" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="220" x2="220" y2="220" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="203" x2="220" y2="203" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="220" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="220" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="220" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="220" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="67.0" cy="50.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="67.0" y="41.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="101.0" cy="118.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="109.0" y="123.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+<div class="row"><div class="prob"><div class="ph"><span class="no">1-3</span><span class="tag t-기본">기본</span><span class="ti">한 꼭짓점, 변의 중점, 무게중심</span></div><div class="pb">꼭짓점 <i class="m">B</i>, 변 <span class="ov">BC</span>의 중점 <i class="m">M</i>, △<i class="m">ABC</i>의 무게중심 <i class="m">G</i>가 주어졌습니다. 나머지 두 꼭짓점 <i class="m">A</i>, <i class="m">C</i>를 찾아 △<i class="m">ABC</i>를 그리시오.</div><div class="pf"><svg viewBox="0 0 236 219" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="203" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="203" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="203" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="203" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="203" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="203" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="203" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="203" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="203" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="203" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="203" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="203" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="203" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="203" x2="220" y2="203" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="220" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="220" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="220" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="220" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="50.0" cy="169.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="44.0" y="184.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="118.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="124.0" y="167.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">M</text>
+<circle cx="101.0" cy="118.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="109.0" y="123.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div><div class="prob"><div class="ph"><span class="no">1-4</span><span class="tag t-응용">응용</span><span class="ti">두 변의 중점과 무게중심만으로 삼각형 추측하기</span></div><div class="pb">△<i class="m">ABC</i>에서 <i class="m">M</i>은 <span class="ov">BC</span>의 중점, <i class="m">N</i>은 <span class="ov">CA</span>의 중점, <i class="m">G</i>는 무게중심입니다. 세 꼭짓점 <i class="m">A</i>, <i class="m">B</i>, <i class="m">C</i>를 모두 찾아 △<i class="m">ABC</i>를 그리시오.</div><div class="pf"><svg viewBox="0 0 202 202" width="202" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="186" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="186" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="186" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="186" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="186" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="186" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="186" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="186" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="186" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="186" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="186" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="186" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="186" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="186" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="186" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="186" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="186" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="186" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="186" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="186" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="186" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="135.0" cy="135.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="141.0" y="150.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">M</text>
+<circle cx="101.0" cy="67.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="107.0" y="61.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">N</text>
+<circle cx="101.0" cy="101.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="93.0" y="106.0" text-anchor="end" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+<div class="row"><div class="prob"><div class="ph"><span class="no">1-5</span><span class="tag t-응용">응용</span><span class="ti">세 변의 중점으로 원래 삼각형 되살리기</span></div><div class="pb">어떤 △<i class="m">ABC</i>의 세 변 <span class="ov">AB</span>, <span class="ov">BC</span>, <span class="ov">CA</span>의 중점 <i class="m">L</i>, <i class="m">M</i>, <i class="m">N</i>만 남아 있습니다.<ol class='sub'><li>원래의 △<i class="m">ABC</i>를 그리시오.</li><li>△<i class="m">ABC</i>의 무게중심 <i class="m">G</i>를 찾고, △<i class="m">LMN</i>의 무게중심과 비교하여 알 수 있는 점을 쓰시오.</li></ol></div><div class="pf"><svg viewBox="0 0 236 236" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="220" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="220" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="220" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="220" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="220" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="220" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="220" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="220" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="220" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="220" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="220" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="220" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="220" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="220" x2="220" y2="220" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="203" x2="220" y2="203" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="220" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="220" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="220" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="220" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="118.0" cy="186.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="118.0" y="203.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">L</text>
+<circle cx="135.0" cy="101.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="143.0" y="106.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">M</text>
+<circle cx="50.0" cy="118.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="42.0" y="123.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">N</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div><div class="prob"><div class="ph"><span class="no">1-6</span><span class="tag t-응용">응용</span><span class="ti">넓이 조건으로 무게중심의 위치 추측하기</span></div><div class="pb">선분 <span class="ov">BC</span>와 세로 직선 ℓ이 있습니다. △<i class="m">ABC</i>의 무게중심 <i class="m">G</i>는 직선 ℓ 위에 있고, △<i class="m">GBC</i>의 넓이는 6입니다. (모눈 한 칸 = 1)<ol class='sub'><li>점 <i class="m">G</i>와 꼭짓점 <i class="m">A</i>를 찾아 △<i class="m">ABC</i>를 그리시오.</li><li>△<i class="m">ABC</i>의 넓이를 구하고, 어떤 삼각형인지 쓰시오.</li></ol></div><div class="pf"><svg viewBox="0 0 202 185" width="202" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="169" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="169" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="169" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="169" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="169" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="169" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="169" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="169" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="169" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="169" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="169" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="186" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="186" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="186" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="186" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="186" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="186" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="186" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="186" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="186" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50.0" y1="152.0" x2="152.0" y2="152.0" stroke="#1b1f2a" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="50.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="44.0" y="167.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="152.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="158.0" y="167.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">C</text>
+<line x1="118.0" y1="169.0" x2="118.0" y2="16.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="6 4" stroke-linecap="round"/>
+<text x="126.0" y="28.0" text-anchor="middle" class="lbl" font-size="14" fill="#1c7ed6">ℓ</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+<div class="row"><div class="prob"><div class="ph"><span class="no">1-7</span><span class="tag t-도전">도전</span><span class="ti">직각삼각형 조건이 붙은 경우</span></div><div class="pb">꼭짓점 <i class="m">A</i>와 무게중심 <i class="m">G</i>가 있습니다. △<i class="m">ABC</i>가 <b>∠B = 90°</b>이고 변 <span class="ov">AB</span>가 모눈의 가로선 위에 있을 때, △<i class="m">ABC</i>를 그리시오. 또 이 삼각형은 어떤 삼각형인지 쓰시오.</div><div class="pf"><svg viewBox="0 0 185 185" width="185" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="169" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="169" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="169" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="169" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="169" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="169" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="169" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="169" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="169" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="169" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="169" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="169" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="169" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="169" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="169" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="169" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="169" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="169" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="169" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="33.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="27.0" y="167.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="101.0" cy="118.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="101.0" y="109.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+</section>
+
+<section class="page">
+<h2>PART 2 <small>무게중심의 성질로 '다른 방법으로' 삼각형 그리기 (평가 ② 8점 대비)</small></h2>
+<div class="prob wide"><div class="ph"><span class="no">2-1</span><span class="tag t-기본">기본</span><span class="ti">같은 꼭짓점을 세 가지 방법으로 찾기</span></div><div class="pb">두 꼭짓점 <i class="m">A</i>, <i class="m">B</i>와 무게중심 <i class="m">G</i>가 주어졌습니다. 꼭짓점 <i class="m">C</i>를 <b>[방법 A] <span class="ov">AB</span>의 중점 이용</b>, <b>[방법 C] 다른 중선(<i class="m">B</i>에서 그은 중선) 이용</b>, <b>[방법 D] 평행사변형 이용</b>의 세 가지 방법으로 각각 찾고, 모두 같은 점이 나오는지 확인하시오. 각 방법에서 이용한 성질도 한 줄씩 쓰시오.</div><div class="pf"><svg viewBox="0 0 236 236" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="220" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="220" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="220" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="220" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="220" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="220" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="220" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="220" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="220" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="220" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="220" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="220" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="220" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="220" x2="220" y2="220" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="203" x2="220" y2="203" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="220" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="220" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="220" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="220" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="50.0" cy="203.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="44.0" y="218.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="186.0" cy="169.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="192.0" y="184.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="118.0" cy="135.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="110.0" y="140.0" text-anchor="end" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="prob wide"><div class="ph"><span class="no">2-2</span><span class="tag t-기본">기본</span><span class="ti">조건을 만족하는 서로 다른 삼각형 그리기</span></div><div class="pb">꼭짓점 <i class="m">A</i>와 무게중심 <i class="m">G</i>만 주어졌습니다. (꼭짓점은 모두 모눈의 꼭짓점에 오도록)<ol class='sub'><li>조건을 만족하는 △<i class="m">ABC</i>를 <b>서로 다른 모양으로 2개</b> 그리시오.</li><li>이런 삼각형이 여러 개 존재하는 이유를 설명하시오.</li><li>(도전) 그중 ∠<i class="m">B</i> = 90°인 삼각형을 찾으시오.</li></ol></div><div class="pf"><svg viewBox="0 0 236 219" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="203" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="203" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="203" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="203" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="203" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="203" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="203" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="203" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="203" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="203" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="203" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="203" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="203" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="203" x2="220" y2="203" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="220" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="220" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="220" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="220" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="67.0" cy="50.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="67.0" y="41.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="101.0" cy="118.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="109.0" y="123.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="row"><div class="prob"><div class="ph"><span class="no">2-3</span><span class="tag t-응용">응용</span><span class="ti">평행사변형(점대칭)을 이용하는 방법</span></div><div class="pb">두 꼭짓점 <i class="m">A</i>, <i class="m">B</i>와 무게중심 <i class="m">G</i>가 있습니다.<ol class='sub'><li><i class="m">A</i>를 <i class="m">G</i>에 대하여 대칭이동한 점 <i class="m">D</i>를 찍으시오.</li><li>□<i class="m">GBDC</i>가 평행사변형이 되도록 점 <i class="m">C</i>를 찾아 △<i class="m">ABC</i>를 그리시오.</li><li>이렇게 그리면 <i class="m">G</i>가 △<i class="m">ABC</i>의 무게중심이 되는 이유를 설명하시오.</li></ol></div><div class="pf"><svg viewBox="0 0 219 185" width="219" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="169" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="169" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="169" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="169" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="169" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="169" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="169" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="169" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="169" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="169" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="169" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="169" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="203" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="203" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="203" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="203" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="203" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="203" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="203" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="203" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="203" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="33.0" cy="50.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="27.0" y="44.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="84.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="84.0" y="169.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="101.0" cy="84.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="101.0" y="75.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+<div class="prob wide"><div class="ph"><span class="no">2-4</span><span class="tag t-응용">응용</span><span class="ti">모눈 없이 자와 컴퍼스로 두 가지 방법</span></div><div class="pb">모눈이 없는 종이에 두 꼭짓점 <i class="m">A</i>, <i class="m">B</i>와 무게중심 <i class="m">G</i>가 있습니다. 자와 컴퍼스를 사용하여 꼭짓점 <i class="m">C</i>를 <b>서로 다른 두 가지 방법</b>으로 찾고, 작도 순서를 쓰시오. (모눈이 없으므로 칸 세기를 쓸 수 없습니다!)</div><div class="pf"><svg viewBox="0 0 236 168" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="8.0" y="8.0" width="220" height="152" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<circle cx="36.4" cy="39.8" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="36.4" y="30.8" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="50.0" cy="135.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="50.0" y="152.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="94.2" cy="94.2" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="94.2" y="85.2" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="row"><div class="prob"><div class="ph"><span class="no">2-5</span><span class="tag t-도전">도전</span><span class="ti">넓이가 같은 삼각형들의 무게중심 추측하기</span></div><div class="pb">선분 <span class="ov">BC</span>가 있습니다. (모눈 한 칸 = 1)<ol class='sub'><li>넓이가 18이고 무게중심이 모눈의 꼭짓점에 오는 △<i class="m">ABC</i>를 <b>서로 다른 방법(모양)으로 2개 이상</b> 그리시오.</li><li>그린 삼각형들의 무게중심은 어떤 위치에 놓이는지 추측하고, 그 이유를 쓰시오.</li></ol></div><div class="pf"><svg viewBox="0 0 236 202" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="186" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="186" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="186" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="186" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="186" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="186" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="186" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="186" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="186" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="186" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="186" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="186" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="186" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="186" x2="220" y2="186" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="220" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="220" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="220" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50.0" y1="152.0" x2="152.0" y2="152.0" stroke="#1b1f2a" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="50.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="44.0" y="167.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="152.0" cy="152.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="158.0" y="167.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">C</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+</section>
+
+<section class="page">
+<h2>PART 3 <small>피타고라스 정리로 주어진 넓이와 같은 도형 그리기 (평가 ③ 4점 대비)</small></h2>
+<div class="prob wide"><div class="ph"><span class="no">3-1</span><span class="tag t-기본">기본</span><span class="ti">넓이가 5, 10, 13인 정사각형</span></div><div class="pb">모눈종이 위에 넓이가 각각 <b>5, 10, 13</b>인 정사각형을 그리시오. (단, 정사각형의 꼭짓점은 모두 모눈의 꼭짓점이고, 모눈 한 칸의 넓이는 1)</div><div class="pf"><svg viewBox="0 0 304 134" width="304" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="118" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="118" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="118" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="118" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="118" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="118" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="118" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="118" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="118" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="118" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="118" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="118" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="118" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="237" y1="118" x2="237" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="254" y1="118" x2="254" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="271" y1="118" x2="271" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="288" y1="118" x2="288" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="288" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="288" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="288" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="288" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="288" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="288" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="288" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="prob wide"><div class="ph"><span class="no">3-2</span><span class="tag t-기본">기본</span><span class="ti">넓이 8, 18인 정사각형과 '기울어진' 넓이 25인 정사각형</span></div><div class="pb">모눈종이 위에 넓이가 <b>8, 18</b>인 정사각형을 그리시오. 또 넓이가 <b>25</b>이면서 <b>변이 모눈선과 평행하지 않은</b> 정사각형을 그리시오. (꼭짓점은 모눈의 꼭짓점)</div><div class="pf"><svg viewBox="0 0 355 168" width="355" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="152" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="152" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="152" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="152" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="152" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="152" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="152" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="152" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="152" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="152" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="152" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="152" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="152" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="237" y1="152" x2="237" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="254" y1="152" x2="254" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="271" y1="152" x2="271" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="288" y1="152" x2="288" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="305" y1="152" x2="305" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="322" y1="152" x2="322" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="339" y1="152" x2="339" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="339" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="339" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="339" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="339" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="339" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="339" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="339" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="339" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="339" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="prob wide"><div class="ph"><span class="no">3-3</span><span class="tag t-응용">응용</span><span class="ti">두 정사각형의 넓이의 합·차와 같은 정사각형</span></div><div class="pb">모눈종이 위에 정사각형 <i class="m">P</i>(넓이 4)와 <i class="m">Q</i>(넓이 9)가 있습니다. 피타고라스 정리를 이용하여 <ol class='sub'><li><i class="m">P</i>와 <i class="m">Q</i>의 넓이의 <b>합</b>과 같은 넓이의 정사각형</li><li><i class="m">Q</i>의 넓이에서 <i class="m">P</i>의 넓이를 <b>뺀</b> 것과 같은 넓이의 정사각형</li></ol>을 각각 그리시오.</div><div class="pf"><svg viewBox="0 0 321 151" width="321" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="135" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="135" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="135" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="135" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="135" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="135" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="135" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="135" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="135" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="135" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="135" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="135" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="135" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="237" y1="135" x2="237" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="254" y1="135" x2="254" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="271" y1="135" x2="271" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="288" y1="135" x2="288" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="305" y1="135" x2="305" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="305" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="305" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="305" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="305" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="305" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="305" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="305" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="305" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="33.0,118.0 67.0,118.0 67.0,84.0 33.0,84.0" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="84.0,118.0 135.0,118.0 135.0,67.0 84.0,67.0" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="50.0" y="106.0" text-anchor="middle" class="lbl" font-size="14" fill="#2b8a3e">P</text>
+<text x="109.5" y="97.5" text-anchor="middle" class="lbl" font-size="14" fill="#2b8a3e">Q</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="prob wide"><div class="ph"><span class="no">3-4</span><span class="tag t-응용">응용</span><span class="ti">주어진 도형과 넓이가 같은 정사각형</span></div><div class="pb">(1) 직사각형과 넓이가 같은 정사각형, (2) 평행사변형과 넓이가 같은 정사각형을 각각 모눈종이 위에 그리시오. (꼭짓점은 모눈의 꼭짓점)</div><div class="pf"><div class='duo'><div><svg viewBox="0 0 236 117" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="101" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="101" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="101" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="101" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="101" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="101" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="101" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="101" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="101" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="101" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="101" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="101" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="101" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="33.0,84.0 118.0,84.0 118.0,50.0 33.0,50.0" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+</svg><p>(1)</p></div><div><svg viewBox="0 0 270 151" width="270" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="135" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="135" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="135" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="135" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="135" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="135" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="135" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="135" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="135" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="135" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="135" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="135" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="135" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="237" y1="135" x2="237" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="254" y1="135" x2="254" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="254" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="254" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="254" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="254" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="254" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="254" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="254" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="254" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="33.0,118.0 101.0,118.0 118.0,33.0 50.0,33.0" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+</svg><p>(2)</p></div></div></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="row"><div class="prob"><div class="ph"><span class="no">3-5</span><span class="tag t-응용">응용</span><span class="ti">넓이가 주어진 직각이등변삼각형</span></div><div class="pb">모눈종이 위에 다음 조건에 맞는 직각이등변삼각형을 그리시오. (꼭짓점은 모눈의 꼭짓점)<ol class='sub'><li>넓이가 5이고, 길이가 같은 두 변이 모눈선과 평행하지 않은 것</li><li>넓이가 4이고, 길이가 같은 두 변이 모눈선과 평행하지 않은 것</li></ol></div><div class="pf"><svg viewBox="0 0 236 134" width="236" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="118" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="118" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="118" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="118" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="118" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="118" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="118" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="118" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="118" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="118" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="118" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="118" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="118" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="220" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="220" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="220" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="220" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="220" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="220" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div></div>
+<div class="prob wide"><div class="ph"><span class="no">3-6</span><span class="tag t-도전">도전</span><span class="ti">모눈 없이 작도로 넓이의 합·차 만들기</span></div><div class="pb">모눈이 없는 종이에 정사각형 <i class="m">P</i>, <i class="m">Q</i>, <i class="m">R</i>가 있습니다. 자와 컴퍼스(또는 삼각자)를 이용하여<ol class='sub'><li><i class="m">P</i>와 <i class="m">Q</i>의 넓이의 합과 같은 넓이의 정사각형</li><li><i class="m">R</i>의 넓이에서 <i class="m">P</i>의 넓이를 뺀 것과 같은 넓이의 정사각형</li></ol>을 그리고, 그리는 순서를 쓰시오.</div><div class="pf"><svg viewBox="0 0 340 164" width="340" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="8.0" y="8.0" width="324" height="148" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<polygon points="33.6,130.4 86.4,130.4 86.4,77.6 33.6,77.6" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="60.0" y="109.0" text-anchor="middle" class="lbl" font-size="14" fill="#2b8a3e">P</text>
+<polygon points="108.4,130.4 178.8,130.4 178.8,60.0 108.4,60.0" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="143.6" y="100.2" text-anchor="middle" class="lbl" font-size="14" fill="#2b8a3e">Q</text>
+<polygon points="205.2,134.8 304.2,134.8 304.2,35.8 205.2,35.8" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="254.7" y="90.3" text-anchor="middle" class="lbl" font-size="14" fill="#2b8a3e">R</text>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+<div class="prob wide"><div class="ph"><span class="no">3-7</span><span class="tag t-도전">도전</span><span class="ti">넓이가 2배, 절반인 정사각형</span></div><div class="pb">모눈종이 위의 정사각형(넓이 16)을 보고, 넓이가 이 정사각형의 <b>절반</b>인 정사각형과 <b>2배</b>인 정사각형을 각각 그리시오. 또 그렇게 되는 이유를 피타고라스 정리로 설명하시오.</div><div class="pf"><svg viewBox="0 0 304 185" width="304" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="169" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="33" y1="169" x2="33" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="50" y1="169" x2="50" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="169" x2="67" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="169" x2="84" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="101" y1="169" x2="101" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="118" y1="169" x2="118" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="135" y1="169" x2="135" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="152" y1="169" x2="152" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="169" y1="169" x2="169" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="186" y1="169" x2="186" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="203" y1="169" x2="203" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="169" x2="220" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="237" y1="169" x2="237" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="254" y1="169" x2="254" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="271" y1="169" x2="271" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="288" y1="169" x2="288" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="169" x2="288" y2="169" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="152" x2="288" y2="152" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="135" x2="288" y2="135" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="118" x2="288" y2="118" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="101" x2="288" y2="101" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="84" x2="288" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="67" x2="288" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="50" x2="288" y2="50" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="33" x2="288" y2="33" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="288" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="33.0,152.0 101.0,152.0 101.0,84.0 33.0,84.0" stroke="#2b8a3e" stroke-width="1.8" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+</svg></div><div class="write">풀이 과정 / 이용한 성질 :</div></div>
+</section>
+
+<section class="page mock">
+<h2>PART 4 <small>실전 모의 수행평가 (20점) — 제한 시간 30분, 자와 컴퍼스 사용</small></h2>
+<div class="row">
+<div class="prob"><div class="ph"><span class="no">문항 1</span><span class="tag t-응용">8점</span></div>
+<div class="pb">꼭짓점 <i class="m">A</i>와 △<i class="m">ABC</i>의 무게중심 <i class="m">G</i>가 있다. 변 <span class="ov">BC</span>가 <b>모눈의 세로선 위</b>에 있고 길이가 <b>8칸</b>인 △<i class="m">ABC</i>를 그리고, 무게중심의 성질을 이용하여 그리는 과정을 설명하시오.</div>
+<div class="pf"><svg viewBox="0 0 222 222" width="222" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="206" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="35" y1="206" x2="35" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="54" y1="206" x2="54" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="73" y1="206" x2="73" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="92" y1="206" x2="92" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="206" x2="111" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="130" y1="206" x2="130" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="149" y1="206" x2="149" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="168" y1="206" x2="168" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="187" y1="206" x2="187" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="206" y1="206" x2="206" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="206" x2="206" y2="206" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="187" x2="206" y2="187" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="168" x2="206" y2="168" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="149" x2="206" y2="149" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="130" x2="206" y2="130" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="111" x2="206" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="92" x2="206" y2="92" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="73" x2="206" y2="73" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="54" x2="206" y2="54" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="35" x2="206" y2="35" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="206" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="54.0" cy="168.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="48.0" y="183.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="130.0" cy="130.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="130.0" y="121.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write" style="min-height:24mm">설명 :</div></div>
+<div class="prob"><div class="ph"><span class="no">문항 2</span><span class="tag t-응용">8점</span></div>
+<div class="pb">문항 1과 같은 점 <i class="m">A</i>, <i class="m">G</i>를 이용하여, <b>문항 1과 다른 방법으로</b> △<i class="m">ABC</i>를 그리되 이번에는 <b>∠B = 90°</b>가 되도록 하시오. 어떤 방법(성질)을 썼는지 설명하시오.</div>
+<div class="pf"><svg viewBox="0 0 222 222" width="222" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="206" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="35" y1="206" x2="35" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="54" y1="206" x2="54" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="73" y1="206" x2="73" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="92" y1="206" x2="92" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="206" x2="111" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="130" y1="206" x2="130" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="149" y1="206" x2="149" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="168" y1="206" x2="168" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="187" y1="206" x2="187" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="206" y1="206" x2="206" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="206" x2="206" y2="206" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="187" x2="206" y2="187" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="168" x2="206" y2="168" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="149" x2="206" y2="149" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="130" x2="206" y2="130" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="111" x2="206" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="92" x2="206" y2="92" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="73" x2="206" y2="73" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="54" x2="206" y2="54" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="35" x2="206" y2="35" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="206" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<circle cx="54.0" cy="168.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="48.0" y="183.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="130.0" cy="130.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="130.0" y="121.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+</svg></div><div class="write" style="min-height:24mm">설명 :</div></div>
+</div>
+<div class="row">
+<div class="prob"><div class="ph"><span class="no">문항 3</span><span class="tag t-기본">4점</span></div>
+<div class="pb">직각삼각형의 두 변 위에 넓이가 16, 9인 정사각형이 있다. <b>빗변을 한 변으로 하는 정사각형</b>을 그리고, 그 넓이가 두 정사각형 넓이의 합과 같음을 모눈의 칸 수를 이용하여 확인하시오.</div>
+<div class="pf"><svg viewBox="0 0 224 224" width="224" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="208" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="32" y1="208" x2="32" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="48" y1="208" x2="48" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="64" y1="208" x2="64" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="80" y1="208" x2="80" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="96" y1="208" x2="96" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="112" y1="208" x2="112" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="128" y1="208" x2="128" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="208" x2="144" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="160" y1="208" x2="160" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="176" y1="208" x2="176" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="192" y1="208" x2="192" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="208" y1="208" x2="208" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="208" x2="208" y2="208" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="192" x2="208" y2="192" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="176" x2="208" y2="176" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="160" x2="208" y2="160" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="144" x2="208" y2="144" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="128" x2="208" y2="128" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="112" x2="208" y2="112" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="96" x2="208" y2="96" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="80" x2="208" y2="80" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="64" x2="208" y2="64" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="48" x2="208" y2="48" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="32" x2="208" y2="32" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="208" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="80.0,144.0 144.0,144.0 80.0,96.0" stroke="#1b1f2a" stroke-width="1.8" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polyline points="89.0,144.0 89.0,135.0 80.0,135.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+<polygon points="80.0,208.0 144.0,208.0 144.0,144.0 80.0,144.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="32.0,144.0 80.0,144.0 80.0,96.0 32.0,96.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="112.0" y="181.0" text-anchor="middle" class="t" font-size="12" fill="#2b8a3e">16</text>
+<text x="56.0" y="125.0" text-anchor="middle" class="t" font-size="12" fill="#2b8a3e">9</text>
+</svg></div><div class="write">확인 :</div></div>
+<div>
+<h3 style="margin-top:0">자기 채점표</h3>
+<table class="check">
+<tr><th>평가 항목</th><th>체크 포인트</th><th>✔</th></tr>
+<tr><td rowspan="3">문항 1<br>(8점)</td><td><span class="ov">BC</span>의 중점 M을 2:1 성질로 정확히 찾았다</td><td class="c">□</td></tr>
+<tr><td><span class="ov">BC</span>가 세로선 위, 길이 8, M이 중점</td><td class="c">□</td></tr>
+<tr><td>이용한 성질을 문장으로 썼다</td><td class="c">□</td></tr>
+<tr><td rowspan="3">문항 2<br>(8점)</td><td>문항 1과 <b>다른 방법</b>을 썼다 (예: 평행사변형, 다른 중선)</td><td class="c">□</td></tr>
+<tr><td>∠B = 90°, G가 무게중심인지 검산했다</td><td class="c">□</td></tr>
+<tr><td>방법의 차이를 설명했다</td><td class="c">□</td></tr>
+<tr><td rowspan="2">문항 3<br>(4점)</td><td>빗변 위에 정사각형을 정확히 그렸다</td><td class="c">□</td></tr>
+<tr><td>49 − 4×6 = 25 = 16 + 9 확인</td><td class="c">□</td></tr>
+<tr><th colspan="2" style="text-align:right">나의 예상 점수</th><td class="c" style="font-size:9pt">/20</td></tr>
+</table>
+</div>
+</div>
+</section>
+
+<section class="page">
+<h2>정답 및 해설 <small>PART 1</small></h2>
+<p class="legend">그림 색: <b class="s">빨강 = 정답 도형</b> · <b class="a">파랑 = 보조선/무게중심</b> · <b class="g">초록 = 주어진 도형</b> · 같은 표시(｜, ‖)는 같은 길이</p>
+<div class="row"><div class="sol"><div class="sh"><span class="no">1-1</span>두 꼭짓점과 무게중심으로 나머지 꼭짓점 찾기</div><div class="sf"><svg viewBox="0 0 182 212" width="182" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="196" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="196" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="196" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="196" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="196" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="196" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="196" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="196" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="196" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="196" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="196" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="196" x2="166" y2="196" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="181" x2="166" y2="181" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="166" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="166" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="166" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="166" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="166" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="166" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="166" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="166" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="166" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="166" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31.0" y1="166.0" x2="121.0" y2="166.0" stroke="#1b1f2a" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="31.0,166.0 121.0,166.0 121.0,31.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="76.0" y1="166.0" x2="121.0" y2="31.0" stroke="#1c7ed6" stroke-width="1.3" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="53.5" y1="171.0" x2="53.5" y2="161.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="98.5" y1="171.0" x2="98.5" y2="161.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="31.0" cy="166.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="25.0" y="181.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="121.0" cy="166.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="127.0" y="181.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="76.0" cy="166.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="76.0" y="183.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<circle cx="91.0" cy="121.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="83.0" y="126.0" text-anchor="end" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="121.0" cy="31.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="121.0" y="22.0" text-anchor="middle" class="lbl" font-size="15" fill="#d6336c">C</text>
+<polyline points="112.0,166.0 112.0,157.0 121.0,157.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+</svg></div><div class="st">① <span class="ov">AB</span>의 중점 <i class="m">M</i>을 찾습니다(A에서 오른쪽 3칸).<br>② <i class="m">M</i>→<i class="m">G</i>: 오른쪽 1칸, 위로 3칸. 무게중심은 중선을 2:1로 나누므로 <span class="ov">GC</span> = 2<span class="ov">MG</span><br>&nbsp;&nbsp;&nbsp;→ <i class="m">G</i>에서 오른쪽 2칸, 위로 6칸 간 곳이 <i class="m">C</i>입니다.<br>③ <span class="ov">AB</span>는 가로, <span class="ov">BC</span>는 세로 → <b>∠B = 90°인 직각삼각형</b><br>&nbsp;&nbsp;&nbsp;△ABC = 6×9÷2 = <b>27</b>, △GAB = 27÷3 = <b>9</b> (확인: 6×3÷2 = 9)</div></div><div class="sol"><div class="sh"><span class="no">1-2</span>한 꼭짓점과 무게중심 + 변의 조건</div><div class="sf"><svg viewBox="0 0 212 212" width="212" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="196" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="196" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="196" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="196" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="196" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="196" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="196" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="196" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="196" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="196" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="196" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="196" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="196" y1="196" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="196" x2="196" y2="196" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="181" x2="196" y2="181" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="196" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="196" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="196" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="196" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="196" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="196" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="196" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="196" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="196" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="196" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="61.0,46.0 46.0,136.0 166.0,136.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="61.0" y1="46.0" x2="106.0" y2="136.0" stroke="#1c7ed6" stroke-width="1.3" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="74.0" y1="141.0" x2="74.0" y2="131.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="78.0" y1="141.0" x2="78.0" y2="131.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="134.0" y1="141.0" x2="134.0" y2="131.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="138.0" y1="141.0" x2="138.0" y2="131.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="61.0" cy="46.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="61.0" y="37.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="91.0" cy="106.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="99.0" y="111.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="106.0" cy="136.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="106.0" y="153.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<circle cx="46.0" cy="136.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="40.0" y="151.0" text-anchor="end" class="lbl" font-size="15" fill="#d6336c">B</text>
+<circle cx="166.0" cy="136.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="172.0" y="151.0" text-anchor="start" class="lbl" font-size="15" fill="#d6336c">C</text>
+</svg></div><div class="st">① <i class="m">A</i>→<i class="m">G</i>: 오른쪽 2칸, 아래로 4칸.<br>② <span class="ov">AG</span> : <span class="ov">GM</span> = 2 : 1 이므로 <i class="m">G</i>에서 그 절반(오른쪽 1칸, 아래로 2칸)만큼 더 가면 <span class="ov">BC</span>의 중점 <i class="m">M</i>입니다.<br>③ <i class="m">M</i>을 지나는 가로선 위에서 <i class="m">M</i>의 왼쪽·오른쪽으로 4칸씩 → <i class="m">B</i>, <i class="m">C</i></div></div></div>
+<div class="row"><div class="sol"><div class="sh"><span class="no">1-3</span>한 꼭짓점, 변의 중점, 무게중심</div><div class="sf"><svg viewBox="0 0 212 197" width="212" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="181" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="181" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="181" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="181" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="181" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="181" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="181" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="181" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="181" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="181" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="181" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="181" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="196" y1="181" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="181" x2="196" y2="181" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="196" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="196" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="196" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="196" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="196" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="196" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="196" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="196" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="196" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="196" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="61.0,46.0 46.0,151.0 166.0,121.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="61.0" y1="46.0" x2="106.0" y2="136.0" stroke="#1c7ed6" stroke-width="1.3" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="77.2" y1="148.4" x2="74.8" y2="138.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="137.2" y1="133.4" x2="134.8" y2="123.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="46.0" cy="151.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="40.0" y="166.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="106.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="112.0" y="151.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">M</text>
+<circle cx="91.0" cy="106.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="99.0" y="111.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="61.0" cy="46.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="61.0" y="37.0" text-anchor="middle" class="lbl" font-size="15" fill="#d6336c">A</text>
+<circle cx="166.0" cy="121.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="174.0" y="126.0" text-anchor="start" class="lbl" font-size="15" fill="#d6336c">C</text>
+</svg></div><div class="st">① <i class="m">M</i>은 <span class="ov">BC</span>의 중점 → <i class="m">B</i>→<i class="m">M</i>(오른쪽 4, 위 1)만큼 한 번 더 가면 <i class="m">C</i><br>② <span class="ov">AG</span> = 2<span class="ov">GM</span> → <i class="m">M</i>→<i class="m">G</i>(왼쪽 1, 위 2)의 2배만큼 <i class="m">G</i>에서 더 가면 <i class="m">A</i> (왼쪽 2, 위 4)</div></div><div class="sol"><div class="sh"><span class="no">1-4</span>두 변의 중점과 무게중심만으로 삼각형 추측하기</div><div class="sf"><svg viewBox="0 0 182 182" width="182" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="166" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="166" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="166" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="166" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="166" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="166" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="166" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="166" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="166" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="166" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="166" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="166" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="166" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="166" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="166" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="166" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="166" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="166" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="166" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="166" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="166" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="31.0,31.0 91.0,151.0 151.0,91.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="31.0" y1="31.0" x2="121.0" y2="121.0" stroke="#1c7ed6" stroke-width="1.3" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="91.0" y1="151.0" x2="91.0" y2="61.0" stroke="#1c7ed6" stroke-width="1.3" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="109.5" y1="139.5" x2="102.5" y2="132.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="139.5" y1="109.5" x2="132.5" y2="102.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="125.0" y1="72.4" x2="120.6" y2="81.4" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="121.4" y1="70.6" x2="117.0" y2="79.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="65.0" y1="42.4" x2="60.6" y2="51.4" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="61.4" y1="40.6" x2="57.0" y2="49.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="121.0" cy="121.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="127.0" y="136.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">M</text>
+<circle cx="91.0" cy="61.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="97.0" y="55.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">N</text>
+<circle cx="91.0" cy="91.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="83.0" y="96.0" text-anchor="end" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="31.0" cy="31.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="25.0" y="25.0" text-anchor="end" class="lbl" font-size="15" fill="#d6336c">A</text>
+<circle cx="91.0" cy="151.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="91.0" y="168.0" text-anchor="middle" class="lbl" font-size="15" fill="#d6336c">B</text>
+<circle cx="151.0" cy="91.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="159.0" y="96.0" text-anchor="start" class="lbl" font-size="15" fill="#d6336c">C</text>
+</svg></div><div class="st">① 중선 <span class="ov">AM</span>: <i class="m">M</i>→<i class="m">G</i>(왼 2, 위 2)의 2배를 <i class="m">G</i>에서 더 가면 <i class="m">A</i><br>② 중선 <span class="ov">BN</span>: <i class="m">N</i>→<i class="m">G</i>(아래 2)의 2배를 <i class="m">G</i>에서 더 가면 <i class="m">B</i><br>③ <i class="m">M</i>은 <span class="ov">BC</span>의 중점 → <i class="m">B</i>→<i class="m">M</i>만큼 한 번 더 가면 <i class="m">C</i><br>④ <b>검산</b>: <i class="m">N</i>이 <span class="ov">CA</span>의 중점인지 확인 (A→N과 N→C가 같은 이동인지)</div></div></div>
+<div class="row"><div class="sol"><div class="sh"><span class="no">1-5</span>세 변의 중점으로 원래 삼각형 되살리기</div><div class="sf"><svg viewBox="0 0 212 212" width="212" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="196" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="196" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="196" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="196" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="196" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="196" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="196" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="196" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="196" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="196" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="196" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="196" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="196" y1="196" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="196" x2="196" y2="196" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="181" x2="196" y2="181" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="196" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="196" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="196" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="196" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="196" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="196" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="196" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="196" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="196" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="196" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="31.0,181.0 181.0,151.0 61.0,31.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polygon points="106.0,166.0 121.0,91.0 46.0,106.0" stroke="#1c7ed6" stroke-width="1.2" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<line x1="31.0" y1="181.0" x2="121.0" y2="91.0" stroke="#1b1f2a" stroke-width="0.9" stroke-dasharray="2 3" stroke-linecap="round"/>
+<line x1="181.0" y1="151.0" x2="46.0" y2="106.0" stroke="#1b1f2a" stroke-width="0.9" stroke-dasharray="2 3" stroke-linecap="round"/>
+<line x1="61.0" y1="31.0" x2="106.0" y2="166.0" stroke="#1b1f2a" stroke-width="0.9" stroke-dasharray="2 3" stroke-linecap="round"/>
+<circle cx="106.0" cy="166.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="106.0" y="183.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">L</text>
+<circle cx="121.0" cy="91.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="129.0" y="96.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">M</text>
+<circle cx="46.0" cy="106.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="38.0" y="111.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">N</text>
+<circle cx="91.0" cy="121.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="97.0" y="136.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="31.0" cy="181.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="25.0" y="196.0" text-anchor="end" class="lbl" font-size="15" fill="#d6336c">A</text>
+<circle cx="181.0" cy="151.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="189.0" y="156.0" text-anchor="start" class="lbl" font-size="15" fill="#d6336c">B</text>
+<circle cx="61.0" cy="31.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="61.0" y="22.0" text-anchor="middle" class="lbl" font-size="15" fill="#d6336c">C</text>
+</svg></div><div class="st">① 삼각형의 두 변의 중점을 연결한 선분은 나머지 변과 평행하고 길이는 절반입니다.<br>&nbsp;&nbsp;&nbsp;→ □<i class="m">ALMN</i>, □<i class="m">LBMN</i>, □<i class="m">LMCN</i>은 모두 평행사변형<br>&nbsp;&nbsp;&nbsp;→ <i class="m">A</i> = <i class="m">N</i>에서 (M→L 이동)만큼, <i class="m">B</i> = <i class="m">M</i>에서 (N→L 이동)만큼, <i class="m">C</i> = <i class="m">M</i>에서 (L→N 이동)만큼<br>② 중선 <span class="ov">AM</span>, <span class="ov">BN</span>, <span class="ov">CL</span>의 교점이 <i class="m">G</i>. <b>△LMN의 무게중심도 같은 점 G</b>입니다.</div></div><div class="sol"><div class="sh"><span class="no">1-6</span>넓이 조건으로 무게중심의 위치 추측하기</div><div class="sf"><svg viewBox="0 0 182 167" width="182" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="151" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="151" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="151" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="151" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="151" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="151" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="151" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="151" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="151" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="151" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="151" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="166" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="166" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="166" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="166" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="166" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="166" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="166" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="166" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="166" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106.0" y1="151.0" x2="106.0" y2="16.0" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="6 4" stroke-linecap="round"/>
+<polygon points="136.0,46.0 46.0,136.0 136.0,136.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polygon points="106.0,106.0 46.0,136.0 136.0,136.0" stroke="#1c7ed6" stroke-width="1" fill="#a5d8ff" fill-opacity="0.5" stroke-linejoin="round"/>
+<line x1="136.0" y1="46.0" x2="91.0" y2="136.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+<circle cx="46.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="40.0" y="151.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="136.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="142.0" y="151.0" text-anchor="start" class="lbl" font-size="15" fill="#1b1f2a">C</text>
+<circle cx="91.0" cy="136.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="91.0" y="153.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<circle cx="106.0" cy="106.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="98.0" y="111.0" text-anchor="end" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="136.0" cy="46.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="136.0" y="37.0" text-anchor="middle" class="lbl" font-size="15" fill="#d6336c">A</text>
+<polyline points="127.0,136.0 127.0,127.0 136.0,127.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+</svg></div><div class="st">① <span class="ov">BC</span> = 6, △GBC = 6 → <i class="m">G</i>의 높이 = 6×2÷6 = 2 → ℓ 위에서 <span class="ov">BC</span>보다 2칸 위가 <i class="m">G</i><br>② <span class="ov">BC</span>의 중점 <i class="m">M</i>→<i class="m">G</i>(오른 1, 위 2)의 2배를 <i class="m">G</i>에서 더 가면 <i class="m">A</i><br>③ △ABC = 3 × △GBC = <b>18</b> (확인: 6×6÷2) / <span class="ov">AC</span>가 세로 → <b>∠C = 90°인 직각삼각형</b></div></div></div>
+<div class="row"><div class="sol"><div class="sh"><span class="no">1-7</span>직각삼각형 조건이 붙은 경우</div><div class="sf"><svg viewBox="0 0 167 167" width="167" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="151" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="151" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="151" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="151" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="151" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="151" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="151" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="151" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="151" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="151" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="151" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="151" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="151" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="151" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="151" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="151" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="151" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="151" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="151" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="31.0,136.0 121.0,136.0 121.0,46.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="31.0" y1="136.0" x2="121.0" y2="91.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+<line x1="126.0" y1="113.5" x2="116.0" y2="113.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="126.0" y1="68.5" x2="116.0" y2="68.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="31.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="25.0" y="151.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="91.0" cy="106.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="91.0" y="97.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="121.0" cy="91.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="129.0" y="96.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<circle cx="121.0" cy="136.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="127.0" y="151.0" text-anchor="start" class="lbl" font-size="15" fill="#d6336c">B</text>
+<circle cx="121.0" cy="46.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="121.0" y="37.0" text-anchor="middle" class="lbl" font-size="15" fill="#d6336c">C</text>
+<polyline points="112.0,136.0 112.0,127.0 121.0,127.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+</svg></div><div class="st">① <i class="m">A</i>→<i class="m">G</i>(오른 4, 위 2)의 절반만큼 더 가면 <span class="ov">BC</span>의 중점 <i class="m">M</i><br>② <span class="ov">AB</span>가 가로이고 ∠B = 90° → <span class="ov">BC</span>는 세로. 따라서 <i class="m">B</i>는 <b><i class="m">A</i>의 가로줄</b>과 <b><i class="m">M</i>의 세로줄</b>이 만나는 점<br>③ <i class="m">C</i>는 <i class="m">M</i>에 대하여 <i class="m">B</i>와 대칭인 점 → AB = BC = 6, <b>직각이등변삼각형</b></div></div></div>
+</section>
+<section class="page">
+<h2>정답 및 해설 <small>PART 2</small></h2>
+<div class="sol wide"><div class="sh"><span class="no">2-1</span>같은 꼭짓점을 세 가지 방법으로 찾기</div><div class="sf"><div class='trio'><div><svg viewBox="0 0 156 156" width="156" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="144" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="144" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="144" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="144" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="144" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="144" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="144" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="144" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="144" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="144" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="144" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="144" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="144" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="144" x2="144" y2="144" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="133" x2="144" y2="133" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="122" x2="144" y2="122" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="111" x2="144" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="100" x2="144" y2="100" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="89" x2="144" y2="89" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="78" x2="144" y2="78" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="144" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="144" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="144" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="144" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="144" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="34.0,133.0 122.0,111.0 78.0,23.0" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="78.0" y1="122.0" x2="78.0" y2="23.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linecap="round"/>
+<circle cx="34.0" cy="133.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="28.0" y="148.0" text-anchor="end" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="122.0" cy="111.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="128.0" y="126.0" text-anchor="start" class="lbl" font-size="12" fill="#1b1f2a">B</text>
+<circle cx="78.0" cy="122.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="78.0" y="139.0" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">M</text>
+<circle cx="78.0" cy="89.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="70.0" y="94.0" text-anchor="end" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="78.0" cy="23.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="78.0" y="14.0" text-anchor="middle" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg><p>방법 A</p></div><div><svg viewBox="0 0 156 156" width="156" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="144" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="144" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="144" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="144" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="144" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="144" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="144" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="144" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="144" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="144" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="144" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="144" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="144" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="144" x2="144" y2="144" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="133" x2="144" y2="133" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="122" x2="144" y2="122" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="111" x2="144" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="100" x2="144" y2="100" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="89" x2="144" y2="89" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="78" x2="144" y2="78" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="144" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="144" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="144" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="144" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="144" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="34.0,133.0 122.0,111.0 78.0,23.0" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="122.0" y1="111.0" x2="56.0" y2="78.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="49.6" y1="107.4" x2="40.4" y2="103.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="71.6" y1="52.4" x2="62.4" y2="48.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="34.0" cy="133.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="28.0" y="148.0" text-anchor="end" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="122.0" cy="111.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="128.0" y="126.0" text-anchor="start" class="lbl" font-size="12" fill="#1b1f2a">B</text>
+<circle cx="56.0" cy="78.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="48.0" y="83.0" text-anchor="end" class="lbl" font-size="12" fill="#1c7ed6">N</text>
+<circle cx="78.0" cy="89.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="78.0" y="106.0" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="78.0" cy="23.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="78.0" y="14.0" text-anchor="middle" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg><p>방법 C</p></div><div><svg viewBox="0 0 156 156" width="156" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="144" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="144" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="144" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="144" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="144" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="144" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="144" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="144" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="144" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="144" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="144" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="144" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="144" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="144" x2="144" y2="144" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="133" x2="144" y2="133" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="122" x2="144" y2="122" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="111" x2="144" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="100" x2="144" y2="100" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="89" x2="144" y2="89" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="78" x2="144" y2="78" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="144" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="144" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="144" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="144" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="144" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="34.0,133.0 122.0,111.0 78.0,23.0" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="34.0" y1="133.0" x2="122.0" y2="45.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linecap="round"/>
+<polygon points="78.0,89.0 122.0,111.0 122.0,45.0 78.0,23.0" stroke="#1c7ed6" stroke-width="1" fill="#a5d8ff" fill-opacity="0.45" stroke-linejoin="round"/>
+<line x1="58.1" y1="115.9" x2="51.1" y2="108.9" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="60.9" y1="113.1" x2="53.9" y2="106.1" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="102.1" y1="71.9" x2="95.1" y2="64.9" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="104.9" y1="69.1" x2="97.9" y2="62.1" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="34.0" cy="133.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="28.0" y="148.0" text-anchor="end" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="122.0" cy="111.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="128.0" y="126.0" text-anchor="start" class="lbl" font-size="12" fill="#1b1f2a">B</text>
+<circle cx="78.0" cy="89.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="70.0" y="94.0" text-anchor="end" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="122.0" cy="45.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="130.0" y="50.0" text-anchor="start" class="lbl" font-size="12" fill="#1c7ed6">D</text>
+<circle cx="78.0" cy="23.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="78.0" y="14.0" text-anchor="middle" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg><p>방법 D</p></div></div></div><div class="st">[방법 A] <span class="ov">AB</span>의 중점 <i class="m">M</i>에서 <i class="m">G</i>까지 위로 3칸 → <i class="m">G</i>에서 위로 6칸 더 = <i class="m">C</i> <span class='why'>(무게중심은 중선을 2:1로 나눈다)</span><br>[방법 C] <i class="m">B</i>→<i class="m">G</i>(왼 4, 위 2)의 절반만큼 <i class="m">G</i>에서 더 가면 <span class="ov">AC</span>의 중점 <i class="m">N</i> → <i class="m">A</i>→<i class="m">N</i>만큼 한 번 더 = <i class="m">C</i> <span class='why'>(중점의 뜻)</span><br>[방법 D] <i class="m">A</i>를 <i class="m">G</i>에 대하여 대칭이동한 점 <i class="m">D</i>를 찍고, □<i class="m">GBDC</i>가 평행사변형이 되도록 <i class="m">C</i>를 잡습니다 <span class='why'>(평행사변형의 두 대각선은 서로를 이등분)</span><br>→ 세 방법 모두 같은 점 <i class="m">C</i>가 나옵니다.</div></div>
+<div class="sol wide"><div class="sh"><span class="no">2-2</span>조건을 만족하는 서로 다른 삼각형 그리기</div><div class="sf"><div class='duo'><div><svg viewBox="0 0 212 197" width="212" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="181" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="181" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="181" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="181" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="181" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="181" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="181" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="181" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="181" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="181" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="181" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="181" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="196" y1="181" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="181" x2="196" y2="181" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="196" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="196" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="196" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="196" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="196" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="196" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="196" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="196" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="196" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="196" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="61.0,46.0 46.0,136.0 166.0,136.0" stroke="#d6336c" stroke-width="1.8" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polygon points="61.0,46.0 76.0,166.0 136.0,106.0" stroke="#f08c00" stroke-width="1.8" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polygon points="61.0,46.0 106.0,181.0 106.0,91.0" stroke="#7048e8" stroke-width="1.8" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<circle cx="61.0" cy="46.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="61.0" y="37.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="91.0" cy="106.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="83.0" y="111.0" text-anchor="end" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="106.0" cy="136.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="112.0" y="151.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<text x="176.0" y="132.0" text-anchor="start" class="t" font-size="11" fill="#d6336c">(가)</text>
+<text x="144.0" y="106.0" text-anchor="start" class="t" font-size="11" fill="#f08c00">(나)</text>
+<text x="114.0" y="179.0" text-anchor="start" class="t" font-size="11" fill="#7048e8">(다)</text>
+</svg><p>(1) 예시 3가지</p></div><div><svg viewBox="0 0 156 145" width="156" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="133" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="133" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="133" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="133" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="133" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="133" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="133" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="133" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="133" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="133" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="133" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="133" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="133" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="133" x2="144" y2="133" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="122" x2="144" y2="122" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="111" x2="144" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="100" x2="144" y2="100" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="89" x2="144" y2="89" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="78" x2="144" y2="78" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="144" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="144" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="144" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="144" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="144" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="45.0,34.0 45.0,100.0 111.0,100.0" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polyline points="45.0,91.0 54.0,91.0 54.0,100.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+<circle cx="45.0" cy="34.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="45.0" y="25.0" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="67.0" cy="78.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="75.0" y="83.0" text-anchor="start" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="45.0" cy="100.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="39.0" y="115.0" text-anchor="end" class="lbl" font-size="12" fill="#d6336c">B</text>
+<circle cx="111.0" cy="100.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="117.0" y="115.0" text-anchor="start" class="lbl" font-size="12" fill="#d6336c">C</text>
+<circle cx="78.0" cy="100.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="78.0" y="117.0" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">M</text>
+</svg><p>(3) ∠B = 90°</p></div></div></div><div class="st">① 먼저 <i class="m">A</i>→<i class="m">G</i>(오른 2, 아래 4)의 절반만큼 더 가서 <span class="ov">BC</span>의 중점 <i class="m">M</i>을 찾습니다.<br>② <i class="m">M</i>에 대하여 서로 대칭인 두 점을 <i class="m">B</i>, <i class="m">C</i>로 잡으면 모두 정답 → 예: (가), (나), (다)<br>③ 이유: <i class="m">A</i>, <i class="m">G</i>로 정해지는 것은 <b><span class="ov">BC</span>의 중점 <i class="m">M</i>뿐</b>이고, <span class="ov">BC</span>의 방향과 길이는 자유롭기 때문입니다.<br>④ ∠B = 90°: <i class="m">B</i>(A의 아래 6칸), <i class="m">C</i>(B의 오른쪽 6칸)</div></div>
+<div class="row"><div class="sol"><div class="sh"><span class="no">2-3</span>평행사변형(점대칭)을 이용하는 방법</div><div class="sf"><svg viewBox="0 0 197 167" width="197" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="151" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="151" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="151" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="151" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="151" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="151" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="151" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="151" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="151" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="151" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="151" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="151" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="181" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="181" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="181" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="181" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="181" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="181" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="181" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="181" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="181" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="91.0,76.0 76.0,136.0 151.0,106.0 166.0,46.0" stroke="#1c7ed6" stroke-width="1" fill="#a5d8ff" fill-opacity="0.45" stroke-linejoin="round"/>
+<line x1="31.0" y1="46.0" x2="151.0" y2="106.0" stroke="#1c7ed6" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+<polygon points="31.0,46.0 76.0,136.0 166.0,46.0" stroke="#d6336c" stroke-width="2.2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="57.0" y1="64.6" x2="61.4" y2="55.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="60.6" y1="66.4" x2="65.0" y2="57.4" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="117.0" y1="94.6" x2="121.4" y2="85.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="120.6" y1="96.4" x2="125.0" y2="87.4" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="102.0" y1="117.0" x2="95.0" y2="110.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="147.0" y1="72.0" x2="140.0" y2="65.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="31.0" cy="46.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="25.0" y="40.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">A</text>
+<circle cx="76.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="76.0" y="153.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="91.0" cy="76.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="91.0" y="67.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">G</text>
+<circle cx="151.0" cy="106.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="157.0" y="121.0" text-anchor="start" class="lbl" font-size="15" fill="#1c7ed6">D</text>
+<circle cx="121.0" cy="91.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="121.0" y="108.0" text-anchor="middle" class="lbl" font-size="15" fill="#1c7ed6">M</text>
+<circle cx="166.0" cy="46.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="172.0" y="40.0" text-anchor="start" class="lbl" font-size="15" fill="#d6336c">C</text>
+</svg></div><div class="st">① <i class="m">A</i>→<i class="m">G</i>(오른 4, 아래 2)만큼 <i class="m">G</i>에서 한 번 더 → <i class="m">D</i><br>② <span class="ov">GD</span>의 중점 <i class="m">M</i>을 찾고, <i class="m">B</i>→<i class="m">M</i>만큼 한 번 더 → <i class="m">C</i><br>③ 이유: 평행사변형의 두 대각선은 서로를 이등분하므로 <i class="m">M</i>은 <span class="ov">BC</span>의 중점이고 <span class="ov">GM</span> = ½<span class="ov">GD</span> = ½<span class="ov">AG</span>.<br>&nbsp;&nbsp;&nbsp;즉 <i class="m">G</i>는 중선 <span class="ov">AM</span>을 2:1로 나누는 점 → 무게중심</div></div></div>
+<div class="sol wide"><div class="sh"><span class="no">2-4</span>모눈 없이 자와 컴퍼스로 두 가지 방법</div><div class="sf"><div class='duo'><div><svg viewBox="0 0 180 128" width="180" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="6.0" y="6.0" width="168" height="116" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<polygon points="27.6,30.2 38.0,103.0 149.8,82.2" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="32.8" y1="66.6" x2="149.8" y2="82.2" stroke="#1c7ed6" stroke-width="1.1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="25.0" y1="47.1" x2="34.9" y2="45.7" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="25.5" y1="51.1" x2="35.4" y2="49.7" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="30.2" y1="83.5" x2="40.1" y2="82.1" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="30.7" y1="87.5" x2="40.6" y2="86.1" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="51.6" y1="74.2" x2="53.0" y2="64.2" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="90.6" y1="79.4" x2="92.0" y2="69.4" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="129.6" y1="84.6" x2="131.0" y2="74.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<polyline points="108.9,85.0 109.1,84.3 109.3,83.7 109.5,83.0 109.7,82.4 109.9,81.7 110.0,81.0 110.2,80.4 110.3,79.7 110.5,79.0 110.6,78.4 110.7,77.7 110.8,77.0 110.9,76.3 111.0,75.6 111.0,75.0 111.1,74.3 111.1,73.6 111.1,72.9 111.1,72.2 111.1,71.5 111.1,70.8 111.1,70.1 111.1,69.5 111.0,68.8" fill="none" stroke="#1c7ed6" stroke-width="1.1"/>
+<polyline points="147.9,90.2 148.1,89.5 148.3,88.9 148.5,88.2 148.7,87.6 148.9,86.9 149.0,86.2 149.2,85.6 149.3,84.9 149.5,84.2 149.6,83.6 149.7,82.9 149.8,82.2 149.9,81.5 150.0,80.8 150.0,80.2 150.1,79.5 150.1,78.8 150.1,78.1 150.1,77.4 150.1,76.7 150.1,76.0 150.1,75.3 150.1,74.7 150.0,74.0" fill="none" stroke="#1c7ed6" stroke-width="1.1"/>
+<circle cx="27.6" cy="30.2" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="27.6" y="21.2" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="38.0" cy="103.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="38.0" y="120.0" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">B</text>
+<circle cx="32.8" cy="66.6" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="24.8" y="71.6" text-anchor="end" class="lbl" font-size="12" fill="#1c7ed6">M</text>
+<circle cx="71.8" cy="71.8" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="71.8" y="62.8" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="149.8" cy="82.2" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="157.8" y="87.2" text-anchor="start" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg><p>방법 1</p></div><div><svg viewBox="0 0 180 128" width="180" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="6.0" y="6.0" width="168" height="116" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<polygon points="27.6,30.2 38.0,103.0 149.8,82.2" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="27.6" y1="30.2" x2="116.0" y2="113.4" stroke="#1c7ed6" stroke-width="1.1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="38.0" y1="103.0" x2="149.8" y2="82.2" stroke="#1c7ed6" stroke-width="1.1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="44.8" y1="53.3" x2="51.7" y2="46.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="47.7" y1="56.0" x2="54.6" y2="48.7" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="89.0" y1="94.9" x2="95.9" y2="87.6" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="91.9" y1="97.6" x2="98.8" y2="90.3" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="66.9" y1="102.7" x2="65.0" y2="92.9" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="122.8" y1="92.3" x2="120.9" y2="82.5" stroke="#1b1f2a" stroke-width="1.4"/>
+<polyline points="108.1,120.4 108.8,119.9 109.5,119.4 110.2,118.8 110.9,118.3 111.5,117.7 112.2,117.1 112.9,116.5 113.5,115.9 114.1,115.3 114.8,114.7 115.4,114.0 116.0,113.4 116.6,112.8 117.2,112.1 117.8,111.4 118.3,110.8 118.9,110.1 119.5,109.4 120.0,108.7 120.5,108.0 121.1,107.3 121.6,106.6 122.1,105.8 122.6,105.1" fill="none" stroke="#1c7ed6" stroke-width="1.1"/>
+<circle cx="27.6" cy="30.2" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="27.6" y="21.2" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="38.0" cy="103.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="38.0" y="120.0" text-anchor="middle" class="lbl" font-size="12" fill="#1b1f2a">B</text>
+<circle cx="71.8" cy="71.8" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="71.8" y="62.8" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="116.0" cy="113.4" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="124.0" y="118.4" text-anchor="start" class="lbl" font-size="12" fill="#1c7ed6">D</text>
+<circle cx="93.9" cy="92.6" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="93.9" y="109.6" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">M</text>
+<circle cx="149.8" cy="82.2" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="157.8" y="87.2" text-anchor="start" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg><p>방법 2</p></div></div></div><div class="st"><b>방법 1</b> ① <span class="ov">AB</span>의 수직이등분선을 작도해 중점 <i class="m">M</i>을 찾는다. ② 반직선 <i class="m">MG</i>를 긋고, 컴퍼스로 <span class="ov">MG</span>의 길이를 <i class="m">G</i>에서부터 두 번 옮긴다. ③ 그 끝점이 <i class="m">C</i> (<span class="ov">MC</span> = 3<span class="ov">MG</span>)<br><b>방법 2</b> ① 반직선 <i class="m">AG</i> 위에 <span class="ov">GD</span> = <span class="ov">AG</span>인 점 <i class="m">D</i>를 컴퍼스로 잡는다. ② <span class="ov">GD</span>의 수직이등분선으로 중점 <i class="m">M</i>을 찾는다. ③ 반직선 <i class="m">BM</i> 위에 <span class="ov">MC</span> = <span class="ov">BM</span>인 점이 <i class="m">C</i></div></div>
+<div class="row"><div class="sol"><div class="sh"><span class="no">2-5</span>넓이가 같은 삼각형들의 무게중심 추측하기</div><div class="sf"><svg viewBox="0 0 212 182" width="212" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="166" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="31" y1="166" x2="31" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="46" y1="166" x2="46" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="61" y1="166" x2="61" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="76" y1="166" x2="76" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="91" y1="166" x2="91" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="106" y1="166" x2="106" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="121" y1="166" x2="121" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="136" y1="166" x2="136" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="151" y1="166" x2="151" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="166" x2="166" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="166" x2="181" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="196" y1="166" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="166" x2="196" y2="166" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="151" x2="196" y2="151" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="136" x2="196" y2="136" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="121" x2="196" y2="121" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="106" x2="196" y2="106" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="91" x2="196" y2="91" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="76" x2="196" y2="76" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="61" x2="196" y2="61" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="46" x2="196" y2="46" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="31" x2="196" y2="31" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="196" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16.0" y1="106.0" x2="196.0" y2="106.0" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="6 4" stroke-linecap="round"/>
+<line x1="16.0" y1="46.0" x2="196.0" y2="46.0" stroke="#1b1f2a" stroke-width="0.8" stroke-dasharray="2 3" stroke-linecap="round"/>
+<polygon points="46.0,46.0 46.0,136.0 136.0,136.0" stroke="#d6336c" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<circle cx="76.0" cy="106.0" r="3.6" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<polygon points="91.0,46.0 46.0,136.0 136.0,136.0" stroke="#f08c00" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<circle cx="91.0" cy="106.0" r="3.6" fill="#f08c00" stroke="#f08c00" stroke-width="1.4"/>
+<polygon points="136.0,46.0 46.0,136.0 136.0,136.0" stroke="#2b8a3e" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<circle cx="106.0" cy="106.0" r="3.6" fill="#2b8a3e" stroke="#2b8a3e" stroke-width="1.4"/>
+<polygon points="181.0,46.0 46.0,136.0 136.0,136.0" stroke="#7048e8" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<circle cx="121.0" cy="106.0" r="3.6" fill="#7048e8" stroke="#7048e8" stroke-width="1.4"/>
+<circle cx="46.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="40.0" y="151.0" text-anchor="end" class="lbl" font-size="15" fill="#1b1f2a">B</text>
+<circle cx="136.0" cy="136.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="136.0" y="153.0" text-anchor="middle" class="lbl" font-size="15" fill="#1b1f2a">C</text>
+</svg><p class='small' style='margin:0'>파란 점선: 무게중심들이 모두 놓이는 직선</p></div><div class="st">① 넓이 18, 밑변 6 → 높이 6 → <i class="m">A</i>는 <span class="ov">BC</span>보다 6칸 위의 가로줄 위<br>② <i class="m">G</i>가 모눈의 꼭짓점이 되는 <i class="m">A</i>: 4가지 (직각삼각형 2개, 이등변삼각형 1개, 둔각삼각형 1개)<br>③ 추측: 무게중심은 모두 <b><span class="ov">BC</span>보다 2칸 위의 가로줄 위</b>에 있다.<br>&nbsp;&nbsp;&nbsp;이유: △GBC = ⅓△ABC = 6으로 항상 같으므로 <i class="m">G</i>의 높이는 6×2÷6 = 2로 일정</div></div></div>
+</section>
+<section class="page">
+<h2>정답 및 해설 <small>PART 3 · PART 4</small></h2>
+<div class="sol wide"><div class="sh"><span class="no">3-1</span>넓이가 5, 10, 13인 정사각형</div><div class="sf"><svg viewBox="0 0 232 102" width="232" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="90" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="25" y1="90" x2="25" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="38" y1="90" x2="38" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="51" y1="90" x2="51" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="64" y1="90" x2="64" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="77" y1="90" x2="77" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="90" y1="90" x2="90" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="103" y1="90" x2="103" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="116" y1="90" x2="116" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="129" y1="90" x2="129" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="142" y1="90" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="155" y1="90" x2="155" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="168" y1="90" x2="168" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="90" x2="181" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="194" y1="90" x2="194" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="207" y1="90" x2="207" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="90" x2="220" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="90" x2="220" y2="90" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="77" x2="220" y2="77" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="64" x2="220" y2="64" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="51" x2="220" y2="51" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="38" x2="220" y2="38" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="25" x2="220" y2="25" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="220" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="51.0,77.0 64.0,51.0 38.0,38.0 25.0,64.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="25.0,77.0 64.0,77.0 64.0,38.0 25.0,38.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="44.5" y="62.5" text-anchor="middle" class="t" font-size="13" fill="#d6336c">5</text>
+<polygon points="116.0,77.0 129.0,38.0 90.0,25.0 77.0,64.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="77.0,77.0 129.0,77.0 129.0,25.0 77.0,25.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="103.0" y="56.0" text-anchor="middle" class="t" font-size="13" fill="#d6336c">10</text>
+<polygon points="181.0,90.0 207.0,51.0 168.0,25.0 142.0,64.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="142.0,90.0 207.0,90.0 207.0,25.0 142.0,25.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="174.5" y="62.5" text-anchor="middle" class="t" font-size="13" fill="#d6336c">13</text>
+</svg></div><div class="st">가로 a칸, 세로 b칸 이동한 선분을 한 변으로 하면 정사각형의 넓이 = a² + b²<br>· 5 = 1² + 2² &nbsp; · 10 = 1² + 3² &nbsp; · 13 = 2² + 3²<br>확인(큰 정사각형 − 직각삼각형 4개): 9 − 4×1 = 5, &nbsp;16 − 4×1.5 = 10, &nbsp;25 − 4×3 = 13</div></div>
+<div class="sol wide"><div class="sh"><span class="no">3-2</span>넓이 8, 18인 정사각형과 '기울어진' 넓이 25인 정사각형</div><div class="sf"><svg viewBox="0 0 252 120" width="252" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="108" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="24" y1="108" x2="24" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="36" y1="108" x2="36" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="48" y1="108" x2="48" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="60" y1="108" x2="60" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="72" y1="108" x2="72" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="84" y1="108" x2="84" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="96" y1="108" x2="96" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="108" y1="108" x2="108" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="120" y1="108" x2="120" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="132" y1="108" x2="132" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="108" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="156" y1="108" x2="156" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="168" y1="108" x2="168" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="180" y1="108" x2="180" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="192" y1="108" x2="192" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="204" y1="108" x2="204" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="216" y1="108" x2="216" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="228" y1="108" x2="228" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="240" y1="108" x2="240" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="108" x2="240" y2="108" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="96" x2="240" y2="96" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="84" x2="240" y2="84" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="72" x2="240" y2="72" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="60" x2="240" y2="60" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="48" x2="240" y2="48" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="36" x2="240" y2="36" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="24" x2="240" y2="24" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="240" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="48.0,96.0 72.0,72.0 48.0,48.0 24.0,72.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="24.0,96.0 72.0,96.0 72.0,48.0 24.0,48.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="48.0" y="77.0" text-anchor="middle" class="t" font-size="13" fill="#d6336c">8</text>
+<polygon points="108.0,96.0 144.0,60.0 108.0,24.0 72.0,60.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="72.0,96.0 144.0,96.0 144.0,24.0 72.0,24.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="108.0" y="65.0" text-anchor="middle" class="t" font-size="13" fill="#d6336c">18</text>
+<polygon points="204.0,108.0 240.0,60.0 192.0,24.0 156.0,72.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="156.0,108.0 240.0,108.0 240.0,24.0 156.0,24.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="198.0" y="71.0" text-anchor="middle" class="t" font-size="13" fill="#d6336c">25</text>
+</svg></div><div class="st">· 8 = 2² + 2² (16 − 4×2) &nbsp; · 18 = 3² + 3² (36 − 4×4.5)<br>· 25 = 3² + 4² → 가로 4칸·세로 3칸 이동한 선분을 한 변으로! (49 − 4×6 = 25)<br>※ 5×5 정사각형도 넓이는 25이지만 '모눈선과 평행하지 않은' 조건에 맞지 않습니다.</div></div>
+<div class="sol wide"><div class="sh"><span class="no">3-3</span>두 정사각형의 넓이의 합·차와 같은 정사각형</div><div class="sf"><svg viewBox="0 0 245 115" width="245" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="103" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="25" y1="103" x2="25" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="38" y1="103" x2="38" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="51" y1="103" x2="51" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="64" y1="103" x2="64" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="77" y1="103" x2="77" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="90" y1="103" x2="90" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="103" y1="103" x2="103" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="116" y1="103" x2="116" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="129" y1="103" x2="129" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="142" y1="103" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="155" y1="103" x2="155" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="168" y1="103" x2="168" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="103" x2="181" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="194" y1="103" x2="194" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="207" y1="103" x2="207" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="103" x2="220" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="233" y1="103" x2="233" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="103" x2="233" y2="103" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="90" x2="233" y2="90" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="77" x2="233" y2="77" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="64" x2="233" y2="64" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="51" x2="233" y2="51" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="38" x2="233" y2="38" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="25" x2="233" y2="25" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="233" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="25.0,90.0 51.0,90.0 51.0,64.0 25.0,64.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="64.0,90.0 103.0,90.0 103.0,51.0 64.0,51.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="38.0" y="82.0" text-anchor="middle" class="t" font-size="12" fill="#2b8a3e">4</text>
+<text x="83.5" y="75.5" text-anchor="middle" class="t" font-size="12" fill="#2b8a3e">9</text>
+<polygon points="155.0,90.0 181.0,51.0 142.0,25.0 116.0,64.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<text x="148.5" y="62.5" text-anchor="middle" class="t" font-size="13" fill="#d6336c">13</text>
+<polygon points="116.0,90.0 155.0,90.0 116.0,64.0" stroke="#1c7ed6" stroke-width="1.2" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polyline points="125.0,90.0 125.0,81.0 116.0,81.0" fill="none" stroke="#1c7ed6" stroke-width="1.2"/>
+<polygon points="220.0,90.0 233.0,64.0 207.0,51.0 194.0,77.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<text x="213.5" y="75.5" text-anchor="middle" class="t" font-size="13" fill="#d6336c">5</text>
+</svg></div><div class="st">(1) 두 변이 2, 3인 직각삼각형을 그리면 빗변 위의 정사각형 넓이 = 2² + 3² = <b>13</b><br>(2) 9 − 4 = <b>5</b> = 1² + 2² → 가로 1칸·세로 2칸 이동한 선분을 한 변으로 하는 정사각형<br>&nbsp;&nbsp;&nbsp;(빗변 위 정사각형 넓이 9, 한 변 위 정사각형 넓이 4인 직각삼각형의 나머지 변 위 정사각형이라고 생각해도 됩니다.)</div></div>
+<div class="sol wide"><div class="sh"><span class="no">3-4</span>주어진 도형과 넓이가 같은 정사각형</div><div class="sf"><div class='duo'><div><svg viewBox="0 0 156 79" width="156" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="67" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="67" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="67" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="67" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="67" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="67" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="67" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="67" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="67" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="67" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="67" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="67" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="67" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="144" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="144" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="144" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="144" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="144" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="23.0,56.0 78.0,56.0 78.0,34.0 23.0,34.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="122.0,67.0 133.0,34.0 100.0,23.0 89.0,56.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<text x="111.0" y="50.0" text-anchor="middle" class="t" font-size="12" fill="#d6336c">10</text>
+</svg><p>(1)</p></div><div><svg viewBox="0 0 178 101" width="178" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="89" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="89" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="89" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="89" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="89" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="89" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="89" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="89" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="89" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="89" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="89" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="89" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="89" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="155" y1="89" x2="155" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="166" y1="89" x2="166" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="89" x2="166" y2="89" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="78" x2="166" y2="78" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="166" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="166" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="166" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="166" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="166" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="166" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="23.0,78.0 67.0,78.0 78.0,23.0 34.0,23.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="133.0,89.0 155.0,45.0 111.0,23.0 89.0,67.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<text x="122.0" y="61.0" text-anchor="middle" class="t" font-size="12" fill="#d6336c">20</text>
+</svg><p>(2)</p></div></div></div><div class="st">(1) 직사각형 넓이 = 5×2 = 10 = 1² + 3² → 가로 1·세로 3 (또는 가로 3·세로 1) 이동한 선분을 한 변으로<br>(2) 평행사변형 넓이 = 밑변 4 × 높이 5 = 20 = 2² + 4² → 가로 2·세로 4 이동한 선분을 한 변으로<br>※ 먼저 <b>주어진 도형의 넓이</b>를 구하고, 그 수를 <b>두 제곱수의 합</b>으로 나타내는 것이 핵심!</div></div>
+<div class="row"><div class="sol"><div class="sh"><span class="no">3-5</span>넓이가 주어진 직각이등변삼각형</div><div class="sf"><svg viewBox="0 0 200 116" width="200" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="16" y1="100" x2="16" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="30" y1="100" x2="30" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="44" y1="100" x2="44" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="58" y1="100" x2="58" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="72" y1="100" x2="72" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="86" y1="100" x2="86" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="100" x2="100" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="114" y1="100" x2="114" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="128" y1="100" x2="128" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="142" y1="100" x2="142" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="156" y1="100" x2="156" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="170" y1="100" x2="170" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="184" y1="100" x2="184" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="100" x2="184" y2="100" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="86" x2="184" y2="86" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="72" x2="184" y2="72" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="58" x2="184" y2="58" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="44" x2="184" y2="44" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="30" x2="184" y2="30" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="16" y1="16" x2="184" y2="16" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="30.0,86.0 44.0,44.0 86.0,58.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polyline points="41.2,52.5 49.7,55.4 52.5,46.8" fill="none" stroke="#d6336c" stroke-width="1.2"/>
+<text x="53.8" y="65.8" text-anchor="middle" class="t" font-size="13" fill="#d6336c">5</text>
+<polygon points="114.0,58.0 142.0,30.0 170.0,58.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polyline points="135.6,36.4 142.0,42.7 148.4,36.4" fill="none" stroke="#d6336c" stroke-width="1.2"/>
+<text x="142.0" y="53.2" text-anchor="middle" class="t" font-size="13" fill="#d6336c">4</text>
+<line x1="41.7" y1="66.6" x2="32.3" y2="63.4" stroke="#d6336c" stroke-width="1.4"/>
+<line x1="63.4" y1="55.7" x2="66.6" y2="46.3" stroke="#d6336c" stroke-width="1.4"/>
+<line x1="130.1" y1="48.9" x2="123.1" y2="41.9" stroke="#d6336c" stroke-width="1.4"/>
+<line x1="132.9" y1="46.1" x2="125.9" y2="39.1" stroke="#d6336c" stroke-width="1.4"/>
+<line x1="151.1" y1="46.1" x2="158.1" y2="39.1" stroke="#d6336c" stroke-width="1.4"/>
+<line x1="153.9" y1="48.9" x2="160.9" y2="41.9" stroke="#d6336c" stroke-width="1.4"/>
+</svg></div><div class="st">직각이등변삼각형의 넓이 = (같은 변 위의 정사각형 넓이) ÷ 2<br>(1) 정사각형 넓이가 10 = 1² + 3² → 가로 1·세로 3 이동한 두 변을 직각으로<br>(2) 정사각형 넓이가 8 = 2² + 2² → 가로 2·세로 2 이동한 두 변을 직각으로 (빗변은 가로 4칸)</div></div></div>
+<div class="sol wide"><div class="sh"><span class="no">3-6</span>모눈 없이 작도로 넓이의 합·차 만들기</div><div class="sf"><div class='duo'><div><svg viewBox="0 0 174 144" width="174" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="6.0" y="6.0" width="162" height="132" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<line x1="34.5" y1="127.5" x2="34.5" y2="19.5" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="19.5" y1="117.0" x2="154.5" y2="117.0" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<polygon points="34.5,117.0 82.5,117.0 34.5,81.0" stroke="#1b1f2a" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polyline points="43.5,117.0 43.5,108.0 34.5,108.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+<polygon points="82.5,117.0 34.5,81.0 70.5,33.0 118.5,69.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<text x="25.5" y="103.0" text-anchor="middle" class="lbl" font-size="13" fill="#1b1f2a">a</text>
+<text x="58.5" y="132.0" text-anchor="middle" class="lbl" font-size="13" fill="#1b1f2a">b</text>
+<text x="76.5" y="80.0" text-anchor="middle" class="t" font-size="12" fill="#d6336c">a²+b²</text>
+</svg><p>(1) 합</p></div><div><svg viewBox="0 0 174 144" width="174" xmlns="http://www.w3.org/2000/svg" class="fig">
+<rect x="6.0" y="6.0" width="162" height="132" fill="none" stroke="#c9ced6" stroke-width="1" rx="6"/>
+<line x1="30.0" y1="127.5" x2="30.0" y2="19.5" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="18.0" y1="117.0" x2="154.5" y2="117.0" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<polyline points="38.3,55.4 37.6,55.8 36.9,56.1 36.2,56.5 35.5,56.8 34.8,57.2 34.1,57.5 33.4,57.9 32.7,58.3 32.0,58.7 31.3,59.1 30.7,59.5 30.0,59.9 29.3,60.3 28.7,60.8 28.0,61.2 27.4,61.6 26.7,62.1 26.1,62.6 25.5,63.0 24.8,63.5 24.2,64.0 23.6,64.5 23.0,65.0 22.4,65.5" fill="none" stroke="#1c7ed6" stroke-width="1.1"/>
+<polygon points="30.0,117.0 66.0,117.0 30.0,59.9" stroke="#1b1f2a" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polyline points="39.0,117.0 39.0,108.0 30.0,108.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+<polygon points="30.0,117.0 30.0,59.9 87.1,59.9 87.1,117.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.35" stroke-linejoin="round"/>
+<text x="48.0" y="132.0" text-anchor="middle" class="lbl" font-size="13" fill="#1b1f2a">a</text>
+<text x="56.0" y="88.5" text-anchor="middle" class="lbl" font-size="13" fill="#1b1f2a">r</text>
+<text x="66.0" y="84.5" text-anchor="middle" class="t" font-size="12" fill="#d6336c">r²−a²</text>
+</svg><p>(2) 차</p></div></div></div><div class="st">(1) 직각을 이루는 두 직선을 긋고, 한 변 위에 <i class="m">P</i>의 한 변 길이 <i class="m">a</i>, 다른 변 위에 <i class="m">Q</i>의 한 변 길이 <i class="m">b</i>를 컴퍼스로 옮긴다 → 빗변을 한 변으로 하는 정사각형의 넓이 = <i class="m">a</i>² + <i class="m">b</i>²<br>(2) 직각을 이루는 두 직선의 한 변 위에 길이 <i class="m">a</i>를 옮기고, 그 끝점을 중심으로 반지름 <i class="m">r</i>(<i class="m">R</i>의 한 변)인 원을 그려 다른 직선과 만나는 점을 찾는다 → 그 변 위의 정사각형 넓이 = <i class="m">r</i>² − <i class="m">a</i>²</div></div>
+<div class="sol wide"><div class="sh"><span class="no">3-7</span>넓이가 2배, 절반인 정사각형</div><div class="sf"><svg viewBox="0 0 232 141" width="232" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="129" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="25" y1="129" x2="25" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="38" y1="129" x2="38" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="51" y1="129" x2="51" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="64" y1="129" x2="64" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="77" y1="129" x2="77" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="90" y1="129" x2="90" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="103" y1="129" x2="103" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="116" y1="129" x2="116" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="129" y1="129" x2="129" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="142" y1="129" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="155" y1="129" x2="155" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="168" y1="129" x2="168" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="181" y1="129" x2="181" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="194" y1="129" x2="194" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="207" y1="129" x2="207" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="220" y1="129" x2="220" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="129" x2="220" y2="129" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="116" x2="220" y2="116" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="103" x2="220" y2="103" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="90" x2="220" y2="90" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="77" x2="220" y2="77" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="64" x2="220" y2="64" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="51" x2="220" y2="51" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="38" x2="220" y2="38" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="25" x2="220" y2="25" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="220" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="25.0,116.0 77.0,116.0 77.0,64.0 25.0,64.0" stroke="#2b8a3e" stroke-width="1.6" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="51.0,116.0 77.0,90.0 51.0,64.0 25.0,90.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<text x="51.0" y="95.0" text-anchor="middle" class="t" font-size="13" fill="#d6336c">8</text>
+<polygon points="155.0,129.0 207.0,77.0 155.0,25.0 103.0,77.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<text x="155.0" y="82.0" text-anchor="middle" class="t" font-size="13" fill="#d6336c">32</text>
+<line x1="25.0" y1="116.0" x2="77.0" y2="64.0" stroke="#1c7ed6" stroke-width="1" stroke-dasharray="4 3" stroke-linecap="round"/>
+</svg></div><div class="st">· 절반(8): 각 변의 중점을 차례로 이으면 한 변이 가로 2·세로 2 이동 → 2² + 2² = 8<br>· 2배(32): 대각선(가로 4·세로 4 이동)을 한 변으로 하는 정사각형 → 4² + 4² = 32<br>※ 대각선 위의 정사각형 넓이 = 두 변 위의 정사각형 넓이의 합 = 16 + 16</div></div>
+<div class="trio" style="align-items:stretch"><div class="sol"><div class="sh"><span class="no">모의 1</span>문항 1 해설</div><div class="sf"><svg viewBox="0 0 154 154" width="154" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="142" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="25" y1="142" x2="25" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="38" y1="142" x2="38" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="51" y1="142" x2="51" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="64" y1="142" x2="64" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="77" y1="142" x2="77" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="90" y1="142" x2="90" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="103" y1="142" x2="103" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="116" y1="142" x2="116" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="129" y1="142" x2="129" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="142" y1="142" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="142" x2="142" y2="142" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="129" x2="142" y2="129" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="116" x2="142" y2="116" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="103" x2="142" y2="103" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="90" x2="142" y2="90" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="77" x2="142" y2="77" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="64" x2="142" y2="64" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="51" x2="142" y2="51" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="38" x2="142" y2="38" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="25" x2="142" y2="25" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="38.0,116.0 116.0,129.0 116.0,25.0" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<line x1="38.0" y1="116.0" x2="116.0" y2="77.0" stroke="#1c7ed6" stroke-width="1.1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<line x1="121.0" y1="103.0" x2="111.0" y2="103.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<line x1="121.0" y1="51.0" x2="111.0" y2="51.0" stroke="#1b1f2a" stroke-width="1.4"/>
+<circle cx="38.0" cy="116.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="32.0" y="131.0" text-anchor="end" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="90.0" cy="90.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="90.0" y="81.0" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="116.0" cy="77.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="124.0" y="82.0" text-anchor="start" class="lbl" font-size="12" fill="#1c7ed6">M</text>
+<circle cx="116.0" cy="129.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="116.0" y="146.0" text-anchor="middle" class="lbl" font-size="12" fill="#d6336c">B</text>
+<circle cx="116.0" cy="25.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="116.0" y="16.0" text-anchor="middle" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg></div><div class="st"><i class="m">A</i>→<i class="m">G</i>(오른 4, 위 2)의 절반(오른 2, 위 1)만큼 <i class="m">G</i>에서 더 가면 <span class="ov">BC</span>의 중점 <i class="m">M</i>. (<span class="ov">AG</span> : <span class="ov">GM</span> = 2 : 1) → <i class="m">M</i>의 세로선 위에서 위·아래로 4칸씩 → <i class="m">C</i>, <i class="m">B</i></div></div><div class="sol"><div class="sh"><span class="no">모의 2</span>문항 2 해설</div><div class="sf"><svg viewBox="0 0 154 154" width="154" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="142" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="25" y1="142" x2="25" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="38" y1="142" x2="38" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="51" y1="142" x2="51" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="64" y1="142" x2="64" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="77" y1="142" x2="77" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="90" y1="142" x2="90" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="103" y1="142" x2="103" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="116" y1="142" x2="116" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="129" y1="142" x2="129" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="142" y1="142" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="142" x2="142" y2="142" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="129" x2="142" y2="129" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="116" x2="142" y2="116" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="103" x2="142" y2="103" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="90" x2="142" y2="90" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="77" x2="142" y2="77" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="64" x2="142" y2="64" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="51" x2="142" y2="51" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="38" x2="142" y2="38" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="25" x2="142" y2="25" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="142" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="90.0,90.0 116.0,116.0 142.0,64.0 116.0,38.0" stroke="#1c7ed6" stroke-width="1" fill="#a5d8ff" fill-opacity="1" stroke-dasharray="0.45" stroke-linejoin="round"/>
+<line x1="38.0" y1="116.0" x2="142.0" y2="64.0" stroke="#1c7ed6" stroke-width="1.1" stroke-dasharray="4 3" stroke-linecap="round"/>
+<polygon points="38.0,116.0 116.0,116.0 116.0,38.0" stroke="#d6336c" stroke-width="2" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polyline points="107.0,116.0 107.0,107.0 116.0,107.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+<circle cx="38.0" cy="116.0" r="3.3" fill="#1b1f2a" stroke="#1b1f2a" stroke-width="1.4"/>
+<text x="32.0" y="131.0" text-anchor="end" class="lbl" font-size="12" fill="#1b1f2a">A</text>
+<circle cx="90.0" cy="90.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="90.0" y="81.0" text-anchor="middle" class="lbl" font-size="12" fill="#1c7ed6">G</text>
+<circle cx="142.0" cy="64.0" r="3.3" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="1.4"/>
+<text x="150.0" y="69.0" text-anchor="start" class="lbl" font-size="12" fill="#1c7ed6">D</text>
+<circle cx="116.0" cy="116.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="122.0" y="131.0" text-anchor="start" class="lbl" font-size="12" fill="#d6336c">B</text>
+<circle cx="116.0" cy="38.0" r="3.3" fill="#d6336c" stroke="#d6336c" stroke-width="1.4"/>
+<text x="116.0" y="29.0" text-anchor="middle" class="lbl" font-size="12" fill="#d6336c">C</text>
+</svg></div><div class="st">[평행사변형 방법] <i class="m">A</i>를 <i class="m">G</i>에 대해 대칭이동한 <i class="m">D</i>를 잡으면 <span class="ov">GD</span>의 중점이 <span class="ov">BC</span>의 중점 <i class="m">M</i>. ∠B = 90°가 되려면 <i class="m">B</i>는 <i class="m">A</i>와 같은 가로줄, <i class="m">M</i>과 같은 세로줄 → <i class="m">B</i>, □GBDC가 평행사변형이 되도록 <i class="m">C</i>. (검산: 가로 2+8+8 = 18 = 6×3, 세로 2+2+8 = 12 = 4×3)</div></div><div class="sol"><div class="sh"><span class="no">모의 3</span>문항 3 해설</div><div class="sf"><svg viewBox="0 0 156 156" width="156" xmlns="http://www.w3.org/2000/svg" class="fig">
+<line x1="12" y1="144" x2="12" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="23" y1="144" x2="23" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="34" y1="144" x2="34" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="45" y1="144" x2="45" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="56" y1="144" x2="56" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="67" y1="144" x2="67" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="78" y1="144" x2="78" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="89" y1="144" x2="89" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="100" y1="144" x2="100" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="111" y1="144" x2="111" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="122" y1="144" x2="122" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="133" y1="144" x2="133" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="144" y1="144" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="144" x2="144" y2="144" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="133" x2="144" y2="133" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="122" x2="144" y2="122" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="111" x2="144" y2="111" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="100" x2="144" y2="100" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="89" x2="144" y2="89" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="78" x2="144" y2="78" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="67" x2="144" y2="67" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="56" x2="144" y2="56" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="45" x2="144" y2="45" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="34" x2="144" y2="34" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="23" x2="144" y2="23" stroke="#c9ced6" stroke-width="0.8"/>
+<line x1="12" y1="12" x2="144" y2="12" stroke="#c9ced6" stroke-width="0.8"/>
+<polygon points="56.0,100.0 100.0,100.0 56.0,67.0" stroke="#1b1f2a" stroke-width="1.6" fill="none" fill-opacity="1" stroke-linejoin="round"/>
+<polyline points="65.0,100.0 65.0,91.0 56.0,91.0" fill="none" stroke="#1b1f2a" stroke-width="1.2"/>
+<polygon points="56.0,144.0 100.0,144.0 100.0,100.0 56.0,100.0" stroke="#2b8a3e" stroke-width="1.4" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="23.0,100.0 56.0,100.0 56.0,67.0 23.0,67.0" stroke="#2b8a3e" stroke-width="1.4" fill="#b2f2bb" fill-opacity="1" stroke-dasharray="0.5" stroke-linejoin="round"/>
+<polygon points="100.0,100.0 56.0,67.0 89.0,23.0 133.0,56.0" stroke="#d6336c" stroke-width="2" fill="#ffc9de" fill-opacity="1" stroke-dasharray="0.6" stroke-linejoin="round"/>
+<polygon points="56.0,100.0 133.0,100.0 133.0,23.0 56.0,23.0" stroke="#1c7ed6" stroke-width="1" fill="none" fill-opacity="1" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<text x="94.5" y="66.5" text-anchor="middle" class="t" font-size="12" fill="#d6336c">25</text>
+</svg></div><div class="st">빗변은 가로 4칸·세로 3칸 이동 → 그 변을 직각으로 돌려(가로 3·세로 4) 정사각형 완성. 점선 큰 정사각형 7×7 = 49에서 직각삼각형 4개(각 6)를 빼면 49 − 24 = <b>25 = 16 + 9</b></div></div></div>
+</section>
+</body></html>
