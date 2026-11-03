@@ -34,6 +34,11 @@ th{background:#fefcbf}
 .src{font-size:8.5pt;color:var(--gray);text-align:right}
 .warn{background:#fff8e1;border-left:4px solid #f0a500;padding:10px 14px;color:#5a4500;border-radius:0 8px 8px 0;margin:10px 0}
 .small{font-size:9pt;color:#4a5568}
+.figs{display:flex;gap:10px;margin:10px 0;align-items:flex-start}
+figure{flex:1;margin:0;border:1px solid #e2e8f0;border-radius:8px;padding:6px;background:#fff;break-inside:avoid}
+figure img{width:100%;display:block;border-radius:4px}
+figcaption{font-size:8.5pt;line-height:1.5;margin-top:5px;color:#2d3748}
+figcaption .cr{display:block;color:var(--gray);font-size:7.5pt;margin-top:2px}
 /* 표지 */
 .cover{border:3px solid var(--main);border-radius:16px;padding:22px 26px;min-height:250mm;display:flex;flex-direction:column;align-items:center;text-align:center;background:linear-gradient(#fffaf0,#fff 40%)}
 .cover .who{align-self:flex-end;font-size:11pt;border:1px solid #cbd5e0;border-radius:6px;padding:4px 12px;background:#fff}
@@ -78,6 +83,7 @@ th{background:#fefcbf}
     <li>3면·4면은 <b>개인적 / 사회적 / 국제적</b> 세 칸으로 나누어 쓰면 '조건 준수'가 한눈에 보입니다.</li>
     <li>4면에서 <b>'적극적 평화'나 '인간 안보'라는 낱말을 꼭 직접 쓰고</b>, 뜻을 한 줄로 설명한 뒤 연결하세요.</li>
     <li>준비물(사전 조사 자료, 표현 도구)을 안 챙기면 감점(-1점)이니, 사진은 미리 출력해 가세요.</li>
+    <li>2면·5면 사진은 위키미디어 공용(Wikimedia Commons)에서 <b>출처만 밝히면 쓸 수 있는 사진</b>으로 골랐습니다. 미니북에 붙일 때도 사진 아래 출처 줄을 함께 적으세요. 6면은 <b>직접 찍은 사진</b>을 붙여야 합니다.</li>
   </ul>
 </section>
 
@@ -151,7 +157,18 @@ th{background:#fefcbf}
     <text x="0" y="104" font-size="13" fill="#4a5568">→ 버려지는 식량만 잘 나누어도 굶주리는 사람들을 충분히 먹일 수 있다.</text>
   </svg>
   <p class="src">출처: 유엔식량농업기구(FAO) 추정치를 바탕으로 직접 그림</p>
-  <div class="photo"><b>[사진 자리]</b> 식량 배급을 기다리는 사람들 또는 가뭄으로 갈라진 땅 사진<br>(인터넷 사진을 쓸 경우 사진 아래에 출처를 꼭 적기)</div>
+  <div class="figs">
+    <figure>
+      <img src="사진/2면_분쟁지역_굶주림_남수단.jpg" alt="나뭇잎이 담긴 그릇을 든 여성">
+      <figcaption><b>분쟁 때문에 생긴 굶주림</b> — 싸움을 피해 아무것도 없이 온 사람들이 다음 수확 때까지 나뭇잎과 풀로 끼니를 잇고 있다. (남수단 랑키엔)
+      <span class="cr">사진: Oxfam East Africa (Aimee Brown) / Wikimedia Commons / CC BY 2.0</span></figcaption>
+    </figure>
+    <figure>
+      <img src="사진/2면_가뭄으로_갈라진_땅.jpg" alt="가뭄으로 갈라진 땅">
+      <figcaption><b>기후 변화와 가뭄</b> — 오랜 가뭄으로 땅이 갈라지면 농사를 지을 수 없어 식량이 부족해진다.
+      <span class="cr">사진: Al Jazeera English / Wikimedia Commons / CC BY-SA 2.0</span></figcaption>
+    </figure>
+  </div>
 </section>
 
 <!-- 3면 -->
@@ -267,7 +284,18 @@ th{background:#fefcbf}
     <li>굶주림을 줄여 분쟁을 막고 평화에 기여한 공로로 <b>2020년 노벨 평화상</b>을 받았다.</li>
     <li>우리나라도 1960~80년대에 WFP의 식량 지원을 받았던 나라였지만, 지금은 WFP를 돕는 나라가 되었다.</li>
   </ul>
-  <div class="photo"><b>[사진/자료 자리]</b> WFP 로고, 또는 WFP가 학교 급식을 나누어 주는 사진<br>(출처: WFP 공식 홈페이지 wfp.org 등 — 출처를 꼭 적기)</div>
+  <div class="figs">
+    <figure style="flex:2.2">
+      <img src="사진/5면_WFP_수단_식량운반.jpg" alt="WFP 밀가루 포대를 나르는 사람들">
+      <figcaption><b>내전 중인 수단에서 일하는 WFP</b> — WFP의 밀가루 포대를 트럭에서 창고로 옮기는 모습. (수단 포트수단, 2024년 2월)
+      <span class="cr">사진: WFP/Abubaker Garelnabei / Wikimedia Commons / CC BY 4.0</span></figcaption>
+    </figure>
+    <figure style="flex:1">
+      <img src="사진/5면_WFP_로고.png" alt="WFP 로고">
+      <figcaption><b>WFP 로고</b> — 곡식과 밥그릇을 올리브 가지가 감싸고 있다.
+      <span class="cr">이미지: World Food Programme / Wikimedia Commons</span></figcaption>
+    </figure>
+  </div>
 </section>
 
 <!-- 6면 -->
