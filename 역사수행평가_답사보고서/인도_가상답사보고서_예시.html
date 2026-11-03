@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인도 가상 답사 보고서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2328;
+    --sub: #555c66;
+    --line: #2f3a45;
+    --soft: #e7ecf1;
+    --accent: #b8461b;
+    --accent-soft: #fbeee6;
+    --green: #2f6f5e;
+    --green-soft: #e6f1ed;
+    --paper: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e6e8eb; --sub: #a9b0b9; --line: #8a96a3; --soft: #2a3038;
+      --accent: #f0915f; --accent-soft: #3a2a22; --green: #7fc8b2; --green-soft: #213430; --paper: #16191d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e6e8eb; --sub: #a9b0b9; --line: #8a96a3; --soft: #2a3038;
+    --accent: #f0915f; --accent-soft: #3a2a22; --green: #7fc8b2; --green-soft: #213430; --paper: #16191d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: "Noto Sans KR", "WenQuanYi Zen Hei", sans-serif;
+    font-size: 10.5pt; line-height: 1.65; word-break: keep-all;
+  }
+  .page {
+    width: 210mm; min-height: 296mm; margin: 0 auto; padding: 12mm 15mm 13mm;
+    background: var(--paper); position: relative;
+  }
+  @media screen and (max-width: 820px) {
+    .page { width: 100%; min-height: 0; padding: 20px 16px; }
+  }
+  @media screen { .page + .page { border-top: 2px dashed var(--soft); } }
+  @page { size: A4; margin: 0; }
+  @media print {
+    .page { page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+  }
+
+  /* 머리글 */
+  .doc-head { border: 2px solid var(--line); display: grid; grid-template-columns: 1fr auto; }
+  .doc-head .title { padding: 9px 14px; }
+  .doc-head .kicker { font-size: 9pt; color: var(--accent); font-weight: 700; letter-spacing: .02em; }
+  .doc-head h1 { font-family: "Nanum Myeongjo", serif; font-weight: 800; font-size: 21pt; margin: 2px 0 0; line-height: 1.25; }
+  .doc-head h1 small { display:block; font-size: 11.5pt; font-weight: 700; color: var(--sub); margin-top: 3px; }
+  .doc-head .who { border-left: 2px solid var(--line); display: grid; grid-template-rows: repeat(3, 1fr); min-width: 46mm; }
+  .doc-head .who div { display: flex; align-items: center; padding: 0 10px; font-size: 9.5pt; border-bottom: 1px solid var(--line); }
+  .doc-head .who div:last-child { border-bottom: none; }
+  .doc-head .who b { width: 30px; color: var(--sub); font-weight: 500; }
+
+  .sample-badge {
+    display: inline-block; font-size: 8.5pt; font-weight: 700; color: var(--paper); background: var(--accent);
+    padding: 1px 8px; border-radius: 3px; margin-left: 6px; vertical-align: middle;
+  }
+
+  h2 {
+    font-size: 12pt; margin: 12px 0 6px; padding: 4px 10px; background: var(--soft);
+    border-left: 5px solid var(--accent); display: flex; justify-content: space-between; align-items: baseline;
+  }
+  h2 .req { font-size: 8.5pt; font-weight: 500; color: var(--sub); }
+
+  table { border-collapse: collapse; width: 100%; }
+  .info th, .info td { border: 1px solid var(--line); padding: 5px 9px; vertical-align: top; text-align: left; }
+  .info th { width: 27mm; background: var(--soft); font-weight: 700; white-space: nowrap; }
+
+  .prose { border: 1px solid var(--line); padding: 9px 12px; text-align: justify; }
+  .prose p { margin: 0 0 5px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .count { text-align: right; font-size: 8pt; color: var(--sub); margin-top: 2px; }
+
+  .plan th, .plan td { border: 1px solid var(--line); padding: 4px 8px; vertical-align: top; }
+  .plan thead th { background: var(--soft); text-align: center; }
+  .plan td.day { text-align: center; font-weight: 700; width: 22mm; background: var(--green-soft); }
+  .plan td.time { width: 15mm; text-align: center; color: var(--sub); white-space: nowrap; }
+  .plan td .point { color: var(--green); font-size: 9pt; }
+
+  .facts { border: 1px solid var(--line); }
+  .facts .era { display: grid; grid-template-columns: 27mm 1fr; border-bottom: 1px solid var(--soft); }
+  .facts .era:last-child { border-bottom: none; }
+  .facts .era h3 { margin: 0; padding: 7px 8px; font-size: 9.5pt; background: var(--soft); line-height: 1.35; }
+  .facts .era h3 span { display: block; font-size: 8pt; color: var(--sub); font-weight: 500; margin-top: 2px; }
+  .facts .era p { margin: 0; padding: 6px 10px; text-align: justify; }
+
+  .sites { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .site { border: 1px solid var(--line); display: grid; grid-template-rows: auto auto 1fr; }
+  .photo {
+    height: 62mm; margin: 7px 7px 0; border: 1.5px dashed var(--sub); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; color: var(--sub); font-size: 8.5pt; line-height: 1.45;
+    background: repeating-linear-gradient(135deg, transparent 0 9px, var(--soft) 9px 10px);
+  }
+  .photo b { color: var(--ink); font-size: 9.5pt; }
+  .site .name { padding: 6px 9px 0; font-weight: 700; font-size: 10.5pt; }
+  .site .name .no { display:inline-block; width: 19px; height: 19px; line-height: 19px; text-align:center; border-radius: 50%; background: var(--accent); color: var(--paper); font-size: 9pt; margin-right: 4px; }
+  .site .name .loc { font-weight: 500; color: var(--sub); font-size: 8.5pt; margin-left: 4px; }
+  .site .desc { padding: 3px 9px 7px; font-size: 9.6pt; text-align: justify; line-height: 1.6; }
+  .site .desc .count { margin-top: 0; }
+
+  .two { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .labelled { border: 1px solid var(--line); }
+  .labelled .lab { background: var(--green-soft); color: var(--green); font-weight: 700; padding: 4px 10px; font-size: 9.5pt; border-bottom: 1px solid var(--line); }
+  .labelled .body { padding: 8px 12px; text-align: justify; }
+
+  .route { display:block; width: 100%; height: auto; margin-top: 6px; }
+  .footer-note { position: absolute; bottom: 7mm; left: 15mm; right: 15mm; font-size: 7.8pt; color: var(--sub); display:flex; justify-content: space-between; }
+  @media screen and (max-width: 820px) { .footer-note { position: static; margin-top: 14px; } .sites { grid-template-columns: 1fr; } .doc-head { grid-template-columns: 1fr; } .doc-head .who { border-left: none; border-top: 2px solid var(--line); } }
+
+  /* 부록(지도용) */
+  .guide h1 { font-size: 16pt; margin: 0 0 4px; }
+  .guide .lead { color: var(--sub); margin: 0 0 10px; font-size: 9.5pt; }
+  .guide table.check th, .guide table.check td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; font-size: 9.5pt; }
+  .guide table.check thead th { background: var(--soft); }
+  .guide table.check td:first-child { font-weight: 700; white-space: nowrap; }
+  .guide ul { margin: 4px 0 0; padding-left: 18px; }
+  .guide li { margin-bottom: 2px; }
+  .kw { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 4px; }
+  .kw div { border: 1px solid var(--line); padding: 6px 8px; font-size: 9pt; }
+  .kw div b { display:block; color: var(--accent); margin-bottom: 2px; }
+  .warn { background: var(--accent-soft); border: 1px solid var(--accent); padding: 8px 12px; margin-top: 10px; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= 1쪽 ================= -->
+<section class="page">
+  <div class="doc-head">
+    <div class="title">
+      <div class="kicker">2학년 역사 수행평가 2 · 가상의 답사 보고서 작성하기 <span class="sample-badge">예시</span></div>
+      <h1>무굴 제국의 길을 따라 걷는 인도 3일<small>— 굽타 왕조에서 인도 국민 회의까지, 델리·아그라 가상 답사</small></h1>
+    </div>
+    <div class="who">
+      <div><b>학번</b>2학년 ○반 ○번</div>
+      <div><b>이름</b>○ ○ ○</div>
+      <div><b>제출</b>2026. 11. ○.</div>
+    </div>
+  </div>
+
+  <h2>1. 답사 개요</h2>
+  <table class="info">
+    <tr><th>답사 국가(도시)</th><td>인도 (뉴델리·델리, 아그라)</td></tr>
+    <tr><th>가상 답사 날짜</th><td>2027년 1월 6일(수) ~ 1월 8일(금), 2박 3일 <span style="color:var(--sub)">(타지마할이 금요일에 휴관하므로 목요일에 방문하도록 계획함)</span></td></tr>
+    <tr><th>동반할 사람</th><td>부모님, 동생 (현지에서는 한국어 가능 가이드와 함께 이동)</td></tr>
+    <tr><th>준비물</th><td>여권·인도 전자 비자, 항공권·기차표, 루피 환전, 긴소매 옷과 스카프(이슬람 사원·무덤 등 종교 시설을 방문할 때 예의를 지키기 위해), 편한 운동화, 마스크(겨울철 델리 미세먼지 대비), 생수·상비약, 역사 노트와 필기구, 카메라</td></tr>
+  </table>
+
+  <h2>2. 인도를 선정한 이유 <span class="req">80자 이상</span></h2>
+  <div class="prose" data-count="reason">
+    <p>인도는 1학기에 배운 고대 인도 세계(마우리아·쿠샨 왕조), 굽타 왕조, 무굴 제국과 2학기에 배운 새로운 항로 개척, 영국의 제국주의 침략, 인도의 국민 국가 건설 운동이 모두 일어난 나라이다. 한 나라 안에서 불교·힌두교·이슬람교 문화가 차례로 발전하고 서로 섞였다가, 영국의 식민 지배에 맞서 민족 운동이 일어나기까지의 긴 흐름을 유적으로 직접 확인할 수 있다고 생각하여 인도를 선정하였다. 특히 델리와 아그라에는 델리 술탄 왕조와 무굴 제국의 유적이 가까이 모여 있어 3일 동안 답사하기에 알맞다.</p>
+  </div>
+  <div class="count" id="c-reason"></div>
+
+  <h2>3. 3일간의 답사 일정 계획</h2>
+  <table class="plan">
+    <thead><tr><th>날짜</th><th>시간</th><th>일정 및 답사 포인트</th></tr></thead>
+    <tbody>
+      <tr><td class="day" rowspan="2">1일차<br>1/6(수)</td><td class="time">오전</td><td>인천 국제공항 출발 → 뉴델리 도착 (직항 약 9시간, 인도가 한국보다 3시간 30분 늦음)</td></tr>
+      <tr><td class="time">오후</td><td><b>쿠트브 미나르 단지</b> 답사<br><span class="point">▶ 델리 술탄 왕조의 첨탑과 굽타 왕조의 철기둥이 한곳에 있는 모습 관찰</span> → 숙소에서 답사 노트 정리</td></tr>
+      <tr><td class="day" rowspan="3">2일차<br>1/7(목)</td><td class="time">아침</td><td>델리에서 고속 열차로 아그라 이동 (약 2시간)</td></tr>
+      <tr><td class="time">오전</td><td><b>타지마할</b> 답사<br><span class="point">▶ 이슬람 양식과 인도 전통 양식이 어우러진 인도·이슬람 문화 찾아보기</span></td></tr>
+      <tr><td class="time">오후</td><td><b>아그라 성</b> 답사 → 저녁 열차로 델리 복귀<br><span class="point">▶ 악바르가 쌓은 성벽, 샤자한이 갇혀 지낸 팔각 탑에서 타지마할 바라보기</span></td></tr>
+      <tr><td class="day" rowspan="3">3일차<br>1/8(금)</td><td class="time">오전</td><td><b>붉은 성(랄 킬라)</b> 답사<br><span class="point">▶ 무굴 제국의 궁궐이자 1857년 세포이 항쟁의 현장 확인</span></td></tr>
+      <tr><td class="time">오후</td><td><b>인도 국립 박물관</b> 관람<br><span class="point">▶ 인더스 문명 유물, 간다라 양식 불상과 굽타 양식 불상 비교하기</span></td></tr>
+      <tr><td class="time">밤</td><td>공항 이동 → 귀국 (1/9 오전 인천 도착)</td></tr>
+    </tbody>
+  </table>
+
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>1 / 4</span></div>
+</section>
+
+<!-- ================= 2쪽 ================= -->
+<section class="page">
+  <h2 style="margin-top:0">4. 인도와 관련해 학습한 역사적 사실·사건 <span class="req">100자 이상</span></h2>
+  <div class="facts" data-count="facts">
+    <div class="era"><h3>고대 인도<span>Ⅱ-3-②</span></h3>
+      <p>기원전 4세기 말 마우리아 왕조가 인도 북부를 처음으로 통일하였고, 아소카왕은 불교를 장려하며 산치 대탑과 돌기둥을 세웠다. 이후 쿠샨 왕조의 카니슈카왕 때에는 대승 불교가 발전하고, 그리스 문화의 영향을 받은 간다라 양식 불상이 만들어졌다.</p></div>
+    <div class="era"><h3>굽타 왕조<span>Ⅲ-2-②</span></h3>
+      <p>4세기 초 굽타 왕조가 북인도를 다시 통일하였다. 브라만교에 민간 신앙과 불교가 더해진 힌두교가 자리 잡았고, 마누 법전이 정리되어 카스트 제도가 생활 속에 뿌리내렸다. 산스크리트 문학이 발달하고 ‘0’의 개념과 10진법이 사용되었으며, 인도 고유의 굽타 양식 불상과 아잔타 석굴 벽화가 만들어졌다.</p></div>
+    <div class="era"><h3>이슬람 세력과 무굴 제국<span>Ⅳ-2-③</span></h3>
+      <p>10세기 말부터 이슬람 세력이 북인도로 진출하였고, 13세기 초에는 델리를 수도로 한 델리 술탄 왕조가 세워졌다. 1526년 바부르가 무굴 제국을 세웠으며, 악바르 황제는 영토를 넓히고 힌두교도에게 걷던 인두세(지즈야)를 폐지하는 등 관용 정책을 펼쳤다. 이 시기 인도·이슬람 문화가 발달하여 타지마할과 같은 건축물, 힌디어에 페르시아어·아랍어가 섞인 우르두어, 힌두교와 이슬람교를 융합한 시크교가 나타났다. 아우랑제브 황제는 최대 영토를 이루었으나 이슬람교를 강요하고 지즈야를 부활하여 힌두교도와 시크교도의 반발을 샀고, 이후 제국은 쇠퇴하였다.</p></div>
+    <div class="era"><h3>신항로 개척과 영국의 침략<span>Ⅳ-3-② · Ⅴ-2</span></h3>
+      <p>1498년 포르투갈의 바스쿠 다 가마가 아프리카 남쪽 끝을 돌아 인도 캘리컷에 도착하면서 유럽과 인도를 잇는 바닷길이 열렸다. 이후 영국은 동인도 회사를 앞세워 진출하였고, 1757년 플라시 전투에서 프랑스와 벵골 연합군을 물리친 뒤 지배 지역을 넓혀 갔다. 산업 혁명으로 값싼 영국산 면직물이 들어오자 인도의 면직물 수공업은 큰 타격을 입었고, 인도는 면화 등 원료 공급지이자 영국 상품의 시장이 되었다.</p></div>
+    <div class="era"><h3>인도의 국민 국가 건설 운동<span>Ⅴ-3-②</span></h3>
+      <p>1857년 동인도 회사에 고용된 인도인 용병인 세포이가 항쟁을 일으켜 델리를 점령하고 무굴 황제를 지도자로 받들었다. 영국은 이를 진압한 뒤 무굴 제국을 멸망시키고(1858) 인도를 직접 통치하였으며, 1877년 빅토리아 여왕이 황제를 겸하는 인도 제국을 세웠다. 1885년 결성된 인도 국민 회의는 처음에는 영국에 협조적이었으나, 1905년 영국이 벵골 분할령을 발표하자 이듬해 콜카타 대회에서 영국 상품 불매, 스와라지(자치), 스와데시(국산품 애용), 민족 교육의 4대 강령을 채택하고 반영 운동을 이끌었다. 결국 영국은 1911년 벵골 분할령을 취소하였다.</p></div>
+  </div>
+  <div class="count" id="c-facts"></div>
+
+  <h2>※ 참고: 이 보고서가 다룬 교과서 단원</h2>
+  <table class="info">
+    <tr><th>1학기</th><td>Ⅱ-3-② 고대 인도 세계가 형성되다 · Ⅲ-2-② 인도에 굽타 왕조가 들어서다 · Ⅳ-2-③ 인도에서 무굴 제국이 발전하다</td></tr>
+    <tr><th>2학기 중간고사</th><td>Ⅳ-3-② 새로운 항로를 개척하다 (바스쿠 다 가마의 인도 항로)</td></tr>
+    <tr><th>중간고사 이후</th><td>Ⅴ-2 유럽의 산업화와 제국주의 · Ⅴ-3-② 인도에서 국민 국가 건설 운동이 일어나다</td></tr>
+  </table>
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>2 / 4</span></div>
+</section>
+
+<!-- ================= 3쪽 ================= -->
+<section class="page">
+  <h2 style="margin-top:0">5. 답사 유적·유물·관광지의 명칭과 설명 <span class="req">사진 4장, 각 50자 이상</span></h2>
+  <div class="sites">
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>쿠트브 미나르 전경 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">1</span>쿠트브 미나르와 철기둥<span class="loc">델리</span></div>
+      <div class="desc" data-count="s1">델리 술탄 왕조를 세운 쿠트브 웃딘 아이바크가 이슬람 세력의 승리를 기념하여 12세기 말에 짓기 시작한 높이 약 73m의 첨탑이다. 붉은 사암 벽면에 쿠란 구절이 새겨져 있다. 옆 모스크 마당에는 굽타 왕조 때 만들어진 높이 약 7m의 철기둥이 있는데, 1,500년이 넘도록 거의 녹슬지 않아 굽타 시대의 뛰어난 금속 기술을 보여 준다.<div class="count" id="c-s1"></div></div>
+    </div>
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>타지마할 정면 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">2</span>타지마할<span class="loc">아그라</span></div>
+      <div class="desc" data-count="s2">무굴 제국의 황제 샤자한이 세상을 떠난 왕비 뭄타즈 마할을 추모하기 위해 20여 년에 걸쳐 지은 흰 대리석 무덤이다. 거대한 돔과 네 개의 첨탑(미나레트), 아치형 문은 이슬람 건축 양식을 따랐고, 지붕 위의 작은 정자(차트리)와 연꽃 장식 등 인도 전통 요소가 어우러져 인도·이슬람 문화를 대표하는 건축물로 꼽힌다.<div class="count" id="c-s2"></div></div>
+    </div>
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>아그라 성 성벽과 성문 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">3</span>아그라 성<span class="loc">아그라</span></div>
+      <div class="desc" data-count="s3">악바르 황제가 1565년부터 붉은 사암으로 쌓은 거대한 성으로, 무굴 제국의 궁궐이자 요새였다. 샤자한 때 흰 대리석 궁전이 더해졌다. 왕위를 차지한 아들 아우랑제브는 아버지 샤자한을 이 성에 가두었고, 샤자한은 성의 팔각 탑에서 강 건너 타지마할을 바라보며 생을 마쳤다고 전해진다.<div class="count" id="c-s3"></div></div>
+    </div>
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>붉은 성(랄 킬라) 라호르 문 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">4</span>붉은 성(랄 킬라)<span class="loc">델리</span></div>
+      <div class="desc" data-count="s4">샤자한이 수도를 아그라에서 델리로 옮기면서 1639년부터 약 10년에 걸쳐 붉은 사암으로 지은 무굴 제국의 궁궐이다. 1857년 세포이 항쟁 때 항쟁군은 이곳에 살던 무굴 황제 바하두르 샤 2세를 지도자로 받들었으나, 영국이 항쟁을 진압하면서 무굴 제국은 멸망하였다. 오늘날에는 인도 독립 기념일마다 총리가 이곳에서 국기를 게양하고 연설한다.<div class="count" id="c-s4"></div></div>
+    </div>
+  </div>
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>3 / 4</span></div>
+</section>
+
+<!-- ================= 4쪽 ================= -->
+<section class="page">
+  <h2 style="margin-top:0">6. 답사를 통해 느낀 점 &amp; 새롭게 알게 된 점 <span class="req">100자 이상</span></h2>
+  <div class="two">
+    <div class="labelled">
+      <div class="lab">느낀 점</div>
+      <div class="body" data-count="feel">
+        쿠트브 미나르 단지에서 굽타 왕조의 철기둥과 이슬람 왕조의 첨탑이 한자리에 서 있는 모습을 보며, 인도는 여러 종교와 왕조의 문화가 겹겹이 쌓여 만들어진 나라라는 것을 실감하였다. 아그라 성의 팔각 탑에 서서 강 건너 타지마할을 바라보니, 화려한 무굴 문화 뒤에는 치열한 왕위 다툼과 건축에 동원된 수많은 사람들의 땀이 숨어 있다는 생각이 들었다. 가장 인상 깊었던 곳은 붉은 성이었다. 무굴 제국이 멸망하고 영국의 직접 지배가 시작된 장소가 오늘날에는 독립한 인도가 해마다 국기를 올리는 장소가 되었다는 점에서, 나라를 잃은 아픔과 되찾은 기쁨을 함께 간직한 곳이라고 느꼈다. 이는 일제 강점기를 겪은 우리 역사와도 닮아 있어 더 마음에 와닿았다.
+      </div>
+      <div class="count" id="c-feel" style="padding: 0 10px 4px"></div>
+    </div>
+    <div class="labelled">
+      <div class="lab">새롭게 알게 된 점</div>
+      <div class="body" data-count="learn">
+        처음에는 타지마할이 이슬람 사원인 줄 알았는데, 샤자한이 왕비를 위해 만든 무덤이라는 사실을 새롭게 알게 되었다. 또 관용 정책을 펼친 악바르 때에는 제국이 번영하였지만, 종교를 차별한 아우랑제브 이후에는 반발이 커져 제국이 약해졌고, 영국은 그 틈을 타 동인도 회사를 앞세워 인도를 차지했다는 흐름을 알게 되었다. 영국의 도움으로 만들어진 인도 국민 회의가 벵골 분할령을 계기로 오히려 반영 운동의 중심이 되었다는 점도 흥미로웠다. 이를 통해 여러 종교와 민족이 함께 사는 사회에서는 서로를 존중하는 것이 나라를 지키는 힘이 되며, 외부의 지배는 오히려 민족의식을 일깨운다는 것을 배웠다.
+      </div>
+      <div class="count" id="c-learn" style="padding: 0 10px 4px"></div>
+    </div>
+  </div>
+
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>4 / 4</span></div>
+</section>
+
+<!-- ================= 부록: 준비용 점검표 (제출용 아님) ================= -->
+<section class="page guide">
+  <h1>준비용 점검표 <span class="sample-badge">제출용 아님</span></h1>
+  <p class="lead">평가 당일에는 사전 조사 자료를 볼 수 없으므로, 아래 기준표와 핵심 키워드를 미리 익혀 두고 직접 써 보는 연습을 권합니다.</p>
+
+  <table class="check">
+    <thead><tr><th>평가 기준</th><th>이 예시에서 맞춘 방법</th></tr></thead>
+    <tbody>
+      <tr><td>① 주제의 적절성 (3점)</td><td>1학기 기말 범위(고대 인도·굽타·무굴)와 2학기 중간고사 범위(신항로 개척), 중간고사 이후 진도(제국주의·인도 민족 운동)가 모두 연결되는 <b>인도</b>를 선택하고, 선정 이유에 그 연결을 직접 밝힘.</td></tr>
+      <tr><td>② 내용의 정확성 (7점)</td><td>왕조별 핵심 인물·정책·문화(아소카, 카니슈카, 굽타의 힌두교, 악바르의 관용, 아우랑제브의 탄압)와 근대의 배경(동인도 회사, 산업 혁명, 세포이 항쟁, 벵골 분할령)을 시대 순으로 정리함.</td></tr>
+      <tr><td>③ 근거의 타당성 (10점)</td><td>유적 4곳을 각각 교과서 속 사실과 연결함: 쿠트브 미나르(델리 술탄 왕조 + 굽타 철기둥) · 타지마할(인도·이슬람 문화) · 아그라 성(악바르·샤자한·아우랑제브) · 붉은 성(세포이 항쟁·무굴 멸망). 연도와 인물 이름을 정확히 쓰는 것이 가장 중요함.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>보고서 필수 항목과 분량 확인</h2>
+  <table class="check">
+    <thead><tr><th>필수 항목</th><th>기준</th><th>이 예시의 분량(공백 포함)</th></tr></thead>
+    <tbody>
+      <tr><td>가상 답사 날짜·준비물·동반할 사람</td><td>포함</td><td>1. 답사 개요</td></tr>
+      <tr><td>국가를 선정한 이유</td><td>80자 이상</td><td id="g-reason"></td></tr>
+      <tr><td>3일간의 답사 일정</td><td>포함</td><td>3일 × 오전·오후·저녁</td></tr>
+      <tr><td>학습한 역사적 사실·사건</td><td>100자 이상</td><td id="g-facts"></td></tr>
+      <tr><td>느낀 점 &amp; 새롭게 알게 된 점</td><td>100자 이상</td><td id="g-feel"></td></tr>
+      <tr><td>유적 4곳 사진 + 명칭·설명</td><td>각 50자 이상</td><td id="g-sites"></td></tr>
+    </tbody>
+  </table>
+
+  <h2>꼭 외워 둘 핵심 키워드</h2>
+  <div class="kw">
+    <div><b>마우리아 왕조</b>북인도 첫 통일 · 아소카왕 · 불교 장려 · 산치 대탑</div>
+    <div><b>쿠샨 왕조</b>카니슈카왕 · 대승 불교 · 간다라 양식(그리스 영향)</div>
+    <div><b>굽타 왕조 (4세기)</b>힌두교 · 마누 법전 · 산스크리트 문학 · 0과 10진법 · 아잔타 석굴</div>
+    <div><b>델리 술탄 왕조 (13세기)</b>이슬람 세력 북인도 진출 · 쿠트브 미나르</div>
+    <div><b>무굴 제국 (1526)</b>바부르 건국 · 악바르(지즈야 폐지) · 샤자한(타지마할) · 아우랑제브(지즈야 부활)</div>
+    <div><b>인도·이슬람 문화</b>타지마할 · 우르두어 · 시크교(나나크) · 무굴 회화</div>
+    <div><b>1498 / 1757</b>바스쿠 다 가마 캘리컷 도착 / 플라시 전투(영국 승리)</div>
+    <div><b>1857 → 1858 → 1877</b>세포이 항쟁 → 무굴 멸망·영국 직접 통치 → 인도 제국</div>
+    <div><b>1885 / 1905 / 1906</b>인도 국민 회의 / 벵골 분할령 / 콜카타 대회 4대 강령</div>
+  </div>
+
+  <div class="warn">
+    <b>사진 준비 주의</b> · 답사 대상 사진 4장을 각각 <b>11cm × 9cm 이내</b>로 인쇄해 가야 합니다. 교과서(다른 과목 교과서 포함) 사진을 오려 오는 것은 허용되지 않으므로, 인터넷에서 찾은 사진을 직접 인쇄해 준비합니다. 풀과 가위도 챙겨야 합니다.
+  </div>
+</section>
+
+<script>
+  // 공백 포함 글자 수(자소가 아닌 글자 단위) 계산 후 표시
+  function len(el){ return [...el.textContent.replace(/\s+/g,' ').trim()].length; }
+  function count(key){
+    const el = document.querySelector('[data-count="'+key+'"]');
+    if(!el) return 0;
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll('.count, h3').forEach(n => n.remove());
+    return len(clone);
+  }
+  const map = {reason:'c-reason', facts:'c-facts', feel:'c-feel', learn:'c-learn', s1:'c-s1', s2:'c-s2', s3:'c-s3', s4:'c-s4'};
+  const n = {};
+  for (const k in map){ n[k] = count(k); const t = document.getElementById(map[k]); if(t) t.textContent = '(공백 포함 ' + n[k] + '자)'; }
+  const set = (id, s) => { const e = document.getElementById(id); if (e) e.textContent = s; };
+  set('g-reason', n.reason + '자');
+  set('g-facts', n.facts + '자');
+  set('g-feel', '느낀 점 ' + n.feel + '자 · 알게 된 점 ' + n.learn + '자');
+  set('g-sites', [n.s1,n.s2,n.s3,n.s4].map((v,i)=>'①②③④'[i]+' '+v+'자').join(' · '));
+</script>
+</body>
+</html>
