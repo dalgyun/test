@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>2차 세계시민 미니북 예시</title>
+<style>
+@font-face{font-family:'NK';src:url('file:///root/.fonts/NotoSansKR-VF.ttf');font-weight:100 900;}
+@page{size:A4;margin:14mm 15mm;}
+:root{--main:#c05621;--dark:#7b341e;--soft:#fffaf0;--line:#fbd38d;--blue:#2b6cb0;--gray:#718096;}
+*{box-sizing:border-box}
+body{font-family:'NK',sans-serif;font-size:10.5pt;line-height:1.7;color:#222;word-break:keep-all;margin:0}
+.page{break-after:page;min-height:262mm;position:relative}
+.page:last-child{break-after:auto}
+.band{display:flex;align-items:center;gap:10px;border-bottom:3px solid var(--main);padding-bottom:6px;margin-bottom:10px}
+.band .no{background:var(--main);color:#fff;font-weight:800;border-radius:6px;padding:3px 12px;font-size:13pt}
+.band .tt{font-size:15pt;font-weight:800;color:var(--dark)}
+.req{background:#f7fafc;border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:9pt;color:#4a5568;margin-bottom:12px}
+.req b{color:#2d3748}
+h3{font-size:12pt;color:var(--main);margin:14px 0 4px}
+h3 .tag{display:inline-block;font-size:8.5pt;color:#fff;background:var(--blue);border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:2px}
+p{margin:4px 0}
+ul,ol{margin:3px 0;padding-left:20px} li{margin:2px 0}
+strong{color:var(--dark)}
+.grid3{display:grid;grid-template-columns:1fr;gap:8px}
+.lv{border:1.5px solid var(--line);background:var(--soft);border-radius:8px;padding:8px 12px}
+.lv .h{font-weight:800;color:var(--dark);margin-bottom:2px}
+.photo{border:2px dashed #a0aec0;border-radius:8px;padding:12px;text-align:center;color:var(--gray);font-size:9.5pt;margin:10px 0;background:#fcfcfd}
+.photo b{color:#4a5568}
+.concept{border-left:5px solid var(--blue);background:#ebf8ff;padding:8px 12px;border-radius:0 8px 8px 0;margin:8px 0}
+.concept .h{font-weight:800;color:#2c5282}
+table{border-collapse:collapse;width:100%;font-size:9.5pt;margin:6px 0}
+th,td{border:1px solid #cbd5e0;padding:4px 6px;text-align:center}
+th{background:#fefcbf}
+.src{font-size:8.5pt;color:var(--gray);text-align:right}
+.warn{background:#fff8e1;border-left:4px solid #f0a500;padding:10px 14px;color:#5a4500;border-radius:0 8px 8px 0;margin:10px 0}
+.small{font-size:9pt;color:#4a5568}
+/* 표지 */
+.cover{border:3px solid var(--main);border-radius:16px;padding:22px 26px;min-height:250mm;display:flex;flex-direction:column;align-items:center;text-align:center;background:linear-gradient(#fffaf0,#fff 40%)}
+.cover .who{align-self:flex-end;font-size:11pt;border:1px solid #cbd5e0;border-radius:6px;padding:4px 12px;background:#fff}
+.cover .kicker{margin-top:22px;font-size:12pt;color:var(--gray);letter-spacing:2px}
+.cover .title{font-size:28pt;font-weight:900;color:var(--dark);line-height:1.3;margin:6px 0}
+.cover .sub{font-size:13pt;color:var(--main);font-weight:700}
+.cover .meaning{margin-top:auto;text-align:left;border-top:2px dashed var(--line);padding-top:14px;width:100%}
+.cover .meaning .h{font-weight:800;color:var(--dark);font-size:12pt}
+.guide h2{font-size:17pt;color:var(--dark);border-bottom:3px solid var(--main);padding-bottom:6px;margin:0 0 10px}
+.guide table td{text-align:left}
+.guide table td:first-child{text-align:center;white-space:nowrap;font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- 안내 -->
+<section class="page guide">
+  <h2>2학년 도덕 수행평가 2차 – 세계시민 미니북 (예시)</h2>
+  <div class="warn">
+    <b>주의:</b> 이 예시는 일반적으로 알려진 사실을 바탕으로 만든 <b>참고용 예시</b>입니다.
+    통계와 사례는 최신 자료로 다시 확인하고, 문장은 <b>자기 말로 바꿔</b> 써야 합니다.
+    특히 6면의 <b>실천과 느낀 점은 직접 해 본 내용</b>으로 써야 하며, 사진은 직접 찍거나 출처를 꼭 적어야 합니다.
+  </div>
+  <p><b>선택한 문제:</b> 기아(굶주림) — 1차에서 정리한 「10월 16일 세계 식량의 날」과 이어지는 주제</p>
+  <p><b>조사한 기구:</b> 유엔 세계식량계획(WFP)</p>
+  <p class="small">이 주제를 고른 이유: 4면의 <b>인간 안보</b>(결핍으로부터의 자유, 식량 안보)와 <b>적극적 평화</b>(구조적 폭력 제거) 개념에 잘 들어맞고, 6면 실천(급식 잔반 줄이기)을 직접 하고 사진으로 남기기 쉽습니다.</p>
+
+  <h3>미니북 6면 구성 한눈에 보기</h3>
+  <table>
+    <tr><th style="width:44px">면</th><th>평가 요소</th><th style="width:120px">첨부</th></tr>
+    <tr><td>1</td><td>학번·이름, 세계시민 관련 제목, 세계시민의 의미 / 표지 디자인(글씨·색상·무늬·그림)</td><td>표지 꾸미기</td></tr>
+    <tr><td>2</td><td>세계시민이 겪는 문제 1가지 설명, 발생 원인, 구체적 사례</td><td>사진/자료 1개 이상</td></tr>
+    <tr><td>3</td><td>문제가 세계에 미치는 영향 (개인적·사회적·국제적 차원)</td><td>—</td></tr>
+    <tr><td>4</td><td>해결 방안 (개인적·사회적·국제적 차원), 기대 효과 (적극적 평화 또는 인간 안보 개념 활용)</td><td>—</td></tr>
+    <tr><td>5</td><td>활동하는 국제기구 또는 비정부 기구 1곳 조사: 설립 목적, 주요 활동, 문제 해결에 기여하는 방식</td><td>사진/자료 1개 이상</td></tr>
+    <tr><td>6</td><td>세계 시민으로서 실천할 수 있는 행동 목록, 실제로 실천하고 느낀 점</td><td>실천 사진 1장 이상</td></tr>
+  </table>
+
+  <h3>만들 때 팁</h3>
+  <ul>
+    <li>미니북은 칸이 좁으니 <b>핵심 문장 위주</b>로 줄여 쓰고, 소제목·색 펜으로 구분하면 보기 좋습니다.</li>
+    <li>3면·4면은 <b>개인적 / 사회적 / 국제적</b> 세 칸으로 나누어 쓰면 '조건 준수'가 한눈에 보입니다.</li>
+    <li>4면에서 <b>'적극적 평화'나 '인간 안보'라는 낱말을 꼭 직접 쓰고</b>, 뜻을 한 줄로 설명한 뒤 연결하세요.</li>
+    <li>준비물(사전 조사 자료, 표현 도구)을 안 챙기면 감점(-1점)이니, 사진은 미리 출력해 가세요.</li>
+  </ul>
+</section>
+
+<!-- 1면 표지 -->
+<section class="page">
+  <div class="band"><span class="no">1면</span><span class="tt">표지</span></div>
+  <div class="cover">
+    <div class="who">2학년 ○반 ○번 ○○○</div>
+    <div class="kicker">세계 시민 미니북</div>
+    <div class="title">모두의 밥상,<br>하나의 지구</div>
+    <div class="sub">굶주림 없는 세상을 꿈꾸는 세계 시민</div>
+
+    <svg width="230" height="210" viewBox="0 0 230 210" style="margin:22px 0 10px" aria-label="지구 밥그릇 그림">
+      <circle cx="115" cy="88" r="66" fill="#4299e1"/>
+      <path d="M78 52c14-10 34-8 40 4 6 12-8 18-4 30 4 10-10 16-22 10-12-6-26-4-28-18-2-12 4-20 14-26z" fill="#48bb78"/>
+      <path d="M138 40c12 0 26 10 28 24 2 12-10 14-14 26-4 10-16 6-18-6-2-10-10-16-6-28 2-10 4-16 10-16z" fill="#48bb78"/>
+      <path d="M120 118c10-2 22 2 24 10 1 6-8 8-16 8-10 0-16-4-16-10 0-4 4-7 8-8z" fill="#48bb78"/>
+      <ellipse cx="115" cy="88" rx="66" ry="22" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+      <ellipse cx="115" cy="88" rx="26" ry="66" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+      <path d="M20 120h190c0 50-42 78-95 78S20 170 20 120z" fill="#dd6b20"/>
+      <rect x="20" y="114" width="190" height="10" rx="5" fill="#c05621"/>
+      <path d="M40 140c20 6 130 6 150 0" stroke="#fbd38d" stroke-width="4" fill="none" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <rect x="190" y="20" width="8" height="70" rx="4" fill="#a0aec0" transform="rotate(20 194 55)"/>
+      <ellipse cx="206" cy="18" rx="12" ry="17" fill="#a0aec0" transform="rotate(20 206 18)"/>
+    </svg>
+    <p class="small">표지 디자인 예시: 지구를 밥그릇에 담아 '모두가 함께 먹는 밥상'을 표현.<br>
+    주황(음식·나눔), 파랑(지구), 초록(생명) 색을 쓰고 테두리에 숟가락·곡식 무늬를 넣는다.</p>
+
+    <div class="meaning">
+      <div class="h">세계 시민이란?</div>
+      <p>세계 시민이란 국가나 민족의 경계를 넘어 자신을 <b>지구 공동체의 한 구성원</b>으로 여기고,
+      인류가 함께 겪는 문제에 관심을 가지며 그 문제를 해결하기 위해 <b>책임감 있게 행동하는 사람</b>이다.
+      내가 먹고 버리는 음식 하나도 지구 반대편 사람들의 삶과 연결되어 있다는 것을 아는 것이 세계 시민의 첫걸음이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2면 -->
+<section class="page">
+  <div class="band"><span class="no">2면</span><span class="tt">세계 시민이 겪는 문제: 기아(굶주림)</span></div>
+  <div class="req"><b>평가 요소</b> · 문제 1가지 선택하여 설명 · 발생 원인 · 구체적 사례 · <b>사진/자료 1개 이상</b></div>
+
+  <h3>문제 설명</h3>
+  <p><strong>기아</strong>란 오랫동안 충분한 음식을 먹지 못해 건강하고 활동적인 생활을 할 수 없는 상태를 말한다.
+  지금 세계에서 생산되는 식량은 모든 사람이 먹기에 충분한데도, 세계 인구의 약 11명 중 1명(약 7억 명 이상)이 굶주림에 시달리고 있다.
+  특히 아프리카와 남아시아, 전쟁이 일어난 지역의 어린이들이 가장 큰 피해를 입는다.</p>
+
+  <h3>발생 원인</h3>
+  <ol>
+    <li><b>분쟁(전쟁):</b> 농사를 지을 수 없고 식량 운송이 막히며, 굶주림이 전쟁의 무기로 쓰이기도 한다.</li>
+    <li><b>기후 변화:</b> 가뭄·홍수·폭염이 잦아져 농작물 수확량이 줄어든다.</li>
+    <li><b>빈곤과 불평등한 분배:</b> 식량이 없어서가 아니라, 식량을 살 돈이 없거나 식량이 필요한 곳에 가지 못해 굶는다.</li>
+    <li><b>식량 낭비:</b> 생산된 식량의 약 3분의 1이 운반 중에 상하거나 음식물 쓰레기로 버려진다.</li>
+  </ol>
+
+  <h3>구체적 사례</h3>
+  <ul>
+    <li><b>러시아–우크라이나 전쟁(2022~):</b> 세계적인 밀 수출국인 우크라이나의 항구가 막히자 국제 곡물 가격이 크게 올랐고,
+    밀을 수입하던 중동·아프리카의 가난한 나라들이 빵을 사기 어려워졌다.</li>
+    <li><b>수단 내전(2023~):</b> 내전으로 수많은 피란민이 생겼고, 2024년에는 다르푸르 지역의 난민촌에서 가장 심각한 단계인
+    '기근'이 공식적으로 확인되었다.</li>
+  </ul>
+
+  <h3>자료</h3>
+  <svg width="100%" viewBox="0 0 600 120" aria-label="생산된 식량의 약 3분의 1이 손실되거나 버려짐">
+    <text x="0" y="18" font-size="15" font-weight="700" fill="#7b341e">생산된 식량 100% 중…</text>
+    <rect x="0" y="32" width="400" height="44" rx="6" fill="#48bb78"/>
+    <rect x="404" y="32" width="196" height="44" rx="6" fill="#a0aec0"/>
+    <text x="200" y="60" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">사람이 먹는 식량 (약 2/3)</text>
+    <text x="502" y="60" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">손실·버려짐 (약 1/3)</text>
+    <text x="0" y="104" font-size="13" fill="#4a5568">→ 버려지는 식량만 잘 나누어도 굶주리는 사람들을 충분히 먹일 수 있다.</text>
+  </svg>
+  <p class="src">출처: 유엔식량농업기구(FAO) 추정치를 바탕으로 직접 그림</p>
+  <div class="photo"><b>[사진 자리]</b> 식량 배급을 기다리는 사람들 또는 가뭄으로 갈라진 땅 사진<br>(인터넷 사진을 쓸 경우 사진 아래에 출처를 꼭 적기)</div>
+</section>
+
+<!-- 3면 -->
+<section class="page">
+  <div class="band"><span class="no">3면</span><span class="tt">기아가 세계에 미치는 영향</span></div>
+  <div class="req"><b>평가 요소</b> · 문제가 세계에 미치는 영향을 <b>개인적 · 사회적 · 국제적</b> 차원에서 설명</div>
+
+  <div class="grid3">
+    <div class="lv">
+      <div class="h">개인적 차원</div>
+      <ul>
+        <li>영양실조로 키가 잘 자라지 못하고 두뇌 발달이 늦어지며, 면역력이 약해져 작은 병에도 목숨을 잃을 수 있다.</li>
+        <li>굶주린 아이들은 학교 대신 일터로 나가게 되어 교육받을 기회를 잃고, 결국 <b>가난이 대물림</b>된다.</li>
+        <li>우리에게도 영향이 있다. 우리나라는 곡물의 대부분을 수입하기 때문에 세계 곡물 가격이 오르면
+        라면·빵·과자 값이 함께 오른다.</li>
+      </ul>
+    </div>
+    <div class="lv">
+      <div class="h">사회적 차원</div>
+      <ul>
+        <li>건강하게 일할 수 있는 사람이 줄어 <b>경제 발전이 늦어지고</b>, 나라 전체가 더 가난해진다.</li>
+        <li>식량을 두고 다툼·폭동·범죄가 늘어나 사회가 불안정해진다.</li>
+        <li>병든 사람이 늘어나 의료비 부담이 커지고, 학교 교육 같은 공공 서비스도 무너진다.</li>
+      </ul>
+    </div>
+    <div class="lv">
+      <div class="h">국제적 차원</div>
+      <ul>
+        <li>먹을 것을 찾아 고향을 떠나는 <b>난민과 이주민</b>이 늘어나 주변 나라에도 부담이 된다.</li>
+        <li>식량 부족이 분쟁을 낳고, 분쟁이 다시 식량 부족을 낳는 <b>악순환</b>이 생겨 지역 전체가 불안해진다.</li>
+        <li>한 지역의 식량 위기가 세계 곡물 가격을 흔들어 <b>세계 경제</b>에도 영향을 준다.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:12px"><b>정리:</b> 기아는 한 사람의 배고픔에서 끝나지 않고, 사회의 발전을 막고 세계의 평화까지 위협하는
+  <b>모두의 문제</b>이다.</p>
+</section>
+
+<!-- 4면 -->
+<section class="page">
+  <div class="band"><span class="no">4면</span><span class="tt">해결 방안과 기대 효과</span></div>
+  <div class="req"><b>평가 요소</b> · 해결 방안을 <b>개인적 · 사회적 · 국제적</b> 차원에서 제시 · 기대 효과를 <b>적극적 평화 또는 인간 안보</b> 개념으로 설명</div>
+
+  <div class="grid3">
+    <div class="lv">
+      <div class="h">개인적 차원</div>
+      <ul>
+        <li>급식과 집밥을 먹을 만큼만 덜어 <b>음식을 남기지 않는다</b>.</li>
+        <li>생산자에게 정당한 값을 주는 <b>공정무역 제품</b>을 산다.</li>
+        <li>기아 문제를 SNS나 학급 게시판으로 알리고, 모금·기부 캠페인에 참여한다.</li>
+      </ul>
+    </div>
+    <div class="lv">
+      <div class="h">사회적 차원</div>
+      <ul>
+        <li>남는 음식을 필요한 이웃에게 전하는 <b>푸드뱅크</b>를 늘리고, 기업이 팔고 남은 식품을 기부하도록 장려한다.</li>
+        <li>먹어도 되는 음식이 버려지지 않도록 <b>소비기한 표시제</b>(우리나라는 2023년부터 시행)를 널리 알린다.</li>
+        <li>학교와 지역에서 음식물 쓰레기 줄이기 캠페인을 연다.</li>
+      </ul>
+    </div>
+    <div class="lv">
+      <div class="h">국제적 차원</div>
+      <ul>
+        <li>전쟁·재난 지역에 <b>긴급 식량 원조</b>를 보내고, 분쟁 중에도 식량이 전달될 수 있도록 각국이 협력한다.</li>
+        <li>개발도상국이 스스로 식량을 생산할 수 있도록 <b>농업 기술과 시설을 지원</b>한다. (물고기를 주는 것보다 낚시법을 알려 주기)</li>
+        <li>기후 변화에 함께 대응하고, 지속가능발전목표 2번 <b>'기아 종식'</b>을 이루기 위해 협력한다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>기대 효과</h3>
+  <div class="concept">
+    <div class="h">인간 안보의 관점</div>
+    <p>인간 안보란 국가의 안전이 아니라 <b>사람 한 명 한 명이 공포와 결핍에서 벗어나 안전하게 사는 것</b>을 중요하게 여기는 개념이다.
+    식량 안보는 인간 안보의 중요한 요소이다. 위의 해결 방안으로 굶주림이 줄어들면 사람들이 <b>'결핍으로부터의 자유'</b>를 누리게 되어,
+    어느 나라에 태어났든 건강하게 자라고 배우며 일할 수 있는 인간 안보가 실현된다.</p>
+  </div>
+  <div class="concept">
+    <div class="h">적극적 평화의 관점</div>
+    <p>평화학자 요한 갈퉁은 전쟁이 없는 상태를 <b>소극적 평화</b>, 가난·차별·굶주림 같은 <b>구조적 폭력</b>까지 사라진 상태를
+    <b>적극적 평화</b>라고 했다. 전쟁이 없어도 누군가 굶고 있다면 진정한 평화가 아니다. 기아를 해결하는 것은 구조적 폭력을 없애는 일이며,
+    식량을 둘러싼 갈등도 줄여 주기 때문에 <b>적극적 평화</b>로 나아가는 길이 된다.</p>
+  </div>
+</section>
+
+<!-- 5면 -->
+<section class="page">
+  <div class="band"><span class="no">5면</span><span class="tt">기아 해결을 위해 활동하는 기구: 유엔 세계식량계획(WFP)</span></div>
+  <div class="req"><b>평가 요소</b> · 국제기구 또는 비정부 기구 1곳 조사 · 설립 목적 · 주요 활동 · 문제 해결에 기여하는 방식 · <b>사진/자료 1개 이상</b></div>
+
+  <table>
+    <tr><th style="width:110px">이름</th><td style="text-align:left">유엔 세계식량계획 (WFP, World Food Programme)</td></tr>
+    <tr><th>종류</th><td style="text-align:left">국제기구 (국제연합 UN 산하 기구)</td></tr>
+    <tr><th>설립</th><td style="text-align:left">1961년 / 본부: 이탈리아 로마</td></tr>
+  </table>
+
+  <h3>설립 목적</h3>
+  <p>전쟁·재난 등 긴급 상황에서 굶주리는 사람들의 <b>생명을 구하고</b>, 장기적으로는 사람들이 스스로 식량을 마련할 수 있도록 도와
+  세계의 <b>굶주림을 없애는 것(Zero Hunger)</b>을 목표로 한다.</p>
+
+  <h3>주요 활동</h3>
+  <ul>
+    <li><b>긴급 식량 지원:</b> 전쟁·지진·홍수 등이 일어난 곳에 트럭·배·비행기로 식량을 보낸다.</li>
+    <li><b>학교 급식 지원:</b> 학교에서 급식을 제공해 아이들이 영양을 얻고 학교에 계속 다닐 수 있게 한다.</li>
+    <li><b>영양 지원:</b> 영양실조에 걸리기 쉬운 어린이와 임산부에게 영양 식품을 준다.</li>
+    <li><b>자립 지원:</b> 마을 사람들이 저수지·농지를 만드는 일에 참여하면 식량이나 현금을 주어, 다음 재난에 스스로 버틸 힘을 키운다.</li>
+  </ul>
+
+  <h3>기아 해결에 기여하는 방식</h3>
+  <ul>
+    <li>해마다 세계 100여 개 나라에서 1억 명이 넘는 사람들에게 식량을 지원하는 <b>세계 최대 규모의 인도주의 기구</b>이다.</li>
+    <li>당장의 배고픔을 해결하는 긴급 지원과 스스로 일어서게 하는 자립 지원을 <b>함께</b> 하여 굶주림의 악순환을 끊는다.</li>
+    <li>굶주림을 줄여 분쟁을 막고 평화에 기여한 공로로 <b>2020년 노벨 평화상</b>을 받았다.</li>
+    <li>우리나라도 1960~80년대에 WFP의 식량 지원을 받았던 나라였지만, 지금은 WFP를 돕는 나라가 되었다.</li>
+  </ul>
+  <div class="photo"><b>[사진/자료 자리]</b> WFP 로고, 또는 WFP가 학교 급식을 나누어 주는 사진<br>(출처: WFP 공식 홈페이지 wfp.org 등 — 출처를 꼭 적기)</div>
+</section>
+
+<!-- 6면 -->
+<section class="page">
+  <div class="band"><span class="no">6면</span><span class="tt">세계 시민으로서 나의 실천</span></div>
+  <div class="req"><b>평가 요소</b> · 세계 시민으로서 실천할 수 있는 행동 목록 · 실제로 실천하고 느낀 점 · <b>실천 사진 1장 이상</b></div>
+
+  <h3>내가 실천할 수 있는 행동 목록</h3>
+  <ol>
+    <li>급식 <b>잔반 0</b> 도전하기 (먹을 만큼만 받기)</li>
+    <li>장 보기 전에 냉장고를 확인하고, 필요한 것만 사도록 가족과 목록 만들기</li>
+    <li>간식은 <b>공정무역 마크</b>가 있는 제품으로 골라 보기</li>
+    <li>기아 문제를 알리는 카드뉴스를 만들어 친구들에게 공유하기</li>
+    <li>용돈의 일부를 식량 지원 단체에 기부하기</li>
+  </ol>
+
+  <h3>실천 기록 <span class="tag">예시 – 직접 한 내용으로 바꾸기</span></h3>
+  <table>
+    <tr><th>날짜</th><th>11/3(월)</th><th>11/4(화)</th><th>11/5(수)</th><th>11/6(목)</th><th>11/7(금)</th></tr>
+    <tr><td>급식 잔반 0</td><td>○</td><td>○</td><td>△ (국 조금 남김)</td><td>○</td><td>○</td></tr>
+    <tr><td>그 밖의 실천</td><td colspan="2">가족과 장보기 목록 만들기</td><td colspan="3">공정무역 초콜릿 사 보기</td></tr>
+  </table>
+
+  <div class="photo"><b>[실천 사진 자리]</b> 깨끗하게 비운 급식판 사진, 장보기 목록 사진, 공정무역 마크가 보이는 제품 사진 등<br>(직접 찍은 사진 1장 이상)</div>
+
+  <h3>실천하고 느낀 점 <span class="tag">예시 – 직접 느낀 점으로 바꾸기</span></h3>
+  <p>처음에는 좋아하지 않는 반찬까지 남기지 않는 것이 어려웠지만, 처음부터 먹을 만큼만 받으니 생각보다 쉽게 잔반을 줄일 수 있었다.
+  일주일 동안 실천하면서 내가 무심코 버리던 음식이 세계 어딘가에서는 한 끼 식사가 될 수 있다는 생각이 들었다.
+  내 작은 실천이 직접 굶주림을 해결하지는 못하지만, 이런 습관을 가진 사람이 많아지고 함께 목소리를 내면 사회와 세계가 바뀔 수 있다고 믿는다.
+  앞으로도 '먹을 만큼만' 습관을 이어 가며, 지구 공동체를 생각하는 세계 시민이 되고 싶다.</p>
+</section>
+
+</body>
+</html>
