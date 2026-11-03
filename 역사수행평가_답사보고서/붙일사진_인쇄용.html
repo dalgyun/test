@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>답사 보고서 붙일 사진</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1f2328; --sub: #5b626b; --line: #2f3a45; --soft: #eef1f4; --accent: #b8461b; --paper: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --ink: #e6e8eb; --sub: #a9b0b9; --line: #8a96a3; --soft: #2a3038; --accent: #f0915f; --paper: #16191d; }
+  }
+  :root[data-theme="dark"] { --ink: #e6e8eb; --sub: #a9b0b9; --line: #8a96a3; --soft: #2a3038; --accent: #f0915f; --paper: #16191d; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); }
+  body { font-family: "Noto Sans KR", "WenQuanYi Zen Hei", sans-serif; font-size: 10pt; line-height: 1.55; word-break: keep-all; }
+  .page { width: 210mm; min-height: 296mm; margin: 0 auto; padding: 12mm 15mm 10mm; position: relative; background: var(--paper); }
+  @page { size: A4; margin: 0; }
+  @media print { .page { break-after: page; } .page:last-child { break-after: auto; } }
+  @media screen { .page + .page { border-top: 2px dashed var(--soft); } }
+  @media screen and (max-width: 820px) { .page { width: 100%; min-height: 0; padding: 20px 16px; } .shot img { max-width: 100%; height: auto !important; } }
+
+  .head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
+  .head h1 { font-size: 15pt; margin: 0; }
+  .head .p { font-size: 9pt; color: var(--sub); }
+  .notice { background: var(--soft); padding: 7px 11px; margin: 8px 0 4px; font-size: 9pt; }
+  .notice b { color: var(--accent); }
+  .ruler { margin: 6px 0 2px; font-size: 8.5pt; color: var(--sub); display: flex; align-items: center; gap: 8px; }
+  .ruler .bar { width: 10cm; height: 8px; border: 1px solid var(--ink); border-top: none;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 1cm); }
+
+  .shot { margin-top: 9mm; display: flex; flex-direction: column; align-items: center; }
+  .shot .frame { position: relative; outline: 0.3mm dashed var(--ink); outline-offset: 0; line-height: 0; }
+  .shot .frame::before { content: "✂"; position: absolute; top: -4.2mm; left: -4.2mm; font-size: 11pt; line-height: 1; color: var(--ink); }
+  .shot img { display: block; }
+  .shot .cap { margin-top: 2.5mm; text-align: center; font-size: 9.5pt; }
+  .shot .cap b { font-size: 10.5pt; }
+  .shot .cap .size { color: var(--accent); font-weight: 700; margin-left: 4px; }
+  .shot .cap .credit { display: block; font-size: 7.5pt; color: var(--sub); }
+  .row { display: flex; justify-content: center; gap: 10mm; }
+
+  .credits { margin-top: 8mm; border-top: 1px solid var(--line); padding-top: 5px; font-size: 7.8pt; color: var(--sub); }
+  .credits h2 { font-size: 9.5pt; color: var(--ink); margin: 0 0 3px; }
+  .credits ol { margin: 0; padding-left: 16px; }
+  .credits li { margin-bottom: 1px; word-break: break-all; }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="head"><h1>가상 답사 보고서 · 붙일 사진 ① ②</h1><span class="p">인도 답사 · 1 / 3</span></div>
+  <div class="notice">
+    인쇄할 때 <b>‘실제 크기(100%)’</b>를 선택하세요. ‘페이지에 맞춤’으로 인쇄하면 크기가 달라집니다.
+    모든 사진은 <b>10.5cm × 8.5cm 안</b>에 들어가도록 만들어 안내문의 기준(11cm × 9cm 이내)을 지킵니다. 점선을 따라 오리면 아래 이름표는 잘려 나갑니다.
+  </div>
+  <div class="ruler"><span>인쇄 크기 확인용 10cm 선 →</span><span class="bar"></span><span>자로 재어 10cm인지 확인</span></div>
+
+  <div class="shot">
+    <div class="frame"><img src="붙일사진/01_쿠트브미나르와_철기둥.jpg" style="width:10.5cm;height:8.4cm" alt="쿠트브 미나르와 왼쪽 아래의 철기둥"></div>
+    <div class="cap"><b>① 쿠트브 미나르와 철기둥 (델리)</b><span class="size">10.5 × 8.4cm</span>
+      <span class="credit">왼쪽 아래 기둥이 굽타 왕조 때의 철기둥 · 사진: Dimitry B, CC BY 2.0</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><img src="붙일사진/02_타지마할.jpg" style="width:10.5cm;height:7.0cm" alt="타지마할 정면"></div>
+    <div class="cap"><b>② 타지마할 (아그라)</b><span class="size">10.5 × 7.0cm</span>
+      <span class="credit">사진: Paul and Jill, CC BY 2.0</span></div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="head"><h1>가상 답사 보고서 · 붙일 사진 ③ ④</h1><span class="p">인도 답사 · 2 / 3</span></div>
+
+  <div class="shot">
+    <div class="frame"><img src="붙일사진/03_아그라성.jpg" style="width:6.6cm;height:8.5cm" alt="아그라 성의 붉은 사암 성벽과 성문"></div>
+    <div class="cap"><b>③ 아그라 성 (아그라)</b><span class="size">6.6 × 8.5cm</span>
+      <span class="credit">악바르 때 붉은 사암으로 쌓은 성벽과 성문 · 사진: ustung, CC BY 2.0</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><img src="붙일사진/04_붉은성.jpg" style="width:10.5cm;height:7.9cm" alt="붉은 성(랄 킬라)과 인도 국기"></div>
+    <div class="cap"><b>④ 붉은 성(랄 킬라) (델리)</b><span class="size">10.5 × 7.9cm</span>
+      <span class="credit">성 위에 인도 국기가 걸려 있음 · 사진: Dr. Partha Sarathi Sahana, CC BY 2.0</span></div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="head"><h1>예비 사진 (바꿔 쓰고 싶을 때)</h1><span class="p">인도 답사 · 3 / 3</span></div>
+
+  <div class="row">
+    <div class="shot">
+      <div class="frame"><img src="붙일사진/예비A_아그라성_팔각탑에서_본_타지마할.jpg" style="width:5.9cm;height:8.5cm" alt="아그라 성 팔각 탑과 멀리 보이는 타지마할"></div>
+      <div class="cap"><b>예비 A · 아그라 성 팔각 탑</b><span class="size">5.9 × 8.5cm</span>
+        <span class="credit">왼쪽 멀리 타지마할이 보임<br>사진: ustung, CC BY 2.0</span></div>
+    </div>
+    <div class="shot">
+      <div class="frame"><img src="붙일사진/예비B_쿠트브미나르_벽면_쿠란구절.jpg" style="width:10.5cm;height:7.9cm" alt="쿠트브 미나르 벽면에 새겨진 쿠란 구절"></div>
+      <div class="cap"><b>예비 B · 쿠트브 미나르 벽면 글씨</b><span class="size">10.5 × 7.9cm</span>
+        <span class="credit">붉은 사암에 새긴 쿠란 구절 · 사진: Swami Stream, CC BY 2.0</span></div>
+    </div>
+  </div>
+
+  <div class="credits">
+    <h2>사진 출처</h2>
+    모든 사진은 크리에이티브 커먼즈 저작자표시 2.0(CC BY 2.0, https://creativecommons.org/licenses/by/2.0/) 라이선스이며, 크기만 조정하고 자르거나 고치지 않았습니다. 교과서 사진이 아니므로 안내문의 조건에 맞습니다.
+    <ol>
+      <li>“Qutub Minar and Iron Pillar, Delhi” by Dimitry B — https://www.flickr.com/photos/61533954@N00/8059436055</li>
+      <li>“Taj Mahal” by Paul and Jill — https://www.flickr.com/photos/39136124@N00/2154749801</li>
+      <li>“India (Agra-Agra Fort) The beauty of Akbar Gate1” by ustung — https://www.flickr.com/photos/126397594@N03/33131153186</li>
+      <li>“Red Fort, Delhi” by Dr. Partha Sarathi Sahana — https://www.flickr.com/photos/124018523@N04/14063144446</li>
+      <li>예비 A: “India (Agra-Agra Fort) Octagonal pavilion looks out across the Yumna River and Taj Mahal” by ustung — https://www.flickr.com/photos/126397594@N03/32809406970</li>
+      <li>예비 B: “Qutub Minar” by Swami Stream — https://www.flickr.com/photos/21063397@N00/407960709</li>
+    </ol>
+  </div>
+</section>
+
+</body>
+</html>
