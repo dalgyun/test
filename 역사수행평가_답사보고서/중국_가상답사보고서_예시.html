@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>중국 가상 답사 보고서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2328;
+    --sub: #555c66;
+    --line: #2f3a45;
+    --soft: #e7ecf1;
+    --accent: #b8461b;
+    --accent-soft: #fbeee6;
+    --green: #2f6f5e;
+    --green-soft: #e6f1ed;
+    --paper: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e6e8eb; --sub: #a9b0b9; --line: #8a96a3; --soft: #2a3038;
+      --accent: #f0915f; --accent-soft: #3a2a22; --green: #7fc8b2; --green-soft: #213430; --paper: #16191d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e6e8eb; --sub: #a9b0b9; --line: #8a96a3; --soft: #2a3038;
+    --accent: #f0915f; --accent-soft: #3a2a22; --green: #7fc8b2; --green-soft: #213430; --paper: #16191d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: "Noto Sans KR", "WenQuanYi Zen Hei", sans-serif;
+    font-size: 10.5pt; line-height: 1.65; word-break: keep-all;
+  }
+  .page {
+    width: 210mm; min-height: 296mm; margin: 0 auto; padding: 12mm 15mm 13mm;
+    background: var(--paper); position: relative;
+  }
+  @media screen and (max-width: 820px) {
+    .page { width: 100%; min-height: 0; padding: 20px 16px; }
+  }
+  @media screen { .page + .page { border-top: 2px dashed var(--soft); } }
+  @page { size: A4; margin: 0; }
+  @media print {
+    .page { page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+  }
+
+  /* 머리글 */
+  .doc-head { border: 2px solid var(--line); display: grid; grid-template-columns: 1fr auto; }
+  .doc-head .title { padding: 9px 14px; }
+  .doc-head .kicker { font-size: 9pt; color: var(--accent); font-weight: 700; letter-spacing: .02em; }
+  .doc-head h1 { font-family: "Nanum Myeongjo", serif; font-weight: 800; font-size: 21pt; margin: 2px 0 0; line-height: 1.25; }
+  .doc-head h1 small { display:block; font-size: 11.5pt; font-weight: 700; color: var(--sub); margin-top: 3px; }
+  .doc-head .who { border-left: 2px solid var(--line); display: grid; grid-template-rows: repeat(3, 1fr); min-width: 46mm; }
+  .doc-head .who div { display: flex; align-items: center; padding: 0 10px; font-size: 9.5pt; border-bottom: 1px solid var(--line); }
+  .doc-head .who div:last-child { border-bottom: none; }
+  .doc-head .who b { width: 30px; color: var(--sub); font-weight: 500; }
+
+  .sample-badge {
+    display: inline-block; font-size: 8.5pt; font-weight: 700; color: var(--paper); background: var(--accent);
+    padding: 1px 8px; border-radius: 3px; margin-left: 6px; vertical-align: middle;
+  }
+
+  h2 {
+    font-size: 12pt; margin: 12px 0 6px; padding: 4px 10px; background: var(--soft);
+    border-left: 5px solid var(--accent); display: flex; justify-content: space-between; align-items: baseline;
+  }
+  h2 .req { font-size: 8.5pt; font-weight: 500; color: var(--sub); }
+
+  table { border-collapse: collapse; width: 100%; }
+  .info th, .info td { border: 1px solid var(--line); padding: 5px 9px; vertical-align: top; text-align: left; }
+  .info th { width: 27mm; background: var(--soft); font-weight: 700; white-space: nowrap; }
+
+  .prose { border: 1px solid var(--line); padding: 9px 12px; text-align: justify; }
+  .prose p { margin: 0 0 5px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .count { text-align: right; font-size: 8pt; color: var(--sub); margin-top: 2px; }
+
+  .plan th, .plan td { border: 1px solid var(--line); padding: 4px 8px; vertical-align: top; }
+  .plan thead th { background: var(--soft); text-align: center; }
+  .plan td.day { text-align: center; font-weight: 700; width: 22mm; background: var(--green-soft); }
+  .plan td.time { width: 15mm; text-align: center; color: var(--sub); white-space: nowrap; }
+  .plan td .point { color: var(--green); font-size: 9pt; }
+
+  .facts { border: 1px solid var(--line); }
+  .facts .era { display: grid; grid-template-columns: 27mm 1fr; border-bottom: 1px solid var(--soft); }
+  .facts .era:last-child { border-bottom: none; }
+  .facts .era h3 { margin: 0; padding: 7px 8px; font-size: 9.5pt; background: var(--soft); line-height: 1.35; }
+  .facts .era h3 span { display: block; font-size: 8pt; color: var(--sub); font-weight: 500; margin-top: 2px; }
+  .facts .era p { margin: 0; padding: 6px 10px; text-align: justify; }
+
+  .sites { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .site { border: 1px solid var(--line); display: grid; grid-template-rows: auto auto 1fr; }
+  .photo {
+    height: 62mm; margin: 7px 7px 0; border: 1.5px dashed var(--sub); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; color: var(--sub); font-size: 8.5pt; line-height: 1.45;
+    background: repeating-linear-gradient(135deg, transparent 0 9px, var(--soft) 9px 10px);
+  }
+  .photo b { color: var(--ink); font-size: 9.5pt; }
+  .site .name { padding: 6px 9px 0; font-weight: 700; font-size: 10.5pt; }
+  .site .name .no { display:inline-block; width: 19px; height: 19px; line-height: 19px; text-align:center; border-radius: 50%; background: var(--accent); color: var(--paper); font-size: 9pt; margin-right: 4px; }
+  .site .name .loc { font-weight: 500; color: var(--sub); font-size: 8.5pt; margin-left: 4px; }
+  .site .desc { padding: 3px 9px 7px; font-size: 9.6pt; text-align: justify; line-height: 1.6; }
+  .site .desc .count { margin-top: 0; }
+
+  .two { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .labelled { border: 1px solid var(--line); }
+  .labelled .lab { background: var(--green-soft); color: var(--green); font-weight: 700; padding: 4px 10px; font-size: 9.5pt; border-bottom: 1px solid var(--line); }
+  .labelled .body { padding: 8px 12px; text-align: justify; }
+
+  .route { display:block; width: 100%; height: auto; margin-top: 6px; }
+  .footer-note { position: absolute; bottom: 7mm; left: 15mm; right: 15mm; font-size: 7.8pt; color: var(--sub); display:flex; justify-content: space-between; }
+  @media screen and (max-width: 820px) { .footer-note { position: static; margin-top: 14px; } .sites { grid-template-columns: 1fr; } .doc-head { grid-template-columns: 1fr; } .doc-head .who { border-left: none; border-top: 2px solid var(--line); } }
+
+  /* 부록(지도용) */
+  .guide h1 { font-size: 16pt; margin: 0 0 4px; }
+  .guide .lead { color: var(--sub); margin: 0 0 10px; font-size: 9.5pt; }
+  .guide table.check th, .guide table.check td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; font-size: 9.5pt; }
+  .guide table.check thead th { background: var(--soft); }
+  .guide table.check td:first-child { font-weight: 700; white-space: nowrap; }
+  .guide ul { margin: 4px 0 0; padding-left: 18px; }
+  .guide li { margin-bottom: 2px; }
+  .kw { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 4px; }
+  .kw div { border: 1px solid var(--line); padding: 6px 8px; font-size: 9pt; }
+  .kw div b { display:block; color: var(--accent); margin-bottom: 2px; }
+  .warn { background: var(--accent-soft); border: 1px solid var(--accent); padding: 8px 12px; margin-top: 10px; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= 1쪽 ================= -->
+<section class="page">
+  <div class="doc-head">
+    <div class="title">
+      <div class="kicker">2학년 역사 수행평가 2 · 가상의 답사 보고서 작성하기 <span class="sample-badge">예시</span></div>
+      <h1>황제의 도시 베이징 3일<small>— 명·청의 영광에서 아편 전쟁과 신해혁명까지, 베이징 가상 답사</small></h1>
+    </div>
+    <div class="who">
+      <div><b>학번</b>2학년 ○반 ○번</div>
+      <div><b>이름</b>○ ○ ○</div>
+      <div><b>제출</b>2026. 11. ○.</div>
+    </div>
+  </div>
+
+  <h2>1. 답사 개요</h2>
+  <table class="info">
+    <tr><th>답사 국가(도시)</th><td>중국 (베이징)</td></tr>
+    <tr><th>가상 답사 날짜</th><td>2027년 1월 6일(수) ~ 1월 8일(금), 2박 3일 <span style="color:var(--sub)">(자금성 월요일 휴관 → 수요일로 예약)</span></td></tr>
+    <tr><th>동반할 사람</th><td>부모님, 동생</td></tr>
+    <tr><th>준비물</th><td>여권(출발 전 입국 조건 확인), 자금성 예약 확인증, 위안화·해외 결제 카드, 두꺼운 외투·장갑·핫팩(1월 베이징은 영하 10℃ 안팎), 운동화, 마스크, 역사 노트·필기구, 카메라</td></tr>
+  </table>
+
+  <h2>2. 중국을 선정한 이유 <span class="req">80자 이상</span></h2>
+  <div class="prose" data-count="reason">
+    <p>중국은 1학기에 배운 원·명·청의 역사와 2학기에 배운 산업 혁명 이후 영국의 침략, 중국의 국민 국가 건설 운동이 모두 이어지는 나라이다. 특히 베이징은 원의 수도 대도였고, 명의 영락제 이후 명·청 두 왕조가 500년 가까이 수도로 삼은 도시여서 황제의 궁궐인 자금성과 만리장성, 그리고 아편 전쟁과 열강의 침략으로 파괴된 원명원·이화원을 한곳에서 살펴볼 수 있다. 또 인천에서 비행기로 약 2시간이면 도착하고 시차도 1시간뿐이어서, 3일 일정 대부분을 답사에 쓸 수 있다는 점도 선정 이유이다.</p>
+  </div>
+  <div class="count" id="c-reason"></div>
+
+  <h2>3. 3일간의 답사 일정 계획</h2>
+  <table class="plan">
+    <thead><tr><th>날짜</th><th>시간</th><th>일정 및 답사 포인트</th></tr></thead>
+    <tbody>
+      <tr><td class="day" rowspan="2">1일차<br>1/6(수)</td><td class="time">오전</td><td>인천 국제공항 출발 → 베이징 도착 (약 2시간, 중국이 한국보다 1시간 늦음)</td></tr>
+      <tr><td class="time">오후</td><td><b>자금성</b> 답사 (남쪽 오문으로 들어가 북쪽 신무문으로 나오기) → 숙소에서 답사 노트 정리<br><span class="point">▶ 명의 영락제가 세우고 명·청 황제 24명이 머문 궁궐의 규모와 배치 확인</span></td></tr>
+      <tr><td class="day" rowspan="2">2일차<br>1/7(목)</td><td class="time">오전</td><td>베이징 시내에서 고속 열차로 이동 (약 1시간) → <b>만리장성(바다링 구간)</b> 답사<br><span class="point">▶ 명나라 때 벽돌로 다시 쌓은 성벽과 망루 관찰하기</span></td></tr>
+      <tr><td class="time">오후</td><td>시내로 돌아와 <b>천단 공원</b> 관람<br><span class="point">▶ 명·청 황제가 하늘에 풍년을 비는 제사를 지내던 곳 둘러보기</span></td></tr>
+      <tr><td class="day" rowspan="3">3일차<br>1/8(금)</td><td class="time">오전</td><td><b>원명원 유적 공원</b> 답사<br><span class="point">▶ 제2차 아편 전쟁 때 영국·프랑스군이 불태운 서양식 건물의 잔해 살펴보기</span></td></tr>
+      <tr><td class="time">오후</td><td><b>이화원</b> 답사 (원명원 바로 옆)<br><span class="point">▶ 서태후가 다시 지은 황실 정원과 돌로 만든 배(석방) 찾아보기</span></td></tr>
+      <tr><td class="time">저녁</td><td>공항 이동 → 귀국 (당일 밤 인천 도착)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>1 / 4</span></div>
+</section>
+
+<!-- ================= 2쪽 ================= -->
+<section class="page">
+  <h2 style="margin-top:0">4. 중국과 관련해 학습한 역사적 사실·사건 <span class="req">100자 이상</span></h2>
+  <div class="facts" data-count="facts">
+    <div class="era"><h3>몽골 제국과 원<span>Ⅳ-1-②</span></h3>
+      <p>13세기 초 칭기즈 칸이 몽골 제국을 세웠고, 쿠빌라이 칸은 대도(지금의 베이징)를 수도로 삼아 국호를 원으로 바꾸었다(1271). 원은 남송을 멸망시켜 중국 전체를 지배하였으며, 몽골인을 우대하고 한인과 남인을 차별하는 몽골 제일주의를 펼쳤다. 역참이 정비되어 동서 교류가 활발해졌다.</p></div>
+    <div class="era"><h3>명<span>Ⅳ-2-① · Ⅳ-3-②</span></h3>
+      <p>1368년 주원장(홍무제)이 몽골을 몰아내고 명을 세웠다. 영락제는 수도를 난징에서 베이징으로 옮기고 자금성을 지었으며, 정화에게 대규모 함대를 이끌고 남해 원정에 나서게 하였다. 명은 북방의 몽골을 막기 위해 만리장성을 고쳐 쌓았다. 새로운 항로가 개척된 뒤에는 일본과 아메리카의 은이 대량으로 들어와, 세금을 은으로 내는 일조편법이 시행되었다.</p></div>
+    <div class="era"><h3>청<span>Ⅳ-2-①</span></h3>
+      <p>만주족(여진)의 누르하치가 후금을 세웠고, 홍타이지가 국호를 청으로 바꾸었다. 청은 1644년 베이징을 차지한 뒤 중국 전체를 지배하였으며, 강희제·옹정제·건륭제 때 전성기를 맞아 영토가 크게 넓어졌다. 청은 만주족과 한족을 함께 관리로 쓰고 대규모 편찬 사업을 벌이는 회유책과, 변발을 강요하고 문자의 옥을 일으키는 강경책을 함께 썼다. 서양과의 무역은 광저우 한 곳에서 공행을 통해서만 허락하였다.</p></div>
+    <div class="era"><h3>아편 전쟁<span>Ⅴ-2 · Ⅴ-3-③</span></h3>
+      <p>산업 혁명 이후 영국은 청에서 차를 많이 사들여 무역 적자가 커지자, 인도산 아편을 청에 몰래 팔았다. 청이 임칙서를 보내 아편을 단속하자 영국은 아편 전쟁(1840~1842)을 일으켰고, 패배한 청은 난징 조약을 맺어 홍콩을 넘겨주고 5개 항구를 열었으며 공행을 폐지하였다. 이어 제2차 아편 전쟁(1856~1860) 때 영국·프랑스 연합군이 베이징을 점령하고 원명원을 약탈해 불태웠으며, 청은 베이징 조약을 맺었다.</p></div>
+    <div class="era"><h3>중국의 국민 국가 건설 운동<span>Ⅴ-3-③</span></h3>
+      <p>홍수전은 태평천국 운동(1851)을 일으켜 청을 무너뜨리고 한족 국가를 세우자고 주장하며 토지의 균등한 분배와 남녀평등을 내세웠다. 증국번·이홍장 등 한인 관리들은 ‘중국의 전통을 바탕으로 서양 기술을 받아들이자(중체서용)’며 양무운동을 펼쳤으나, 청일 전쟁(1894)에서 패하며 한계를 드러냈다. 캉유웨이·량치차오는 광서제의 지지를 받아 입헌 군주제를 목표로 변법자강 운동(1898)을 추진하였지만, 서태후 등 보수파의 반대로 100여 일 만에 실패하였다. 이후 ‘청을 도와 서양을 몰아내자(부청멸양)’를 내건 의화단 운동이 일어나자 8개국 연합군이 베이징을 점령하였다(1900). 결국 1911년 신해혁명이 일어나 이듬해 쑨원을 임시 대총통으로 하는 중화민국이 세워졌고, 쑨원은 민족·민권·민생의 삼민주의를 내세웠다. 같은 해 위안스카이가 마지막 황제 선통제(푸이)를 물러나게 하면서 청은 멸망하였다.</p></div>
+  </div>
+  <div class="count" id="c-facts"></div>
+
+  <h2>※ 참고: 이 보고서가 다룬 교과서 단원</h2>
+  <table class="info">
+    <tr><th>1학기</th><td>Ⅱ-3-① 고대 동아시아 세계가 형성되다(진시황과 만리장성) · Ⅳ-1-② 몽골 제국이 성립하고 동서 문화 교류가 늘다 · Ⅳ-2-① 명과 청이 중국을 지배하다</td></tr>
+    <tr><th>2학기 중간고사</th><td>Ⅳ-3-② 새로운 항로를 개척하다 (아메리카 은의 유입)</td></tr>
+    <tr><th>중간고사 이후</th><td>Ⅴ-2 유럽의 산업화와 제국주의 · Ⅴ-3-③ 중국에서 국민 국가 건설 운동이 일어나다</td></tr>
+  </table>
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>2 / 4</span></div>
+</section>
+
+<!-- ================= 3쪽 ================= -->
+<section class="page">
+  <h2 style="margin-top:0">5. 답사 유적·유물·관광지의 명칭과 설명 <span class="req">사진 4장, 각 50자 이상</span></h2>
+  <div class="sites">
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>① 자금성 전경 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">1</span>자금성(고궁)<span class="loc">베이징</span></div>
+      <div class="desc" data-count="s1">명의 영락제가 수도를 난징에서 베이징으로 옮기면서 1420년에 완성한 궁궐로, 명·청 두 왕조의 황제 24명이 약 500년 동안 머물렀다. 황제를 상징하는 노란 기와와 붉은 담장이 특징이며, 오늘날 남아 있는 세계 최대 규모의 목조 궁궐 건축물로 꼽힌다. 청이 멸망한 뒤 1925년부터 고궁 박물원으로 일반에 공개되었다.<div class="count" id="c-s1"></div></div>
+    </div>
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>② 만리장성(바다링) 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">2</span>만리장성(바다링 구간)<span class="loc">베이징 북서쪽</span></div>
+      <div class="desc" data-count="s2">진시황이 북방의 흉노를 막기 위해 전국 시대 여러 나라의 성벽을 이어 쌓은 것에서 시작되었다. 그러나 오늘날 볼 수 있는 성벽은 대부분 명나라 때 몽골의 침입을 막기 위해 벽돌과 돌로 다시 쌓은 것이다. 바다링 구간은 베이징으로 들어오는 길목을 지키던 곳으로 16세기 초에 쌓았으며, 망루와 성가퀴가 잘 남아 있다.<div class="count" id="c-s2"></div></div>
+    </div>
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>③ 이화원 석방(돌배) 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">3</span>이화원과 석방(돌배)<span class="loc">베이징</span></div>
+      <div class="desc" data-count="s3">청의 건륭제가 만든 황실 정원으로, 제2차 아편 전쟁 때 영국·프랑스군에게 불탄 뒤 서태후가 다시 지으면서 ‘이화원’이라는 이름을 붙였다. 이때 해군을 키우는 데 써야 할 돈의 일부를 공사에 썼다고 전해지며, 얼마 뒤 청은 청일 전쟁에서 패하였다. 사진 속 석방은 돌로 만든 배로, 청 왕조가 흔들리지 않기를 바라는 뜻을 담았다고 한다.<div class="count" id="c-s3"></div></div>
+    </div>
+    <div class="site">
+      <div class="photo"><b>사진 붙이는 곳</b>④ 원명원 유적 사진<br>(실제 사진 11cm × 9cm 이내)</div>
+      <div class="name"><span class="no">4</span>원명원 유적<span class="loc">베이징</span></div>
+      <div class="desc" data-count="s4">강희제 때 만들기 시작해 옹정제·건륭제 때 크게 넓힌 청의 황실 정원으로, 서양 선교사들이 설계에 참여한 서양식 건물도 있었다. 1860년 제2차 아편 전쟁 때 베이징을 점령한 영국·프랑스 연합군이 보물을 약탈하고 불태웠다. 중국은 무너진 돌기둥과 잔해를 일부러 그대로 남겨, 열강의 침략을 잊지 않도록 하는 교육의 장소로 삼고 있다.<div class="count" id="c-s4"></div></div>
+    </div>
+  </div>
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>3 / 4</span></div>
+</section>
+
+<!-- ================= 4쪽 ================= -->
+<section class="page">
+  <h2 style="margin-top:0">6. 답사를 통해 느낀 점 &amp; 새롭게 알게 된 점 <span class="req">100자 이상</span></h2>
+  <div class="two">
+    <div class="labelled">
+      <div class="lab">느낀 점</div>
+      <div class="body" data-count="feel">
+        끝없이 이어지는 자금성의 붉은 담장과 노란 기와를 보며 명·청 황제의 권력이 얼마나 강했는지 실감하였다. 그런데 같은 청 황실이 만든 원명원은 돌기둥만 남은 폐허가 되어 있었다. 건륭제 때 전성기를 누리던 나라가 그로부터 100년도 지나지 않아 서양 열강에게 수도를 빼앗길 만큼 약해졌다는 사실이 충격적이었다. 흔들리지 않는 나라를 바라며 만든 이화원의 돌배를 보면서도, 결국 청이 무너졌다는 점에서 씁쓸함을 느꼈다. 중국이 원명원을 일부러 폐허로 남겨 둔 것처럼, 아픈 역사도 감추지 않고 기억하는 자세가 중요하다고 생각하였다.
+      </div>
+      <div class="count" id="c-feel" style="padding: 0 10px 4px"></div>
+    </div>
+    <div class="labelled">
+      <div class="lab">새롭게 알게 된 점</div>
+      <div class="body" data-count="learn">
+        만리장성은 모두 진시황 때 쌓은 것인 줄 알았는데, 지금 우리가 보는 벽돌 성벽은 대부분 명나라 때 몽골을 막기 위해 다시 쌓은 것이라는 사실을 새롭게 알게 되었다. 또 아편 전쟁이 단순히 아편 때문에 일어난 것이 아니라, 산업 혁명 이후 영국의 무역 적자와 시장을 넓히려는 욕심에서 비롯되었다는 것을 알게 되었다. 청은 양무운동과 변법자강 운동처럼 여러 차례 개혁을 시도했지만, 보수 세력의 반대와 열강의 침략 속에서 성공하지 못하였다. 이를 통해 시대의 변화에 맞추어 스스로 개혁하는 일이 나라의 운명을 좌우한다는 것을 배웠고, 비슷한 시기 조선의 상황은 어땠는지도 더 알아보고 싶어졌다.
+      </div>
+      <div class="count" id="c-learn" style="padding: 0 10px 4px"></div>
+    </div>
+  </div>
+
+  <div class="footer-note"><span>2학년 역사 수행평가 2 · 가상의 답사 보고서 (예시)</span><span>4 / 4</span></div>
+</section>
+
+<!-- ================= 부록: 준비용 점검표 (제출용 아님) ================= -->
+<section class="page guide">
+  <h1>준비용 점검표 <span class="sample-badge">제출용 아님</span></h1>
+  <p class="lead">평가 당일에는 사전 조사 자료를 볼 수 없으므로, 아래 기준표와 핵심 키워드를 미리 익혀 두고 직접 써 보는 연습을 권합니다.</p>
+
+  <table class="check">
+    <thead><tr><th>평가 기준</th><th>이 예시에서 맞춘 방법</th></tr></thead>
+    <tbody>
+      <tr><td>① 주제의 적절성 (3점)</td><td>1학기에 배운 원·명·청과 2학기 중간고사 범위(신항로 개척과 은의 유입), 중간고사 이후 진도(산업 혁명·제국주의·중국의 국민 국가 건설 운동)가 모두 이어지는 <b>중국(베이징)</b>을 선택하고, 비행 2시간·시차 1시간이라 3일 답사가 현실적이라는 점까지 선정 이유에 밝힘.</td></tr>
+      <tr><td>② 내용의 정확성 (7점)</td><td>왕조별 핵심 인물·정책(쿠빌라이, 영락제, 강희·옹정·건륭제, 변발·문자의 옥)과 근대의 흐름(아편 전쟁 → 태평천국 → 양무운동 → 변법자강 → 의화단 → 신해혁명)을 시대 순으로 정리함.</td></tr>
+      <tr><td>③ 근거의 타당성 (10점)</td><td>유적 4곳을 각각 교과서 속 사실과 연결함: 자금성(영락제의 베이징 천도) · 만리장성(진시황 → 명의 개축) · 이화원(서태후·청일 전쟁) · 원명원(제2차 아편 전쟁). 연도와 인물 이름을 정확히 쓰는 것이 가장 중요함.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>보고서 필수 항목과 분량 확인</h2>
+  <table class="check">
+    <thead><tr><th>필수 항목</th><th>기준</th><th>이 예시의 분량(공백 포함)</th></tr></thead>
+    <tbody>
+      <tr><td>가상 답사 날짜·준비물·동반할 사람</td><td>포함</td><td>1. 답사 개요</td></tr>
+      <tr><td>국가를 선정한 이유</td><td>80자 이상</td><td id="g-reason"></td></tr>
+      <tr><td>3일간의 답사 일정</td><td>포함</td><td>3일 × 오전·오후(·저녁)</td></tr>
+      <tr><td>학습한 역사적 사실·사건</td><td>100자 이상</td><td id="g-facts"></td></tr>
+      <tr><td>느낀 점 &amp; 새롭게 알게 된 점</td><td>100자 이상</td><td id="g-feel"></td></tr>
+      <tr><td>유적 4곳 사진 + 명칭·설명</td><td>각 50자 이상</td><td id="g-sites"></td></tr>
+    </tbody>
+  </table>
+
+  <h2>꼭 외워 둘 핵심 키워드</h2>
+  <div class="kw">
+    <div><b>진시황</b>흉노를 막으려 성벽을 이어 쌓음 → 만리장성의 시작</div>
+    <div><b>원 (1271)</b>쿠빌라이 칸 · 대도(베이징) · 몽골 제일주의 · 역참</div>
+    <div><b>명 (1368)</b>주원장 · 영락제(베이징 천도, 자금성) · 정화의 원정 · 일조편법</div>
+    <div><b>청 (1636 / 1644)</b>누르하치 · 강희·옹정·건륭제 · 변발 · 문자의 옥 · 광저우 무역(공행)</div>
+    <div><b>아편 전쟁 (1840~1842)</b>임칙서 · 난징 조약(홍콩, 5개 항구, 공행 폐지)</div>
+    <div><b>제2차 아편 전쟁 (1856~1860)</b>영·프 연합군 베이징 점령 · 원명원 파괴 · 베이징 조약</div>
+    <div><b>1851 / 양무운동</b>홍수전 태평천국(토지 균분·남녀평등) / 중체서용 · 이홍장 → 청일 전쟁 패배</div>
+    <div><b>1898 / 1900</b>변법자강(캉유웨이·광서제, 100여 일) / 의화단(부청멸양) → 8개국 연합군</div>
+    <div><b>1911 → 1912</b>신해혁명 · 쑨원 삼민주의 · 중화민국 · 위안스카이 · 청 멸망</div>
+  </div>
+
+  <div class="warn">
+    <b>사진 준비 주의</b> · 답사 대상 사진 4장을 각각 <b>11cm × 9cm 이내</b>로 인쇄해 가야 합니다. 교과서(다른 과목 교과서 포함) 사진을 오려 오는 것은 허용되지 않으므로, 함께 준비한 「중국_붙일사진_인쇄용」 파일을 ‘실제 크기(100%)’로 인쇄해 사용합니다. 풀과 가위도 챙겨야 합니다.
+  </div>
+</section>
+
+<script>
+  // 공백 포함 글자 수(자소가 아닌 글자 단위) 계산 후 표시
+  function len(el){ return [...el.textContent.replace(/\s+/g,' ').trim()].length; }
+  function count(key){
+    const el = document.querySelector('[data-count="'+key+'"]');
+    if(!el) return 0;
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll('.count, h3').forEach(n => n.remove());
+    return len(clone);
+  }
+  const map = {reason:'c-reason', facts:'c-facts', feel:'c-feel', learn:'c-learn', s1:'c-s1', s2:'c-s2', s3:'c-s3', s4:'c-s4'};
+  const n = {};
+  for (const k in map){ n[k] = count(k); const t = document.getElementById(map[k]); if(t) t.textContent = '(공백 포함 ' + n[k] + '자)'; }
+  const set = (id, s) => { const e = document.getElementById(id); if (e) e.textContent = s; };
+  set('g-reason', n.reason + '자');
+  set('g-facts', n.facts + '자');
+  set('g-feel', '느낀 점 ' + n.feel + '자 · 알게 된 점 ' + n.learn + '자');
+  set('g-sites', [n.s1,n.s2,n.s3,n.s4].map((v,i)=>'①②③④'[i]+' '+v+'자').join(' · '));
+</script>
+</body>
+</html>
