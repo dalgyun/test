@@ -1,0 +1,35 @@
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+html { font-size: 10.5pt; }
+body { font-family: "Noto Serif CJK KR", "Noto Sans CJK KR", serif; line-height: 1.65; color: #111; max-width: none; margin: 0; padding: 0; word-break: keep-all; overflow-wrap: break-word; }
+h1, h2, h3, h4 { font-family: "Noto Sans CJK KR", sans-serif; line-height: 1.35; page-break-after: avoid; break-after: avoid; }
+h1 { font-size: 20pt; border-bottom: 2px solid #1f4e79; padding-bottom: 6px; margin-top: 0; color: #1f4e79; page-break-before: always; break-before: page; }
+h2 { font-size: 14pt; color: #1f4e79; margin-top: 1.6em; border-left: 4px solid #1f4e79; padding-left: 8px; }
+h3 { font-size: 12pt; margin-top: 1.3em; }
+p { margin: 0.5em 0; text-align: left; word-break: keep-all; overflow-wrap: anywhere; }
+blockquote { margin: 0.9em 0; padding: 0.5em 0.9em; background: #f4f7fb; border-left: 4px solid #5b8fc7; border-radius: 3px; page-break-inside: avoid; break-inside: avoid; }
+blockquote p { margin: 0.35em 0; }
+table { border-collapse: collapse; margin: 0.8em 0; font-size: 9.5pt; width: auto; max-width: 100%; page-break-inside: auto; }
+th, td { border: 1px solid #b7c4d4; padding: 3px 7px; vertical-align: top; }
+th { background: #e6edf5; font-family: "Noto Sans CJK KR", sans-serif; }
+tr { page-break-inside: avoid; break-inside: avoid; }
+pre { background: #f6f6f6; border: 1px solid #ddd; padding: 8px 10px; font-size: 8.6pt; line-height: 1.4; white-space: pre-wrap; word-break: break-all; border-radius: 3px; page-break-inside: avoid; break-inside: avoid; }
+code { font-family: "DejaVu Sans Mono", "Noto Sans Mono CJK KR", monospace; font-size: 0.92em; }
+p code, li code, td code { background: #f1f1f1; padding: 0 3px; border-radius: 2px; }
+ul, ol { padding-left: 1.6em; margin: 0.4em 0; }
+li { margin: 0.15em 0; }
+hr { border: none; border-top: 1px solid #ccc; margin: 1.2em 0; }
+mjx-container[display="true"] { margin: 0.7em 0 !important; overflow-x: hidden; }
+mjx-container { page-break-inside: avoid; }
+/* title page */
+.titlepage { page-break-after: always; break-after: page; text-align: center; padding-top: 70mm; }
+.titlepage .t1 { font-family: "Noto Sans CJK KR", sans-serif; font-size: 30pt; font-weight: 700; color: #1f4e79; }
+.titlepage .t2 { font-size: 14pt; margin-top: 14mm; color: #333; }
+.titlepage .t3 { font-size: 11pt; margin-top: 60mm; color: #555; }
+/* table of contents */
+nav#TOC { page-break-after: always; break-after: page; }
+nav#TOC::before { content: "차례"; display: block; font-family: "Noto Sans CJK KR", sans-serif; font-size: 20pt; font-weight: 700; color: #1f4e79; border-bottom: 2px solid #1f4e79; padding-bottom: 6px; margin-bottom: 10px; }
+nav#TOC ul { list-style: none; padding-left: 0; }
+nav#TOC li { margin: 3px 0; font-size: 11pt; }
+nav#TOC a { color: #111; text-decoration: none; }
+a { color: #1f4e79; text-decoration: none; }
+header#title-block-header { display: none; }
