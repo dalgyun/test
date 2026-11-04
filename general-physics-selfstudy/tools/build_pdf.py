@@ -57,6 +57,8 @@ def md_to_html(md_path, html_path, title, with_math=True):
         cmd.insert(-2, f'--mathjax={MJ}')
     subprocess.run(cmd, check=True)
     h = open(html_path, encoding='utf-8').read()
+    # 장 파일 기준 상대 경로(../figures/...)를 절대 경로로 바꾼다(HTML은 _build 폴더에 있으므로)
+    h = h.replace('src="../figures/', 'src="file://' + os.path.join(ROOT, 'figures') + '/')
     # pandoc가 넣는 외부 polyfill 스크립트는 오프라인에서 로딩을 막으므로 지운다
     h = re.sub(r'<script src="https://polyfill\.io[^"]*"></script>\s*', '', h)
     if with_math and os.path.basename(MJ) not in h:  # 수식이 없는 문서에는 pandoc이 MathJax를 넣지 않는다
