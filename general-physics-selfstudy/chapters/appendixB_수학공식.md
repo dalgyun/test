@@ -24,13 +24,13 @@ $e^{a}e^{b} = e^{a+b}$, $\ln(ab) = \ln a + \ln b$, $\ln a^n = n\ln a$, $\log_{10
 ## B.3 급수 전개
 | 함수 | 전개 | 수렴 범위 |
 |---|---|---|
-| $(1+x)^n$ | $1 + nx + \dfrac{n(n-1)}{2!}x^2 + \cdots$ | $|x| < 1$ |
+| $(1+x)^n$ | $1 + nx + \dfrac{n(n-1)}{2!}x^2 + \cdots$ | $\lvert x\rvert < 1$ |
 | $e^x$ | $1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots$ | 모든 $x$ |
 | $\ln(1+x)$ | $x - \dfrac{x^2}{2} + \dfrac{x^3}{3} - \cdots$ | $-1 < x \le 1$ |
 | $\sin x$ | $x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots$ | 모든 $x$ |
 | $\cos x$ | $1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \cdots$ | 모든 $x$ |
-| $\tan x$ | $x + \dfrac{x^3}{3} + \cdots$ | $|x| < \pi/2$ |
-| $\dfrac{1}{1-x}$ | $1 + x + x^2 + \cdots$ | $|x| < 1$ |
+| $\tan x$ | $x + \dfrac{x^3}{3} + \cdots$ | $\lvert x\rvert < \pi/2$ |
+| $\dfrac{1}{1-x}$ | $1 + x + x^2 + \cdots$ | $\lvert x\rvert < 1$ |
 
 ## B.4 미분
 | $f(x)$ | $f'(x)$ | $f(x)$ | $f'(x)$ |
@@ -45,7 +45,7 @@ $e^{a}e^{b} = e^{a+b}$, $\ln(ab) = \ln a + \ln b$, $\ln a^n = n\ln a$, $\log_{10
 | 적분 | 결과 |
 |---|---|
 | $\int x^n\,dx$ | $\dfrac{x^{n+1}}{n+1}$ ($n\ne-1$) |
-| $\int \dfrac{dx}{x}$ | $\ln|x|$ |
+| $\int \dfrac{dx}{x}$ | $\ln\lvert x\rvert$ |
 | $\int e^{ax}\,dx$ | $\dfrac{1}{a}e^{ax}$ |
 | $\int \sin ax\,dx$, $\int\cos ax\,dx$ | $-\dfrac{1}{a}\cos ax$, $\dfrac{1}{a}\sin ax$ |
 | $\int \sin^2 ax\,dx$ | $\dfrac{x}{2} - \dfrac{\sin2ax}{4a}$ |
