@@ -197,7 +197,7 @@ def fig06():
 
 # ---------- 그림 14.7 유압 리프트 ----------
 def fig07():
-    fig, ax = fs.canvas(4.6, 2.6, xlim=(-0.6, 7.4), ylim=(-0.5, 4.0))
+    fig, ax = fs.canvas(4.8, 2.6, xlim=(-0.6, 8.0), ylim=(-0.5, 4.0))
     a1, a2 = 0.6, 2.6          # 피스톤 폭
     x1, x2 = 0.4, 3.6
     yb = 0.0; yt = 2.0
@@ -212,7 +212,7 @@ def fig07():
     fs.block(ax, (x2 + a2 / 2, yt + 0.6), w=1.8, h=0.6, text='자동차', fontsize=9)
     fs.arrow(ax, (x1 + a1 / 2, yt + 0.9), (x1 + a1 / 2, yt - 0.15), color=fs.FORCE, lw=1.8, label=r'$F_1$', lpos=0, loff=(0.0, 0.2))
     fs.arrow(ax, (x2 + a2 / 2, yt - 1.2), (x2 + a2 / 2, yt - 0.02), color=fs.FORCE, lw=2.6, ms=14, zorder=6)
-    ax.text(x2 + a2 / 2 + 0.15, 1.15, r'$F_2 = F_1 A_2/A_1$', fontsize=9, color=fs.FORCE, ha='left')
+    ax.text(x2 + a2 + 0.15, 1.15, r'$F_2 = F_1 A_2/A_1$', fontsize=9, color=fs.FORCE, ha='left')
     ax.text(x1 + a1 / 2, 0.75, r'$A_1$', fontsize=9, ha='center')
     ax.text(x2 + 0.35, 1.5, r'$A_2$', fontsize=9, ha='center')
     fs.arrow(ax, (-0.25, yt - 0.15), (-0.25, yt - 0.95), color=fs.BLACK, lw=1.0, ms=8)

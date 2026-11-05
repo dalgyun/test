@@ -158,7 +158,7 @@ def fig04():
     ax.set_xticks(dts); ax.set_xticklabels(['0.01', '0.005', '0.0025', '0.00125', '0.000625'], fontsize=7.5)
     ax.minorticks_off()
     ax.set_xlabel(r'시간 간격 $\Delta t$ (s)', fontsize=9); ax.set_ylabel(r'$t = 10.25$ s의 위치 오차', fontsize=9)
-    ax.legend(fontsize=8, loc='lower right', frameon=False)
+    ax.legend(fontsize=8, loc='center left', bbox_to_anchor=(0.0, 0.42), frameon=False)
     ax.tick_params(axis='y', labelsize=8)
     fs.save(fig, __file__, 'figSB_04')
     return errs
@@ -304,7 +304,7 @@ def fig09():
     ax.plot(z, np.sqrt(z0 ** 2 - z ** 2), color=fs.FORCE, label=r'$\sqrt{z_0^2 - z^2}$')
     for r in roots:
         ax.plot(r, np.sqrt(z0 ** 2 - r ** 2), 'o', color=fs.BLACK, ms=5, zorder=5)
-        ax.annotate(f'$z = {r:.4f}$', xy=(r, np.sqrt(z0 ** 2 - r ** 2)), xytext=(r + (0.15 if r < 2 else -1.15), np.sqrt(z0 ** 2 - r ** 2) + 1.2),
+        ax.annotate(f'$z = {r:.4f}$', xy=(r, np.sqrt(z0 ** 2 - r ** 2)), xytext=(r + 0.15, np.sqrt(z0 ** 2 - r ** 2) + 1.2) if r < 2 else (r - 1.0, np.sqrt(z0 ** 2 - r ** 2) - 1.6),
                     fontsize=8, arrowprops=dict(arrowstyle='-', lw=0.5))
     ax.axvline(np.pi / 2, color=fs.GRAY, lw=0.6, ls=':'); ax.text(np.pi / 2 + 0.05, -3.5, r'$\pi/2$', fontsize=8, color=fs.GRAY)
     ax.set_xlim(0, z0); ax.set_ylim(-4, 8)
