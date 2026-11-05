@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-05T00:06:29.992533</dc:date>
+    <dc:date>2026-11-05T00:23:57.308988</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -39,7 +39,7 @@ L 63.743 49.016892
 Q 63.743 40.102781 63.743 31.188671 
 L 68.143 31.188671 
 z
-" clip-path="url(#p701e8db763)" style="fill: #e67e22"/>
+" clip-path="url(#p37ab6733fb)" style="fill: #e67e22"/>
    </g>
    <g id="patch_3">
     <path d="M 67.343 93.891311 
@@ -51,7 +51,7 @@ L 64.543 114.31967
 Q 64.543 104.10549 64.543 93.891311 
 L 67.343 93.891311 
 z
-" clip-path="url(#p701e8db763)" style="fill: #e67e22"/>
+" clip-path="url(#p37ab6733fb)" style="fill: #e67e22"/>
    </g>
    <g id="patch_4">
     <path d="M 84.881255 73.352 
@@ -63,7 +63,7 @@ L 107.393876 76.552
 Q 96.137566 76.552 84.881255 76.552 
 L 84.881255 73.352 
 z
-" clip-path="url(#p701e8db763)" style="fill: #1f5fa8"/>
+" clip-path="url(#p37ab6733fb)" style="fill: #1f5fa8"/>
    </g>
    <g id="patch_5">
     <path d="M 10.0872 29.18628 
@@ -76,7 +76,7 @@ Q 5.76288 5.40252 5.76288 9.72684
 L 5.76288 24.86196 
 Q 5.76288 29.18628 10.0872 29.18628 
 z
-" clip-path="url(#p701e8db763)" style="fill: #f6d5cc; stroke: #222222; stroke-linejoin: miter"/>
+" clip-path="url(#p37ab6733fb)" style="fill: #f6d5cc; stroke: #222222; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 10.0872 144.50148 
@@ -89,7 +89,7 @@ Q 5.76288 120.71772 5.76288 125.04204
 L 5.76288 140.17716 
 Q 5.76288 144.50148 10.0872 144.50148 
 z
-" clip-path="url(#p701e8db763)" style="fill: #d5e3f2; stroke: #222222; stroke-linejoin: miter"/>
+" clip-path="url(#p37ab6733fb)" style="fill: #d5e3f2; stroke: #222222; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- 뜨거운 물 1 kg, 온도 $T_1$ -->
@@ -540,7 +540,7 @@ C 51.435441 66.526389 49.7268 70.651413 49.7268 74.952
 C 49.7268 79.252587 51.435441 83.377611 54.476415 86.418585 
 C 57.517389 89.459559 61.642413 91.1682 65.943 91.1682 
 z
-" clip-path="url(#p701e8db763)" style="fill: #ffffff; stroke: #222222; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#p37ab6733fb)" style="fill: #ffffff; stroke: #222222; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="text_3">
     <!-- 가역 -->
@@ -834,7 +834,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p701e8db763">
+  <clipPath id="p37ab6733fb">
    <rect x="2.88" y="2.88" width="138.7386" height="144.144"/>
   </clipPath>
  </defs>

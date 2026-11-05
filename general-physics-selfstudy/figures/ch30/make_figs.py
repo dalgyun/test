@@ -148,14 +148,14 @@ def fig02():
 
 # ---------- 그림 30.3 충전 중인 축전기와 두 면 ----------
 def fig03():
-    fig, ax = fs.canvas(4.6, 2.6, xlim=(-2.6, 3.4), ylim=(-1.6, 1.7))
+    fig, ax = fs.canvas(4.6, 2.9, xlim=(-2.6, 3.4), ylim=(-1.95, 1.75))
     ax.plot([-2.5, 1.05], [0, 0], color=fs.BLACK, lw=2.0, zorder=5)
     ax.plot([1.75, 3.3], [0, 0], color=fs.BLACK, lw=2.0, zorder=5)
     for x in (1.05, 1.75):
         ax.add_patch(Rectangle((x - 0.04, -1.1), 0.08, 2.2, fc='#9aa3ad', ec=fs.BLACK, lw=0.8, zorder=6))
     for y in (-0.7, -0.25, 0.25, 0.7):
         fs.arrow(ax, (1.12, y), (1.68, y), color=F, lw=0.9, ms=7, zorder=4)
-    ax.text(1.4, 1.2, r'$\vec{E}$', fontsize=10, color=F, ha='center')
+    ax.text(1.95, 0.85, r'$\vec{E}$', fontsize=10, color=F, ha='center')
     fs.arrow(ax, (-2.4, 0.18), (-1.7, 0.18), color=fs.ORANGE, lw=1.6)
     ax.text(-2.05, 0.35, r'$i$', fontsize=11, color=fs.ORANGE, ha='center')
     fs.arrow(ax, (2.5, 0.18), (3.2, 0.18), color=fs.ORANGE, lw=1.6)
@@ -165,8 +165,11 @@ def fig03():
     # 면 S1: 평평한 원판
     ax.add_patch(Ellipse((cx, 0), 2 * rx, 2 * ry, fc=fs.SURF, alpha=0.5, ec='none', zorder=2))
     # 면 S2: 판 사이로 부풀린 주머니
-    verts = [(cx, ry), (0.4, ry * 1.05), (1.4, 0.75), (1.4, 0.0), (1.4, -0.75), (0.4, -ry * 1.05), (cx, -ry)]
-    codes = [Path.MOVETO, Path.CURVE4, Path.CURVE4, Path.CURVE4, Path.CURVE4, Path.CURVE4, Path.CURVE4]
+    verts = [(cx, ry), (0.1, 1.05), (0.7, 1.5), (1.15, 1.5),
+             (1.5, 1.5), (1.4, 0.9), (1.4, 0.0),
+             (1.4, -0.9), (1.5, -1.5), (1.15, -1.5),
+             (0.7, -1.5), (0.1, -1.05), (cx, -ry)]
+    codes = [Path.MOVETO] + [Path.CURVE4] * 12
     ax.add_patch(PathPatch(Path(verts, codes), fc='#cfe3c8', alpha=0.5, ec=fs.ACC, lw=1.2, ls='--', zorder=1))
     ph = np.linspace(0, 2 * np.pi, 300)
     X = cx - rx * np.sin(ph); Y = ry * np.cos(ph)
@@ -176,9 +179,9 @@ def fig03():
         tip(ax, (cx - rx * np.sin(a), ry * np.cos(a)), (-rx * np.cos(a), -ry * np.sin(a)), color=fs.BLACK, ms=11, zorder=8)
     ax.text(cx - 0.35, ry + 0.1, r'$C$', fontsize=12, ha='right')
     ax.text(cx - 0.1, -ry - 0.15, r'$S_1$', fontsize=11, color='#b8860b', ha='center', va='top')
-    ax.text(0.75, -1.0, r'$S_2$', fontsize=11, color=fs.ACC, ha='center', va='top')
-    ax.text(-2.55, -1.45, r'$S_1$: 도선이 뚫음 → $I_{\rm enc} = i$', fontsize=8.5)
-    ax.text(0.45, -1.45, r'$S_2$: 판 사이 → $I_{\rm enc} = 0$', fontsize=8.5)
+    ax.text(0.55, -1.25, r'$S_2$', fontsize=11, color=fs.ACC, ha='center', va='center')
+    ax.text(-2.55, -1.8, r'$S_1$: 도선이 뚫음 → $I_{\rm enc} = i$', fontsize=8.5)
+    ax.text(0.45, -1.8, r'$S_2$: 판 사이 → $I_{\rm enc} = 0$', fontsize=8.5)
     fs.save(fig, __file__, 'fig30_03')
 
 

@@ -86,7 +86,7 @@ def fig02():
     fs.arrow(ax, (0, 0), P, color=fs.GRAY, lw=1.0, ls='--')
     ax.text(1.75, -0.85, r'$\Delta\vec r$', color=fs.GRAY, fontsize=9)
     fs.vec(ax, (0, 0), (0, -4.0 * 0.3), color=fs.VEL, lw=1.6)
-    ax.text(-0.15, -1.0, r'$\vec v(0)$', color=fs.VEL, fontsize=9, ha='right')
+    ax.text(0.12, -0.75, r'$\vec v(0)$', color=fs.VEL, fontsize=9, ha='left')
     sv, sa = 0.3, 0.14
     fs.vec(ax, P, (6.0 * sv, 2.0 * sv), color=fs.VEL, lw=1.8)
     ax.text(P[0] + 6 * sv + 0.1, P[1] + 2 * sv - 0.05, r'$\vec v$', color=fs.VEL, fontsize=11)
