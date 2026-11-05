@@ -253,7 +253,7 @@ def fig08():
         ax.plot([x, x], [-1.9, 1.9], color=fs.ORANGE, lw=1.1, ls='--')
     ax.set_title('(나) 균일한 장', fontsize=9, y=-0.08)
     fig.tight_layout(w_pad=0.5)
-    fs.save(fig, __file__, 'fig23_08')
+    fs.save(fig, __file__, 'fig23_09')
 
 
 def fig09():
@@ -271,7 +271,7 @@ def fig09():
     fs.charge(ax, (0, -0.5), -1, r=0.16, fontsize=10)
     ax.set_xlim(*xl); ax.set_ylim(*yl); ax.set_aspect('equal')
     ax.text(1.55, 0.1, '$V = 0$', fontsize=9, color=fs.ORANGE)
-    fs.save(fig, __file__, 'fig23_09')
+    fs.save(fig, __file__, 'fig23_10')
 
 
 def fig10():
@@ -299,7 +299,7 @@ def fig10():
     ax.plot(0.5, 0.5, 'o', color=fs.BLACK, ms=3)
     ax.set_aspect('equal'); ax.axis('off')
     ax.set_xlim(-0.1, 1.1); ax.set_ylim(-0.12, 1.12)
-    fs.save(fig, __file__, 'fig23_10')
+    fs.save(fig, __file__, 'fig23_08')
 
 
 def fig11():

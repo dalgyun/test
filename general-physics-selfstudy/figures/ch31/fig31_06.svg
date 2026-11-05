@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-05T00:00:52.535333</dc:date>
+    <dc:date>2026-11-05T00:21:08.239533</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -35,7 +35,7 @@ L 128.185164 100.336776
 L 128.185164 25.593345 
 L 117.193483 25.593345 
 z
-" clip-path="url(#p8b7586de78)" style="fill: #444444; stroke: #222222; stroke-linejoin: miter"/>
+" clip-path="url(#p1b4311add3)" style="fill: #444444; stroke: #222222; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
     <path d="M 16.070017 43.180035 
@@ -120,7 +120,7 @@ L 92.631621 47.033464
 L 93.623352 45.727593 
 L 95.210121 43.180035 
 L 95.210121 43.180035 
-" clip-path="url(#p8b7586de78)" style="fill: none; stroke: #e67e22; stroke-width: 1.1; stroke-linecap: square"/>
+" clip-path="url(#p1b4311add3)" style="fill: none; stroke: #e67e22; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
    <g id="text_1">
     <!-- (가) 완전 흡수  $p_r = I/c$ -->
@@ -522,22 +522,22 @@ z
    <g id="patch_3">
     <path d="M 24.863362 58.568388 
 Q 62.235078 58.568388 98.041546 58.568388 
-" clip-path="url(#p8b7586de78)" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+" clip-path="url(#p1b4311add3)" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
     <path d="M 93.241546 56.168388 
 L 98.041546 58.568388 
 L 93.241546 60.968388 
 z
-" clip-path="url(#p8b7586de78)" style="fill: #e67e22; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+" clip-path="url(#p1b4311add3)" style="fill: #e67e22; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="patch_4">
     <path d="M 128.185164 62.96506 
 Q 136.978509 62.96506 143.759393 62.96506 
-" clip-path="url(#p8b7586de78)" style="fill: none; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
+" clip-path="url(#p1b4311add3)" style="fill: none; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
     <path d="M 138.959393 60.56506 
 L 143.759393 62.96506 
 L 138.959393 65.36506 
 z
-" clip-path="url(#p8b7586de78)" style="fill: #c0392b; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
+" clip-path="url(#p1b4311add3)" style="fill: #c0392b; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
    </g>
    <g id="text_2">
     <!-- $\vec p$ -->
@@ -644,7 +644,7 @@ L 301.662044 100.336776
 L 301.662044 25.593345 
 L 290.670363 25.593345 
 z
-" clip-path="url(#pc20a89cf64)" style="fill: #d8dde3; stroke: #222222; stroke-linejoin: miter"/>
+" clip-path="url(#p12920b3ce2)" style="fill: #d8dde3; stroke: #222222; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_2">
     <path d="M 189.546897 43.180035 
@@ -729,7 +729,7 @@ L 266.108501 47.033464
 L 267.100231 45.727593 
 L 268.687 43.180035 
 L 268.687 43.180035 
-" clip-path="url(#pc20a89cf64)" style="fill: none; stroke: #e67e22; stroke-width: 1.1; stroke-linecap: square"/>
+" clip-path="url(#p12920b3ce2)" style="fill: none; stroke: #e67e22; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
    <g id="text_4">
     <!-- (나) 완전 반사  $p_r = 2I/c$ -->
@@ -878,32 +878,32 @@ z
    <g id="patch_6">
     <path d="M 198.340242 58.568388 
 Q 235.711957 58.568388 271.518425 58.568388 
-" clip-path="url(#pc20a89cf64)" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+" clip-path="url(#p12920b3ce2)" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
     <path d="M 266.718425 56.168388 
 L 271.518425 58.568388 
 L 266.718425 60.968388 
 z
-" clip-path="url(#pc20a89cf64)" style="fill: #e67e22; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+" clip-path="url(#p12920b3ce2)" style="fill: #e67e22; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="patch_7">
     <path d="M 284.075354 82.750086 
 Q 246.703638 82.750086 210.89717 82.750086 
-" clip-path="url(#pc20a89cf64)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+" clip-path="url(#p12920b3ce2)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
     <path d="M 215.69717 85.150086 
 L 210.89717 82.750086 
 L 215.69717 80.350086 
 z
-" clip-path="url(#pc20a89cf64)" style="fill: #e67e22; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+" clip-path="url(#p12920b3ce2)" style="fill: #e67e22; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="patch_8">
     <path d="M 301.662044 62.96506 
 Q 319.248733 62.96506 334.822962 62.96506 
-" clip-path="url(#pc20a89cf64)" style="fill: none; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
+" clip-path="url(#p12920b3ce2)" style="fill: none; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
     <path d="M 330.022962 60.56506 
 L 334.822962 62.96506 
 L 330.022962 65.36506 
 z
-" clip-path="url(#pc20a89cf64)" style="fill: #c0392b; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
+" clip-path="url(#p12920b3ce2)" style="fill: #c0392b; stroke: #c0392b; stroke-width: 1.8; stroke-linecap: round"/>
    </g>
    <g id="text_5">
     <!-- $\vec p$ -->
@@ -945,10 +945,10 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p8b7586de78">
+  <clipPath id="p1b4311add3">
    <rect x="2.88" y="16.8" width="162.67688" height="87.933448"/>
   </clipPath>
-  <clipPath id="pc20a89cf64">
+  <clipPath id="p12920b3ce2">
    <rect x="176.35688" y="16.8" width="162.67688" height="87.933448"/>
   </clipPath>
  </defs>

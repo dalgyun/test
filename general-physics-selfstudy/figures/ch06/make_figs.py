@@ -254,7 +254,7 @@ def fig09():
     ax.plot([C[0], B[0]], [C[1], B[1]], color=fs.GRAY, lw=0.7, ls=':')
     fs.angle_arc(ax, tuple(O), 0.6, -90, -90 + 30, r'$\theta$', fontsize=9, tr=0.85)
     m = (O + B) / 2
-    ax.text(m[0] + 0.12, m[1] + 0.1, r'$L$', fontsize=10)
+    ax.text(m[0] - 0.2, m[1] - 0.05, r'$L$', fontsize=10, ha='right')
     ax.text((C[0] + B[0]) / 2, C[1] + 0.1, r'$L\sin\theta$', fontsize=8.5, ha='center', va='bottom')
     ax.add_patch(Circle(tuple(B), 0.13, fc=fs.LIGHT, ec=fs.BLACK, lw=1.0, zorder=5))
     d = (O - B) / L
@@ -270,7 +270,7 @@ def fig10():
     fig, axs = plt.subplots(1, 2, figsize=(5.0, 2.6))
     a = 2.0; th = np.arctan(a / g); L = 2.0
     for ax, case in zip(axs, ('가', '나')):
-        ax.axis('off'); ax.set_aspect('equal'); ax.set_xlim(-1.9, 1.7); ax.set_ylim(-2.9, 0.6)
+        ax.axis('off'); ax.set_aspect('equal'); ax.set_xlim(-1.9, 2.0); ax.set_ylim(-3.6, 0.6)
         fs.ceiling(ax, -1.2, 1.2, 0.2)
         O = np.array([0, 0.2]); B = O + L * np.array([-np.sin(th), -np.cos(th)])
         ax.plot([0, 0], [0.2, -2.0], color=fs.GRAY, lw=0.6, ls='--')
@@ -278,29 +278,29 @@ def fig10():
         fs.angle_arc(ax, tuple(O), 0.9, -90 - np.degrees(th), -90, None)
         ax.text(-0.12, -0.95, r'$\theta$', fontsize=9, ha='center')
         ax.add_patch(Circle(tuple(B), 0.12, fc=fs.LIGHT, ec=fs.BLACK, lw=1.0, zorder=5))
-        sc = 1.0 / g
+        sc = 1.4 / g
         T = np.array([np.sin(th), np.cos(th)]) * np.hypot(a, g) * sc
         force(ax, B, T, r'$\vec T$', start=0.12, loff=(0.25, -0.05))
         force(ax, B, (0, -g * sc), r'$m\vec g$', start=0.12, loff=(0.35, 0.2))
         if case == '가':
-            fs.vec(ax, (0.5, -1.6), (0.9, 0), color=fs.ACC, lw=1.6, ms=9)
-            ax.text(0.95, -1.4, r'$\vec a$', color=fs.ACC, fontsize=10, ha='center')
+            fs.vec(ax, (0.6, -1.8), (0.9, 0), color=fs.ACC, lw=1.6, ms=9)
+            ax.text(1.05, -1.6, r'$\vec a$', color=fs.ACC, fontsize=10, ha='center')
             ax.set_title('(가) 지면 기준틀', fontsize=8.5)
         else:
-            force(ax, B, (-a * sc * 2.0, 0), r'$-m\vec A$', start=0.12, loff=(-0.1, 0.25), ls='--', lw=1.4, fontsize=9)
+            force(ax, B, (-a * sc, 0), r'$-m\vec A$', start=0.12, loff=(-0.25, 0.25), ls='--', lw=1.4, fontsize=9, ms=8)
             ge = np.array([-a, -g]) * sc
-            fs.vec(ax, (1.0, -0.6), tuple(ge), color=fs.FIELD, lw=1.5, ms=9)
-            ax.text(0.8, -1.65, r'$\vec g_{\mathrm{eff}}$', color=fs.FIELD, fontsize=9, ha='right')
+            fs.vec(ax, (1.3, -0.9), tuple(ge), color=fs.FIELD, lw=1.5, ms=9)
+            ax.text(1.15, -2.45, r'$\vec g_{\mathrm{eff}}$', color=fs.FIELD, fontsize=9, ha='center', va='top')
             ax.set_title('(나) 열차 기준틀', fontsize=8.5)
-        fs.vec(ax, (-1.8, -2.65), (0.9, 0), color=fs.GRAY, lw=1.0, ms=8)
-        ax.text(-0.8, -2.65, '열차의 가속 방향', fontsize=7, color=fs.GRAY, va='center')
+        fs.vec(ax, (0.35, -3.35), (0.6, 0), color=fs.GRAY, lw=1.0, ms=8)
+        ax.text(0.65, -3.5, '열차의 가속 방향', fontsize=7, color=fs.GRAY, ha='center', va='top')
     fig.tight_layout(w_pad=0.3)
     fs.save(fig, __file__, 'fig06_10')
 
 
 # ---------- 그림 6.11 예제 6.7 지구 자전과 겉보기 중력 ----------
 def fig11():
-    fig, ax = fs.canvas(3.6, 3.2, xlim=(-1.8, 2.9), ylim=(-1.75, 2.0))
+    fig, ax = fs.canvas(3.8, 3.2, xlim=(-1.8, 3.1), ylim=(-1.75, 2.0))
     R = 1.4
     ax.add_patch(Circle((0, 0), R, fc='#e7eef6', ec=fs.BLACK, lw=1.2))
     ax.plot([0, 0], [-1.7, 1.75], color=fs.BLACK, lw=0.9, ls='-.')
@@ -317,17 +317,18 @@ def fig11():
     ax.text(P[0] / 2, P[1] + 0.06, r'$R\cos\lambda$', fontsize=8, ha='center', va='bottom', color=fs.GRAY)
     fs.dot(ax, P, r=0.04)
     gdir = -P / R
-    fs.vec(ax, tuple(P), tuple(gdir * 0.9), color=fs.FIELD, lw=1.5, ms=9)
-    q = P + gdir * 0.9
-    ax.text(q[0] + 0.05, q[1] - 0.12, r'$\vec g$', color=fs.FIELD, fontsize=10, va='top')
+    gl = 1.0
+    fs.vec(ax, tuple(P), tuple(gdir * gl), color=fs.FIELD, lw=1.5, ms=9)
+    q = P + gdir * gl * 0.55 - np.array([-gdir[1], gdir[0]]) * 0.2
+    ax.text(q[0], q[1], r'$\vec g$', color=fs.FIELD, fontsize=10, ha='center', va='center')
     fs.vec(ax, tuple(P), (0.55, 0), color=fs.ACC, lw=1.5, ms=9)
     ax.text(P[0] + 0.6, P[1] + 0.12, r'$\omega^2R\cos\lambda$', color=fs.ACC, fontsize=8.5)
     ax.text(P[0] + 0.6, P[1] - 0.12, '(원심 가속도)', color=fs.ACC, fontsize=7, va='top')
     # 연추 방향(과장): g + 원심
-    ge = gdir * 0.9 + np.array([0.28, 0])
+    ge = gdir * gl + np.array([0.4, 0])
     fs.vec(ax, tuple(P), tuple(ge), color=fs.BLACK, lw=1.0, ms=8, ls='--')
-    q = P + ge
-    ax.text(q[0] + 0.08, q[1] + 0.05, '연추\n(기울기 과장)', fontsize=7, va='top')
+    ax.annotate('연추 방향\n(기울기 과장)', xy=tuple(P + ge * 0.85), xytext=(1.6, -0.45), fontsize=7, ha='left', va='center',
+                arrowprops=dict(arrowstyle='-', lw=0.5, color=fs.BLACK))
     fs.save(fig, __file__, 'fig06_11')
 
 
@@ -354,8 +355,8 @@ def fig12():
     ax.text(P2[0] + r2 + 0.1, P2[1] - 0.05, '움직\n도르래', fontsize=7, va='center')
     fs.vec(ax, (0.7, ty + 0.85), (0.8, 0), color=fs.ACC, lw=1.4, ms=8)
     ax.text(1.6, ty + 0.85, r'$a_A$', color=fs.ACC, fontsize=9, va='center')
-    fs.vec(ax, (P2[0] - 0.6, 0.75), (0, -0.55), color=fs.ACC, lw=1.4, ms=8)
-    ax.text(P2[0] - 0.7, 0.45, r'$a_B$', color=fs.ACC, fontsize=9, ha='right', va='center')
+    fs.vec(ax, (P2[0] + 0.55, 0.75), (0, -0.55), color=fs.ACC, lw=1.4, ms=8)
+    ax.text(P2[0] + 0.65, 0.45, r'$a_B$', color=fs.ACC, fontsize=9, ha='left', va='center')
     # 자유물체도
     cA = np.array([6.3, 3.6])
     fs.block(ax, tuple(cA), 0.8, 0.5, text='A', fontsize=9)
@@ -385,7 +386,7 @@ def fig13():
     c = np.array([0, H]) + u * 2.0 + n * 0.3
     fs.block(ax, tuple(c), 0.8, 0.6, angle=-30, text='$m$', fontsize=10)
     force(ax, c, n * 1.1, r'$\vec N$', start=0.3, loff=(0.05, 0.05))
-    force(ax, c, (0, -1.25), r'$m\vec g$', loff=(0.4, 0.15))
+    force(ax, c, (0, -1.25), r'$m\vec g$', start=0.3, loff=(0.4, 0.15))
     force(ax, c, (0.7, 0), r'$mA$', start=0.4, ls='--', lw=1.4, loff=(0.25, 0.05), fontsize=9)
     ax.text(c[0] + 1.25, c[1] - 0.35, '(겉보기 힘)', fontsize=7, color=fs.FORCE, ha='left')
     fs.vec(ax, (-0.2, 1.0), (-1.1, 0), color=fs.ACC, lw=1.6, ms=9)

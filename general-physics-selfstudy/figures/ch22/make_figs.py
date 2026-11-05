@@ -256,7 +256,7 @@ def fig08():
     ax.text(rr * np.cos(a2) - 0.15, rr * np.sin(a2) + 0.15, r'$dA\cos\alpha$', fontsize=9, color=fs.ACC, ha='right')
     ax.text(1.05 * np.cos(a2) - 0.05, 1.05 * np.sin(a2) + 0.1, r'$d\Omega$', fontsize=10, color=fs.FIELD, ha='right')
     ax.text(0.7, -0.3, '반지름 1', fontsize=8, color=fs.FIELD, ha='center', va='top')
-    ax.text(rr * np.cos(0.05) - 0.1, -0.15, '반지름 $r$', fontsize=8, color=fs.ACC, ha='center', va='top')
+    ax.text(rr + 0.05, 0.45, '반지름 $r$', fontsize=8, color=fs.ACC, ha='left', va='center')
     ax.text(3.7, -0.55, r'$d\Omega = \dfrac{dA\cos\alpha}{r^2} = \dfrac{\hat r\cdot d\vec A}{r^2}$', fontsize=9.5,
             ha='center', va='center')
     fs.save(fig, __file__, 'fig22_08')
@@ -301,6 +301,8 @@ def fig10():
     fs.charge(ax, (0, 0), +1, r=0.15)
     ax.text(0.2, -0.22, '$q$', fontsize=10)
     for a in range(20, 360, 45):
+        if a == 110:
+            continue
         t = np.radians(a)
         p = R * np.array([np.cos(t), np.sin(t)])
         fs.arrow(ax, p, 1.45 * p, color=fs.FIELD, lw=1.2, ms=8, zorder=5)
@@ -312,7 +314,7 @@ def fig10():
     t = np.radians(110); p = R * np.array([np.cos(t), np.sin(t)])
     fs.arrow(ax, p, p + 0.55 * p / R, color=fs.BLACK, lw=1.5, ms=9, zorder=6)
     ax.text(p[0] + 0.62 * p[0] / R - 0.1, p[1] + 0.62 * p[1] / R + 0.05, r'$d\vec A$', fontsize=10, ha='right')
-    ax.text(1.3, -1.85, '가우스 면(구면)', fontsize=9, ha='center')
+    ax.text(-1.25, -2.05, '가우스 면(구면)', fontsize=9, ha='center')
     fs.save(fig, __file__, 'fig22_10')
 
 
@@ -420,8 +422,8 @@ def fig14():
                 ha='center', va='center', bbox=dict(fc='white', ec='none', pad=0.2), zorder=6)
     ax.plot([0, a * np.cos(np.radians(60))], [0, a * np.sin(np.radians(60))], color=fs.BLACK, lw=0.7, zorder=5)
     ax.text(0.25, 0.6, '$a$', fontsize=10, zorder=6)
-    ax.plot([0, b * np.cos(np.radians(30))], [0, b * np.sin(np.radians(30))], color=fs.BLACK, lw=0.7, zorder=5)
-    ax.text(1.1, 0.42, '$b$', fontsize=10, zorder=6)
+    ax.plot([0, b * np.cos(np.radians(12))], [0, b * np.sin(np.radians(12))], color=fs.BLACK, lw=0.7, zorder=5)
+    ax.text(1.3, 0.12, '$b$', fontsize=10, zorder=6, va='bottom')
     ax.text(-2.25, 2.1, '중심 $q=+5.0$ nC\n안쪽 표면 $-5.0$ nC\n바깥 표면 $+2.0$ nC', fontsize=8, ha='left', va='top',
             linespacing=1.4)
     fs.save(fig, __file__, 'fig22_14')
@@ -447,23 +449,21 @@ def fig15():
 
 # ---------------------------------------------------------------- 예제 22.5 균일한 구
 def fig16():
-    fig, ax = fs.canvas(3.4, 3.0, xlim=(-2.3, 2.5), ylim=(-2.2, 2.2))
+    fig, ax = fs.canvas(3.4, 3.0, xlim=(-2.3, 2.6), ylim=(-2.25, 2.2))
     R = 1.2
     ax.add_patch(Circle((0, 0), R, fc='#f3c9c2', ec=fs.BLACK, lw=1.2, zorder=1))
-    rng = np.random.default_rng(2)
-    for _ in range(28):
-        rr = R * np.sqrt(rng.uniform(0, 0.85)); t = rng.uniform(0, 2 * np.pi)
-        sign(ax, (rr * np.cos(t), rr * np.sin(t)), +1, size=7, zorder=2)
-    for r, col, lab, ang in [(0.7, fs.ACC, r'$r<R$', 230), (1.85, fs.VEL, r'$r>R$', 215)]:
+    ax.text(-0.45, 0.75, r'$\rho$ 균일', fontsize=9, ha='center', zorder=6)
+    for r, col, lab, ang in [(0.7, fs.ACC, r'$r<R$', 250), (1.85, fs.VEL, r'$r>R$', 215)]:
         ax.add_patch(Circle((0, 0), r, fc='none', ec=col, lw=1.4, ls='--', zorder=4))
         t = np.radians(ang)
         ax.text((r + 0.02) * np.cos(t), (r + 0.02) * np.sin(t), lab, fontsize=9, color=col, ha='center',
                 va='center', bbox=dict(fc='white', ec='none', pad=0.2), zorder=6)
     ax.plot([0, R * np.cos(np.radians(40))], [0, R * np.sin(np.radians(40))], color=fs.BLACK, lw=0.8, zorder=5)
-    ax.text(0.35, 0.52, '$R$', fontsize=10, zorder=6)
-    ax.text(0.3, -0.05, r'$q_{\mathrm{in}} = Q\,r^3/R^3$', fontsize=8.5, color=fs.ACC, ha='center', zorder=6,
-            bbox=dict(fc='white', ec='none', pad=0.2, alpha=0.8))
-    ax.text(1.55, 1.8, r'$q_{\mathrm{in}} = Q$', fontsize=9, color=fs.VEL, ha='left')
+    ax.text(0.62, 0.32, '$R$', fontsize=10, zorder=6)
+    ax.annotate(r'$q_{\mathrm{in}} = Q\,r^3/R^3$', xy=(0.7 * np.cos(np.radians(-30)), 0.7 * np.sin(np.radians(-30))),
+                xytext=(1.0, -2.05), fontsize=8.5, color=fs.ACC, ha='left', va='center',
+                arrowprops=dict(arrowstyle='->', color=fs.ACC, lw=0.7))
+    ax.text(1.45, 1.8, r'$q_{\mathrm{in}} = Q$', fontsize=9, color=fs.VEL, ha='left')
     fs.save(fig, __file__, 'fig22_16')
 
 
@@ -576,11 +576,11 @@ def fig21():
     fs.cylinder(ax, (0, 0.0), 0.45, 2 * x0, vertical=False, ry=0.15)
     for s_ in (1, -1):
         fs.arrow(ax, (s_ * x0, 0), (s_ * (x0 + 0.9), 0), color=fs.FIELD, lw=1.4, ms=9, zorder=6)
-    ax.text(x0 + 0.95, 0.15, r'$E(x_0)$', fontsize=9, color=fs.FIELD)
+    ax.text(x0 + 0.5, -0.35, r'$E(x_0)$', fontsize=9, color=fs.FIELD, ha='center', va='top')
     ax.text(-d, -1.55, '$-d$', fontsize=9, ha='center', va='top'); ax.text(d, -1.55, '$d$', fontsize=9, ha='center', va='top')
     ax.text(x0, 0.55, '$x_0$', fontsize=9, ha='center'); ax.text(-x0, 0.55, '$-x_0$', fontsize=9, ha='center')
     ax.text(0, 1.6, r'밀도 $\rho$', fontsize=9, ha='center')
-    ax2 = fig.add_axes([0.56, 0.18, 0.42, 0.74]); styled(ax2)
+    ax2 = fig.add_axes([0.62, 0.18, 0.37, 0.74]); styled(ax2)
     x = np.linspace(-3, 3, 600)
     E = np.where(np.abs(x) < 1, x, np.sign(x))
     ax2.plot(x, E, color=fs.FIELD, lw=1.8)
@@ -621,13 +621,13 @@ def fig22():
 
 # ---------------------------------------------------------------- 언쇼 정리
 def fig23():
-    fig, ax = fs.canvas(2.6, 2.4, xlim=(-1.6, 1.6), ylim=(-1.5, 1.6))
+    fig, ax = fs.canvas(2.6, 2.5, xlim=(-1.6, 1.6), ylim=(-1.8, 1.6))
     ax.add_patch(Circle((0, 0), 0.75, fc=fs.SURF, alpha=0.35, ec=fs.BLACK, lw=1.0, ls='--'))
     fs.dot(ax, (0, 0), r=0.05); ax.text(0.1, 0.1, '$P$', fontsize=10)
     for t in np.linspace(0, 2 * np.pi, 10, endpoint=False):
         u = np.array([np.cos(t), np.sin(t)])
         fs.arrow(ax, 1.35 * u, 0.85 * u, color=fs.FIELD, lw=1.2, ms=8)
-    ax.text(0, -1.45, r'모두 안쪽이면 $\oint\vec E\cdot d\vec A < 0$', fontsize=8.5, ha='center')
+    ax.text(0, -1.65, r'모두 안쪽이면 $\oint\vec E\cdot d\vec A < 0$', fontsize=8.5, ha='center')
     fs.save(fig, __file__, 'fig22_23')
 
 
@@ -636,19 +636,19 @@ def fig24():
     fig, ax = fs.canvas(3.0, 2.6, xlim=(-1.9, 2.1), ylim=(-1.7, 1.75))
     R = 1.6
     ax.add_patch(Circle((0, 0), R, fc='#f3c9c2', ec=fs.BLACK, lw=1.2))
-    cc = np.array([0.6, 0.25]); rc = 0.7
+    cc = np.array([0.8, 0.3]); rc = 0.6
     ax.add_patch(Circle(cc, rc, fc='white', ec=fs.BLACK, lw=1.1))
     fs.dot(ax, (0, 0), r=0.04); fs.dot(ax, cc, r=0.04)
     fs.arrow(ax, (0, 0), cc, color=fs.BLACK, lw=1.4, ms=9)
-    ax.text(0.25, 0.25, r'$\vec d$', fontsize=11, ha='center')
-    P = cc + np.array([0.25, 0.4])
+    ax.text(0.35, -0.05, r'$\vec d$', fontsize=11, ha='center')
+    P = cc + np.array([0.1, 0.38])
     fs.dot(ax, P, r=0.04)
     fs.arrow(ax, (0, 0), P, color=fs.GRAY, lw=0.9, ms=7)
     fs.arrow(ax, cc, P, color=fs.GRAY, lw=0.9, ms=7)
-    ax.text(0.35, 0.65, r'$\vec r$', fontsize=10, color=fs.GRAY)
+    ax.text(0.3, 0.55, r'$\vec r$', fontsize=10, color=fs.GRAY)
     ax.text(P[0] + 0.12, P[1] - 0.15, r"$\vec r^{\,\prime}$", fontsize=10, color=fs.GRAY)
     ax.text(-0.9, -0.9, r'$\rho$', fontsize=12)
-    ax.text(cc[0] + 0.05, cc[1] - 0.45, '공동', fontsize=9, ha='center')
+    ax.text(cc[0] + 0.05, cc[1] - 0.35, '공동', fontsize=9, ha='center')
     fs.save(fig, __file__, 'fig22_24')
 
 
