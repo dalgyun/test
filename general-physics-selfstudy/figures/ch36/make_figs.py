@@ -344,7 +344,7 @@ def fig11():
     ax.text(xs + 0.45, -1.75, '스크린', fontsize=8, ha='center')
     ax.text(-1.6, -1.45, '슬릿 폭 $a$:\n$\\Delta y \\sim a$', fontsize=8.5, ha='center')
     ax.text(1.6, -1.55, r'$\sin\theta = \lambda/a$', fontsize=9, color=fs.GRAY, ha='center')
-    fs.save(fig, __file__, 'fig36_11')
+    fs.save(fig, __file__, 'fig36_12')
 
 
 # ---------------------------------------------------------------- 가우스 파동 묶음
@@ -377,7 +377,7 @@ def fig12():
         for s in ('top', 'right'):
             a_.spines[s].set_visible(False)
     fig.tight_layout(w_pad=1.0)
-    fs.save(fig, __file__, 'fig36_12')
+    fs.save(fig, __file__, 'fig36_11')
 
 
 # ---------------------------------------------------------------- 수소 원자 크기 어림 E(r)
