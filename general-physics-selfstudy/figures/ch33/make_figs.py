@@ -107,7 +107,7 @@ def fig02():
 
 # ---------- 그림 33.3 플라스틱 판이 만드는 위상차 (예제 33.1) ----------
 def fig03():
-    fig, ax = fs.canvas(5.2, 2.0, xlim=(-0.6, 3.6), ylim=(-0.75, 0.95))
+    fig, ax = fs.canvas(5.4, 2.0, xlim=(-0.6, 4.1), ylim=(-0.75, 0.95))
     lam = 0.55; L = 2.60; n = 1.60
     x0 = 0.4
     x = np.linspace(-0.4, x0 + L + 0.5, 3000)
@@ -125,10 +125,10 @@ def fig03():
         ax.plot([xx, xx], [-0.65, 0.75], color=fs.GRAY, lw=0.6, ls=':')
     darrow(ax, (x0, 0.82), (x0 + L, 0.82), r'$L = 2.60\ \mu\mathrm{m}$', tpos=(x0 + L / 2, 0.82), fontsize=9,
            va='bottom')
-    fs.label(ax, (-0.55, 0.48), '공기', fontsize=8.5, ha='left', va='bottom')
+    fs.label(ax, (-0.5, 0.68), '공기', fontsize=8.5, ha='left', va='bottom')
     fs.label(ax, (x0 + L / 2, -0.7), '$n = 1.60$', fontsize=9)
-    fs.label(ax, (3.35, 0.48), '4.73파장', fontsize=8, color=fs.GRAY)
-    fs.label(ax, (3.35, -0.35), '7.56파장', fontsize=8, color=fs.GRAY)
+    fs.label(ax, (3.72, 0.48), '4.73파장', fontsize=8, color=fs.GRAY)
+    fs.label(ax, (3.72, -0.35), '7.56파장', fontsize=8, color=fs.GRAY)
     fs.save(fig, __file__, 'fig33_03')
 
 
@@ -139,7 +139,7 @@ def fig04():
     fs.dot(ax, (0, 0), r=0.08, color=fs.ORANGE)
     fs.label(ax, (0, -0.35), '광원', fontsize=8)
     def barrier(x, gaps, h=1.5, w=0.06):
-        edges = [-h] + [g for c in gaps for g in (c - 0.045, c + 0.045)] + [h]
+        edges = [-h] + [g for c in sorted(gaps) for g in (c - 0.045, c + 0.045)] + [h]
         for a, b in zip(edges[0::2], edges[1::2]):
             ax.add_patch(Rectangle((x - w / 2, a), w, b - a, fc=fs.BLACK, ec='none'))
     barrier(0.8, [0.0])
@@ -206,7 +206,7 @@ def fig05():
     foot = S2 + np.dot(S1 - S2, u) * u
     ax.plot([S1[0], foot[0]], [S1[1], foot[1]], color=fs.GRAY, lw=0.8, ls='--')
     ax.plot([S2[0], foot[0]], [S2[1], foot[1]], color=fs.FORCE, lw=3.0, solid_capstyle='butt', zorder=5)
-    fs.label(ax, (foot[0] + 0.25, foot[1] - 0.45), r'$\Delta r = d\sin\theta$', fontsize=10, color=fs.FORCE)
+    fs.label(ax, (1.75, -1.2), r'$\Delta r = d\sin\theta$', fontsize=10, color=fs.FORCE)
     darrow(ax, (-0.35, -d / 2), (-0.35, d / 2), r'$d$', tpos=(-0.55, 0))
     # theta at S2 between screen-normal (가로) and ray; also at S1 between slit plane and perpendicular
     ax.plot([0, 1.6], [-d / 2, -d / 2], color=fs.GRAY, lw=0.6, ls=':')
@@ -220,7 +220,7 @@ def fig05():
 
 # ---------- 그림 33.6 페이저 합 ----------
 def fig06():
-    fig, ax = fs.canvas(3.4, 2.4, xlim=(-0.3, 2.4), ylim=(-0.3, 1.6))
+    fig, ax = fs.canvas(3.4, 2.0, xlim=(-0.3, 2.4), ylim=(-0.3, 1.15))
     phi = np.radians(60)
     O = np.array([0, 0]); A = np.array([1.0, 0]); B = A + np.array([np.cos(phi), np.sin(phi)])
     fs.arrow(ax, O, A, color=fs.VEL, lw=1.6, ms=10)
@@ -243,12 +243,12 @@ def fig07():
     I = np.cos(np.pi * y / dy) ** 2
     ax.plot(y, 4 * I, color=fs.VEL, lw=1.5)
     ax.axhline(2, color=fs.GRAY, lw=0.9, ls='--')
-    ax.text(7.6, 2.1, r'평균 $2I_0$', fontsize=8.5, color=fs.GRAY, ha='right', va='bottom')
+    ax.text(7.7, 2.0, r'평균 $2I_0$', fontsize=8.5, color=fs.GRAY, ha='left', va='center', clip_on=False)
     ax.axhline(1, xmin=0, xmax=0, color='none')
     # 반치폭
     ax.annotate('', xy=(-dy / 4, 2), xytext=(dy / 4, 2),
                 arrowprops=dict(arrowstyle='<|-|>', color=fs.FORCE, lw=0.9, mutation_scale=8))
-    ax.text(0, 2.25, 'FWHM\n1.25 mm', fontsize=8, color=fs.FORCE, ha='center', va='bottom')
+    ax.text(0, 1.8, '반치폭', fontsize=8, color=fs.FORCE, ha='center', va='top')
     ax.annotate('', xy=(0, 4.35), xytext=(dy, 4.35),
                 arrowprops=dict(arrowstyle='<|-|>', color=fs.BLACK, lw=0.8, mutation_scale=8))
     ax.text(dy / 2, 4.45, r'$\Delta y = 2.5$ mm', fontsize=8.5, ha='center', va='bottom')
@@ -288,7 +288,7 @@ def fig08():
         fs.label(ax, (2.75, -Lt / 2), f'$n_2 = {n2:.2f}$', fontsize=8.5)
         fs.label(ax, (2.75, -1.1), f'$n_3 = {n3:.2f}$', fontsize=8.5)
         fs.label(ax, (P0[0] - 0.5, 0.18), ph[0], fontsize=8, color=fs.FORCE)
-        fs.label(ax, (P1[0] - 0.05, -Lt - 0.25), ph[1], fontsize=8, color=fs.FORCE)
+        fs.label(ax, (P1[0] - 0.75, -Lt - 0.25), ph[1], fontsize=8, color=fs.FORCE)
         ax.add_patch(FancyArrowPatch((0.1, 0), (0.1, -Lt), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
         fs.label(ax, (0.25, -Lt / 2), r'$L$', fontsize=10, color=fs.GRAY)
         ax.set_title(title, fontsize=9)
@@ -298,9 +298,9 @@ def fig08():
 
 # ---------- 그림 33.9 공기 쐐기 ----------
 def fig09():
-    fig, axs = fs.plt.subplots(2, 1, figsize=(4.8, 2.6), gridspec_kw=dict(height_ratios=[1.5, 1]))
+    fig, axs = fs.plt.subplots(2, 1, figsize=(4.8, 2.9), gridspec_kw=dict(height_ratios=[1.75, 1]))
     ax = axs[0]
-    ax.set_xlim(-0.3, 5.4); ax.set_ylim(-0.55, 1.15); ax.axis('off')
+    ax.set_xlim(-0.3, 5.4); ax.set_ylim(-0.8, 1.15); ax.axis('off')
     ell = 5.0; Dw = 0.32; tg = 0.18
     ax.add_patch(Polygon([(0, 0), (ell, 0), (ell, -tg), (0, -tg)], fc=GLASS, ec=fs.BLACK, lw=0.9))
     ax.add_patch(Polygon([(0, 0), (ell, Dw), (ell, Dw + tg), (0, tg)], fc=GLASS, ec=fs.BLACK, lw=0.9))
@@ -313,8 +313,8 @@ def fig09():
     ax.add_patch(FancyArrowPatch((0, -0.38), (x, -0.38), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
     fs.label(ax, (x / 2, -0.5), r'$x$', fontsize=10, color=fs.GRAY)
     fs.label(ax, (ell + 0.25, Dw / 2), r'$D$', fontsize=10)
-    ax.add_patch(FancyArrowPatch((x + 0.05, -0.38), (ell, -0.38), arrowstyle='-', color='none'))
-    fs.label(ax, (4.3, -0.5), r'$\ell$ (판 길이)', fontsize=9, color=fs.GRAY)
+    ax.add_patch(FancyArrowPatch((0, -0.62), (ell, -0.62), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
+    fs.label(ax, (ell / 2, -0.74), r'$\ell$', fontsize=10, color=fs.GRAY)
     ax.set_title('(가) 옆에서 본 모습 (두께는 크게 과장)', fontsize=9)
     # (나) 위에서 본 무늬: 반사광 어두운 무늬 2t = m lambda
     ax = axs[1]

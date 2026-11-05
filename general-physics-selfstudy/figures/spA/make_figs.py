@@ -161,7 +161,7 @@ def fig04():
     a2.plot(phi, S, color=fs.VEL)
     a2.axhline(2 * np.sqrt(2), color=fs.FORCE, lw=0.8, ls='--')
     a2.text(-85, 2 * np.sqrt(2) + 0.12, r'$2\sqrt{2}$', color=fs.FORCE, fontsize=9)
-    a2.text(125, -1.05, '국소적 숨은 변수\n$|S| \\leq 2$', fontsize=7.5, ha='center', va='top', color='#555555')
+    a2.text(-45, 1.75, '국소적 숨은 변수\n$|S| \\leq 2$', fontsize=7.5, ha='center', va='top', color='#555555')
     a2.plot(45, 2 * np.sqrt(2), 'o', color=fs.FORCE, ms=4)
     a2.set_xlim(-90, 180); a2.set_ylim(-3.2, 3.4); a2.set_xticks([-90, -45, 0, 45, 90, 135, 180])
     a2.set_xlabel(r"$b = \phi$, $b' = -\phi$ (도)", fontsize=8.5); a2.set_ylabel('$S$', fontsize=9)
@@ -220,7 +220,7 @@ def fig05():
     fs.save(fig, __file__, 'figSA_05')
 
 
-# ---------------------------------------------------------------- 그림 A.6 양자 순간이동 회로
+# ---------------------------------------------------------------- 그림 A.9 양자 순간이동 회로
 def fig06():
     fig, ax = fs.canvas(5.4, 2.4, xlim=(-1.2, 8.3), ylim=(-0.85, 2.85))
     y1, y2, y3 = 2.0, 1.0, 0.0
@@ -247,10 +247,10 @@ def fig06():
     ax.text(5.05, y2 + 0.2, '$m_2$', fontsize=8.5); ax.text(5.05, y1 + 0.2, '$m_1$', fontsize=8.5)
     ax.text(7.7, y3, r'$|\psi\rangle$', ha='left', va='center', fontsize=11, color=fs.VEL)
     ax.text(6.4, -0.65, '2비트 고전 통신에 따라 보정', ha='center', fontsize=8, color='#555555')
-    fs.save(fig, __file__, 'figSA_06')
+    fs.save(fig, __file__, 'figSA_09')
 
 
-# ---------------------------------------------------------------- 그림 A.7 LC와 트랜스몬 준위 (본문 코드)
+# ---------------------------------------------------------------- 그림 A.6 LC와 트랜스몬 준위 (본문 코드)
 def transmon_levels(EJ_over_EC, ng=0.0, N=30, k=4):
     n = np.arange(-N, N + 1)
     Hm = np.diag(4.0 * (n - ng) ** 2)
@@ -294,10 +294,10 @@ def fig07():
     axs[0].text(0, 33, r'$\frac{E_J}{2}\varphi^2 - E_J$', ha='center', fontsize=9)
     axs[1].text(0, 33, r'$-E_J\cos\varphi$', ha='center', fontsize=9)
     fig.tight_layout(w_pad=0.6)
-    fs.save(fig, __file__, 'figSA_07')
+    fs.save(fig, __file__, 'figSA_06')
 
 
-# ---------------------------------------------------------------- 그림 A.8 기울어진 빨래판 퍼텐셜
+# ---------------------------------------------------------------- 그림 A.7 기울어진 빨래판 퍼텐셜
 def fig08():
     i = 0.3
     phi = np.linspace(-3.0, 10.5, 800)
@@ -328,10 +328,10 @@ def fig08():
     ax.set_xlim(-3.0, 10.5); ax.set_ylim(-4.3, 2.0)
     ax.set_xlabel(r'위상차 $\varphi$', fontsize=9); ax.set_ylabel(r'$U(\varphi)$', fontsize=9)
     ax.set_yticks([]); ax.set_xticks([])
-    fs.save(fig, __file__, 'figSA_08')
+    fs.save(fig, __file__, 'figSA_07')
 
 
-# ---------------------------------------------------------------- 그림 A.9 그로버 알고리즘 (본문 코드)
+# ---------------------------------------------------------------- 그림 A.8 그로버 알고리즘 (본문 코드)
 def grover(n, marked, iters):
     N = 2 ** n
     s = np.ones(N) / np.sqrt(N)
@@ -374,7 +374,7 @@ def fig09():
     a2.legend(fontsize=7, loc='upper center', frameon=False, ncol=2)
     a2.set_title(f'(나) $N = 16$', fontsize=8.5)
     fig.tight_layout(w_pad=0.6)
-    fs.save(fig, __file__, 'figSA_09')
+    fs.save(fig, __file__, 'figSA_08')
 
 
 if __name__ == '__main__':

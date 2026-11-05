@@ -40,13 +40,13 @@ def mid_arrow(ax, x, y, color, frac=0.5, ms=10):
 
 # ---------------------------------------------------------------- 18.1 온도 척도
 def fig01():
-    fig, ax = fs.canvas(4.2, 3.3, xlim=(-1.0, 7.4), ylim=(-0.6, 4.6))
-    sc = 0.01          # 1 K = 0.01 단위
+    fig, ax = fs.canvas(4.0, 3.5, xlim=(0.4, 7.3), ylim=(-0.3, 5.25))
+    sc = 0.0125        # 1 K = 0.0125 단위
     pts = [(0.0, '절대영도'), (233.15, ''), (273.15, '물의 어는점'), (310.15, '체온'), (373.15, '물의 끓는점(1 atm)')]
     cols = [(1.0, 'K', lambda T: T), (2.6, '°C', lambda T: T - 273.15), (4.2, '°F', lambda T: (T - 273.15) * 9 / 5 + 32)]
     for x0, unit, f in cols:
-        ax.add_patch(Rectangle((x0 - 0.12, 0), 0.24, 3.95, fc='white', ec=fs.BLACK, lw=1.0))
-        ax.text(x0, 4.1, unit, ha='center', va='bottom', fontsize=10)
+        ax.add_patch(Rectangle((x0 - 0.12, 0), 0.24, 4.85, fc='white', ec=fs.BLACK, lw=1.0))
+        ax.text(x0, 4.95, unit, ha='center', va='bottom', fontsize=10)
     for T, lab in pts:
         y = T * sc
         ax.plot([0.7, 4.5], [y, y], color=fs.GRAY, lw=0.6, ls='--', zorder=0)
@@ -57,9 +57,8 @@ def fig01():
                 txt = '98.6'
             ax.text(x0 + 0.17, y + 0.04, txt, fontsize=7.5, va='bottom', ha='left')
         if lab:
-            ax.text(4.95, y, lab, fontsize=8, va='center')
+            ax.text(4.95, y + (0.1 if T == 310.15 else (-0.1 if T == 273.15 else 0)), lab, fontsize=8, va='center')
     ax.text(4.95, 233.15 * sc, '$-40$ °C $=-40$ °F', fontsize=8, va='center', color=fs.FORCE)
-    ax.add_patch(Rectangle((0.88, 0), 0.24, 310.15 * sc, fc=fs.FORCE, alpha=0.25, ec='none'))
     fs.save(fig, F, 'fig18_01')
 
 
@@ -72,14 +71,16 @@ def fig02():
     ax.plot(r, U, color=fs.VEL, lw=1.6)
     from scipy.optimize import brentq
     r0 = 2 ** (1 / 6)
+    mids = []
     for E, c in ((-0.85, fs.ACC), (-0.6, fs.ORANGE), (-0.35, fs.FORCE)):
         f = lambda x: 4 * (x ** -12 - x ** -6) - E
         a = brentq(f, 0.98, r0); b = brentq(f, r0, 3.0)
         ax.plot([a, b], [E, E], color=c, lw=1.4)
         ax.plot([(a + b) / 2], [E], 'o', color=c, ms=4)
+        mids.append(((a + b) / 2, E))
     ax.plot([r0, r0], [-1.05, 0.1], color=fs.GRAY, lw=0.6, ls=':')
-    ax.annotate('', xy=(1.32, -0.3), xytext=(1.14, -0.95), arrowprops=dict(arrowstyle='-|>', color=fs.BLACK, lw=0.8, mutation_scale=8))
-    ax.text(1.4, -0.05, '온도가 오르면(에너지가 커지면)\n평균 원자 간격(점)이 커진다', fontsize=8, va='center')
+    ax.annotate('', xy=(mids[2][0] - 0.03, mids[2][1] + 0.08), xytext=(mids[0][0] - 0.03, mids[0][1] - 0.12), arrowprops=dict(arrowstyle='-|>', color=fs.BLACK, lw=0.8, mutation_scale=8))
+    ax.text(1.4, 0.4, '온도가 오르면(에너지가 커지면)\n평균 원자 간격(점)이 커진다', fontsize=8, va='center')
     ax.text(r0 + 0.01, -1.12, '$r_0$', fontsize=9, ha='left', va='top')
     ax.axhline(0, color=fs.GRAY, lw=0.6)
     ax.set_xlim(0.95, 2.4); ax.set_ylim(-1.2, 0.8)
@@ -125,8 +126,8 @@ def fig04():
     Q = np.array(Q) / 1e6
     fig, ax = fs.plot_axes(4.6, 2.7)
     ax.plot(Q, T, color=fs.FORCE, lw=1.8, marker='o', ms=3)
-    labs = ['얼음\n가열', '녹음\n$mL_f$', '물 가열', '끓음  $mL_v$']
-    pos = [((Q[0] + Q[1]) / 2 + 0.03, -12, 'left'), ((Q[1] + Q[2]) / 2, 8, 'center'), ((Q[2] + Q[3]) / 2 - 0.05, 55, 'right'),
+    labs = ['얼음 가열', '녹음\n$mL_f$', '물 가열', '끓음  $mL_v$']
+    pos = [((Q[0] + Q[1]) / 2 + 0.06, -17, 'left'), ((Q[1] + Q[2]) / 2, 8, 'center'), ((Q[2] + Q[3]) / 2 - 0.05, 55, 'right'),
            ((Q[3] + Q[4]) / 2, 106, 'center')]
     for lab, (x, y, ha) in zip(labs, pos):
         ax.text(x, y, lab, fontsize=8, ha=ha, va='bottom' if y > 0 else 'center')
@@ -177,7 +178,7 @@ def fig06():
     darrow(ax, (3.6, -0.25), (4.4, -0.25), '$ds$', off=(0, -0.2), fontsize=9)
     fs.arrow(ax, (2.3, 1.7), (3.5, 1.7), color=fs.FORCE, lw=1.6)
     ax.text(2.9, 1.95, '$F=pA$', color=fs.FORCE, fontsize=9, ha='center')
-    ax.text(1.4, 0.75, '기체\n$p$, $V$', fontsize=9, ha='center', va='center')
+    ax.text(1.4, 0.75, '기체\n$p$, $V$', fontsize=9, ha='center', va='center', bbox=dict(fc='#fbe3d8', ec='none', pad=1), zorder=6)
     ax.text(3.78, 2.6, '넓이 $A$', fontsize=8, ha='center')
     fs.save(fig, F, 'fig18_06')
 
@@ -197,7 +198,7 @@ def fig07():
                 arrowprops=dict(arrowstyle='-', color=fs.ORANGE, lw=0.6))
     ax.plot([1, 4], [3.2, p[-1]], 'o', color=fs.BLACK, ms=4)
     ax.text(1.05, 3.25, '$i$', fontsize=10); ax.text(4.05, p[-1] + 0.05, '$f$', fontsize=10)
-    ax.text(2.3, 0.45, r'$W=\int_{V_i}^{V_f}p\,dV$', fontsize=10, ha='center')
+    ax.text(1.65, 0.6, r'$W=\int_{V_i}^{V_f}p\,dV$', fontsize=10, ha='center')
     ax.set_xticks([1, 4]); ax.set_xticklabels(['$V_i$', '$V_f$'])
     ax.set_yticks([])
     ax.set_xlim(0, 4.6); ax.set_ylim(0, 3.7)
@@ -324,7 +325,7 @@ def fig12():
     fs.save(fig, F, 'fig18_12')
 
 
-# ---------------------------------------------------------------- 예제 18.7 단일창·이중창
+# ---------------------------------------------------------------- 예제 18.7 단일창·이중창 (그림 18.14)
 def fig13():
     Ti, To = 20.0, -10.0
     hi, ho, kg, ka = 8.0, 25.0, 0.80, 0.026
@@ -357,12 +358,12 @@ def fig13():
     axs[0].set_ylabel('온도 (°C)', fontsize=9)
     axs[0].set_ylim(-12, 22)
     axs[0].text(10.0, 13, '유리', fontsize=7.5, ha='center', color='#3b7ea1')
-    axs[1].text(xs[3] - 5.0 if False else 25.0, 13, '공기층', fontsize=7.5, ha='center', color=fs.GRAY)
+    axs[1].text(17.0, 13, '공기층', fontsize=7.5, ha='center', color=fs.GRAY)
     fig.tight_layout(w_pad=0.8)
-    fs.save(fig, F, 'fig18_13')
+    fs.save(fig, F, 'fig18_14')
 
 
-# ---------------------------------------------------------------- 18.6 뉴턴 냉각
+# ---------------------------------------------------------------- 18.6 뉴턴 냉각 (그림 18.13)
 def fig14():
     fig, ax = fs.plot_axes(4.0, 2.6)
     Tinf, T0, tau = 20.0, 90.0, 1.0
@@ -381,7 +382,7 @@ def fig14():
     ax.set_xticks([0, 1, 2, 3, 4, 5]); ax.set_xticklabels(['0', r'$\tau$', r'$2\tau$', r'$3\tau$', r'$4\tau$', r'$5\tau$'])
     ax.set_xlabel('$t$', fontsize=10); ax.set_ylabel('$T$ (°C)', fontsize=9)
     ax.tick_params(labelsize=8)
-    fs.save(fig, F, 'fig18_14')
+    fs.save(fig, F, 'fig18_13')
 
 
 # ---------------------------------------------------------------- 🐍 열 방정식 수치 풀이
@@ -412,21 +413,21 @@ def fig15():
 
 # ---------------------------------------------------------------- 연습문제 10 원통 단열재
 def fig16():
-    fig, ax = fs.canvas(3.0, 2.8, xlim=(-2.0, 2.4), ylim=(-1.9, 2.1))
+    fig, ax = fs.canvas(3.0, 3.0, xlim=(-2.0, 2.4), ylim=(-2.45, 2.0))
     r1, r2 = 0.7, 1.75
     ax.add_patch(Circle((0, 0), r2, fc='#f6efd6', ec=fs.BLACK, lw=1.2))
     ax.add_patch(Circle((0, 0), r1, fc=HOT, ec=fs.BLACK, lw=1.2))
     ax.add_patch(Circle((0, 0), 0.55, fc='white', ec=fs.BLACK, lw=0.8))
-    ax.text(0, 0, '증기', ha='center', va='center', fontsize=8)
-    ax.plot([0, r1 * np.cos(2.5)], [0, r1 * np.sin(2.5)], color=fs.BLACK, lw=0.8)
-    ax.text(r1 * np.cos(2.5) / 2 - 0.12, r1 * np.sin(2.5) / 2 + 0.12, '$r_1$', fontsize=9)
+    ax.text(0.05, -0.28, '증기', ha='center', va='center', fontsize=8)
+    ax.plot([0, r1 * np.cos(2.6)], [0, r1 * np.sin(2.6)], color=fs.BLACK, lw=0.8)
+    ax.text(r1 * np.cos(2.6) - 0.22, r1 * np.sin(2.6) + 0.05, '$r_1$', fontsize=9, ha='center')
     ax.plot([0, r2 * np.cos(-2.4)], [0, r2 * np.sin(-2.4)], color=fs.BLACK, lw=0.8)
     ax.text(r2 * np.cos(-2.4) * 0.72 - 0.2, r2 * np.sin(-2.4) * 0.72, '$r_2$', fontsize=9)
     for a in np.linspace(0.3, 1.3, 3):
         fs.arrow(ax, (0.8 * np.cos(a), 0.8 * np.sin(a)), (1.65 * np.cos(a), 1.65 * np.sin(a)), color=fs.FORCE, lw=1.2, ms=8)
-    ax.text(1.3, 1.65, '$P$', color=fs.FORCE, fontsize=10)
+    ax.text(1.2, 1.4, '$P$', color=fs.FORCE, fontsize=10)
     ax.text(0.95, -0.35, '단열재\n$k$', fontsize=8, ha='center', va='center')
-    ax.text(-1.95, 1.85, '안쪽 면 150 °C\n바깥 면 30 °C', fontsize=7.5, va='top')
+    ax.text(0.2, -2.05, '안쪽 면 150 °C, 바깥 면 30 °C', fontsize=7.5, va='center', ha='center')
     fs.save(fig, F, 'fig18_16')
 
 

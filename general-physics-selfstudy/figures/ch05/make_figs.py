@@ -370,11 +370,13 @@ def fig14():
     th = 30; L = 5.6; bh = 0.55
     thr = np.radians(th)
     u = np.array([np.cos(thr), np.sin(thr)]); n = np.array([-np.sin(thr), np.cos(thr)])
-    top = np.array(fs.incline(ax, origin=(0, 0), length=L, angle=th, angle_label=r'$30^\circ$'))
+    top = np.array(fs.incline(ax, origin=(0, 0), length=L, angle=th, show_angle=False))
+    fs.angle_arc(ax, (0, 0), 0.7, 0, th, None)
+    ax.text(0.85, 0.2, r'$30^\circ$', fontsize=9, va='center')
     c = u * 2.6 + n * (bh / 2)
     fs.block(ax, tuple(c), 0.8, bh, angle=th, text='$m_1$', fontsize=9)
     r = 0.25
-    P = top + n * (bh / 2 + r) + u * 0.25
+    P = top + np.array([0, (bh / 2 + r) / np.cos(thr)])
     ax.plot([top[0], P[0]], [top[1], P[1]], color=fs.BLACK, lw=1.2)
     rope(ax, c + u * 0.4, P - n * r)
     rope(ax, (P[0] + r, P[1]), (P[0] + r, 1.25))
@@ -432,13 +434,13 @@ def fig17():
     ax.plot([P[0], P[0]], [P[1], 4.2], color=fs.BLACK, lw=1.2)
     fs.pulley(ax, tuple(P), r=r)
     seat_y = 0.8
-    ax.add_patch(Rectangle((0.2, seat_y - 0.15), 1.2, 0.15, fc='#b9a27a', ec=fs.BLACK, lw=1.0, zorder=3))
+    ax.add_patch(Rectangle((0.6, seat_y - 0.15), 1.5, 0.15, fc='#b9a27a', ec=fs.BLACK, lw=1.0, zorder=3))
     rope(ax, (P[0] - r, P[1]), (P[0] - r, seat_y))
-    fs.block(ax, (0.55, seat_y + 0.45), 0.6, 0.9, text='사람', fontsize=7.5)
+    fs.block(ax, (1.45, seat_y + 0.45), 0.55, 0.9, text='사람', fontsize=7.5)
     hand_y = seat_y + 0.7
-    ax.plot([0.85, P[0] + r], [hand_y, hand_y], color=fs.BLACK, lw=2.0, zorder=4)
+    ax.plot([1.72, P[0] + r], [hand_y, hand_y], color=fs.BLACK, lw=2.0, zorder=4)
     rope(ax, (P[0] + r, P[1]), (P[0] + r, hand_y))
-    ax.text(0.8, seat_y - 0.4, '의자', fontsize=8, ha='center')
+    ax.text(1.35, seat_y - 0.4, '의자', fontsize=8, ha='center')
     ax.text(P[0] + r + 0.12, 2.6, '사람이\n당기는 줄', fontsize=7.5, va='center')
     ax.text(P[0] - r - 0.08, 2.6, '의자에\n맨 줄', fontsize=7.5, va='center', ha='right')
     fs.save(fig, __file__, 'fig05_17')
