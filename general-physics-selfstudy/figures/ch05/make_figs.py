@@ -348,42 +348,39 @@ def fig12():
 
 # ---------- 그림 5.13 연습문제 4: 두 줄에 매달린 전등 ----------
 def fig13():
-    fig, ax = fs.canvas(3.6, 1.9, xlim=(-0.2, 6.2), ylim=(-0.8, 2.4))
-    L = np.array([2.2, 0.0])
-    a1, a2 = np.radians(30), np.radians(60)
-    A = L + np.array([-2.0 / np.tan(a1) * 0.9, 0]) * 0 + np.array([-2.0 * np.cos(a1) / np.sin(a1) * 1.0, 2.0]) * 1.0
-    B = L + np.array([2.0 * np.cos(a2) / np.sin(a2), 2.0])
-    A = L + np.array([-2.0 / np.tan(a1), 2.0]) if False else A
-    fs.ceiling(ax, -0.1, 6.1, 2.0)
+    fig, ax = fs.canvas(3.6, 1.9, xlim=(-0.2, 5.5), ylim=(-0.8, 2.4))
+    L = np.array([3.7, 0.0]); h = 2.0
+    A = L + np.array([-h / np.tan(np.radians(30)), h])
+    B = L + np.array([h / np.tan(np.radians(60)), h])
+    fs.ceiling(ax, -0.1, 5.4, h)
     rope(ax, L, A); rope(ax, L, B)
     ax.add_patch(Circle(tuple(L + (0, -0.3)), 0.28, fc='#f6e27a', ec=fs.BLACK, lw=1.0, zorder=4))
-    ax.plot([L[0], L[0]], [L[1], L[1] - 0.05], color=fs.BLACK)
-    ax.plot([L[0] - 1.3, L[0]], [0, 0], color=fs.GRAY, lw=0.6, ls=':')
-    ax.plot([L[0], L[0] + 1.3], [0, 0], color=fs.GRAY, lw=0.6, ls=':')
+    ax.plot([L[0] - 1.3, L[0] + 1.3], [0, 0], color=fs.GRAY, lw=0.6, ls=':')
     fs.angle_arc(ax, tuple(L), 0.8, 150, 180, r'$30^\circ$', fontsize=8, tr=1.2)
     fs.angle_arc(ax, tuple(L), 0.6, 0, 60, r'$60^\circ$', fontsize=8, tr=0.9)
-    ax.text(L[0] + 0.45, L[1] - 0.35, '2.0 kg', fontsize=8, va='center')
-    m = (L + A) / 2; ax.text(m[0], m[1] + 0.15, r'$T_1$', fontsize=9, ha='right', color=fs.FORCE)
-    m = (L + B) / 2; ax.text(m[0] + 0.12, m[1], r'$T_2$', fontsize=9, color=fs.FORCE)
+    ax.text(L[0] + 0.4, L[1] - 0.4, '2.0 kg', fontsize=8, va='center')
+    m = (L + A) / 2; ax.text(m[0], m[1] + 0.2, r'$T_1$', fontsize=9, ha='center', color=fs.FORCE)
+    m = (L + B) / 2; ax.text(m[0] + 0.15, m[1], r'$T_2$', fontsize=9, color=fs.FORCE)
     fs.save(fig, __file__, 'fig05_13')
 
 
 # ---------- 그림 5.14 연습문제 9: 빗면과 매달린 추 ----------
 def fig14():
     fig, ax = fs.canvas(4.2, 2.4, xlim=(-0.2, 6.6), ylim=(-0.3, 3.9))
-    th = 30; L = 5.6
-    c, u, n, top = incline_block(ax, (0, 0), L, th, 2.6, bw=0.8, bh=0.55, label='$m_1$')
-    top = np.array(top)
-    P = top + np.array([0.05, 0.35]); r = 0.25
+    th = 30; L = 5.6; bh = 0.55
+    thr = np.radians(th)
+    u = np.array([np.cos(thr), np.sin(thr)]); n = np.array([-np.sin(thr), np.cos(thr)])
+    top = np.array(fs.incline(ax, origin=(0, 0), length=L, angle=th, angle_label=r'$30^\circ$'))
+    c = u * 2.6 + n * (bh / 2)
+    fs.block(ax, tuple(c), 0.8, bh, angle=th, text='$m_1$', fontsize=9)
+    r = 0.25
+    P = top + n * (bh / 2 + r) + u * 0.25
     ax.plot([top[0], P[0]], [top[1], P[1]], color=fs.BLACK, lw=1.2)
-    fs.pulley(ax, tuple(P), r=r)
-    q = c + u * 0.4
-    tp = P - n * r
-    rope(ax, q, tp)
+    rope(ax, c + u * 0.4, P - n * r)
     rope(ax, (P[0] + r, P[1]), (P[0] + r, 1.25))
+    fs.pulley(ax, tuple(P), r=r)
     fs.block(ax, (P[0] + r, 0.9), 0.55, 0.7, text='$m_2$', fontsize=9)
-    ax.plot([top[0], top[0]], [0, top[1]], color=fs.BLACK, lw=1.2)
-    ax.text(0.9, -0.25, r'마찰 없음', fontsize=7.5, color=fs.GRAY)
+    ax.text(1.1, -0.25, '마찰 없음', fontsize=7.5, color=fs.GRAY)
     fs.save(fig, __file__, 'fig05_14')
 
 
@@ -431,24 +428,19 @@ def fig16():
 def fig17():
     fig, ax = fs.canvas(2.4, 3.0, xlim=(-0.3, 3.0), ylim=(-0.2, 4.4))
     fs.ceiling(ax, 0.0, 2.8, 4.2)
-    P = np.array([1.4, 3.6]); r = 0.35
+    P = np.array([1.4, 3.6]); r = 0.45
     ax.plot([P[0], P[0]], [P[1], 4.2], color=fs.BLACK, lw=1.2)
     fs.pulley(ax, tuple(P), r=r)
-    # 의자(왼쪽 가닥에 매달림)와 사람
-    seat_y = 0.9
-    ax.add_patch(Rectangle((0.4, seat_y - 0.12), 1.0, 0.12, fc='#b9a27a', ec=fs.BLACK, lw=1.0, zorder=3))
+    seat_y = 0.8
+    ax.add_patch(Rectangle((0.2, seat_y - 0.15), 1.2, 0.15, fc='#b9a27a', ec=fs.BLACK, lw=1.0, zorder=3))
     rope(ax, (P[0] - r, P[1]), (P[0] - r, seat_y))
-    # 사람(간단한 도형)
-    hx = 0.7
-    ax.add_patch(Circle((hx, seat_y + 1.25), 0.17, fc='#f3d2b3', ec=fs.BLACK, lw=0.9, zorder=4))
-    ax.plot([hx, hx + 0.05], [seat_y + 1.08, seat_y + 0.1], color=fs.BLACK, lw=2.0, zorder=4)
-    ax.plot([hx + 0.05, hx + 0.6], [seat_y + 0.1, seat_y + 0.1], color=fs.BLACK, lw=2.0, zorder=4)
-    ax.plot([hx + 0.6, hx + 0.6], [seat_y + 0.1, seat_y - 0.6], color=fs.BLACK, lw=2.0, zorder=4)
-    # 팔: 오른쪽 가닥을 잡는다
-    ax.plot([hx + 0.02, P[0] + r], [seat_y + 0.85, seat_y + 0.95], color=fs.BLACK, lw=1.6, zorder=4)
-    rope(ax, (P[0] + r, P[1]), (P[0] + r, seat_y + 0.6))
-    ax.text(0.05, seat_y - 0.4, '의자', fontsize=8)
+    fs.block(ax, (0.55, seat_y + 0.45), 0.6, 0.9, text='사람', fontsize=7.5)
+    hand_y = seat_y + 0.7
+    ax.plot([0.85, P[0] + r], [hand_y, hand_y], color=fs.BLACK, lw=2.0, zorder=4)
+    rope(ax, (P[0] + r, P[1]), (P[0] + r, hand_y))
+    ax.text(0.8, seat_y - 0.4, '의자', fontsize=8, ha='center')
     ax.text(P[0] + r + 0.12, 2.6, '사람이\n당기는 줄', fontsize=7.5, va='center')
+    ax.text(P[0] - r - 0.08, 2.6, '의자에\n맨 줄', fontsize=7.5, va='center', ha='right')
     fs.save(fig, __file__, 'fig05_17')
 
 

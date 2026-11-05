@@ -52,7 +52,7 @@ def bloch_base(ax):
 
 # ---------------------------------------------------------------- 그림 A.1 블로흐 구면
 def fig01():
-    fig, ax = fs.canvas(3.4, 3.3, xlim=(-1.55, 1.6), ylim=(-1.45, 1.6))
+    fig, ax = fs.canvas(3.4, 3.1, xlim=(-1.55, 1.6), ylim=(-1.2, 1.6))
     bloch_base(ax)
     states = [((0, 0, 1), r'$|0\rangle$', (-0.2, 0.12)), ((0, 0, -1), r'$|1\rangle$', (0.2, -0.1)),
               ((1, 0, 0), r'$|+\rangle$', (0.2, -0.1)), ((-1, 0, 0), r'$|-\rangle$', (-0.05, -0.16)),
@@ -114,7 +114,7 @@ def detector(ax, c, setting_labels, name, flip=False):
     ax.add_patch(Circle(c, 0.22, fc='white', ec=fs.BLACK, lw=0.8))
     a = np.radians(50)
     ax.plot([c[0], c[0] + 0.2 * np.cos(a)], [c[1], c[1] + 0.2 * np.sin(a)], color=fs.FORCE, lw=1.4)
-    ax.text(c[0], c[1] - 0.62, f'설정 {setting_labels[0]} 또는 {setting_labels[1]}', ha='center', fontsize=7.5)
+    ax.text(c[0], c[1] - 0.72, f'설정 {setting_labels[0]} 또는 {setting_labels[1]}', ha='center', fontsize=7.5)
     for dy, lab in ((0.25, '+1'), (-0.25, '−1')):
         p = (c[0] + s * 0.75, c[1] + dy)
         ax.add_patch(Circle(p, 0.09, fc='#f5d76e', ec=fs.BLACK, lw=0.6))
@@ -123,7 +123,7 @@ def detector(ax, c, setting_labels, name, flip=False):
 
 
 def fig03():
-    fig, ax = fs.canvas(5.3, 2.3, xlim=(-3.6, 3.6), ylim=(-1.4, 1.35))
+    fig, ax = fs.canvas(5.3, 2.3, xlim=(-3.6, 3.6), ylim=(-1.45, 1.35))
     ax.add_patch(Circle((0, 0), 0.32, fc=fs.SURF, ec=fs.BLACK, lw=1.0))
     ax.text(0, 0, '원천', ha='center', va='center', fontsize=8)
     ax.text(0, 0.55, r'$|\Phi^+\rangle$ 쌍', ha='center', fontsize=9)
@@ -133,9 +133,9 @@ def fig03():
     fs.arrow(ax, (1.6, 0.0), (1.98, 0.0), color=fs.ORANGE, lw=0, ms=9)
     detector(ax, (-2.45, 0), ("$a$", "$a'$"), '앨리스', flip=True)
     detector(ax, (2.45, 0), ("$b$", "$b'$"), '밥')
-    ax.annotate('', xy=(2.3, -1.05), xytext=(-2.3, -1.05),
+    ax.annotate('', xy=(2.3, -1.1), xytext=(-2.3, -1.1),
                 arrowprops=dict(arrowstyle='<|-|>', lw=0.8, ls='--', color=fs.GRAY))
-    ax.text(0, -1.3, '나중에 결과를 모아 $E(a, b) = \\langle AB\\rangle$ 계산', ha='center', fontsize=8, color=fs.GRAY)
+    ax.text(0, -1.33, '나중에 결과를 모아 $E(a, b) = \\langle AB\\rangle$ 계산', ha='center', fontsize=8, color=fs.GRAY)
     fs.save(fig, __file__, 'figSA_03')
 
 
@@ -161,7 +161,7 @@ def fig04():
     a2.plot(phi, S, color=fs.VEL)
     a2.axhline(2 * np.sqrt(2), color=fs.FORCE, lw=0.8, ls='--')
     a2.text(-85, 2 * np.sqrt(2) + 0.12, r'$2\sqrt{2}$', color=fs.FORCE, fontsize=9)
-    a2.text(-45, -1.05, '국소적 숨은 변수\n$|S| \\leq 2$', fontsize=7.5, ha='center', va='top', color='#555555')
+    a2.text(125, -1.05, '국소적 숨은 변수\n$|S| \\leq 2$', fontsize=7.5, ha='center', va='top', color='#555555')
     a2.plot(45, 2 * np.sqrt(2), 'o', color=fs.FORCE, ms=4)
     a2.set_xlim(-90, 180); a2.set_ylim(-3.2, 3.4); a2.set_xticks([-90, -45, 0, 45, 90, 135, 180])
     a2.set_xlabel(r"$b = \phi$, $b' = -\phi$ (도)", fontsize=8.5); a2.set_ylabel('$S$', fontsize=9)
@@ -324,7 +324,7 @@ def fig08():
     ax.text(pm - 0.3, UM + 0.75, '열적 넘음(고온)', fontsize=7.5, color=fs.GRAY, ha='center')
     ax.text(pm, Um - 0.15, '우물에 갇힘\n(전압 0)', fontsize=7.5, ha='center', va='top')
     ax.text(8.2, -1.3, '탈출 후 굴러 내려감\n(전압 발생)', fontsize=7.5, ha='center')
-    ax.text(-2.8, -1.05, r'$U = -E_J\cos\varphi - \frac{\hbar I}{2e}\varphi$', fontsize=9, ha='left')
+    ax.text(-2.8, -3.9, r'$U = -E_J\cos\varphi - \frac{\hbar I}{2e}\varphi$', fontsize=9, ha='left')
     ax.set_xlim(-3.0, 10.5); ax.set_ylim(-4.3, 2.0)
     ax.set_xlabel(r'위상차 $\varphi$', fontsize=9); ax.set_ylabel(r'$U(\varphi)$', fontsize=9)
     ax.set_yticks([]); ax.set_xticks([])
