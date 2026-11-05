@@ -40,12 +40,13 @@ def fig01():
     ax.plot(A_all, BA, color=fs.VEL, lw=1.3, label='반경험적 질량 공식')
     xs = [v[0] for v in DATA.values()]; ys = [v[1] for v in DATA.values()]
     ax.plot(xs, ys, 'o', color=fs.FORCE, ms=3.5, label='실측값', zorder=5)
-    lab = {'$^{2}$H': (6, 1.0), '$^{4}$He': (7, 7.25), '$^{12}$C': (14, 7.45), '$^{16}$O': (17, 8.15),
-           '$^{56}$Fe': (52, 9.0), '$^{238}$U': (226, 7.85), '$^{6}$Li': (9, 5.25)}
-    for k, (x, y) in lab.items():
-        ax.text(x, y, k, fontsize=8, color=fs.FORCE)
-    ax.annotate('', xy=(30, 6.3), xytext=(8, 3.0), arrowprops=dict(arrowstyle='-|>', color=fs.ACC, lw=1.4))
-    ax.text(22, 3.6, '핵융합', color=fs.ACC, fontsize=9)
+    lab = {'$^{2}$H': (2, 1.112, 9, 0.9), '$^{4}$He': (4, 7.074, 22, 6.6), '$^{6}$Li': (6, 5.332, 13, 4.9),
+           '$^{56}$Fe': (56, 8.790, 50, 9.15), '$^{238}$U': (238, 7.570, 222, 8.0)}
+    for k, (x, y, tx, ty) in lab.items():
+        ax.annotate(k, xy=(x, y), xytext=(tx, ty), fontsize=8, color=fs.FORCE,
+                    arrowprops=dict(arrowstyle='-', lw=0.5, color=fs.FORCE) if k in ('$^{4}$He', '$^{6}$Li') else None)
+    ax.annotate('', xy=(42, 6.0), xytext=(18, 2.0), arrowprops=dict(arrowstyle='-|>', color=fs.ACC, lw=1.4))
+    ax.text(33, 2.9, '핵융합', color=fs.ACC, fontsize=9)
     ax.annotate('', xy=(125, 8.2), xytext=(232, 7.35), arrowprops=dict(arrowstyle='-|>', color=fs.ORANGE, lw=1.4))
     ax.text(170, 6.85, '핵분열', color=fs.ORANGE, fontsize=9)
     ax.set_xlim(0, 250); ax.set_ylim(0, 9.6)
@@ -64,15 +65,18 @@ def fig02():
     ax.plot(Z, N, '.', color=fs.VEL, ms=2.5, label='각 $A$에서 $B$가 가장 큰 핵(공식)')
     for name, z, n in (('$^{56}$Fe', 26, 30), ('$^{208}$Pb', 82, 126), ('$^{238}$U', 92, 146), ('$^{16}$O', 8, 8)):
         ax.plot(z, n, 'o', color=fs.FORCE, ms=4, zorder=5)
-        ax.text(z - 3, n + 5, name, fontsize=8, color=fs.FORCE, ha='right')
+        if z < 10:
+            ax.text(z + 3, n - 4, name, fontsize=8, color=fs.FORCE, ha='left')
+        else:
+            ax.text(z - 3, n + 5, name, fontsize=8, color=fs.FORCE, ha='right')
     # 붕괴 방향 화살표(범례)
-    o = np.array([12, 115]); s = 9
+    o = np.array([27, 120]); s = 7
     for d, lab, c in (((-2, -2), r'$\alpha$', fs.FORCE), ((1, -1), r'$\beta^-$', fs.VEL), ((-1, 1), r'$\beta^+$, EC', fs.ACC)):
         q = o + s * np.array(d)
         ax.annotate('', xy=q, xytext=o, arrowprops=dict(arrowstyle='-|>', color=c, lw=1.3))
         ax.text(q[0] + (1.5 if d[0] > 0 else -1.5), q[1] + (-3 if d[1] < 0 else 3), lab, color=c, fontsize=8.5,
                 ha='left' if d[0] > 0 else 'right', va='center')
-    ax.text(o[0], o[1] + 23, '붕괴의 방향', fontsize=8, ha='center')
+    ax.text(o[0], o[1] + 16, '붕괴의 방향', fontsize=8, ha='center')
     ax.plot(*o, 'o', color=fs.BLACK, ms=3)
     ax.text(60, 25, '중성자 부족:\n$\\beta^+$, 전자 포획', fontsize=8, color=fs.ACC, ha='center')
     ax.text(28, 80, '중성자 과다:\n$\\beta^-$', fontsize=8, color=fs.VEL, ha='center')
@@ -97,14 +101,13 @@ def fig03():
     ax.axhline(0, color=fs.GRAY, lw=0.6)
     ax.plot([0, R], [Q, Q], color=fs.FORCE, lw=1.4)
     ax.plot([b, 80], [Q, Q], color=fs.FORCE, lw=1.4)
-    ax.plot([R, b], [Q, Q], color=fs.FORCE, lw=1.0, ls=':')
     rr = np.linspace(R, b, 200)
     ax.fill_between(rr, Q, 2 * 90 * ke2 / rr, color=fs.SURF, alpha=0.5, lw=0)
     ax.text(18, 12, '장벽\n(고전적 금지 영역)', fontsize=8, ha='left')
-    ax.text(60, Q + 1.0, r'$Q = 4.27$ MeV', color=fs.FORCE, fontsize=8.5, ha='center')
-    ax.annotate('', xy=(b + 12, Q - 2.6), xytext=(R - 1, Q - 2.6),
+    ax.text(70, Q + 2.0, r'$Q = 4.27$ MeV', color=fs.FORCE, fontsize=8.5, ha='center')
+    ax.annotate('', xy=(b + 8, Q), xytext=(R, Q),
                 arrowprops=dict(arrowstyle='-|>', color=fs.FORCE, lw=1.0, ls='--'))
-    ax.text((R + b) / 2, Q - 4.4, '터널링', color=fs.FORCE, fontsize=8.5, ha='center')
+    ax.text((R + b) / 2 - 4, Q + 1.0, '터널링', color=fs.FORCE, fontsize=8.5, ha='center')
     ax.text(R + 0.8, 2 * 90 * ke2 / R, f'≈ {2*90*ke2/R:.0f} MeV', fontsize=8, va='center')
     ax.plot([b, b], [-15, Q], color=fs.GRAY, lw=0.6, ls='--')
     ax.set_xticks([0, R, b]); ax.set_xticklabels(['0', r'$R$' '\n9.3', r'$b$' '\n61'], fontsize=8)
@@ -128,7 +131,7 @@ def fig04():
     tx = th / np.log(2) * np.log(1 / 0.30)
     ax.plot([0, tx, tx], [0.30, 0.30, 0], color=fs.FORCE, lw=0.9, ls='--')
     ax.plot(tx, 0.30, 'o', color=fs.FORCE, ms=4)
-    ax.text(tx + 400, 0.33, f'예제 40.4: 30% → {tx:.0f}년', fontsize=8, color=fs.FORCE)
+    ax.text(tx + 600, 0.38, f'예제 40.4: 30% → {tx:.0f}년', fontsize=8, color=fs.FORCE)
     ax.set_xticks([0, th, 2 * th, 3 * th, 4 * th, 5 * th])
     ax.set_xticklabels(['0', '5730', '11460', '17190', '22920', '28650'], fontsize=7.5)
     ax.set_xlim(0, 30000); ax.set_ylim(0, 1.05)
@@ -154,7 +157,7 @@ def fig05():
     fig, (a1, a2) = plt.subplots(2, 1, figsize=(5.4, 3.4), gridspec_kw={'height_ratios': [1, 1.05]})
     for a in (a1, a2):
         a.set_aspect('equal'); a.axis('off')
-    a1.set_xlim(-0.3, 8.6); a1.set_ylim(-0.95, 0.95)
+    a1.set_xlim(-0.3, 8.6); a1.set_ylim(-1.2, 1.15)
     neutron(a1, (0.1, 0)); a1.text(0.1, -0.3, '느린\n중성자', fontsize=7, ha='center', va='top')
     fs.arrow(a1, (0.25, 0), (0.95, 0), lw=1.0, ms=8)
     nucleus(a1, (1.65, 0), 235, '$^{235}$U')
@@ -163,12 +166,12 @@ def fig05():
     a1.text(3.85, 0, '$^{236}$U*', ha='center', va='center', fontsize=8, zorder=5)
     a1.text(3.85, -0.72, '들뜬 상태', fontsize=7, ha='center')
     fs.arrow(a1, (4.7, 0), (5.25, 0), lw=1.0, ms=8)
-    nucleus(a1, (6.0, 0.4), 141, '$^{141}$Ba', color='#f2d7a6')
-    nucleus(a1, (6.0, -0.45), 92, '$^{92}$Kr', color='#f2d7a6')
+    nucleus(a1, (5.95, 0.52), 141, '$^{141}$Ba', color='#f2d7a6')
+    nucleus(a1, (6.1, -0.62), 92, '$^{92}$Kr', color='#f2d7a6')
     for i, y in enumerate((0.55, 0.0, -0.55)):
         neutron(a1, (7.2 + 0.3 * (i == 1), y))
         fs.arrow(a1, (7.35 + 0.3 * (i == 1), y), (7.75 + 0.3 * (i == 1), y * 1.25), lw=0.8, ms=6)
-    a1.text(8.15, -0.75, '중성자 3개', fontsize=7, ha='center')
+    a1.text(7.45, -0.95, '중성자 3개', fontsize=7, ha='center')
     a1.text(6.9, 0.8, r'$\sim 200$ MeV', fontsize=8, color=fs.FORCE, ha='center')
     a1.set_title('(가) $n + {}^{235}$U → $^{141}$Ba + $^{92}$Kr + $3n$', fontsize=9)
     # (나) k = 1 연쇄 반응
@@ -184,7 +187,7 @@ def fig05():
         a2.add_patch(Rectangle((x + 1.3, 0.6), 0.5, 0.22, fc='#555555', ec='none'))
         # 새어 나가는 중성자
         neutron(a2, (x + 0.55, -0.45)); fs.arrow(a2, (x + 0.65, -0.5), (x + 1.35, -0.85), lw=0.8, ms=6, ls='--')
-    a2.text(1.95 + 0.0, 0.92, '제어봉·감속재 등에 흡수', fontsize=7, ha='center')
+    a2.text(1.95 + 0.0, 0.92, '제어봉 등에 흡수', fontsize=7, ha='center')
     a2.text(1.95, -1.08, '밖으로 새어 나감', fontsize=7, ha='center')
     a2.text(8.25, 0.05, '…', fontsize=12, ha='center', va='center')
     a2.text(7.75, -0.35, '다음 세대로\n1개씩', fontsize=7, color=fs.ACC, ha='center', va='top')
@@ -235,13 +238,13 @@ def fig06():
     a2.text(kT + 1.5, 2e-11, r'$k_BT$', fontsize=8, color=fs.GRAY)
     a2.set_ylim(1e-12, 2); a2.set_xlim(0, 120)
     a2.set_xlabel('충돌 에너지 $E$ (keV)', fontsize=9)
-    a2.legend(fontsize=6.8, loc='upper right', frameon=False)
+    a2.legend(fontsize=6.8, loc='lower right', frameon=False)
     a2.set_title(r'(나) $k_BT = 10$ keV 플라스마', fontsize=9)
     fig.tight_layout(w_pad=0.5)
     fs.save(fig, __file__, 'fig40_06')
 
 
-# ---------------------------------------------------------------- 그림 40.7 Mo-Tc 발생기 (본문 코드)
+# ---------------------------------------------------------------- 그림 40.9 Mo-Tc 발생기 (본문 코드)
 def fig07():
     T_Mo, T_Tc = 65.94, 6.007
     lM, lT = np.log(2) / T_Mo, np.log(2) / T_Tc
@@ -261,10 +264,10 @@ def fig07():
     ax.set_xlabel('Tc를 뽑아낸 뒤 시간 $t$ (h)', fontsize=9); ax.set_ylabel('방사능 (처음 Mo = 1)', fontsize=9)
     ax.legend(fontsize=7.5, loc='lower right', frameon=False)
     ax.tick_params(labelsize=8)
-    fs.save(fig, __file__, 'fig40_07')
+    fs.save(fig, __file__, 'fig40_09')
 
 
-# ---------------------------------------------------------------- 그림 40.8 투과력과 반가층
+# ---------------------------------------------------------------- 그림 40.7 투과력과 반가층
 def fig08():
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(5.5, 2.5), gridspec_kw={'width_ratios': [1.25, 1]})
     a1.set_xlim(-0.3, 5.2); a1.set_ylim(-0.3, 3.0); a1.set_aspect('equal'); a1.axis('off')
@@ -299,10 +302,10 @@ def fig08():
     a2.set_xlabel('납 두께 $x$ (mm)', fontsize=9); a2.set_ylabel('$I/I_0$', fontsize=9)
     a2.set_title('(나) $x_{1/2} = 0.3$ mm (140 keV)', fontsize=9)
     fig.tight_layout(w_pad=0.6)
-    fs.save(fig, __file__, 'fig40_08')
+    fs.save(fig, __file__, 'fig40_07')
 
 
-# ---------------------------------------------------------------- 그림 40.9 PET
+# ---------------------------------------------------------------- 그림 40.8 PET
 def fig09():
     fig, ax = fs.canvas(3.2, 3.0, xlim=(-1.75, 1.75), ylim=(-1.6, 1.65))
     n = 36
@@ -334,16 +337,16 @@ def fig09():
         ax.add_patch(Circle(1.35 * np.array([np.cos(th), np.sin(th)]), 0.1, fc=fs.FORCE, ec='none', alpha=0.6, zorder=7))
     ax.add_patch(Circle(p, 0.06, fc=fs.FORCE, ec='none', zorder=8))
     ax.text(p[0] - 0.05, p[1] - 0.17, '소멸', fontsize=8, ha='center', va='top')
-    ax.text(0.95, 1.0, '511 keV', fontsize=8, color=fs.ORANGE, ha='left')
-    ax.text(-0.75, -0.62, '511 keV', fontsize=8, color=fs.ORANGE, ha='center')
+    ax.text(0.5, 0.58, '511 keV', fontsize=8, color=fs.ORANGE, ha='center')
+    ax.text(-0.62, -0.62, '511 keV', fontsize=8, color=fs.ORANGE, ha='center')
     ax.text(0, 1.55, '검출기 고리', fontsize=8, ha='center')
     ax.text(-0.25, 0.2, r'$e^+ + e^-$', fontsize=8, ha='center')
-    fs.save(fig, __file__, 'fig40_09')
+    fs.save(fig, __file__, 'fig40_08')
 
 
 # ---------------------------------------------------------------- 그림 40.10 표준모형 입자
 def fig10():
-    fig, ax = fs.canvas(5.5, 3.3, xlim=(-0.65, 5.6), ylim=(-0.35, 4.55))
+    fig, ax = fs.canvas(5.5, 3.3, xlim=(-0.65, 5.75), ylim=(-0.35, 4.55))
     QC, LC, GC, HC = '#e3ecf8', '#e5f3e8', '#fbe5dc', '#fbf1cc'
     cells = [
         # (열, 행, 기호, 이름, 질량, 전하, 색)
@@ -363,18 +366,18 @@ def fig10():
         ax.add_patch(FancyBboxPatch((c + 0.05, r + 0.05), 0.9, 0.9, boxstyle='round,pad=0,rounding_size=0.08',
                                     fc=col, ec=fs.GRAY, lw=0.6))
         ax.text(c + 0.5, r + 0.55, f'${sym}$', ha='center', va='center', fontsize=14)
-        ax.text(c + 0.5, r + 0.2, name, ha='center', va='center', fontsize=6.3 if len(name) > 4 else 7)
-        ax.text(c + 0.1, r + 0.85, m, ha='left', va='center', fontsize=5.8, color='#444444')
-        ax.text(c + 0.9, r + 0.85, q, ha='right', va='center', fontsize=6.3, color='#444444')
+        ax.text(c + 0.5, r + 0.18, name, ha='center', va='center', fontsize=5.6 if len(name) > 4 else 7)
+        ax.text(c + 0.5, r + 0.84, m, ha='center', va='center', fontsize=5.8, color='#444444')
+        ax.text(c + 0.13, r + 0.55, q, ha='left', va='center', fontsize=6.3, color='#444444')
     for c, t in ((0, '1세대'), (1, '2세대'), (2, '3세대')):
         ax.text(c + 0.5, 4.12, t, ha='center', fontsize=8)
     ax.text(-0.12, 2.5, '쿼크', rotation=90, ha='center', va='center', fontsize=9, color=fs.VEL)
     ax.text(-0.12, 0.5 + 0.5, '렙톤', rotation=90, ha='center', va='center', fontsize=9, color=fs.ACC)
-    ax.plot([-0.25, -0.25], [2.08, 3.92], color=fs.VEL, lw=1.2); ax.plot([-0.25, -0.25], [0.08, 1.92], color=fs.ACC, lw=1.2)
+    ax.plot([-0.38, -0.38], [2.08, 3.92], color=fs.VEL, lw=1.2); ax.plot([-0.38, -0.38], [0.08, 1.92], color=fs.ACC, lw=1.2)
     ax.text(3.75, 4.12, '게이지 보손\n(스핀 1)', ha='center', fontsize=7.5, color=fs.FORCE)
     ax.text(5.0, 4.12, '스칼라 보손\n(스핀 0)', ha='center', fontsize=7.5, color=fs.ORANGE)
     ax.text(1.5, 4.42, '페르미온 (스핀 1/2)', ha='center', fontsize=8)
-    ax.text(5.0, 1.95, '칸 안의 표시\n왼쪽 위: 질량\n오른쪽 위: 전하($e$)', ha='center', va='center', fontsize=6.8,
+    ax.text(5.0, 1.95, '칸 안의 표시\n위: 질량\n왼쪽: 전하($e$ 단위)', ha='center', va='center', fontsize=6.8,
             color='#444444')
     ax.text(2.6, -0.22, '질량은 $mc^2$ 값(근삿값). 각 페르미온에는 반입자가 있다.', ha='center', fontsize=7, color='#444444')
     fs.save(fig, __file__, 'fig40_10')
@@ -426,20 +429,19 @@ def fig11():
 # ---------------------------------------------------------------- 그림 40.12 팽창과 허블-르메트르 법칙
 def fig12():
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(5.5, 2.6), gridspec_kw={'width_ratios': [1, 1.15]})
-    a1.set_aspect('equal'); a1.axis('off'); a1.set_xlim(-2.4, 2.4); a1.set_ylim(-2.2, 2.2)
-    rng = np.random.default_rng(4)
-    gal = np.array([[0, 0]] + [list(rng.uniform(-1.2, 1.2, 2)) for _ in range(8)])
+    a1.set_aspect('equal'); a1.axis('off'); a1.set_xlim(-2.4, 2.4); a1.set_ylim(-2.9, 2.4)
+    gal = 0.8 * np.array([[0, 0], [0.55, 0.1], [1.3, 0.3], [-0.45, 0.45], [-1.25, -0.3], [0.2, -0.6], [0.3, 1.25],
+                          [-0.6, -1.2], [1.0, -0.95], [-0.95, 1.0]])
     s = 1.6
     for g in gal:
         a1.plot(*g, 'o', color=fs.GRAY, ms=3.5)
         a1.plot(*(g * s), 'o', color=fs.VEL, ms=4.5)
     ref = gal[0]
     for g in gal[1:]:
-        a1.add_patch(FancyArrowPatch(g * s - (g - ref) * 0, g * s, arrowstyle='-', lw=0))
-        fs.arrow(a1, tuple(g * s - 0.0), tuple(g * s + 0.35 * (g - ref)), color=fs.FORCE, lw=0.9, ms=7)
+        fs.arrow(a1, tuple(g * s), tuple(g * s + 0.45 * (g - ref)), color=fs.FORCE, lw=0.9, ms=7)
     a1.plot(0, 0, '*', color=fs.ORANGE, ms=10, zorder=6)
-    a1.text(0.15, -0.25, '우리 은하', fontsize=7, color=fs.ORANGE)
-    a1.text(0, -2.15, '회색: 이전, 파랑: 나중(모든 거리 1.6배)\n빨강: 후퇴 속도 ∝ 거리', fontsize=6.8, ha='center')
+    a1.text(0.0, -0.42, '우리 은하', fontsize=7, color=fs.ORANGE, ha='center')
+    a1.text(0, -2.75, '회색: 이전, 파랑: 나중(모든 거리 1.6배)\n빨강: 후퇴 속도 ∝ 거리', fontsize=6.8, ha='center')
     a1.set_title('(가) 공간의 팽창', fontsize=9)
     style(a2)
     d = np.linspace(0, 250, 100)
@@ -461,8 +463,9 @@ def fig13():
     h, c, k = 6.62607015e-34, 299792458.0, 1.380649e-23
     lam = np.logspace(-7, -1.5, 2000)
     fig, ax = fs.plot_axes(4.6, 2.6)
-    for T, col, lab in ((3000, fs.FORCE, '$T = 3000$ K (빛이 풀려난 때)'), (2.725, fs.VEL, '$T = 2.725$ K (오늘의 CMB)')):
-        Bl = 1 / lam ** 5 / (np.exp(h * c / (lam * k * T)) - 1)
+    for T, col, lab in ((3000, fs.FORCE, '3000 K (빛이 풀려난 때)'), (2.725, fs.VEL, '2.725 K (오늘의 CMB)')):
+        with np.errstate(over='ignore'):
+            Bl = 1 / lam ** 5 / (np.exp(h * c / (lam * k * T)) - 1)
         ax.semilogx(lam * 1e3, Bl / Bl.max(), color=col, label=lab)
         lm = 2.897771955e-3 / T
         ax.axvline(lm * 1e3, color=col, lw=0.6, ls=':')
@@ -473,7 +476,7 @@ def fig13():
     ax.text(0.03, 0.55, '파장 약 1100배', fontsize=8, color=fs.GRAY, ha='center')
     ax.set_xlim(1e-4, 30); ax.set_ylim(0, 1.15)
     ax.set_xlabel(r'파장 $\lambda$ (mm)', fontsize=9); ax.set_ylabel(r'$B_\lambda$ (최댓값 = 1)', fontsize=9)
-    ax.legend(fontsize=7.5, loc='upper left', frameon=False, bbox_to_anchor=(0.0, 0.92))
+    ax.legend(fontsize=7.5, loc='center', frameon=False, bbox_to_anchor=(0.45, 0.25))
     ax.tick_params(labelsize=8)
     fs.save(fig, __file__, 'fig40_13')
 

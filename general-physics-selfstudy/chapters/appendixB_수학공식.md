@@ -1,6 +1,12 @@
 # 부록 B 수학 공식
 
 ## B.1 삼각함수
+반지름 1인 원(단위원) 위에서 $+x$축과 각 $\theta$를 이루는 점의 좌표가 $(\cos\theta, \sin\theta)$이다(그림 B.1).
+
+![그림 B.1 단위원과 삼각함수](../figures/appB/figB_01.svg)
+
+*그림 B.1* 단위원에서 본 삼각함수. 점의 $x$좌표가 $\cos\theta$, $y$좌표가 $\sin\theta$이고, $x = 1$인 접선 위의 높이가 $\tan\theta$이다. 피타고라스 정리에서 $\sin^2\theta + \cos^2\theta = 1$이 바로 나온다.
+
 $$
 \sin^2\theta + \cos^2\theta = 1, \qquad 1 + \tan^2\theta = \sec^2\theta
 $$
@@ -15,7 +21,11 @@ $$
 $$
 합을 곱으로 바꾸는 마지막 두 식은 맥놀이(17장)와 정상파(16장)에서 쓴다.
 
-**코사인 법칙**: $c^2 = a^2 + b^2 - 2ab\cos\gamma$ · **사인 법칙**: $\dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta} = \dfrac{c}{\sin\gamma}$
+**코사인 법칙**: $c^2 = a^2 + b^2 - 2ab\cos\gamma$ · **사인 법칙**: $\dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta} = \dfrac{c}{\sin\gamma}$ (기호는 그림 B.2)
+
+![그림 B.2 삼각형의 변과 각](../figures/appB/figB_02.svg)
+
+*그림 B.2* 코사인 법칙과 사인 법칙의 기호. 각 $\alpha$, $\beta$, $\gamma$의 맞은편 변이 각각 $a$, $b$, $c$이다.
 
 ## B.2 지수와 로그
 $e^{a}e^{b} = e^{a+b}$, $\ln(ab) = \ln a + \ln b$, $\ln a^n = n\ln a$, $\log_{10}x = \ln x/\ln10$
@@ -31,6 +41,12 @@ $e^{a}e^{b} = e^{a+b}$, $\ln(ab) = \ln a + \ln b$, $\ln a^n = n\ln a$, $\log_{10
 | $\cos x$ | $1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \cdots$ | 모든 $x$ |
 | $\tan x$ | $x + \dfrac{x^3}{3} + \cdots$ | $\lvert x\rvert < \pi/2$ |
 | $\dfrac{1}{1-x}$ | $1 + x + x^2 + \cdots$ | $\lvert x\rvert < 1$ |
+
+작은 각 근사 $\sin\theta \approx \theta$, $\tan\theta \approx \theta$, $\cos\theta \approx 1 - \theta^2/2$($\theta$는 라디안)가 어느 각까지 쓸 만한지는 그림 B.3과 같다.
+
+![그림 B.3 작은 각 근사의 정확도](../figures/appB/figB_03.svg)
+
+*그림 B.3* (가) $\sin\theta$, $\theta$, $\tan\theta$의 비교. (나) 작은 각 근사의 상대 오차. 오차 1%(점선) 이내인 범위는 $\sin\theta \approx \theta$가 약 $14°$, $\tan\theta \approx \theta$가 약 $10°$까지이고, $\cos\theta \approx 1 - \theta^2/2$는 약 $38°$까지이다.
 
 ## B.4 미분
 | $f(x)$ | $f'(x)$ | $f(x)$ | $f'(x)$ |
@@ -95,6 +111,20 @@ $$
 | 원통 | $r, \phi, z$ | $dr\,\hat{r} + r\,d\phi\,\hat{\phi} + dz\,\hat{z}$ | 옆면: $R\,d\phi\,dz$ | $r\,dr\,d\phi\,dz$ |
 | 구면 | $r, \theta, \phi$ | $dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}$ | 구면: $R^2\sin\theta\,d\theta\,d\phi$ | $r^2\sin\theta\,dr\,d\theta\,d\phi$ |
 
+각 좌표계의 변수와 단위벡터는 그림 B.4(평면 극좌표), 그림 B.5(원통 좌표), 그림 B.6(구면 좌표)과 같다. 구면 좌표의 $\theta$는 $+z$축에서 잰 각이고, $\phi$는 $xy$ 평면에서 $+x$축으로부터 잰 각이다.
+
+![그림 B.4 평면 극좌표](../figures/appB/figB_04.svg)
+
+*그림 B.4* 평면 극좌표 $(r, \theta)$와 단위벡터 $\hat{r}$, $\hat{\theta}$. 미소 넓이 요소는 가로 $dr$, 세로 $r\,d\theta$인 작은 사각형이므로 $dA = r\,dr\,d\theta$이다. 단위벡터의 방향은 점마다 다르다.
+
+![그림 B.5 원통 좌표](../figures/appB/figB_05.svg)
+
+*그림 B.5* 원통 좌표 $(r, \phi, z)$와 단위벡터 $\hat{r}$, $\hat{\phi}$, $\hat{z}$. $r$는 $z$축까지의 거리, $\phi$는 $xy$ 평면에서 $+x$축으로부터 잰 각이다.
+
+![그림 B.6 구면 좌표](../figures/appB/figB_06.svg)
+
+*그림 B.6* 구면 좌표 $(r, \theta, \phi)$와 단위벡터 $\hat{r}$, $\hat{\theta}$, $\hat{\phi}$. $r$는 원점까지의 거리, $\theta$는 $+z$축과 이루는 각, $\phi$는 $xy$ 평면에 내린 그림자가 $+x$축과 이루는 각이다.
+
 반지름 $R$인 구의 겉넓이 $4\pi R^2$, 부피 $\frac{4}{3}\pi R^3$ · 원통의 옆넓이 $2\pi RL$, 부피 $\pi R^2L$
 
 ## B.8 자주 쓰는 관성모멘트 (질량 $M$)
@@ -107,4 +137,9 @@ $$
 | 가는 막대 (길이 $L$) | 중심, 막대에 수직 | $\frac{1}{12}ML^2$ |
 | 가는 막대 (길이 $L$) | 한쪽 끝, 막대에 수직 | $\frac{1}{3}ML^2$ |
 | 직사각형 판 ($a\times b$) | 중심, 면에 수직 | $\frac{1}{12}M(a^2 + b^2)$ |
-평행축 정리: $I = I_{\text{cm}} + Md^2$
+
+평행축 정리: $I = I_{\text{cm}} + Md^2$ ($d$는 질량중심 축과 그에 평행한 축 사이의 거리, 그림 B.7)
+
+![그림 B.7 평행축 정리](../figures/appB/figB_07.svg)
+
+*그림 B.7* 질량중심을 지나는 축(검정)과 거리 $d$만큼 떨어진 평행한 축(빨강). 평행한 축에 대한 관성모멘트는 $I_{\text{cm}}$보다 $Md^2$만큼 크다.

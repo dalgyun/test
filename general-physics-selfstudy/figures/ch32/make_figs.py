@@ -55,6 +55,14 @@ def hit_line_y(p, d, y):
     return p + (y - p[1]) / d[1] * d
 
 
+def arc2(ax, center, r, a1, a2, text=None, **kw):
+    """두 방향 a1, a2(도) 사이의 작은 쪽 각을 호로 그린다(±180° 경계를 넘어도 됨)."""
+    diff = (a2 - a1) % 360
+    if diff > 180:
+        a1, diff = a2, 360 - diff
+    fs.angle_arc(ax, center, r, a1, a1 + diff, text, **kw)
+
+
 def normal_line(ax, p, half=1.0, angle=90, color=fs.GRAY):
     a = D(angle)
     u = np.array([np.cos(a), np.sin(a)])
@@ -89,9 +97,9 @@ def fig01():
     fs.ray(ax, [(-L * np.sin(th1), L * np.cos(th1)), (0, 0)], color=RAY, lw=1.5)
     fs.ray(ax, [(0, 0), (L * np.sin(th1), L * np.cos(th1))], color=RAY, lw=1.1)
     fs.ray(ax, [(0, 0), (L * np.sin(th2), -L * np.cos(th2))], color=RAY, lw=1.5)
-    fs.angle_arc(ax, (0, 0), 0.55, 90, 90 + 50, r'$\theta_1$', tr=0.78)
-    fs.angle_arc(ax, (0, 0), 0.62, 90 - 50, 90, r"$\theta_1'$", tr=0.85)
-    fs.angle_arc(ax, (0, 0), 0.55, -90, -90 + np.degrees(th2), r'$\theta_2$', tr=0.78)
+    arc2(ax, (0, 0), 0.55, 90, 90 + 50, r'$\theta_1$', tr=0.78)
+    arc2(ax, (0, 0), 0.62, 90 - 50, 90, r"$\theta_1'$", tr=0.85)
+    arc2(ax, (0, 0), 0.55, -90, -90 + np.degrees(th2), r'$\theta_2$', tr=0.78)
     fs.label(ax, (-1.9, 0.25), r'$n_1$', fontsize=11)
     fs.label(ax, (-1.9, -0.25), r'$n_2$', fontsize=11)
     fs.label(ax, (-1.25, 1.5), '입사 광선', fontsize=8.5, color=fs.GRAY)
@@ -118,8 +126,8 @@ def fig02():
     fs.label(ax, (B[0] + 0.08, B[1] - 0.06), r'$B$', fontsize=11)
     normal_line(ax, (x, 0), 0.75)
     th1 = np.degrees(np.arctan2(x, 1)); th2 = np.degrees(np.arctan2(1 - x, 1))
-    fs.angle_arc(ax, (x, 0), 0.25, 90, 90 + th1, r'$\theta_1$', tr=0.36, fontsize=9)
-    fs.angle_arc(ax, (x, 0), 0.25, -90, -90 + th2, r'$\theta_2$', tr=0.36, fontsize=9)
+    arc2(ax, (x, 0), 0.38, 90, 90 + th1, r'$\theta_1$', tr=0.5, fontsize=9)
+    arc2(ax, (x, 0), 0.38, -90, -90 + th2, r'$\theta_2$', tr=0.5, fontsize=9)
     # 치수
     ax.plot([0, 0], [0, 1], color=fs.GRAY, lw=0.6)
     fs.label(ax, (-0.08, 0.5), r'$a$', fontsize=10, color=fs.GRAY)
@@ -151,14 +159,14 @@ def fig03():
     q = P0 + 2.6 * din
     ax.plot([P0[0], q[0]], [P0[1], q[1]], color=RAY, lw=0.9, ls='--')
     normal_line(ax, P0, 0.8); normal_line(ax, P1, 0.8)
-    fs.angle_arc(ax, P0, 0.45, 90, 135, r'$\theta_1$', tr=0.62, fontsize=9)
-    fs.angle_arc(ax, P0, 0.45, -90, -90 + np.degrees(th2), r'$\theta_2$', tr=0.62, fontsize=9)
-    fs.angle_arc(ax, P1, 0.45, -90, -45, r'$\theta_3$', tr=0.62, fontsize=9)
+    arc2(ax, P0, 0.45, 90, 135, r'$\theta_1$', tr=0.62, fontsize=9)
+    arc2(ax, P0, 0.45, -90, -90 + np.degrees(th2), r'$\theta_2$', tr=0.62, fontsize=9)
+    arc2(ax, P1, 0.45, -90, -45, r'$\theta_3$', tr=0.62, fontsize=9)
     # 옆걸음 d: P1에서 원래 경로까지의 수직 거리
     foot = P0 + np.dot(P1 - P0, din) * din
     ax.plot([P1[0], foot[0]], [P1[1], foot[1]], color=fs.FORCE, lw=1.1)
     m = (P1 + foot) / 2
-    fs.label(ax, (m[0] + 0.14, m[1] + 0.1), r'$d$', fontsize=11, color=fs.FORCE)
+    fs.label(ax, (m[0] - 0.2 * din[0], m[1] - 0.2 * din[1]), r'$d$', fontsize=11, color=fs.FORCE)
     # 두께
     ax.add_patch(FancyArrowPatch((-1.25, 0), (-1.25, -t), arrowstyle='<|-|>', mutation_scale=8, color=fs.GRAY, lw=0.8))
     fs.label(ax, (-1.1, -0.5), r'$t$', fontsize=11, color=fs.GRAY)
@@ -184,8 +192,8 @@ def fig04():
         ax.plot([P[0], 0], [0, img_y], color=RAY, lw=0.8, ls='--')
     th1 = np.degrees(np.arctan2(x, h)); th2 = np.degrees(np.arcsin(n * np.sin(np.radians(th1))))
     normal_line(ax, (x, 0), 0.9)
-    fs.angle_arc(ax, (x, 0), 0.5, -90, -90 - th1, r'$\theta_1$', tr=0.68, fontsize=9)
-    fs.angle_arc(ax, (x, 0), 0.5, 90, 90 - th2, r'$\theta_2$', tr=0.7, fontsize=9)
+    arc2(ax, (x, 0), 0.75, -90, -90 - th1, r'$\theta_1$', tr=0.98, fontsize=9)
+    arc2(ax, (x, 0), 0.75, 90, 90 - th2, r'$\theta_2$', tr=1.0, fontsize=9)
     img_y = -x / np.tan(np.radians(th2))
     ax.add_patch(Rectangle((-0.18, img_y - 0.04), 0.36, 0.08, fc='none', ec='#c8a04a', lw=0.9, ls='--', zorder=5))
     fs.label(ax, (-0.55, img_y + 0.12), '상', fontsize=8.5, color=fs.GRAY)
@@ -224,8 +232,8 @@ def fig05():
                      ha='left')
         elif kind == 'c':
             fs.ray(ax, [S, P, (2.55, 0.0)], color=fs.FORCE, lw=1.4)
-            fs.angle_arc(ax, P, 0.38, -90, -90 - th, r'$\theta_c$', tr=0.55, fontsize=9, color=fs.FORCE)
-            fs.label(ax, (2.1, 0.17), r'$90°$로 굴절', fontsize=8, color=fs.FORCE)
+            arc2(ax, P, 0.38, -90, -90 - th, r'$\theta_c$', tr=0.55, fontsize=9, color=fs.FORCE)
+            fs.label(ax, (2.1, 0.17), '90°로 굴절', fontsize=8, color=fs.FORCE)
         else:
             r = reflect(d, (0, 1))
             Q = hit_line_x(P, r, 2.5)
@@ -266,14 +274,13 @@ def fig06():
     thr = np.arcsin(np.sin(th) / n1)
     # 각 표시
     ax.plot([-0.9, 0.9], [0.2, 0.2], color=fs.GRAY, lw=0.7, ls='--')
-    fs.angle_arc(ax, P0, 0.6, 180, 180 - 30, r'$\theta$', tr=0.8, fontsize=10)
-    fs.angle_arc(ax, P0, 0.7, -np.degrees(thr), 0, r'$\theta_r$', tr=0.92, fontsize=9)
+    arc2(ax, P0, 0.6, 180, 180 - 30, r'$\theta$', tr=0.8, fontsize=10)
+    arc2(ax, P0, 0.7, -np.degrees(thr), 0, r'$\theta_r$', tr=0.92, fontsize=9)
     Q = pts[2]
     normal_line(ax, Q, 0.42)
-    fs.angle_arc(ax, Q, 0.32, 90, 90 + 90 - np.degrees(thr), '', fontsize=8)
-    fs.label(ax, (Q[0] - 0.62, Q[1] + 0.33), r'$90°-\theta_r$', fontsize=8.5)
+    arc2(ax, Q, 0.32, np.degrees(thr), 90, r'$90^\circ-\theta_r$', tr=0.62, fontsize=8.5)
     fs.label(ax, (-1.4, 0.75), r'$n_0$', fontsize=11)
-    fs.label(ax, (5.55, 0.3), '코어 $n_1$', fontsize=8.5)
+    fs.label(ax, (5.45, -0.3), '코어 $n_1$', fontsize=8.5)
     fs.label(ax, (5.3, 0.77), '클래딩 $n_2$', fontsize=8.5, color=fs.GRAY)
     fs.label(ax, (5.3, -0.77), '클래딩 $n_2$', fontsize=8.5, color=fs.GRAY)
     fs.save(fig, __file__, 'fig32_06')
@@ -311,9 +318,9 @@ def fig07():
         ax.set_aspect('equal'); ax.axis('off')
     # (가) 각의 정의
     ax = axs[0]
-    ax.set_xlim(-2.6, 2.7); ax.set_ylim(-1.0, 2.3)
+    ax.set_xlim(-2.3, 2.6); ax.set_ylim(-1.15, 2.2)
     A = 60; n = 1.5
-    ap, bl, br = prism_tri(A, base=2.4, apex=(0, 2.0))
+    ap, bl, br = prism_tri(A, base=3.2, apex=(0, 2.0))
     ax.add_patch(Polygon([ap, bl, br], closed=True, fc=GLASS, ec=fs.BLACK, lw=1.1))
     P, Q, din, d2, d3, n_l, n_r = trace_prism(ap, bl, br, 55, n, s0=0.42)
     start = P - 1.5 * din; end = Q + 1.7 * d3
@@ -325,17 +332,17 @@ def fig07():
         ax.plot([X[0] - 0.75 * nn[0], X[0] + 0.75 * nn[0]], [X[1] - 0.75 * nn[1], X[1] + 0.75 * nn[1]],
                 color=fs.GRAY, lw=0.7, ls='--')
     ang = lambda v: np.degrees(np.arctan2(v[1], v[0]))
-    fs.angle_arc(ax, P, 0.42, ang(-din), ang(n_l), r'$\theta_1$', tr=0.6, fontsize=8.5)
-    fs.angle_arc(ax, P, 0.42, ang(d2), ang(-n_l), r'$\theta_2$', tr=0.62, fontsize=8.5)
-    fs.angle_arc(ax, Q, 0.42, ang(-n_r), ang(-d2), r'$\theta_3$', tr=0.62, fontsize=8.5)
-    fs.angle_arc(ax, Q, 0.42, ang(d3), ang(n_r), r'$\theta_4$', tr=0.62, fontsize=8.5)
+    arc2(ax, P, 0.42, ang(-din), ang(n_l), r'$\theta_1$', tr=0.6, fontsize=8.5)
+    arc2(ax, P, 0.42, ang(d2), ang(-n_l), r'$\theta_2$', tr=0.62, fontsize=8.5)
+    arc2(ax, Q, 0.42, ang(-n_r), ang(-d2), r'$\theta_3$', tr=0.62, fontsize=8.5)
+    arc2(ax, Q, 0.42, ang(d3), ang(n_r), r'$\theta_4$', tr=0.62, fontsize=8.5)
     # 편향각 delta: 원래 방향 연장선과 나가는 광선 사이
     # 두 직선의 교점
     M = np.array([din, -d3]).T
     t, u = np.linalg.solve(M, Q - P)
     X = P + t * din
-    fs.angle_arc(ax, X, 0.55, ang(d3), ang(din), r'$\delta$', tr=0.75, fontsize=10, color=fs.FORCE)
-    fs.angle_arc(ax, ap, 0.3, ang(bl - ap), ang(br - ap), r'$A$', tr=0.48, fontsize=9)
+    arc2(ax, X, 0.55, ang(d3), ang(din), r'$\delta$', tr=0.75, fontsize=10, color=fs.FORCE)
+    arc2(ax, ap, 0.3, ang(bl - ap), ang(br - ap), r'$A$', tr=0.48, fontsize=9)
     ax.set_title('(가) 각의 정의', fontsize=9)
     # (나) 분산 (굴절률 차이를 과장)
     ax = axs[1]
@@ -347,7 +354,7 @@ def fig07():
         P, Q, din, d2, d3, *_ = trace_prism(ap, bl, br, 50, nn, s0=0.42)
         if k == 0:
             fs.ray(ax, [P - 1.5 * din, P], color=fs.BLACK, lw=1.6)
-            fs.label(ax, (P[0] - 1.25, P[1] - 0.45), '백색광', fontsize=8.5)
+            fs.label(ax, (P[0] - 1.1, P[1] + 0.05), '백색광', fontsize=8.5)
         ax.plot([P[0], Q[0]], [P[1], Q[1]], color=col, lw=0.8)
         end = Q + 1.9 * d3
         ax.plot([Q[0], end[0]], [Q[1], end[1]], color=col, lw=1.3)
@@ -380,13 +387,13 @@ def fig08():
         u = unit(P)
         ax.plot([0, P[0] + 0.45 * u[0]], [0, P[1] + 0.45 * u[1]], color=fs.GRAY, lw=0.7, ls='--')
     ang = lambda v: np.degrees(np.arctan2(v[1], v[0]))
-    fs.angle_arc(ax, P1, 0.3, ang(-din), ang(P1), r'$\theta_i$', tr=0.46, fontsize=9)
-    fs.angle_arc(ax, P1, 0.3, ang(d2), ang(-P1), r'$\theta_r$', tr=0.47, fontsize=9)
-    fs.angle_arc(ax, P2, 0.25, ang(-d2), ang(-P2), r'$\theta_r$', tr=0.42, fontsize=8.5)
-    fs.angle_arc(ax, P2, 0.25, ang(-P2), ang(d3), r'$\theta_r$', tr=0.42, fontsize=8.5)
+    arc2(ax, P1, 0.3, ang(-din), ang(P1), r'$\theta_i$', tr=0.46, fontsize=9)
+    arc2(ax, P1, 0.3, ang(d2), ang(-P1), r'$\theta_r$', tr=0.47, fontsize=9)
+    arc2(ax, P2, 0.25, ang(-d2), ang(-P2), r'$\theta_r$', tr=0.42, fontsize=8.5)
+    arc2(ax, P2, 0.25, ang(-P2), ang(d3), r'$\theta_r$', tr=0.42, fontsize=8.5)
     # 나가는 광선과 '태양 반대 방향'(입사 방향을 거꾸로) 사이의 각
     ax.plot([P3[0], P3[0] - 1.9], [P3[1], P3[1]], color=fs.GRAY, lw=0.8, ls=':')
-    fs.angle_arc(ax, P3, 1.2, 180, ang(d4) % 360, '42°', tr=1.4, fontsize=9, color=fs.FORCE)
+    arc2(ax, P3, 0.75, 180, ang(d4), '42°', tr=0.98, fontsize=9, color=fs.FORCE)
     fs.label(ax, (-2.2, P1[1] + 0.18), '햇빛', fontsize=8.5)
     fs.label(ax, (-1.55, P3[1] + 0.13), '태양 반대 방향', fontsize=8, color=fs.GRAY)
     fs.save(fig, __file__, 'fig32_08')
@@ -402,11 +409,11 @@ def fig09():
         ax.plot(np.degrees(ti), y, color=col, lw=1.4, label=name)
         k = np.argmax(y)
         ax.plot(np.degrees(ti[k]), y[k], 'o', color=col, ms=4)
-        ax.annotate(f'{y[k]:.1f}°', (np.degrees(ti[k]), y[k]), xytext=(np.degrees(ti[k]) - 22, y[k] + (2.5 if n < 1.34 else -6)),
+        ax.annotate(f'{y[k]:.1f}°', (np.degrees(ti[k]), y[k]), xytext=(np.degrees(ti[k]) + (-22 if n < 1.34 else 8), y[k] + (2.5 if n < 1.34 else -9)),
                     fontsize=8.5, color=col, arrowprops=dict(arrowstyle='-', color=col, lw=0.6))
     ax.set_xlim(0, 90); ax.set_ylim(0, 48)
     ax.set_xlabel(r'입사각 $\theta_i$ (°)', fontsize=9)
-    ax.set_ylabel(r'$180° - D$ (°)', fontsize=9)
+    ax.set_ylabel(r'$180^\circ - D$ (°)', fontsize=9)
     ax.legend(fontsize=8, loc='lower center', frameon=False)
     fs.save(fig, __file__, 'fig32_09')
 
@@ -453,15 +460,15 @@ def fig11():
     ax.plot([P[0], P[0]], [0, P[1]], color=fs.GRAY, lw=0.6, ls=':')
     for X, s in ((O, r'$O$'), (C, r'$C$'), (I, r'$I$')):
         fs.dot(ax, X, r=0.05); fs.label(ax, (X[0], -0.3), s, fontsize=11)
-    fs.label(ax, (0.25, -0.3), r'$V$', fontsize=11)
+    fs.label(ax, (0.5, -0.35), r'$V$', fontsize=11)
     fs.label(ax, (P[0] + 0.2, P[1] + 0.2), r'$P$', fontsize=11)
-    fs.label(ax, (P[0] + 0.18, h / 2), r'$h$', fontsize=10, color=fs.GRAY)
+    fs.label(ax, (P[0] - 0.22, h / 2), r'$h$', fontsize=10, color=fs.GRAY)
     ang = lambda v: np.degrees(np.arctan2(v[1], v[0]))
-    fs.angle_arc(ax, O, 1.2, 0, ang(P - O), r'$\alpha$', tr=1.45, fontsize=10)
-    fs.angle_arc(ax, C, 0.75, 0, ang(P - C), r'$\beta$', tr=0.98, fontsize=10)
-    fs.angle_arc(ax, I, 0.5, 0, ang(P - I), r'$\gamma$', tr=0.72, fontsize=10)
-    fs.angle_arc(ax, P, 0.7, ang(O - P), ang(C - P), '', fontsize=8)
-    fs.angle_arc(ax, P, 0.85, ang(C - P), ang(I - P), '', fontsize=8)
+    arc2(ax, O, 1.2, 0, ang(P - O), r'$\alpha$', tr=1.45, fontsize=10)
+    arc2(ax, C, 0.75, 0, ang(P - C), r'$\beta$', tr=0.98, fontsize=10)
+    arc2(ax, I, 0.5, 0, ang(P - I), r'$\gamma$', tr=0.72, fontsize=10)
+    arc2(ax, P, 0.7, ang(O - P), ang(C - P), '', fontsize=8)
+    arc2(ax, P, 0.85, ang(C - P), ang(I - P), '', fontsize=8)
     # 거리 p, r, i (아래쪽)
     for x0, x1, s, yy in ((O[0], 0, r'$p$', 2.75), (C[0], 0, r'$r$', 2.35), (I[0], 0, r'$i$', 1.95)):
         ax.add_patch(FancyArrowPatch((x0, yy), (x1, yy), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
@@ -524,7 +531,7 @@ def fig12():
             seg(ax, A1, line_at(A1, F, xend))
             seg(ax, A2, np.array([xend, A2[1]]), color=fs.VEL)
             seg(ax, A3, line_at(A3, np.array([-p, -h]), xend), color=fs.ACC)
-            obj_arrow(ax, Ip[0], Ip[1], color=fs.FORCE, label='실상', loff=(-2.2, 0.3))
+            obj_arrow(ax, Ip[0], Ip[1], color=fs.FORCE, label='실상', loff=(3.0, 2.2))
             ax.set_title(r'(가) $p = 15$ cm: $i = +30$ cm, $m = -2.0$', fontsize=9)
         else:
             e1 = line_at(A1, F, xend); seg(ax, A1, e1)
@@ -561,10 +568,10 @@ def fig13():
 
 # ---------- 그림 32.14 구면 굴절면 ----------
 def fig14():
-    fig, ax = fs.canvas(5.0, 2.4, xlim=(-6.5, 9.0), ylim=(-0.75, 2.45))
-    n1, n2, r = 1.0, 2.0, 2.4
-    C = np.array([r, 0.0]); O = np.array([-6.0, 0.0]); h = 1.1
-    t = np.linspace(-0.32, 1.15, 120)
+    fig, ax = fs.canvas(5.0, 2.6, xlim=(-6.5, 9.0), ylim=(-0.75, 2.75))
+    n1, n2, r = 1.0, 2.0, 2.6
+    C = np.array([r, 0.0]); O = np.array([-6.0, 0.0]); h = 1.5
+    t = np.linspace(-0.3, 1.3, 120)
     sx, sy = C[0] - r * np.cos(t), r * np.sin(t)
     ax.add_patch(Polygon(list(zip(sx, sy)) + [(9.0, sy[-1]), (9.0, sy[0])], closed=True, fc=GLASS, ec='none', zorder=0))
     ax.plot(sx, sy, color=fs.BLACK, lw=1.4)
@@ -578,13 +585,13 @@ def fig14():
     ax.plot([C[0], P[0] + 1.0 * nrm[0]], [C[1], P[1] + 1.0 * nrm[1]], color=fs.GRAY, lw=0.8, ls='--')
     for X, s_ in ((O, r'$O$'), (C, r'$C$'), (I, r'$I$')):
         fs.dot(ax, X, r=0.06); fs.label(ax, (X[0], -0.35), s_, fontsize=11)
-    fs.label(ax, (P[0] - 0.25, P[1] + 0.25), r'$P$', fontsize=11)
+    fs.label(ax, (P[0] + 0.05, P[1] + 0.42), r'$P$', fontsize=11)
     ang = lambda v: np.degrees(np.arctan2(v[1], v[0]))
-    fs.angle_arc(ax, O, 2.0, 0, ang(P - O), r'$\alpha$', tr=2.3, fontsize=10)
-    fs.angle_arc(ax, C, 0.6, ang(P - C), 180, r'$\beta$', tr=0.85, fontsize=10)
-    fs.angle_arc(ax, I, 1.4, ang(P - I), 180, r'$\gamma$', tr=1.65, fontsize=10)
-    fs.angle_arc(ax, P, 0.55, ang(-d1), ang(nrm), r'$\theta_1$', tr=0.8, fontsize=9)
-    fs.angle_arc(ax, P, 0.65, ang(d2), ang(-nrm), r'$\theta_2$', tr=0.92, fontsize=9)
+    arc2(ax, O, 2.0, 0, ang(P - O), r'$\alpha$', tr=2.3, fontsize=10)
+    arc2(ax, C, 0.55, ang(P - C), 180, r'$\beta$', tr=0.8, fontsize=10)
+    arc2(ax, I, 1.4, ang(P - I), 180, r'$\gamma$', tr=1.65, fontsize=10)
+    arc2(ax, P, 0.8, ang(-d1), ang(nrm), r'$\theta_1$', tr=1.08, fontsize=9)
+    arc2(ax, P, 0.95, ang(d2), ang(-nrm), r'$\theta_2$', tr=1.25, fontsize=9)
     fs.label(ax, (-5.8, 1.9), r'$n_1$', fontsize=11)
     fs.label(ax, (8.3, 1.9), r'$n_2$', fontsize=11)
     fs.save(fig, __file__, 'fig32_14')
@@ -621,15 +628,16 @@ def fig15():
         for X, s in ((-f, r'$F$'), (f, r"$F'$")):
             fs.dot(ax, (X, 0), r=0.25); fs.label(ax, (X, -0.95), s, fontsize=9)
         T = np.array([-p, h])
-        obj_arrow(ax, -p, h, label='물체', loff=(0, 0.75))
+        obj_arrow(ax, -p, h, label='물체', loff=(0, 0.75) if k == 0 else (-1.7, -1.45))
         rays = thin_lens_rays(ax, T, f, xl[1] - 0.5)
         Ip = np.array([i, m * h])
         if i > 0:
-            obj_arrow(ax, Ip[0], Ip[1], color=fs.FORCE, label='실상', loff=(2.2, 0.3))
+            obj_arrow(ax, Ip[0], Ip[1], color=fs.FORCE, label='실상', loff=(-2.4, 2.0))
             ax.set_title(r'(가) $p = 15$ cm, $f = 10$ cm: $i = +30$ cm, $m = -2.0$', fontsize=9)
         else:
             for A, d, c in rays:
                 seg(ax, A, Ip, dashed=True, color=c)
+            ax.plot([-f, T[0]], [0, T[1]], color=fs.VEL, lw=0.7, ls=':')
             obj_arrow(ax, Ip[0], Ip[1], color=fs.FORCE, ls='--', label='허상', loff=(-2.0, -0.2))
             ax.set_title(r'(나) $p = 6.0$ cm, $f = 10$ cm: $i = -15$ cm, $m = +2.5$', fontsize=9)
     fig.tight_layout(h_pad=0.6)
@@ -638,40 +646,45 @@ def fig15():
 
 # ---------- 그림 32.16 두 렌즈 계 (예제 32.5 나) ----------
 def fig16():
-    fig, ax = fs.canvas(5.4, 2.3, xlim=(-17, 49), ylim=(-7.4, 3.3))
+    # 가로·세로 축척이 다르다(세로 확대). 직선과 교점은 축척을 바꿔도 그대로이므로 작도는 정확하다.
+    fig, ax = fs.plt.subplots(figsize=(5.4, 2.6))
+    ax.axis('off'); ax.set_xlim(-18, 50); ax.set_ylim(-7.6, 2.8)
     f1, f2, L = 10.0, 15.0, 40.0
     p1 = 15.0; h = 1.0
     i1 = 1 / (1 / f1 - 1 / p1); m1 = -i1 / p1
     p2 = L - i1; i2 = 1 / (1 / f2 - 1 / p2); m2 = -i2 / p2
-    I1 = np.array([i1, m1 * h]); I2 = np.array([L - i2, m1 * m2 * h])    # i2 < 0: 렌즈 2 앞
-    axis_line(ax, -17, 49)
-    fs.lens(ax, 0.0, h=3.0, kind='convex', bulge=0.7)
-    fs.lens(ax, L, h=5.0, kind='convex', bulge=0.8)
-    fs.label(ax, (0, 3.1), '렌즈 1', fontsize=8)
-    fs.label(ax, (L + 3.2, 4.4 - 1.6), '렌즈 2', fontsize=8)
-    for X, s in ((f1, r"$F_1'$"), (-f1, r'$F_1$'), (L - f2, r'$F_2$'), (L + f2, r"$F_2'$")):
-        fs.dot(ax, (X, 0), r=0.3); fs.label(ax, (X, 0.85), s, fontsize=8.5)
+    I1 = np.array([i1, m1 * h]); I2 = np.array([L + i2, m1 * m2 * h])    # i2 < 0: 렌즈 2 앞(왼쪽)
+    axis_line(ax, -18, 50)
+    def vlens(x, hh, bulge):
+        y = np.linspace(-hh, hh, 100); xs = bulge * (1 - (y / hh) ** 2)
+        ax.fill_betweenx(y, x - xs, x + xs, color=fs.VEL, alpha=0.25, lw=0)
+        ax.plot(x - xs, y, color=fs.VEL, lw=1.1); ax.plot(x + xs, y, color=fs.VEL, lw=1.1)
+    vlens(0.0, 2.0, 0.8); vlens(L, 3.6, 0.9)
+    fs.label(ax, (0, 2.4), '렌즈 1', fontsize=8)
+    fs.label(ax, (L + 4.5, 1.6), '렌즈 2', fontsize=8)
+    for X, s_ in ((f1, r"$F_1'$"), (-f1, r'$F_1$'), (L - f2, r'$F_2$'), (L + f2, r"$F_2'$")):
+        ax.plot([X], [0], 'o', color=fs.BLACK, ms=3.5); fs.label(ax, (X, 0.65), s_, fontsize=9)
     T = np.array([-p1, h])
-    obj_arrow(ax, -p1, h, lw=1.6)
-    # 두 광선: 축에 나란한 것, 렌즈 1 중심을 지나는 것
+    fs.arrow(ax, (-p1, 0), (-p1, h), color=fs.BLACK, lw=1.6, ms=10)
+    fs.label(ax, (-p1, h + 0.55), '물체', fontsize=8)
     for d0, c in ((np.array([1.0, 0.0]), RAY), (unit(-T), fs.VEL)):
         A = np.array([0.0, T[1] + (0 - T[0]) * d0[1] / d0[0]])
         slope = d0[1] / d0[0] - A[1] / f1
         B = np.array([L, A[1] + L * slope])
         slope2 = slope - B[1] / f2
-        E = B + np.array([7.5, 7.5 * slope2])
+        E = B + np.array([9.0, 9.0 * slope2])
         fs.ray(ax, [T, A, B, E], color=c, lw=1.1)
         ax.plot([B[0], I2[0]], [B[1], I2[1]], color=c, lw=0.8, ls='--')
-    obj_arrow(ax, I1[0], I1[1], color=fs.FORCE, lw=1.6)
-    fs.label(ax, (I1[0] + 2.4, I1[1] - 0.3), r'$I_1$', fontsize=10, color=fs.FORCE)
-    obj_arrow(ax, I2[0], I2[1], color=fs.FORCE, ls='--', lw=1.6)
-    fs.label(ax, (I2[0] - 2.0, I2[1] + 0.3), r'$I_2$', fontsize=10, color=fs.FORCE)
-    # 거리
-    yy = -7.0
-    ax.add_patch(FancyArrowPatch((0, yy), (L, yy), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
-    fs.label(ax, (L / 2 + 6, yy + 0.0), '40 cm', fontsize=8, color=fs.GRAY, va='bottom')
-    for xx in (0, L):
-        ax.plot([xx, xx], [yy - 0.3, -3.2 if xx == 0 else -5.2], color=fs.GRAY, lw=0.4, ls=':')
+    fs.arrow(ax, (I1[0], 0), tuple(I1), color=fs.FORCE, lw=1.6, ms=10)
+    fs.label(ax, (I1[0] + 2.0, I1[1] + 0.2), r'$I_1$', fontsize=10, color=fs.FORCE)
+    fs.arrow(ax, (I2[0], 0), tuple(I2), color=fs.FORCE, lw=1.6, ms=10, ls='--')
+    fs.label(ax, (I2[0] - 2.2, I2[1] + 0.3), r'$I_2$', fontsize=10, color=fs.FORCE)
+    yy = -7.2
+    for x0, x1, t in ((-p1, 0, '15 cm'), (0, L, '40 cm')):
+        ax.add_patch(FancyArrowPatch((x0, yy), (x1, yy), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
+        fs.label(ax, ((x0 + x1) / 2, yy + 0.45), t, fontsize=8, color=fs.GRAY)
+    for xx in (-p1, 0, L):
+        ax.plot([xx, xx], [yy - 0.2, -0.1], color=fs.GRAY, lw=0.4, ls=':')
     fs.save(fig, __file__, 'fig32_16')
 
 
@@ -700,9 +713,9 @@ def fig17():
     obj_arrow(ax, fob, hp, color=fs.FORCE, lw=1.5)
     fs.label(ax, (fob - 0.7, hp / 2), r"$h'$", fontsize=10, color=fs.FORCE)
     ax.plot([fob, fob], [-3.0, 2.2], color=fs.GRAY, lw=0.5, ls=':')
-    fs.angle_arc(ax, (0, 0), 2.2, 180 - 9, 180, r'$\theta_{\mathrm{ob}}$', tr=2.75, fontsize=9)
+    arc2(ax, (0, 0), 2.2, 180 - 9, 180, r'$\theta_{\mathrm{ob}}$', tr=3.3, fontsize=9)
     ang_ey = np.degrees(np.arctan(-hp / fey))
-    fs.angle_arc(ax, (xe, 0), 1.6, 0, ang_ey, r'$\theta_{\mathrm{ey}}$', tr=2.1, fontsize=9)
+    arc2(ax, (xe, 0), 1.6, 0, ang_ey, r'$\theta_{\mathrm{ey}}$', tr=2.1, fontsize=9)
     yy = -3.1
     ax.add_patch(FancyArrowPatch((0, yy), (fob, yy), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
     ax.add_patch(FancyArrowPatch((fob, yy), (xe, yy), arrowstyle='<|-|>', mutation_scale=7, color=fs.GRAY, lw=0.7))
