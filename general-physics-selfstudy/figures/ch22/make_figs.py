@@ -154,7 +154,7 @@ def fig05():
     fs.arrow(ax, o, P3(0, a + 0.9, 0), color=fs.GRAY, lw=0.8, ms=8); ax.text(*(P3(0, a + 1.0, 0)), '$y$', fontsize=10)
     fs.arrow(ax, o, P3(0, 0, a + 0.6), color=fs.GRAY, lw=0.8, ms=8); ax.text(*(P3(0, 0, a + 0.7) + [-0.1, 0]), '$z$', fontsize=10, ha='right')
     cube(ax, (0, 0, 0), a, faces=[([(1, 0, 0), (1, 1, 0), (1, 1, 1), (1, 0, 1)], fs.FORCE)])
-    sc = 0.55
+    sc = 0.33
     for xx in (0.0, a / 3, 2 * a / 3, a):
         for z in (a * 0.3, a * 0.75):
             p = P3(xx, 0, z)
@@ -163,15 +163,16 @@ def fig05():
                 fs.arrow(ax, p, p + [L, 0], color=fs.FIELD, lw=1.3, ms=8, zorder=6)
             else:
                 ax.plot(*p, 'o', color=fs.FIELD, ms=3, zorder=6)
-    ax.text(*(P3(0, 0, 0) + [-0.1, -0.35]), '$x=0$: $E=0$', fontsize=8.5, ha='center', va='top')
-    ax.text(*(P3(a, 0, 0) + [0.15, -0.35]), '$x=a$: $E_x=ba$', fontsize=8.5, ha='center', va='top')
+    ax.text(*(P3(0, 0, 0) + [-0.1, -0.45]), '$x=0$: $E=0$', fontsize=8.5, ha='center', va='top')
+    ax.text(*(P3(a, 0, 0) + [0.25, -0.45]), '$x=a$: $E_x=ba$', fontsize=8.5, ha='center', va='top')
     ax.text(*(P3(a, 0, a) + [-0.6, 0.15]), r'$\vec E = bx\,\hat i$', fontsize=10, color=fs.FIELD)
+    ax.text(a / 2, -0.12, '$a$', fontsize=10, ha='center', va='top')
     fs.save(fig, __file__, 'fig22_05')
 
 
 # ---------------------------------------------------------------- 예제 22.2
 def fig06():
-    fig, ax = fs.canvas(4.2, 2.6, xlim=(-0.6, 5.0), ylim=(-1.9, 1.9))
+    fig, ax = fs.canvas(4.4, 2.6, xlim=(-0.6, 5.4), ylim=(-1.9, 1.9))
     d, R = 3.2, 1.6
     fs.charge(ax, (0, 0), +1, r=0.15); ax.text(0, -0.32, '$q$', fontsize=10, ha='center', va='top')
     ax.plot([-0.3, 4.8], [0, 0], color=fs.GRAY, lw=0.6, ls='-.')
@@ -182,16 +183,18 @@ def fig06():
     P = np.array([d, r])
     ax.plot([0, P[0]], [0, P[1]], color=fs.BLACK, lw=0.8, ls='--')
     u = P / np.linalg.norm(P)
-    fs.vec(ax, P, 0.9 * u, color=fs.FIELD, lw=1.5, label=r'$\vec E$', lpos=1, loff=(0.2, 0.1), zorder=6)
-    fs.vec(ax, P, (0.9, 0), color=fs.BLACK, lw=1.3, label=r'$\hat n$', lpos=1, loff=(0.2, -0.05), zorder=6)
-    fs.angle_arc(ax, P, 0.5, 0, np.degrees(np.arctan2(u[1], u[0])), r'$\theta$', fontsize=9.5, tr=0.72)
+    fs.vec(ax, P, 1.25 * u, color=fs.FIELD, lw=1.5, label=r'$\vec E$', lpos=1, loff=(0.2, 0.12), zorder=6)
+    fs.vec(ax, P, (1.25, 0), color=fs.BLACK, lw=1.3, label=r'$\hat n$', lpos=1, loff=(0.2, -0.05), zorder=6)
+    fs.angle_arc(ax, P, 0.85, 0, np.degrees(np.arctan2(u[1], u[0])))
+    ax.text(P[0] + 0.95, P[1] + 0.09, r'$\theta$', fontsize=9.5, va='center')
     ax.text(1.45, 0.62, r'$\sqrt{r^2+d^2}$', fontsize=9, ha='center', rotation=0)
     fs.dim(ax, (0, -1.3), (d, -1.3), '$d$', off=0.0, color=fs.BLACK)
     ax.annotate('', xy=(d - 0.35, r), xytext=(d - 0.35, 0),
                 arrowprops=dict(arrowstyle='<|-|>', color=fs.BLACK, lw=0.8, mutation_scale=7))
     ax.text(d - 0.45, r / 2, '$r$', fontsize=10, ha='right', va='center')
     ax.text(d + 0.35, -R + 0.1, '$R$', fontsize=10)
-    ax.text(d + 0.2, -0.75, '고리\n폭 $dr$', fontsize=8.5, color=fs.FORCE, ha='left')
+    ax.annotate('고리(폭 $dr$)', xy=(d + 0.12, -0.75), xytext=(d + 0.55, -0.6), fontsize=8.5, color=fs.FORCE,
+                ha='left', va='center', arrowprops=dict(arrowstyle='->', color=fs.FORCE, lw=0.7))
     fs.save(fig, __file__, 'fig22_06')
 
 
@@ -203,7 +206,7 @@ def fig07():
     surfs = [((-1.0, 0.0, 0.55), ((3, 0.12, 0.3),), fs.FORCE, '-', '$S_1$', (-1.2, 0.75)),
              ((1.0, 0.0, 0.55), ((3, 0.12, 1.3),), fs.VEL, '-', '$S_2$', (1.2, 0.75)),
              ((0.0, 0.0, 1.75), ((2, 0.18, 0.0), (3, 0.05, 0.5)), fs.ACC, '--', '$S_3$', (0, 1.25)),
-             ((2.35, 1.5, 0.4), ((3, 0.12, 0.0),), fs.ORANGE, '-', '$S_4$', (2.35, 2.0))]
+             ((-2.35, 1.3, 0.45), ((3, 0.12, 0.0),), fs.ORANGE, '-', '$S_4$', (-2.35, 1.95))]
     for (cx, cy, r0), amps, col, ls, lab, lp in surfs:
         pts, _ = blob(cx, cy, r0, amps=amps)
         if lab == '$S_3$':
