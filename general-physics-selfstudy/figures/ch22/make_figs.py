@@ -83,7 +83,8 @@ def fig01():
     ax.plot([0, 1.3], [0, 0], color=fs.BLACK, lw=0.8, ls='--', zorder=5)
     fs.angle_arc(ax, (0, 0), 0.75, 0, np.degrees(np.arctan2(nn[1], nn[0])), r'$\theta$', fontsize=10)
     ax.text(2.65, 1.4, r'$\vec E$', fontsize=11, color=fs.FIELD, va='center')
-    ax.text(*(np.array(corners[0]) + [-0.25, -0.15]), '넓이 $A$', fontsize=9, ha='right', va='top', zorder=6)
+    ax.text(*(np.array(corners[0]) + [-0.25, -0.1]), '넓이 $A$', fontsize=9, ha='right', va='top', zorder=6,
+            bbox=dict(fc='white', ec='none', pad=0.3))
     ax.text(-2.5, 1.75, r'$\vec A = A\hat n$', fontsize=10)
     fs.save(fig, __file__, 'fig22_01')
 
@@ -138,8 +139,8 @@ def fig04():
             p0 = P3(-1.2, yy, z); p1 = P3(a + 1.2, yy, z)
             fs.arrow(ax, p0, p1, color=fs.FIELD, lw=0.9, ms=8, zorder=5)
     ax.text(-2.2, 1.95, '왼쪽 면: $-EA$', fontsize=9, color=fs.VEL)
-    ax.text(3.5, 1.95, '오른쪽 면: $+EA$', fontsize=9, color=fs.FORCE, ha='right')
-    ax.text(0.95, -0.7, '나머지 네 면: 0  →  총 선속 0', fontsize=9, ha='center')
+    ax.text(3.55, -0.25, '오른쪽 면: $+EA$', fontsize=9, color=fs.FORCE, ha='right')
+    ax.text(0.6, -0.75, '나머지 네 면: 0  →  총 선속 0', fontsize=9, ha='center')
     ax.text(*(P3(a + 1.25, 1.2, 1.25) + [0.1, 0]), r'$\vec E$', fontsize=10, color=fs.FIELD, va='center')
     fs.save(fig, __file__, 'fig22_04')
 
