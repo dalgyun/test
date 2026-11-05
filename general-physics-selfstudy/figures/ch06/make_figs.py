@@ -188,18 +188,18 @@ def fig07():
         c = n * 0.3
         fs.block(ax, tuple(c), 0.75, 0.6, angle=10, text='차', fontsize=8)
         if case == '가':
-            N = 1.4 / np.cos(th)
+            N = 1.1 / np.cos(th)
             force(ax, c, n * N, r'$\vec N$', start=0.3, loff=(-0.05, 0.0))
-            force(ax, c, (0, -1.4), r'$m\vec g$', loff=(0.4, 0.15))
+            force(ax, c, (0, -1.1), r'$m\vec g$', loff=(0.4, 0.15))
             ax.set_title('(가) 설계 속력: 마찰 없음', fontsize=8.5)
         else:
             mu = 0.6
-            N = 1.4 / (np.cos(th) - mu * np.sin(th)) * 0.62
+            N = 1.1 / (np.cos(th) - mu * np.sin(th))
             force(ax, c, n * N, r'$\vec N$', start=0.3, loff=(-0.05, 0.0))
-            force(ax, c, (0, -0.87), r'$m\vec g$', loff=(0.4, 0.15))
+            force(ax, c, (0, -1.1), r'$m\vec g$', loff=(0.4, 0.15))
             fpt = c - n * 0.3
-            force(ax, fpt, -u * mu * N, r'$\mu_s\vec N$', start=0.38, loff=(0.0, -0.3), fontsize=9)
-            ax.text(-2.2, -1.2, '마찰력 크기 $\\mu_sN$', fontsize=7.5, color=fs.FORCE)
+            force(ax, fpt, -u * mu * N, None, start=0.38)
+            ax.text(-1.25, 0.25, r'$f = \mu_sN$', color=fs.FORCE, fontsize=8.5, ha='center')
             ax.set_title('(나) 최대 속력: 마찰력은 안쪽 아래로', fontsize=8.5)
         fs.vec(ax, (1.2, 1.3), (-1.1, 0), color=fs.ACC, lw=1.6, ms=9)
         ax.text(0.65, 1.55, r'$a = v^2/r$', color=fs.ACC, fontsize=8.5, ha='center')
@@ -213,27 +213,30 @@ def fig07():
 
 # ---------- 그림 6.8 수직 원운동 ----------
 def fig08():
-    fig, ax = fs.canvas(3.0, 3.1, xlim=(-1.9, 2.4), ylim=(-2.4, 2.4))
-    R = 1.3
+    fig, ax = fs.canvas(3.2, 3.3, xlim=(-2.1, 2.4), ylim=(-2.9, 2.3))
+    R = 1.5
     th = np.linspace(0, 2 * np.pi, 300)
     ax.plot(R * np.cos(th), R * np.sin(th), color=fs.BLACK, lw=2.2)
     fs.dot(ax, (0, 0), r=0.04)
     ax.plot([0, R * np.cos(np.radians(200))], [0, R * np.sin(np.radians(200))], color=fs.GRAY, lw=0.7)
-    ax.text(-0.75, -0.05, r'$R$', fontsize=9, color=fs.GRAY)
-    for y, sg in ((R - 0.15, -1), (-R + 0.15, 1)):
+    ax.text(-0.8, -0.05, r'$R$', fontsize=9, color=fs.GRAY)
+    yt, yb = R - 0.15, -R + 0.15
+    for y in (yt, yb):
         ax.add_patch(Circle((0, y), 0.13, fc=fs.LIGHT, ec=fs.BLACK, lw=1.0, zorder=5))
-    # 꼭대기: N과 mg 모두 아래(중심 방향)
-    force(ax, (-0.12, R - 0.15), (0, -0.7), r'$\vec N$', start=0.13, loff=(-0.2, 0.15), fontsize=9)
-    force(ax, (0.12, R - 0.15), (0, -0.9), r'$m\vec g$', start=0.13, loff=(0.35, 0.2), fontsize=9)
-    ax.text(0.25, R + 0.15, '꼭대기: $N + mg = mv^2/R$', fontsize=8, ha='left', va='bottom')
-    # 바닥: N 위, mg 아래
-    force(ax, (-0.12, -R + 0.15), (0, 1.3), r'$\vec N$', start=0.13, loff=(-0.25, -0.1), fontsize=9)
-    force(ax, (0.12, -R + 0.15), (0, -0.7), r'$m\vec g$', start=0.13, loff=(0.4, 0.15), fontsize=9)
-    ax.text(0.3, -R - 0.75, '바닥: $N - mg = mv^2/R$', fontsize=8, ha='left', va='top')
-    fs.vec(ax, (0.9, R - 0.2), (0, -0.55), color=fs.ACC, lw=1.4, ms=8)
-    ax.text(1.05, R - 0.45, r'$\vec a$', color=fs.ACC, fontsize=9)
-    fs.vec(ax, (0.9, -R + 0.2), (0, 0.55), color=fs.ACC, lw=1.4, ms=8)
-    ax.text(1.05, -R + 0.45, r'$\vec a$', color=fs.ACC, fontsize=9)
+    force(ax, (-0.12, yt), (0, -0.55), start=0.13)
+    ax.text(-0.3, yt - 0.6, r'$\vec N$', color=fs.FORCE, fontsize=9, ha='right')
+    force(ax, (0.12, yt), (0, -0.75), start=0.13)
+    ax.text(0.3, yt - 0.75, r'$m\vec g$', color=fs.FORCE, fontsize=9, ha='left')
+    ax.text(0, R + 0.2, '꼭대기: $N + mg = mv^2/R$', fontsize=8, ha='center', va='bottom')
+    force(ax, (-0.12, yb), (0, 1.05), start=0.13)
+    ax.text(-0.3, yb + 0.95, r'$\vec N$', color=fs.FORCE, fontsize=9, ha='right')
+    force(ax, (0.12, yb), (0, -0.75), start=0.13)
+    ax.text(0.3, yb - 0.8, r'$m\vec g$', color=fs.FORCE, fontsize=9, ha='left')
+    ax.text(0, -R - 0.95, '바닥: $N - mg = mv^2/R$', fontsize=8, ha='center', va='top')
+    fs.vec(ax, (1.0, R - 0.25), (0, -0.55), color=fs.ACC, lw=1.4, ms=8)
+    ax.text(1.15, R - 0.55, r'$\vec a$', color=fs.ACC, fontsize=9)
+    fs.vec(ax, (1.0, -R + 0.25), (0, 0.55), color=fs.ACC, lw=1.4, ms=8)
+    ax.text(1.15, -R + 0.5, r'$\vec a$', color=fs.ACC, fontsize=9)
     fs.save(fig, __file__, 'fig06_08')
 
 

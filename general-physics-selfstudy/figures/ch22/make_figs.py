@@ -221,7 +221,7 @@ def fig07():
 
 # ---------------------------------------------------------------- 입체각
 def fig08():
-    fig, ax = fs.canvas(4.2, 2.7, xlim=(-0.4, 5.2), ylim=(-1.0, 2.6))
+    fig, ax = fs.canvas(4.2, 2.6, xlim=(-0.4, 5.3), ylim=(-1.05, 2.2))
     fs.charge(ax, (0, 0), +1, r=0.13); ax.text(0.0, -0.28, '$q$', fontsize=10, ha='center', va='top')
     a1, a2 = np.radians(16), np.radians(30)
     r = 3.6
@@ -257,8 +257,8 @@ def fig08():
     ax.text(1.05 * np.cos(a2) - 0.05, 1.05 * np.sin(a2) + 0.1, r'$d\Omega$', fontsize=10, color=fs.FIELD, ha='right')
     ax.text(0.7, -0.3, '반지름 1', fontsize=8, color=fs.FIELD, ha='center', va='top')
     ax.text(rr * np.cos(0.05) - 0.1, -0.15, '반지름 $r$', fontsize=8, color=fs.ACC, ha='center', va='top')
-    ax.text(2.6, 2.3, r'$d\Omega = \dfrac{dA\cos\alpha}{r^2} = \dfrac{\hat r\cdot d\vec A}{r^2}$', fontsize=9.5,
-            ha='center')
+    ax.text(3.7, -0.55, r'$d\Omega = \dfrac{dA\cos\alpha}{r^2} = \dfrac{\hat r\cdot d\vec A}{r^2}$', fontsize=9.5,
+            ha='center', va='center')
     fs.save(fig, __file__, 'fig22_08')
 
 
@@ -289,7 +289,7 @@ def fig09():
         fs.arrow(ax, mid, mid + 0.6 * n, color=fs.BLACK, lw=1.2, ms=8, zorder=6)
         ax.text(mid[0] + 0.6 * n[0] + 0.05 * sgn, mid[1] + 0.6 * n[1] + 0.35, lab, fontsize=8.5, color=col,
                 ha='center', zorder=7, bbox=dict(fc='white', ec='none', pad=0.3))
-    ax.text(0.9, 0.38, r'같은 $d\Omega$', fontsize=8.5, ha='center')
+    ax.text(1.3, 0.02, r'같은 $d\Omega$', fontsize=8.5, ha='center', va='top')
     fs.save(fig, __file__, 'fig22_09')
 
 
