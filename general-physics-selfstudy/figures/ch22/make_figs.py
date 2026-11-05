@@ -636,19 +636,19 @@ def fig24():
     fig, ax = fs.canvas(3.0, 2.6, xlim=(-1.9, 2.1), ylim=(-1.7, 1.75))
     R = 1.6
     ax.add_patch(Circle((0, 0), R, fc='#f3c9c2', ec=fs.BLACK, lw=1.2))
-    cc = np.array([0.8, 0.3]); rc = 0.6
+    cc = np.array([0.9, 0.35]); rc = 0.5
     ax.add_patch(Circle(cc, rc, fc='white', ec=fs.BLACK, lw=1.1))
     fs.dot(ax, (0, 0), r=0.04); fs.dot(ax, cc, r=0.04)
     fs.arrow(ax, (0, 0), cc, color=fs.BLACK, lw=1.4, ms=9)
-    ax.text(0.35, -0.05, r'$\vec d$', fontsize=11, ha='center')
-    P = cc + np.array([0.1, 0.38])
+    ax.text(0.5, 0.0, r'$\vec d$', fontsize=11, ha='center', va='top')
+    P = cc + np.array([0.05, 0.32])
     fs.dot(ax, P, r=0.04)
     fs.arrow(ax, (0, 0), P, color=fs.GRAY, lw=0.9, ms=7)
     fs.arrow(ax, cc, P, color=fs.GRAY, lw=0.9, ms=7)
-    ax.text(0.3, 0.55, r'$\vec r$', fontsize=10, color=fs.GRAY)
+    ax.text(0.35, 0.5, r'$\vec r$', fontsize=10, color=fs.GRAY, ha='right')
     ax.text(P[0] + 0.12, P[1] - 0.15, r"$\vec r^{\,\prime}$", fontsize=10, color=fs.GRAY)
     ax.text(-0.9, -0.9, r'$\rho$', fontsize=12)
-    ax.text(cc[0] + 0.05, cc[1] - 0.35, '공동', fontsize=9, ha='center')
+    ax.text(cc[0] + 0.1, cc[1] - 0.28, '공동', fontsize=8.5, ha='center')
     fs.save(fig, __file__, 'fig22_24')
 
 

@@ -190,8 +190,8 @@ def fig04():
     for y in (0.75, -0.75):
         ax.add_patch(Ellipse((0, y), 2 * R, 0.5, fc='#c9ced6', ec=fs.BLACK, lw=1.0, zorder=2 if y < 0 else 6))
     ax.plot([0, 0], [0.75, 1.5], color=fs.BLACK, lw=1.8, zorder=7); ax.plot([0, 0], [-1.5, -0.75], color=fs.BLACK, lw=1.8, zorder=1)
-    fs.arrow(ax, (0.12, -1.45), (0.12, -1.05), color=fs.ORANGE, lw=1.4, ms=8)
-    ax.text(0.22, -1.3, r'$i$', color=fs.ORANGE, fontsize=10)
+    fs.arrow(ax, (0.15, 1.5), (0.15, 1.08), color=fs.ORANGE, lw=1.4, ms=8, zorder=8)
+    ax.text(0.27, 1.3, r'$i$', color=fs.ORANGE, fontsize=10)
     for x in (-0.7, -0.35, 0.35, 0.7):
         fs.arrow(ax, (x, 0.6), (x, -0.6), color=F, lw=0.8, ms=6, zorder=3)
     ax.text(-0.95, 0.1, r'$\vec{E}$', fontsize=10, color=F, ha='right')
@@ -199,7 +199,6 @@ def fig04():
     ring(ax, (0, 0), 1.6, 0.42, color=fs.BLACK, lw=1.2, sense=-1, arrows=(-90,), ms=9, zorder=4)
     ax.text(0.45, 0.1, r'$r<R$', fontsize=8, ha='left')
     ax.text(1.35, 0.42, r'$r>R$', fontsize=8, ha='left')
-    ax.text(0, 1.62, r'전하가 늘어남: $d\vec{E}/dt$ 아래쪽', fontsize=8, ha='center', va='top') if False else None
     ax = axs[1]; graph_ax(ax)
     Rm, i = 0.05, 2.0
     r = np.linspace(0, 0.15, 400)
@@ -435,9 +434,6 @@ def fig11():
         ax.add_patch(Circle((0, 0), 0.8, fc='#dfe6ee' if mode == 'uniform' else '#cfe0f5', ec=fs.BLACK, lw=1.1,
                             alpha=0.85, zorder=3))
         if mode == 'expel':
-            for a in np.radians([60, 120]):
-                tip(ax, (0.8 * np.cos(a) * 0.95, 0.8 * np.sin(a) * 0.95), (np.cos(a + np.pi / 2), np.sin(a + np.pi / 2)),
-                    color=fs.ORANGE, ms=0) if False else None
             ax.text(0, 0, r'$B = 0$', fontsize=10, ha='center', va='center', zorder=5)
         ax.set_title(title, fontsize=9)
     fs.save(fig, __file__, 'fig30_11')
