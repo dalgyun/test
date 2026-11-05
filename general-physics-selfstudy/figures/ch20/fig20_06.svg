@@ -6,7 +6,6 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-05T00:23:56.564176</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -39,7 +38,7 @@ L 59.134 38.184468
 Q 59.134 47.098579 59.134 56.012689 
 L 54.734 56.012689 
 z
-" clip-path="url(#p6793fd262e)" style="fill: #e67e22"/>
+" clip-path="url(#p9d19237102)" style="fill: #e67e22"/>
    </g>
    <g id="patch_3">
     <path d="M 55.534 118.715329 
@@ -51,7 +50,7 @@ L 58.334 98.28697
 Q 58.334 108.50115 58.334 118.715329 
 L 55.534 118.715329 
 z
-" clip-path="url(#p6793fd262e)" style="fill: #e67e22"/>
+" clip-path="url(#p9d19237102)" style="fill: #e67e22"/>
    </g>
    <g id="patch_4">
     <path d="M 103.581265 76.552 
@@ -63,7 +62,7 @@ L 81.068644 73.352
 Q 92.324954 73.352 103.581265 73.352 
 L 103.581265 76.552 
 z
-" clip-path="url(#p6793fd262e)" style="fill: #1f5fa8"/>
+" clip-path="url(#p9d19237102)" style="fill: #1f5fa8"/>
    </g>
    <g id="patch_5">
     <path d="M 13.6908 29.18628 
@@ -76,7 +75,7 @@ Q 9.36648 5.40252 9.36648 9.72684
 L 9.36648 24.86196 
 Q 9.36648 29.18628 13.6908 29.18628 
 z
-" clip-path="url(#p6793fd262e)" style="fill: #f6d5cc; stroke: #222222; stroke-linejoin: miter"/>
+" clip-path="url(#p9d19237102)" style="fill: #f6d5cc; stroke: #222222; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 13.6908 144.50148 
@@ -89,7 +88,7 @@ Q 9.36648 120.71772 9.36648 125.04204
 L 9.36648 140.17716 
 Q 9.36648 144.50148 13.6908 144.50148 
 z
-" clip-path="url(#p6793fd262e)" style="fill: #d5e3f2; stroke: #222222; stroke-linejoin: miter"/>
+" clip-path="url(#p9d19237102)" style="fill: #d5e3f2; stroke: #222222; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- 고온 열저장체 $T_H$ -->
@@ -479,7 +478,7 @@ C 42.426441 66.526389 40.7178 70.651413 40.7178 74.952
 C 40.7178 79.252587 42.426441 83.377611 45.467415 86.418585 
 C 48.508389 89.459559 52.633413 91.1682 56.934 91.1682 
 z
-" clip-path="url(#p6793fd262e)" style="fill: #ffffff; stroke: #222222; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#p9d19237102)" style="fill: #ffffff; stroke: #222222; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="text_3">
     <!-- 냉동기 -->
@@ -794,7 +793,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p6793fd262e">
+  <clipPath id="p9d19237102">
    <rect x="2.88" y="2.88" width="129.7296" height="144.144"/>
   </clipPath>
  </defs>

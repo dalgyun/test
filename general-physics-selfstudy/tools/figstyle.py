@@ -31,6 +31,7 @@ plt.rcParams.update({
     'savefig.bbox': 'tight',
     'savefig.pad_inches': 0.04,
     'figure.dpi': 100,
+    'svg.hashsalt': 'gp-selfstudy',   # 다시 만들어도 SVG 내부 id가 바뀌지 않게
 })
 
 # ---------- 팔레트 ----------
@@ -76,7 +77,7 @@ def plot_axes(w=4.0, h=2.8):
 def save(fig, script_file, name):
     """figures/chNN/<name>.svg 로 저장. FIG_PREVIEW 환경변수가 있으면 그 폴더에 PNG 미리보기도 저장."""
     d = os.path.dirname(os.path.abspath(script_file))
-    fig.savefig(os.path.join(d, name + '.svg'))
+    fig.savefig(os.path.join(d, name + '.svg'), metadata={'Date': None})
     pv = os.environ.get('FIG_PREVIEW')
     if pv:
         os.makedirs(pv, exist_ok=True)
@@ -383,7 +384,7 @@ def schem():
 
 def save_schem(d, script_file, name):
     d_ = os.path.dirname(os.path.abspath(script_file))
-    d.save(os.path.join(d_, name + '.svg'))
+    d.save(os.path.join(d_, name + '.svg'))  # matplotlib 백엔드이므로 rcParams(hashsalt)가 적용된다
     pv = os.environ.get('FIG_PREVIEW')
     if pv:
         os.makedirs(pv, exist_ok=True)

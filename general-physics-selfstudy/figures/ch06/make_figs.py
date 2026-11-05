@@ -385,13 +385,9 @@ def fig13():
     u = np.array([np.cos(th), -np.sin(th)]); n = np.array([np.sin(th), np.cos(th)])
     c = np.array([0, H]) + u * 2.0 + n * 0.3
     fs.block(ax, tuple(c), 0.8, 0.6, angle=-30, text='$m$', fontsize=10)
-    force(ax, c, n * 1.1, r'$\vec N$', start=0.3, loff=(0.05, 0.05))
-    force(ax, c, (0, -1.25), r'$m\vec g$', start=0.3, loff=(0.4, 0.15))
-    force(ax, c, (0.7, 0), r'$mA$', start=0.4, ls='--', lw=1.4, loff=(0.25, 0.05), fontsize=9)
-    ax.text(c[0] + 1.25, c[1] - 0.35, '(겉보기 힘)', fontsize=7, color=fs.FORCE, ha='left')
     fs.vec(ax, (-0.2, 1.0), (-1.1, 0), color=fs.ACC, lw=1.6, ms=9)
     ax.text(-0.75, 1.25, r'$A$', color=fs.ACC, fontsize=10, ha='center')
-    ax.text(-1.6, 3.6, '쐐기 기준틀에서 본 블록', fontsize=8)
+    ax.text(-1.6, 3.6, '마찰 없는 쐐기와 블록', fontsize=8)
     fs.save(fig, __file__, 'fig06_13')
 
 
@@ -409,9 +405,6 @@ def fig14():
     r = 1.6; B = r * e
     ax.add_patch(Circle(tuple(B), 0.12, fc=fs.LIGHT, ec=fs.BLACK, lw=1.0, zorder=5))
     ax.text(r / 2 * e[0] + 0.1, r / 2 * e[1] - 0.2, r'$r$', fontsize=10)
-    force(ax, B, e * 0.8, r'$m\omega^2r$', start=0.12, ls='--', lw=1.4, fontsize=8.5, loff=(0.25, 0.0))
-    force(ax, B, -t * 0.75, r'$2m\omega\dot r$', start=0.12, ls='--', lw=1.4, fontsize=8.5, loff=(0.35, -0.05))
-    force(ax, B, t * 0.75, r'$\vec N$', start=0.12, fontsize=10, loff=(0, 0.05))
     fs.vec(ax, tuple(B - t * 0.25), tuple(e * 0.5), color=fs.VEL, lw=1.3, ms=8)
     q = B - t * 0.25 + e * 0.5
     ax.text(q[0] + 0.05, q[1] - 0.2, r"$\vec v\,'$", color=fs.VEL, fontsize=9)
